@@ -1,0 +1,7 @@
+project:
+  title: "Diplomado_Estadistica_BioEco_R"
+  type: website
+  resources: 
+  - shinylive-sw.js
+
+editor: visual

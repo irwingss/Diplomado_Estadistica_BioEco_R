@@ -1,0 +1,2756 @@
+﻿Year,LandslideID,Zone,QuadratID,Species_Jp,Coverage_%,Max_H_cm,Species type,Moisture type
+2003,65,Initiation,A,Otokoeshi,20,10,Open land species,Moderate
+2003,65,Initiation,A,Akitabuki,10,25,Generalist species,Moderate
+2003,65,Initiation,A,Usagishida,5,15,Forest species,Moderate
+2003,65,Initiation,A,Yabumame,5,20,Open land species,Moderate
+2003,65,Initiation,A,Inutoubana,1,5,Forest species,Wet
+2003,65,Initiation,A,Violets SP3,1,1,Unknown,Unknown
+2003,65,Initiation,A,Hangonsou,1,30,Open land species,Dry
+2003,65,Initiation,B,Miyakozasa,30,60,Generalist species,Moderate
+2003,65,Initiation,B,Akitabuki,40,60,Generalist species,Moderate
+2003,65,Initiation,B,Suge SP,60,30,Unknown,Unknown
+2003,65,Initiation,B,Yobusumasou,1,20,Forest species,Wet
+2003,65,Initiation,B,Otokoeshi,10,10,Open land species,Moderate
+2003,65,Initiation,B,Hangonsou,15,90,Open land species,Dry
+2003,65,Initiation,B,Yabumame,10,30,Open land species,Moderate
+2003,65,Initiation,B,Usagishida,1,20,Forest species,Moderate
+2003,65,Initiation,B,Yachidamo,1,20,Woody species,Woody species
+2003,65,Initiation,B,Inutoubana,1,20,Forest species,Wet
+2003,65,Initiation,B,Koichiyakusou,1,1,Forest species,Moderate
+2003,65,Initiation,B,Kumaichigo,1,10,Woody species,Woody species
+2003,65,Initiation,B,Himejoon,1,40,Open land species,Dry
+2003,65,Initiation,B,Kikumugura,1,30,Forest species,Moderate
+2003,65,Initiation,B,Otogirisou,1,20,Open land species,Moderate
+2003,65,Initiation,B,Harunire,1,20,Woody species,Woody species
+2003,65,Initiation,B,Taganeso,1,20,Open land species,Dry
+2003,65,Initiation,C,Akitabuki,75,50,Generalist species,Moderate
+2003,65,Initiation,C,Kumaichigo,5,20,Woody species,Woody species
+2003,65,Initiation,C,Inutoubana,10,20,Forest species,Wet
+2003,65,Initiation,C,Yabumame,5,15,Open land species,Moderate
+2003,65,Initiation,C,Legumines sp1,1,5,Unknown,Unknown
+2003,65,Initiation,C,Mizunara,1,10,Woody species,Woody species
+2003,65,Initiation,D,Akitabuki,60,50,Generalist species,Moderate
+2003,65,Initiation,D,Miyakozasa,5,30,Generalist species,Moderate
+2003,65,Initiation,D,Kumaichigo,1,20,Woody species,Woody species
+2003,65,Initiation,D,Otokoeshi,5,25,Open land species,Moderate
+2003,65,Initiation,D,Yabumame,5,20,Open land species,Moderate
+2003,65,Initiation,D,Kikumugura,1,5,Forest species,Moderate
+2003,65,Initiation,D,Suge SP,1,20,Unknown,Unknown
+2003,65,Initiation,D,Daikonsou,10,25,Forest species,Wet
+2003,65,Initiation,D,Tachitsubo violets,5,15,Open land species,Dry
+2003,65,Initiation,D,Ocatranoo,1,15,Open land species,Moderate
+2003,65,Initiation,D,Hangonsou,5,75,Open land species,Dry
+2003,65,Transport,A,Hangonsou,80,170,Open land species,Dry
+2003,65,Transport,A,Akitabuki,30,60,Generalist species,Moderate
+2003,65,Transport,A,Miyakozasa,5,40,Generalist species,Moderate
+2003,65,Transport,A,Futarishizuka,20,80,Forest species,Wet
+2003,65,Transport,A,Aomizu,1,10,Forest species,Wet
+2003,65,Transport,A,Inutoubana,30,30,Forest species,Wet
+2003,65,Transport,A,Irakusa,10,40,Forest species,Wet
+2003,65,Transport,A,Kumaichigo,1,5,Woody species,Woody species
+2003,65,Transport,A,Hakobe,1,15,Generalist species,Wet
+2003,65,Transport,A,Kikumugura,1,10,Forest species,Moderate
+2003,65,Transport,A,Yabuninjin,1,20,Forest species,Wet
+2003,65,Transport,A,Nogariyasu,1,15,Generalist species,Moderate
+2003,65,Transport,A,Sugina,1,20,Open land species,Dry
+2003,65,Transport,A,Tachitsubo violets,1,15,Open land species,Dry
+2003,65,Transport,A,Suge SP,5,10,Unknown,Unknown
+2003,65,Transport,A,Mizohoozuki,1,10,Generalist species,Wet
+2003,65,Transport,A,Oniruriso,1,120,Open land species,Wet
+2003,65,Transport,A,Yabumame,1,10,Open land species,Moderate
+2003,65,Transport,A,Taranoki,1,80,Woody species,Woody species
+2003,65,Transport,B,Hangonsou,20,110,Open land species,Dry
+2003,65,Transport,B,Akitabuki,5,40,Generalist species,Moderate
+2003,65,Transport,B,Ooawadachisou,1,25,Open land species,Dry
+2003,65,Transport,B,Daikonsou,30,40,Forest species,Wet
+2003,65,Transport,B,Aomizu,20,10,Forest species,Wet
+2003,65,Transport,B,Sugina,20,30,Open land species,Dry
+2003,65,Transport,B,Miyakozasa,10,40,Generalist species,Moderate
+2003,65,Transport,B,Tachitsubo violets,5,30,Open land species,Dry
+2003,65,Transport,B,Suge SP,15,20,Unknown,Unknown
+2003,65,Transport,B,Higokusa,5,20,Generalist species,Moderate
+2003,65,Transport,B,Mizohoozuki,1,10,Generalist species,Wet
+2003,65,Transport,B,Harunire,1,10,Woody species,Woody species
+2003,65,Transport,B,Kikumugura,1,5,Forest species,Moderate
+2003,65,Transport,B,Yomogi,1,5,Open land species,Dry
+2003,65,Transport,B,Yabumame,1,10,Open land species,Moderate
+2003,65,Transport,C,Akitabuki,70,100,Generalist species,Moderate
+2003,65,Transport,C,Sugina,5,20,Open land species,Dry
+2003,65,Transport,C,Ezo Yamazakura,1,5,Woody species,Woody species
+2003,65,Transport,C,Inutoubana,1,5,Forest species,Wet
+2003,65,Transport,C,Yabumame,1,20,Open land species,Moderate
+2003,65,Transport,C,Yachidamo,1,5,Woody species,Woody species
+2003,65,Transport,D,Hangonsou,40,150,Open land species,Dry
+2003,65,Transport,D,Akitabuki,20,50,Generalist species,Moderate
+2003,65,Transport,D,Harunire,1,30,Woody species,Woody species
+2003,65,Transport,D,Naniwazu,1,10,Forest species,Moderate
+2003,65,Transport,D,Oohangonsou,5,15,Open land species,Moderate
+2003,65,Transport,D,Ooawadachisou,1,25,Open land species,Dry
+2003,65,Transport,D,Tachitsubo violets,10,10,Open land species,Dry
+2003,65,Transport,D,Aomizu,5,25,Forest species,Wet
+2003,65,Transport,D,Kikumugura,1,15,Forest species,Moderate
+2003,65,Transport,D,Mizohoozuki,1,10,Generalist species,Wet
+2003,65,Transport,D,Yomogi,1,30,Open land species,Dry
+2003,65,Transport,D,Suge SP,25,20,Unknown,Unknown
+2003,65,Transport,D,Sugina,5,10,Open land species,Dry
+2003,65,Transport,D,Higokusa,5,20,Generalist species,Moderate
+2003,65,Transport,D,Enashihigokusa,10,20,Generalist species,Moderate
+2003,65,Transport,D,Kumaichigo,1,20,Woody species,Woody species
+2003,65,Transport,D,Miyakozasa,1,30,Generalist species,Moderate
+2003,65,Transport,D,Daikonsou,1,20,Forest species,Wet
+2003,65,Deposition,A,Hangonsou,20,120,Open land species,Dry
+2003,65,Deposition,A,Akitabuki,20,50,Generalist species,Moderate
+2003,65,Deposition,A,Miyakozasa,5,40,Generalist species,Moderate
+2003,65,Deposition,A,Mizosoba,15,20,Generalist species,Wet
+2003,65,Deposition,A,Aomizu,20,10,Forest species,Wet
+2003,65,Deposition,A,Otokoeshi,1,5,Open land species,Moderate
+2003,65,Deposition,A,Daikonsou,1,10,Forest species,Wet
+2003,65,Deposition,A,Yomogi,1,5,Open land species,Dry
+2003,65,Deposition,A,Kikumugura,1,5,Forest species,Moderate
+2003,65,Deposition,A,Sugina,10,30,Open land species,Dry
+2003,65,Deposition,A,Suge SP,25,15,Unknown,Unknown
+2003,65,Deposition,A,Yabumame,1,20,Open land species,Moderate
+2003,65,Deposition,A,Yabuninjin,1,10,Forest species,Wet
+2003,65,Deposition,A,Yamamomiji,1,5,Woody species,Woody species
+2003,65,Deposition,A,Otogirisou,1,20,Open land species,Moderate
+2003,65,Deposition,A,Ooawadachisou,1,15,Open land species,Dry
+2003,65,Deposition,A,Tachitsubo violets,1,1,Open land species,Dry
+2003,65,Deposition,A,Mizohoozuki,1,10,Generalist species,Wet
+2003,65,Deposition,A,Konronsou,1,5,Forest species,Wet
+2003,65,Deposition,B,Hangonsou,1,50,Open land species,Dry
+2003,65,Deposition,B,Akitabuki,20,50,Generalist species,Moderate
+2003,65,Deposition,B,Mizosoba,20,25,Generalist species,Wet
+2003,65,Deposition,B,Tachitsubo violets,10,10,Open land species,Dry
+2003,65,Deposition,B,Katabami,1,20,Open land species,Dry
+2003,65,Deposition,B,Aomizu,50,10,Forest species,Wet
+2003,65,Deposition,B,Yachidamo,1,5,Woody species,Woody species
+2003,65,Deposition,B,Inutoubana,1,15,Forest species,Wet
+2003,65,Deposition,B,Kikumugura,5,25,Forest species,Moderate
+2003,65,Deposition,B,Enashihigokusa,25,50,Generalist species,Moderate
+2003,65,Deposition,B,Suge SP,5,20,Unknown,Unknown
+2003,65,Deposition,B,Sugina,40,25,Open land species,Dry
+2003,65,Deposition,B,Mizohoozuki,1,10,Generalist species,Wet
+2003,65,Deposition,B,Oohangonsou,1,10,Open land species,Moderate
+2003,65,Deposition,B,Oobako,1,10,Open land species,Dry
+2003,65,Deposition,B,Ooawadachisou,1,15,Open land species,Dry
+2003,65,Deposition,B,Yabumame,1,10,Open land species,Moderate
+2003,65,Deposition,B,Ocatranoo,1,10,Open land species,Moderate
+2003,65,Deposition,B,Daikonsou,1,20,Forest species,Wet
+2003,65,Deposition,B,Kakidoshi,1,10,Open land species,Moderate
+2003,65,Deposition,B,Nagabatsumekusa,1,10,Open land species,Moderate
+2003,65,Deposition,B,Seiyotampopo,1,20,Open land species,Dry
+2003,65,Deposition,C,Hangonsou,1,5,Open land species,Dry
+2003,65,Deposition,C,Ooawadachisou,5,30,Open land species,Dry
+2003,65,Deposition,C,Akitabuki,15,50,Generalist species,Moderate
+2003,65,Deposition,C,Mizosoba,20,30,Generalist species,Wet
+2003,65,Deposition,C,Aomizu,15,15,Forest species,Wet
+2003,65,Deposition,C,Irakusa,20,20,Forest species,Wet
+2003,65,Deposition,C,Kikumugura,5,20,Forest species,Moderate
+2003,65,Deposition,C,Sugina,5,30,Open land species,Dry
+2003,65,Deposition,C,Mizuhiki,5,20,Forest species,Wet
+2003,65,Deposition,C,Momijigasa,5,10,Forest species,Wet
+2003,65,Deposition,C,Kinmizuhiki,1,10,Open land species,Moderate
+2003,65,Deposition,C,Higokusa,10,20,Generalist species,Moderate
+2003,65,Deposition,C,Suge SP,1,20,Unknown,Unknown
+2003,65,Deposition,C,Daikonsou,1,25,Forest species,Wet
+2003,65,Deposition,C,Mizohoozuki,1,15,Generalist species,Wet
+2003,65,Deposition,C,Fern SP,1,5,Unknown,Unknown
+2003,65,Deposition,C,Konronsou,1,15,Forest species,Wet
+2003,65,Deposition,C,Nekonomeso,1,10,Forest species,Wet
+2003,65,Deposition,C,Kakidoshi,1,5,Open land species,Moderate
+2003,65,Deposition,C,Mitsuba,1,20,Forest species,Wet
+2003,65,Deposition,D,Yachidamo,5,30,Woody species,Woody species
+2003,65,Deposition,D,Yobusumasou,5,50,Forest species,Wet
+2003,65,Deposition,D,Akitabuki,40,50,Generalist species,Moderate
+2003,65,Deposition,D,Hangonsou,40,130,Open land species,Dry
+2003,65,Deposition,D,Momijigasa,20,30,Forest species,Wet
+2003,65,Deposition,D,Irakusa,15,20,Forest species,Wet
+2003,65,Deposition,D,Kikumugura,5,60,Forest species,Moderate
+2003,65,Deposition,D,Ocatranoo,1,15,Open land species,Moderate
+2003,65,Deposition,D,Enashihigokusa,30,50,Generalist species,Moderate
+2003,65,Deposition,D,Higokusa,5,35,Generalist species,Moderate
+2003,65,Deposition,D,Suge SP,20,30,Unknown,Unknown
+2003,65,Deposition,D,Sugina,1,15,Open land species,Dry
+2003,65,Deposition,D,Konronsou,1,20,Forest species,Wet
+2003,65,Deposition,D,Tsurifunesou,1,15,Forest species,Wet
+2003,65,Deposition,D,Tachitsubo violets,1,10,Open land species,Dry
+2003,65,Deposition,D,Mizuhiki,5,30,Forest species,Wet
+2003,65,Deposition,D,Yabuninjin,1,40,Forest species,Wet
+2003,65,Deposition,D,Ezo ichigo,1,30,Woody species,Woody species
+2003,65,Deposition,D,Fern SP,5,40,Unknown,Unknown
+2003,65,Deposition,D,Oshida,10,50,Forest species,Moderate
+2003,65,Deposition,D,Nekonomeso,1,10,Forest species,Wet
+1981,28,Initiation,A,Miyakozasa,100,60,Generalist species,Moderate
+1981,28,Initiation,A,Akitabuki,5,60,Generalist species,Moderate
+1981,28,Initiation,A,Yabumame,5,10,Open land species,Moderate
+1981,28,Initiation,A,Ezonokusaichigo,5,5,Woody species,Woody species
+1981,28,Initiation,A,Tachitsubo violets,1,5,Open land species,Dry
+1981,28,Initiation,A,Ooawadachisou,1,40,Open land species,Dry
+1981,28,Initiation,A,Asada,1,15,Woody species,Woody species
+1981,28,Initiation,A,Yomogi,5,30,Open land species,Dry
+1981,28,Initiation,A,Aodamo,1,60,Woody species,Woody species
+1981,28,Initiation,A,Mizunara,1,40,Woody species,Woody species
+1981,28,Initiation,A,Maizurusou,1,10,Forest species,Wet
+1981,28,Initiation,A,Nogariyasu,5,20,Generalist species,Moderate
+1981,28,Initiation,A,Suge SP,10,30,Unknown,Unknown
+1981,28,Initiation,B,Miyakozasa,80,90,Generalist species,Moderate
+1981,28,Initiation,B,Udo,10,120,Open land species,Dry
+1981,28,Initiation,B,Aodamo,5,60,Woody species,Woody species
+1981,28,Initiation,B,Yamamomiji,1,90,Woody species,Woody species
+1981,28,Initiation,B,Nogariyasu,5,40,Generalist species,Moderate
+1981,28,Initiation,B,Ooawadachisou,5,40,Open land species,Dry
+1981,28,Initiation,B,Akitabuki,1,5,Generalist species,Moderate
+1981,28,Initiation,B,Shrubs sp,1,15,Woody species,Woody species
+1981,28,Initiation,B,Unknown 1,1,5,Unknown,Unknown
+1981,28,Initiation,B,Tachitsubo violets,1,10,Open land species,Dry
+1981,28,Initiation,C,Miyakozasa,90,60,Generalist species,Moderate
+1981,28,Initiation,C,Akitabuki,10,50,Generalist species,Moderate
+1981,28,Initiation,C,Aodamo,1,50,Woody species,Woody species
+1981,28,Initiation,D,Miyakozasa,90,80,Generalist species,Moderate
+1981,28,Initiation,D,Akitabuki,10,50,Generalist species,Moderate
+1981,28,Initiation,D,Yamahagi,5,40,Woody species,Woody species
+1981,28,Initiation,D,Aodamo,5,20,Woody species,Woody species
+1981,28,Initiation,D,Yomogi,1,5,Open land species,Dry
+1981,28,Initiation,D,Kokuwa,1,50,Woody species,Woody species
+1981,28,Initiation,D,Vine SP2,1,60,Unknown,Unknown
+1981,28,Initiation,D,Tachitsubo violets,1,5,Open land species,Dry
+1981,28,Transport,A,Miyakozasa,75,50,Generalist species,Moderate
+1981,28,Transport,A,Sugina,5,30,Open land species,Dry
+1981,28,Transport,A,Vine SP2,5,105,Unknown,Unknown
+1981,28,Transport,A,Unknown 2,1,5,Unknown,Unknown
+1981,28,Transport,B,Miyakozasa,100,90,Generalist species,Moderate
+1981,28,Transport,B,Sugina,5,20,Open land species,Dry
+1981,28,Transport,B,Akitabuki,5,50,Generalist species,Moderate
+1981,28,Transport,B,Yamahagi,1,5,Woody species,Woody species
+1981,28,Transport,B,Momijigasa,1,5,Forest species,Wet
+1981,28,Transport,B,Vine SP2,1,10,Unknown,Unknown
+1981,28,Transport,B,Seedling 1,1,10,Woody species,Woody species
+1981,28,Transport,C,Miyakozasa,90,80,Generalist species,Moderate
+1981,28,Transport,C,Sugina,5,30,Open land species,Dry
+1981,28,Transport,C,Akitabuki,5,30,Generalist species,Moderate
+1981,28,Transport,C,Yamahagi,1,5,Woody species,Woody species
+1981,28,Transport,C,Aomizu,1,5,Forest species,Wet
+1981,28,Transport,C,Ooawadachisou,1,70,Open land species,Dry
+1981,28,Transport,C,Tsurifunesou,1,30,Forest species,Wet
+1981,28,Transport,D,Ooawadachisou,30,80,Open land species,Dry
+1981,28,Transport,D,Miyakozasa,20,70,Generalist species,Moderate
+1981,28,Transport,D,Aomizu,50,30,Forest species,Wet
+1981,28,Transport,D,Tomoesou,5,50,Open land species,Moderate
+1981,28,Transport,D,Kourai Tennanshou,1,40,Forest species,Moderate
+1981,28,Transport,D,Hangonsou,1,50,Open land species,Dry
+1981,28,Transport,D,Sugina,5,20,Open land species,Dry
+1981,28,Transport,D,Suge SP,60,30,Unknown,Unknown
+1981,28,Transport,D,Nogariyasu,5,40,Generalist species,Moderate
+1981,28,Deposition,A,Miyakozasa,80,100,Generalist species,Moderate
+1981,28,Deposition,A,Tsurifunesou,10,30,Forest species,Wet
+1981,28,Deposition,A,Kikumugura,1,10,Forest species,Moderate
+1981,28,Deposition,A,Fern SP,1,5,Unknown,Unknown
+1981,28,Deposition,A,Suge SP,5,30,Unknown,Unknown
+1981,28,Deposition,A,Nekonomeso,1,5,Forest species,Wet
+1981,28,Deposition,A,Akitabuki,5,40,Generalist species,Moderate
+1981,28,Deposition,B,Miyakozasa,20,40,Generalist species,Moderate
+1981,28,Deposition,B,Momijigasa,40,70,Forest species,Wet
+1981,28,Deposition,B,Mizosoba,15,40,Generalist species,Wet
+1981,28,Deposition,B,Konronsou,5,30,Forest species,Wet
+1981,28,Deposition,B,Fern SP,15,10,Unknown,Unknown
+1981,28,Deposition,B,Shrubs sp1,1,20,Woody species,Woody species
+1981,28,Deposition,B,Kakidoshi,5,5,Open land species,Moderate
+1981,28,Deposition,B,Kikumugura,1,5,Forest species,Moderate
+1981,28,Deposition,B,Suge SP,5,30,Unknown,Unknown
+1981,28,Deposition,B,Kitsurifune,1,5,Forest species,Wet
+1981,28,Deposition,C,Yobusumasou,10,70,Forest species,Wet
+1981,28,Deposition,C,Konronsou,10,20,Forest species,Wet
+1981,28,Deposition,C,Tsurifunesou,1,20,Forest species,Wet
+1981,28,Deposition,C,Momijigasa,10,60,Forest species,Wet
+1981,28,Deposition,C,Miyakozasa,10,50,Generalist species,Moderate
+1981,28,Deposition,C,Kitsurifune,5,20,Forest species,Wet
+1981,28,Deposition,C,Shrubs sp1,1,20,Woody species,Woody species
+1981,28,Deposition,C,Nekonomeso,1,5,Forest species,Wet
+1981,28,Deposition,C,Ezoitaya,1,5,Woody species,Woody species
+1981,28,Deposition,C,Suge SP,1,5,Unknown,Unknown
+1981,28,Deposition,D,Miyakozasa,70,60,Generalist species,Moderate
+1981,28,Deposition,D,Konronsou,5,30,Forest species,Wet
+1981,28,Deposition,D,Tsurifunesou,5,15,Forest species,Wet
+1981,28,Deposition,D,Sugina,1,5,Open land species,Dry
+1981,28,Deposition,D,Kikumugura,1,5,Forest species,Moderate
+1981,28,Deposition,D,Nekonomeso,1,10,Forest species,Wet
+1981,28,Deposition,D,Kakidoshi,1,5,Open land species,Moderate
+1981,28,Deposition,D,Suge SP,1,20,Unknown,Unknown
+1981,28,Deposition,D,Fern SP,5,40,Unknown,Unknown
+1981,28,Deposition,D,Fukkisou,5,30,Woody species,Woody species
+1981,28,Deposition,D,Irakusa,1,30,Forest species,Wet
+1981,28,Deposition,D,Ezonohosobatorikabuto,1,5,Forest species,Wet
+1981,28,Deposition,D,Yamamomiji,1,5,Woody species,Woody species
+2018,Uryu,Initiation,A,Ooawadachisou,1,30,Open land species,Dry
+2018,Uryu,Initiation,A,Kion,5,10,Open land species,Moderate
+2018,Uryu,Initiation,A,Himemukashiyomogi,5,5,Open land species,Dry
+2018,Uryu,Initiation,A,Ocatranoo,5,10,Open land species,Moderate
+2018,Uryu,Initiation,A,Naginata Koju,1,5,Open land species,Dry
+2018,Uryu,Initiation,A,Udaikanba,5,10,Woody species,Woody species
+2018,Uryu,Initiation,A,Karamatsu,1,5,Woody species,Woody species
+2018,Uryu,Initiation,A,Onoe willow,1,5,Woody species,Woody species
+2018,Uryu,Initiation,A,Yamahagi,1,10,Woody species,Woody species
+2018,Uryu,Initiation,A,Higokusa,5,20,Generalist species,Moderate
+2018,Uryu,Initiation,B,Akitabuki,10,20,Generalist species,Moderate
+2018,Uryu,Initiation,B,Seitakaawadachisou,5,50,Open land species,Dry
+2018,Uryu,Initiation,B,Ooawadachisou,1,20,Open land species,Dry
+2018,Uryu,Initiation,B,Kion,10,15,Open land species,Moderate
+2018,Uryu,Initiation,B,Higokusa,20,20,Generalist species,Moderate
+2018,Uryu,Initiation,B,Suge SP,1,10,Unknown,Unknown
+2018,Uryu,Initiation,B,Noborogiku,1,20,Open land species,Dry
+2018,Uryu,Initiation,B,Amerika Oniazami,1,50,Open land species,Dry
+2018,Uryu,Initiation,B,Himemukashiyomogi,5,30,Open land species,Dry
+2018,Uryu,Initiation,B,Udaikanba,1,5,Woody species,Woody species
+2018,Uryu,Initiation,B,Yabutabako,1,5,Open land species,Moderate
+2018,Uryu,Initiation,B,Tanisoba,1,5,Open land species,Wet
+2018,Uryu,Initiation,B,Matatabi,1,5,Woody species,Woody species
+2018,Uryu,Initiation,B,Karamatsu,1,15,Woody species,Woody species
+2018,Uryu,Initiation,B,Sansho,1,5,Woody species,Woody species
+2018,Uryu,Initiation,B,Suge SP2,1,10,Unknown,Unknown
+2018,Uryu,Initiation,B,Futarishizuka,1,5,Forest species,Wet
+2018,Uryu,Initiation,C,Ikema,1,20,Open land species,Dry
+2018,Uryu,Initiation,C,Amerika Oniazami,1,1,Open land species,Dry
+2018,Uryu,Initiation,C,Seitakaawadachisou,1,30,Open land species,Dry
+2018,Uryu,Initiation,C,Ooawadachisou,1,25,Open land species,Dry
+2018,Uryu,Initiation,C,Kion,5,10,Open land species,Moderate
+2018,Uryu,Initiation,C,Himemukashiyomogi,5,20,Open land species,Dry
+2018,Uryu,Initiation,C,Udaikanba,1,5,Woody species,Woody species
+2018,Uryu,Initiation,C,Kumaichigo,1,20,Woody species,Woody species
+2018,Uryu,Initiation,C,Yamaguwa,1,5,Woody species,Woody species
+2018,Uryu,Initiation,C,Noborogiku,1,10,Open land species,Dry
+2018,Uryu,Initiation,C,Higokusa,5,20,Generalist species,Moderate
+2018,Uryu,Initiation,C,Akitabuki,1,5,Generalist species,Moderate
+2018,Uryu,Initiation,C,Futarishizuka,1,5,Forest species,Wet
+2018,Uryu,Initiation,D,Kion,1,10,Open land species,Moderate
+2018,Uryu,Initiation,D,Himemukashiyomogi,1,1,Open land species,Dry
+2018,Uryu,Transport,A,Ooawadachisou,5,50,Open land species,Dry
+2018,Uryu,Transport,A,Seitakaawadachisou,5,40,Open land species,Dry
+2018,Uryu,Transport,A,Karamatsu,10,20,Woody species,Woody species
+2018,Uryu,Transport,A,Akitabuki,5,10,Generalist species,Moderate
+2018,Uryu,Transport,A,Udaikanba,1,5,Woody species,Woody species
+2018,Uryu,Transport,A,Chishimaazami,1,10,Open land species,Moderate
+2018,Uryu,Transport,A,Sansho,1,5,Woody species,Woody species
+2018,Uryu,Transport,A,Himemukashiyomogi,5,40,Open land species,Dry
+2018,Uryu,Transport,A,Ocatranoo,1,5,Open land species,Moderate
+2018,Uryu,Transport,A,Amerika Oniazami,1,1,Open land species,Dry
+2018,Uryu,Transport,A,Higokusa,20,20,Generalist species,Moderate
+2018,Uryu,Transport,A,Kion,1,5,Open land species,Moderate
+2018,Uryu,Transport,A,Naginata Koju,1,5,Open land species,Dry
+2018,Uryu,Transport,B,Taranoki,5,10,Woody species,Woody species
+2018,Uryu,Transport,B,Akitabuki,5,5,Generalist species,Moderate
+2018,Uryu,Transport,B,Seitakaawadachisou,5,80,Open land species,Dry
+2018,Uryu,Transport,B,Ooawadachisou,5,40,Open land species,Dry
+2018,Uryu,Transport,B,Udaikanba,1,5,Woody species,Woody species
+2018,Uryu,Transport,B,Ebigaraichigo,5,20,Woody species,Woody species
+2018,Uryu,Transport,B,Himemukashiyomogi,1,10,Open land species,Dry
+2018,Uryu,Transport,B,Poaceae SP,1,20,Unknown,Unknown
+2018,Uryu,Transport,B,Tanisoba,1,1,Open land species,Wet
+2018,Uryu,Transport,B,Shrubs sp2,1,5,Woody species,Woody species
+2018,Uryu,Transport,B,Aodamo,1,5,Woody species,Woody species
+2018,Uryu,Transport,B,Hangonsou,1,50,Open land species,Dry
+2018,Uryu,Transport,B,Higokusa,20,20,Generalist species,Moderate
+2018,Uryu,Transport,B,Suge SP2,5,5,Unknown,Unknown
+2018,Uryu,Transport,B,Harutade,1,5,Open land species,Dry
+2018,Uryu,Transport,B,Otokoeshi,1,1,Open land species,Moderate
+2018,Uryu,Transport,C,Akitabuki,20,30,Generalist species,Moderate
+2018,Uryu,Transport,C,Ooawadachisou,1,40,Open land species,Dry
+2018,Uryu,Transport,C,Seitakaawadachisou,1,20,Open land species,Dry
+2018,Uryu,Transport,C,Ocatranoo,1,10,Open land species,Moderate
+2018,Uryu,Transport,C,Yamahagi,1,10,Woody species,Woody species
+2018,Uryu,Transport,C,Kumaichigo,1,5,Woody species,Woody species
+2018,Uryu,Transport,C,Seiyotampopo,1,5,Open land species,Dry
+2018,Uryu,Transport,C,Kion,1,5,Open land species,Moderate
+2018,Uryu,Transport,D,Miyakozasa,10,50,Generalist species,Moderate
+2018,Uryu,Transport,D,Seitakaawadachisou,5,110,Open land species,Dry
+2018,Uryu,Transport,D,Akitabuki,20,20,Generalist species,Moderate
+2018,Uryu,Transport,D,Tanisoba,10,5,Open land species,Wet
+2018,Uryu,Transport,D,Otokoeshi,5,5,Open land species,Moderate
+2018,Uryu,Transport,D,Tsurunigakusa,15,15,Forest species,Wet
+2018,Uryu,Transport,D,Kohakobe,1,10,Open land species,Wet
+2018,Uryu,Transport,D,Nomurasaki,1,60,Open land species,Dry
+2018,Uryu,Transport,D,Yabutabako,1,5,Open land species,Moderate
+2018,Uryu,Transport,D,Higokusa,10,20,Generalist species,Moderate
+2018,Uryu,Transport,D,Suge SP2,10,20,Unknown,Unknown
+2018,Uryu,Transport,D,Himemukashiyomogi,5,10,Open land species,Dry
+2018,Uryu,Transport,D,Ainutachitsubo violets,5,5,Generalist species,Dry
+2018,Uryu,Transport,D,Poaceae sp2,1,5,Unknown,Unknown
+2018,Uryu,Transport,D,Ocatranoo,1,10,Open land species,Moderate
+2018,Uryu,Transport,D,Miminagusa,1,1,Open land species,Dry
+2018,Uryu,Transport,D,Taranoki,5,40,Woody species,Woody species
+2018,Uryu,Transport,D,Udaikanba,1,10,Woody species,Woody species
+2018,Uryu,Transport,D,Okukuruma Mugura,1,5,Forest species,Wet
+2018,Uryu,Transport,D,Ooyomogi,5,20,Open land species,Dry
+2018,Uryu,Transport,D,Hangonsou,1,40,Open land species,Dry
+2018,Uryu,Transport,D,Ooawadachisou,1,50,Open land species,Dry
+2018,Uryu,Deposition,A,Akitabuki,5,10,Generalist species,Moderate
+2018,Uryu,Deposition,A,Himemukashiyomogi,5,15,Open land species,Dry
+2018,Uryu,Deposition,A,Seitakaawadachisou,1,30,Open land species,Dry
+2018,Uryu,Deposition,A,Ooawadachisou,1,50,Open land species,Dry
+2018,Uryu,Deposition,A,Tanisoba,1,5,Open land species,Wet
+2018,Uryu,Deposition,A,Poaceae sp2,1,10,Unknown,Unknown
+2018,Uryu,Deposition,A,Shiroza,1,10,Open land species,Moderate
+2018,Uryu,Deposition,A,Naginata Koju,1,5,Open land species,Dry
+2018,Uryu,Deposition,A,Harutade,1,5,Open land species,Dry
+2018,Uryu,Deposition,A,Asteraceae sp1,1,5,Unknown,Unknown
+2018,Uryu,Deposition,A,Sugina,1,10,Open land species,Dry
+2018,Uryu,Deposition,A,Kurumabana,1,15,Open land species,Moderate
+2018,Uryu,Deposition,A,Ezo ooyamahakobe,1,5,Open land species,Wet
+2018,Uryu,Deposition,B,Ooawadachisou,60,200,Open land species,Dry
+2018,Uryu,Deposition,B,Ooyomogi,50,180,Open land species,Dry
+2018,Uryu,Deposition,B,Sugina,5,40,Open land species,Dry
+2018,Uryu,Deposition,B,Ocatranoo,1,120,Open land species,Moderate
+2018,Uryu,Deposition,B,Chishimaazami,1,80,Open land species,Moderate
+2018,Uryu,Deposition,C,Ooawadachisou,40,120,Open land species,Dry
+2018,Uryu,Deposition,C,Seitakaawadachisou,1,80,Open land species,Dry
+2018,Uryu,Deposition,C,Himemukashiyomogi,1,20,Open land species,Dry
+2018,Uryu,Deposition,C,Ezo ooyamahakobe,5,50,Open land species,Wet
+2018,Uryu,Deposition,C,Yamahagi,1,10,Woody species,Woody species
+2018,Uryu,Deposition,C,Inutoubana,1,15,Forest species,Wet
+2018,Uryu,Deposition,C,Akaso,1,10,Forest species,Wet
+2018,Uryu,Deposition,C,Kumaichigo,1,30,Woody species,Woody species
+2018,Uryu,Deposition,C,Ooyomogi,10,60,Open land species,Dry
+2018,Uryu,Deposition,C,Ezoyama thistle,1,70,Open land species,Moderate
+2018,Uryu,Deposition,C,Katsura,1,20,Woody species,Woody species
+2018,Uryu,Deposition,C,Poaceae sp2,1,10,Unknown,Unknown
+2018,Uryu,Deposition,C,Sugina,50,40,Open land species,Dry
+2018,Uryu,Deposition,C,Higokusa,30,50,Generalist species,Moderate
+2018,Uryu,Deposition,C,Suge SP2,5,20,Unknown,Unknown
+2018,Uryu,Deposition,D,Ooawadachisou,50,140,Open land species,Dry
+2018,Uryu,Deposition,D,Seiyotampopo,1,5,Open land species,Dry
+2018,Uryu,Deposition,D,Akitabuki,20,50,Generalist species,Moderate
+2018,Uryu,Deposition,D,Miyakozasa,20,30,Generalist species,Moderate
+2018,Uryu,Deposition,D,Taranoki,5,50,Woody species,Woody species
+2018,Uryu,Deposition,D,Amerika Oniazami,10,140,Open land species,Dry
+2018,Uryu,Deposition,D,Sugina,15,10,Open land species,Dry
+2018,Uryu,Deposition,D,Tanisoba,5,5,Open land species,Wet
+2018,Uryu,Deposition,D,Hangonsou,1,10,Open land species,Dry
+2018,Uryu,Deposition,D,Poaceae sp2,1,20,Unknown,Unknown
+2018,Uryu,Deposition,D,Inutoubana,1,10,Forest species,Wet
+2018,Uryu,Deposition,D,Yamahagi,1,15,Woody species,Woody species
+2018,Uryu,Deposition,D,Otokoeshi,1,30,Open land species,Moderate
+2018,Uryu,Deposition,D,Ainutachitsubo violets,5,5,Generalist species,Dry
+2018,Uryu,Deposition,D,Kumaichigo,1,10,Woody species,Woody species
+2018,Uryu,Deposition,D,Udaikanba,1,10,Woody species,Woody species
+2018,Uryu,Deposition,D,Naginata Koju,1,10,Open land species,Dry
+2018,Horosato,Initiation,A,Mizunara,1,20,Woody species,Woody species
+2018,Horosato,Initiation,A,Udaikanba,1,10,Woody species,Woody species
+2018,Horosato,Initiation,A,Hanatade,1,10,Forest species,Wet
+2018,Horosato,Initiation,A,Suge SP2,1,10,Unknown,Unknown
+2018,Horosato,Initiation,A,Yamahagi,1,10,Woody species,Woody species
+2018,Horosato,Initiation,B,Akitabuki,10,20,Generalist species,Moderate
+2018,Horosato,Initiation,B,Ooawadachisou,5,60,Open land species,Dry
+2018,Horosato,Initiation,B,Seitakaawadachisou,1,20,Open land species,Dry
+2018,Horosato,Initiation,B,Himemukashiyomogi,1,20,Open land species,Dry
+2018,Horosato,Initiation,B,Onoe willow,1,20,Woody species,Woody species
+2018,Horosato,Initiation,B,Bacco willow,1,10,Woody species,Woody species
+2018,Horosato,Initiation,B,Kion,1,5,Open land species,Moderate
+2018,Horosato,Initiation,B,Seiyotampopo,1,5,Open land species,Dry
+2018,Horosato,Initiation,B,Harunire,1,5,Woody species,Woody species
+2018,Horosato,Initiation,C,Kusanoou,5,40,Open land species,Dry
+2018,Horosato,Initiation,C,Akitabuki,20,50,Generalist species,Moderate
+2018,Horosato,Initiation,C,Ooawadachisou,5,110,Open land species,Dry
+2018,Horosato,Initiation,C,Himemukashiyomogi,1,20,Open land species,Dry
+2018,Horosato,Initiation,C,Ocatranoo,1,20,Open land species,Moderate
+2018,Horosato,Initiation,C,Higokusa,10,40,Generalist species,Moderate
+2018,Horosato,Initiation,C,Shrubs sp3,1,10,Woody species,Woody species
+2018,Horosato,Initiation,C,Himejoon,1,60,Open land species,Dry
+2018,Horosato,Initiation,C,Suge SP2,1,10,Unknown,Unknown
+2018,Horosato,Initiation,C,Ainutachitsubo violets,1,5,Generalist species,Dry
+2018,Horosato,Initiation,D,Suge SP2,1,20,Unknown,Unknown
+2018,Horosato,Initiation,D,Seiyotampopo,1,5,Open land species,Dry
+2018,Horosato,Initiation,D,Ocatranoo,1,10,Open land species,Moderate
+2018,Horosato,Initiation,D,Higokusa,1,30,Generalist species,Moderate
+2018,Horosato,Initiation,D,Ooawadachisou,1,20,Open land species,Dry
+2018,Horosato,Initiation,D,Ebigaraichigo,1,5,Woody species,Woody species
+2018,Horosato,Initiation,D,Noborogiku,1,15,Open land species,Dry
+2018,Horosato,Initiation,D,Harunire,1,1,Woody species,Woody species
+2018,Horosato,Transport,A,Akitabuki,20,50,Generalist species,Moderate
+2018,Horosato,Transport,A,Ooawadachisou,15,60,Open land species,Dry
+2018,Horosato,Transport,A,Seiyotampopo,1,10,Open land species,Dry
+2018,Horosato,Transport,A,Yabutabako,1,5,Open land species,Moderate
+2018,Horosato,Transport,A,Onoe willow,1,20,Woody species,Woody species
+2018,Horosato,Transport,A,Udaikanba,1,10,Woody species,Woody species
+2018,Horosato,Transport,A,Ezo ooyamahakobe,1,10,Open land species,Wet
+2018,Horosato,Transport,A,Higokusa,5,20,Generalist species,Moderate
+2018,Horosato,Transport,A,Himemukashiyomogi,1,25,Open land species,Dry
+2018,Horosato,Transport,A,Kion,1,5,Open land species,Moderate
+2018,Horosato,Transport,A,Harunire,1,5,Woody species,Woody species
+2018,Horosato,Transport,A,Ocatranoo,1,10,Open land species,Moderate
+2018,Horosato,Transport,A,Yamamomiji,1,5,Woody species,Woody species
+2018,Horosato,Transport,B,Udaikanba,20,40,Woody species,Woody species
+2018,Horosato,Transport,B,Yamamomiji,1,5,Woody species,Woody species
+2018,Horosato,Transport,B,Seitakaawadachisou,1,40,Open land species,Dry
+2018,Horosato,Transport,B,Ooawadachisou,1,40,Open land species,Dry
+2018,Horosato,Transport,B,Yamahagi,1,20,Woody species,Woody species
+2018,Horosato,Transport,B,Higokusa,15,30,Generalist species,Moderate
+2018,Horosato,Transport,B,Ocatranoo,1,5,Open land species,Moderate
+2018,Horosato,Transport,B,Suge SP2,5,15,Unknown,Unknown
+2018,Horosato,Transport,B,Onoe willow,1,10,Woody species,Woody species
+2018,Horosato,Transport,B,Inukoriyanagi,1,10,Woody species,Woody species
+2018,Horosato,Transport,B,Kion,1,1,Open land species,Moderate
+2018,Horosato,Transport,B,Akitabuki,1,10,Generalist species,Moderate
+2018,Horosato,Transport,B,Ainutachitsubo violets,1,1,Generalist species,Dry
+2018,Horosato,Transport,C,Ebigaraichigo,25,20,Woody species,Woody species
+2018,Horosato,Transport,C,Akitabuki,10,20,Generalist species,Moderate
+2018,Horosato,Transport,C,Ooawadachisou,5,110,Open land species,Dry
+2018,Horosato,Transport,C,Udaikanba,1,15,Woody species,Woody species
+2018,Horosato,Transport,C,Ooyomogi,1,20,Open land species,Dry
+2018,Horosato,Transport,C,Harunire,1,1,Woody species,Woody species
+2018,Horosato,Transport,C,Tanisoba,10,5,Open land species,Wet
+2018,Horosato,Transport,C,Unknown 3,1,10,Unknown,Unknown
+2018,Horosato,Transport,C,Kion,20,10,Open land species,Moderate
+2018,Horosato,Transport,C,Matatabi,1,10,Woody species,Woody species
+2018,Horosato,Transport,C,Oninogeshi,1,1,Open land species,Dry
+2018,Horosato,Transport,C,Himemukashiyomogi,1,5,Open land species,Dry
+2018,Horosato,Transport,D,Miyakozasa,1,50,Generalist species,Moderate
+2018,Horosato,Transport,D,Harigiri,1,1,Woody species,Woody species
+2018,Horosato,Transport,D,Akitabuki,25,60,Generalist species,Moderate
+2018,Horosato,Transport,D,Higokusa,25,40,Generalist species,Moderate
+2018,Horosato,Transport,D,Seiyotampopo,1,10,Open land species,Dry
+2018,Horosato,Transport,D,Kion,1,5,Open land species,Moderate
+2018,Horosato,Transport,D,Harunire,1,1,Woody species,Woody species
+2018,Horosato,Transport,D,Udaikanba,1,5,Woody species,Woody species
+2018,Horosato,Transport,D,Amerika Oniazami,1,1,Open land species,Dry
+2018,Horosato,Transport,D,Ocatranoo,1,10,Open land species,Moderate
+2018,Horosato,Transport,D,Shrubs sp4,1,5,Woody species,Woody species
+2018,Horosato,Transport,D,Ainutachitsubo violets,1,1,Generalist species,Dry
+2018,Horosato,Transport,D,Otokoyomogi,1,5,Open land species,Dry
+2018,Horosato,Transport,D,Otokoeshi,1,5,Open land species,Moderate
+2018,Horosato,Transport,D,Ebigaraichigo,1,20,Woody species,Woody species
+2018,Horosato,Deposition,A,Nurude,30,100,Woody species,Woody species
+2018,Horosato,Deposition,A,Kumaizasa,80,80,Generalist species,Moderate
+2018,Horosato,Deposition,A,Ooyomogi,5,80,Open land species,Dry
+2018,Horosato,Deposition,A,Ooawadachisou,10,100,Open land species,Dry
+2018,Horosato,Deposition,A,Sansho,5,80,Woody species,Woody species
+2018,Horosato,Deposition,A,Udaikanba,1,20,Woody species,Woody species
+2018,Horosato,Deposition,A,Higokusa,10,40,Generalist species,Moderate
+2018,Horosato,Deposition,A,Suge SP2,1,30,Unknown,Unknown
+2018,Horosato,Deposition,A,Sugina,1,20,Open land species,Dry
+2018,Horosato,Deposition,A,Kion,1,5,Open land species,Moderate
+2018,Horosato,Deposition,A,Ocatranoo,5,30,Open land species,Moderate
+2018,Horosato,Deposition,A,Yamamomiji,1,5,Woody species,Woody species
+2018,Horosato,Deposition,A,Akitabuki,1,5,Generalist species,Moderate
+2018,Horosato,Deposition,A,Hanatade,1,10,Forest species,Wet
+2018,Horosato,Deposition,A,Himemukashiyomogi,1,15,Open land species,Dry
+2018,Horosato,Deposition,A,Matatabi,1,50,Woody species,Woody species
+2018,Horosato,Deposition,A,Kumaichigo,1,20,Woody species,Woody species
+2018,Horosato,Deposition,A,Hinas violets,1,5,Forest species,Wet
+2018,Horosato,Deposition,A,Noriutsugi,1,70,Woody species,Woody species
+2018,Horosato,Deposition,A,Taranoki,1,60,Woody species,Woody species
+2018,Horosato,Deposition,B,Akitabuki,25,30,Generalist species,Moderate
+2018,Horosato,Deposition,B,Mizunara,1,10,Woody species,Woody species
+2018,Horosato,Deposition,B,Kumaichigo,1,5,Woody species,Woody species
+2018,Horosato,Deposition,B,Sugina,5,15,Open land species,Dry
+2018,Horosato,Deposition,B,Seitakaawadachisou,5,90,Open land species,Dry
+2018,Horosato,Deposition,B,Taranoki,5,20,Woody species,Woody species
+2018,Horosato,Deposition,B,Ooyomogi,1,20,Open land species,Dry
+2018,Horosato,Deposition,B,Inukoriyanagi,1,20,Woody species,Woody species
+2018,Horosato,Deposition,B,Himemukashiyomogi,1,40,Open land species,Dry
+2018,Horosato,Deposition,B,Higokusa,15,30,Generalist species,Moderate
+2018,Horosato,Deposition,B,Harigiri,1,5,Woody species,Woody species
+2018,Horosato,Deposition,B,Yotsubahiyodori,1,10,Open land species,Moderate
+2018,Horosato,Deposition,B,Onoe willow,1,5,Woody species,Woody species
+2018,Horosato,Deposition,B,Yamamomiji,1,5,Woody species,Woody species
+2018,Horosato,Deposition,B,Ocatranoo,1,10,Open land species,Moderate
+2018,Horosato,Deposition,B,Otogirisou,1,15,Open land species,Moderate
+2018,Horosato,Deposition,B,Harunire,1,1,Woody species,Woody species
+2018,Horosato,Deposition,B,Kion,1,5,Open land species,Moderate
+2018,Horosato,Deposition,B,Yamanigana,1,20,Forest species,Moderate
+2018,Horosato,Deposition,C,Akitabuki,40,60,Generalist species,Moderate
+2018,Horosato,Deposition,C,Taranoki,30,50,Woody species,Woody species
+2018,Horosato,Deposition,C,Nawashiro ichigo,1,10,Woody species,Woody species
+2018,Horosato,Deposition,C,Kusanoou,1,10,Open land species,Dry
+2018,Horosato,Deposition,C,Ezo ichigo,1,15,Woody species,Woody species
+2018,Horosato,Deposition,C,Otokoyomogi,5,15,Open land species,Dry
+2018,Horosato,Deposition,C,Yamabudou,1,10,Woody species,Woody species
+2018,Horosato,Deposition,C,Kumaichigo,5,40,Woody species,Woody species
+2018,Horosato,Deposition,C,Himemukashiyomogi,1,70,Open land species,Dry
+2018,Horosato,Deposition,C,Ocatranoo,1,10,Open land species,Moderate
+2018,Horosato,Deposition,C,Sugina,30,40,Open land species,Dry
+2018,Horosato,Deposition,C,Ebigaraichigo,1,40,Woody species,Woody species
+2018,Horosato,Deposition,C,Yamahagi,1,60,Woody species,Woody species
+2018,Horosato,Deposition,C,Ooawadachisou,5,100,Open land species,Dry
+2018,Horosato,Deposition,C,Kion,5,40,Open land species,Moderate
+2018,Horosato,Deposition,C,Matatabi,1,40,Woody species,Woody species
+2018,Horosato,Deposition,C,Katabami,1,5,Open land species,Dry
+2018,Horosato,Deposition,C,Kumaizasa,1,20,Generalist species,Moderate
+2018,Horosato,Deposition,C,Ezo ajisai,1,20,Woody species,Woody species
+2018,Horosato,Deposition,D,Akitabuki,50,80,Generalist species,Moderate
+2018,Horosato,Deposition,D,Ocatranoo,5,20,Open land species,Moderate
+2018,Horosato,Deposition,D,Himemukashiyomogi,5,30,Open land species,Dry
+2018,Horosato,Deposition,D,Ishimikawa,1,50,Open land species,Wet
+2018,Horosato,Deposition,D,Tsurunigakusa,1,20,Forest species,Wet
+2018,Horosato,Deposition,D,Otokoyomogi,1,10,Open land species,Dry
+2018,Horosato,Deposition,D,Taranoki,15,60,Woody species,Woody species
+2018,Horosato,Deposition,D,Higokusa,20,50,Generalist species,Moderate
+2018,Horosato,Deposition,D,Kumaichigo,20,80,Woody species,Woody species
+2018,Horosato,Deposition,D,Ebigaraichigo,5,60,Woody species,Woody species
+2018,Horosato,Deposition,D,Ezo ichigo,1,60,Woody species,Woody species
+2018,Horosato,Deposition,D,Ooawadachisou,1,140,Open land species,Dry
+2018,Horosato,Deposition,D,Naginata Koju,1,10,Open land species,Dry
+2018,Horosato,Deposition,D,Kumaizasa,10,30,Generalist species,Moderate
+2018,Horosato,Deposition,D,Sansho,1,5,Woody species,Woody species
+2018,Horosato,Deposition,D,Yamahagi,1,30,Woody species,Woody species
+2018,Horosato,Deposition,D,Yamabudou,1,5,Woody species,Woody species
+2018,Horosato,Deposition,D,Hinas violets,1,1,Forest species,Wet
+2018,Horosato,Deposition,D,Katabami,1,1,Open land species,Dry
+2018,Horosato,Deposition,D,Yamatatsunamiso,1,10,Generalist species,Moderate
+2018,Takaoka,Initiation,A,Akitabuki,1,10,Generalist species,Moderate
+2018,Takaoka,Initiation,B,Akitabuki,15,30,Generalist species,Moderate
+2018,Takaoka,Initiation,B,Taranoki,5,20,Woody species,Woody species
+2018,Takaoka,Initiation,B,Mizunara,1,10,Woody species,Woody species
+2018,Takaoka,Initiation,B,Udaikanba,1,5,Woody species,Woody species
+2018,Takaoka,Initiation,B,Ooawadachisou,5,40,Open land species,Dry
+2018,Takaoka,Initiation,B,Onoe willow,1,5,Woody species,Woody species
+2018,Takaoka,Initiation,B,Yamaguwa,1,5,Woody species,Woody species
+2018,Takaoka,Initiation,B,Ainutachitsubo violets,1,1,Generalist species,Dry
+2018,Takaoka,Initiation,B,Seiyotampopo,1,1,Open land species,Dry
+2018,Takaoka,Initiation,C,Onoe willow,1,10,Woody species,Woody species
+2018,Takaoka,Initiation,C,Ooawadachisou,1,30,Open land species,Dry
+2018,Takaoka,Initiation,C,Kion,1,5,Open land species,Moderate
+2018,Takaoka,Initiation,C,Udaikanba,1,5,Woody species,Woody species
+2018,Takaoka,Initiation,C,Sawashiba,1,5,Woody species,Woody species
+2018,Takaoka,Initiation,C,Tanisoba,1,5,Open land species,Wet
+2018,Takaoka,Initiation,C,Ocatranoo,1,15,Open land species,Moderate
+2018,Takaoka,Initiation,C,Suge SP,10,30,Unknown,Unknown
+2018,Takaoka,Initiation,C,Himemukashiyomogi,1,10,Open land species,Dry
+2018,Takaoka,Initiation,C,Lamiaceae sp1,1,20,Unknown,Unknown
+2018,Takaoka,Initiation,C,Yabumame,1,5,Open land species,Moderate
+2018,Takaoka,Initiation,C,Seiyotampopo,1,1,Open land species,Dry
+2018,Takaoka,Initiation,C,Ainutachitsubo violets,1,1,Generalist species,Dry
+2018,Takaoka,Initiation,C,Aodamo,1,5,Woody species,Woody species
+2018,Takaoka,Initiation,D,Ooawadachisou,5,90,Open land species,Dry
+2018,Takaoka,Initiation,D,Onoe willow,1,5,Woody species,Woody species
+2018,Takaoka,Initiation,D,Mizunara,1,5,Woody species,Woody species
+2018,Takaoka,Initiation,D,Bacco willow,1,10,Woody species,Woody species
+2018,Takaoka,Initiation,D,Ezoitaya,1,5,Woody species,Woody species
+2018,Takaoka,Initiation,D,Akitabuki,15,40,Generalist species,Moderate
+2018,Takaoka,Initiation,D,Yamahagi,1,40,Woody species,Woody species
+2018,Takaoka,Initiation,D,Kouzorina,1,30,Open land species,Dry
+2018,Takaoka,Initiation,D,Yabutabako,1,20,Open land species,Moderate
+2018,Takaoka,Initiation,D,Noborogiku,1,10,Open land species,Dry
+2018,Takaoka,Initiation,D,Yabumame,1,5,Open land species,Moderate
+2018,Takaoka,Initiation,D,Suge SP,5,20,Unknown,Unknown
+2018,Takaoka,Initiation,D,Ainutachitsubo violets,1,10,Generalist species,Dry
+2018,Takaoka,Initiation,D,Kion,1,5,Open land species,Moderate
+2018,Takaoka,Initiation,D,Harunire,1,5,Woody species,Woody species
+2018,Takaoka,Initiation,D,Poaceae sp3,1,30,Unknown,Unknown
+2018,Takaoka,Transport,A,Hangonsou,1,60,Open land species,Dry
+2018,Takaoka,Transport,A,Oninogeshi,1,10,Open land species,Dry
+2018,Takaoka,Transport,A,Amerika Oniazami,5,120,Open land species,Dry
+2018,Takaoka,Transport,A,Akitabuki,5,20,Generalist species,Moderate
+2018,Takaoka,Transport,A,Taranoki,5,60,Woody species,Woody species
+2018,Takaoka,Transport,A,Seitakaawadachisou,1,10,Open land species,Dry
+2018,Takaoka,Transport,A,Kion,5,5,Open land species,Moderate
+2018,Takaoka,Transport,A,Himemukashiyomogi,1,30,Open land species,Dry
+2018,Takaoka,Transport,A,Asada,1,5,Woody species,Woody species
+2018,Takaoka,Transport,A,Yabumame,1,5,Open land species,Moderate
+2018,Takaoka,Transport,A,Onoe willow,1,5,Woody species,Woody species
+2018,Takaoka,Transport,A,Shirakamba,1,1,Woody species,Woody species
+2018,Takaoka,Transport,A,Suge SP,1,5,Unknown,Unknown
+2018,Takaoka,Transport,B,Akitabuki,1,10,Generalist species,Moderate
+2018,Takaoka,Transport,B,Ooawadachisou,1,40,Open land species,Dry
+2018,Takaoka,Transport,B,Seitakaawadachisou,1,50,Open land species,Dry
+2018,Takaoka,Transport,B,Himemukashiyomogi,1,40,Open land species,Dry
+2018,Takaoka,Transport,B,Ocatranoo,1,20,Open land species,Moderate
+2018,Takaoka,Transport,B,Yabumame,1,5,Open land species,Moderate
+2018,Takaoka,Transport,B,Leguminaceae sp2,1,10,Unknown,Unknown
+2018,Takaoka,Transport,B,Suge SP,10,20,Unknown,Unknown
+2018,Takaoka,Transport,B,Kouzorina,1,1,Open land species,Dry
+2018,Takaoka,Transport,B,Kion,1,5,Open land species,Moderate
+2018,Takaoka,Transport,B,Onoe willow,1,15,Woody species,Woody species
+2018,Takaoka,Transport,B,Sawashiba,1,1,Woody species,Woody species
+2018,Takaoka,Transport,C,Asteraceae sp2,20,30,Unknown,Unknown
+2018,Takaoka,Transport,C,Himemukashiyomogi,15,40,Open land species,Dry
+2018,Takaoka,Transport,C,Yabutabako,1,30,Open land species,Moderate
+2018,Takaoka,Transport,C,Seitakaawadachisou,5,50,Open land species,Dry
+2018,Takaoka,Transport,C,Akitabuki,5,20,Generalist species,Moderate
+2018,Takaoka,Transport,C,Inukoriyanagi,1,15,Woody species,Woody species
+2018,Takaoka,Transport,C,Udaikanba,1,5,Woody species,Woody species
+2018,Takaoka,Transport,C,Onoe willow,5,10,Woody species,Woody species
+2018,Takaoka,Transport,C,Sawashiba,1,5,Woody species,Woody species
+2018,Takaoka,Transport,C,Amerika Oniazami,1,10,Open land species,Dry
+2018,Takaoka,Transport,C,Sugina,5,10,Open land species,Dry
+2018,Takaoka,Transport,C,Seiyotampopo,1,20,Open land species,Dry
+2018,Takaoka,Transport,C,Ocatranoo,1,5,Open land species,Moderate
+2018,Takaoka,Transport,C,Kion,10,5,Open land species,Moderate
+2018,Takaoka,Transport,C,Mizunara,1,5,Woody species,Woody species
+2018,Takaoka,Transport,D,Ooawadachisou,5,80,Open land species,Dry
+2018,Takaoka,Transport,D,Seitakaawadachisou,1,80,Open land species,Dry
+2018,Takaoka,Transport,D,Taranoki,5,20,Woody species,Woody species
+2018,Takaoka,Transport,D,Akitabuki,10,30,Generalist species,Moderate
+2018,Takaoka,Transport,D,Himemukashiyomogi,1,20,Open land species,Dry
+2018,Takaoka,Transport,D,Noborogiku,1,20,Open land species,Dry
+2018,Takaoka,Transport,D,Udaikanba,1,10,Woody species,Woody species
+2018,Takaoka,Transport,D,Yamahagi,1,15,Woody species,Woody species
+2018,Takaoka,Transport,D,Amerika Oniazami,1,5,Open land species,Dry
+2018,Takaoka,Transport,D,Ocatranoo,1,1,Open land species,Moderate
+2018,Takaoka,Deposition,A,Ooawadachisou,5,130,Open land species,Dry
+2018,Takaoka,Deposition,A,Akitabuki,40,80,Generalist species,Moderate
+2018,Takaoka,Deposition,A,Miyakozasa,30,40,Generalist species,Moderate
+2018,Takaoka,Deposition,A,Suge SP2,90,60,Unknown,Unknown
+2018,Takaoka,Deposition,A,Ishimikawa,1,20,Open land species,Wet
+2018,Takaoka,Deposition,A,Yamanigana,1,20,Forest species,Moderate
+2018,Takaoka,Deposition,A,Oobako,1,5,Open land species,Dry
+2018,Takaoka,Deposition,A,Kurumabasou,1,10,Forest species,Moderate
+2018,Takaoka,Deposition,A,Sugina,20,20,Open land species,Dry
+2018,Takaoka,Deposition,A,Nawashiro ichigo,5,30,Woody species,Woody species
+2018,Takaoka,Deposition,A,Ezo ichigo,1,60,Woody species,Woody species
+2018,Takaoka,Deposition,A,Himemukashiyomogi,1,40,Open land species,Dry
+2018,Takaoka,Deposition,A,Yabumame,5,20,Open land species,Moderate
+2018,Takaoka,Deposition,A,Yotsubahiyodori,1,80,Open land species,Moderate
+2018,Takaoka,Deposition,A,Tsurunigakusa,1,10,Forest species,Wet
+2018,Takaoka,Deposition,B,Seitakaawadachisou,40,120,Open land species,Dry
+2018,Takaoka,Deposition,B,Inukoriyanagi,1,40,Woody species,Woody species
+2018,Takaoka,Deposition,B,Akitabuki,15,30,Generalist species,Moderate
+2018,Takaoka,Deposition,B,Taranoki,5,10,Woody species,Woody species
+2018,Takaoka,Deposition,B,Sugina,5,5,Open land species,Dry
+2018,Takaoka,Deposition,B,Onoe willow,1,20,Woody species,Woody species
+2018,Takaoka,Deposition,B,Suge SP,1,20,Unknown,Unknown
+2018,Takaoka,Deposition,B,Yabumame,1,10,Open land species,Moderate
+2018,Takaoka,Deposition,B,Katabami,1,5,Open land species,Dry
+2018,Takaoka,Deposition,B,Seiyotampopo,1,5,Open land species,Dry
+2018,Takaoka,Deposition,B,Harujion,1,30,Open land species,Moderate
+2018,Takaoka,Deposition,B,Kion,1,10,Open land species,Moderate
+2018,Takaoka,Deposition,B,Poaceae sp4,1,20,Unknown,Unknown
+2018,Takaoka,Deposition,B,Ezo ichigo,1,15,Woody species,Woody species
+2018,Takaoka,Deposition,B,Ooyomogi,1,20,Open land species,Dry
+2018,Takaoka,Deposition,B,Ainutachitsubo violets,1,1,Generalist species,Dry
+2018,Takaoka,Deposition,C,Akitabuki,80,80,Generalist species,Moderate
+2018,Takaoka,Deposition,C,Sansho,20,60,Woody species,Woody species
+2018,Takaoka,Deposition,C,Nomurasaki,1,60,Open land species,Dry
+2018,Takaoka,Deposition,C,Yabumame,1,40,Open land species,Moderate
+2018,Takaoka,Deposition,C,Hanatade,1,20,Forest species,Wet
+2018,Takaoka,Deposition,C,Sugina,40,50,Open land species,Dry
+2018,Takaoka,Deposition,C,Tanisoba,1,20,Open land species,Wet
+2018,Takaoka,Deposition,C,Mizosoba,1,20,Generalist species,Wet
+2018,Takaoka,Deposition,C,Suge SP2,75,40,Unknown,Unknown
+2018,Takaoka,Deposition,C,Yabuninjin,1,30,Forest species,Wet
+2018,Takaoka,Deposition,C,Tsurunigakusa,1,10,Forest species,Wet
+2018,Takaoka,Deposition,C,Konronsou,1,20,Forest species,Wet
+2018,Takaoka,Deposition,D,Akitabuki,60,60,Generalist species,Moderate
+2018,Takaoka,Deposition,D,Taranoki,20,60,Woody species,Woody species
+2018,Takaoka,Deposition,D,Ooawadachisou,10,110,Open land species,Dry
+2018,Takaoka,Deposition,D,Kumaizasa,1,40,Generalist species,Moderate
+2018,Takaoka,Deposition,D,Yotsubahiyodori,5,60,Open land species,Moderate
+2018,Takaoka,Deposition,D,Ebigaraichigo,1,70,Woody species,Woody species
+2018,Takaoka,Deposition,D,Tanisoba,1,5,Open land species,Wet
+2018,Takaoka,Deposition,D,Himemukashiyomogi,80,20,Open land species,Dry
+2018,Takaoka,Deposition,D,Sugina,1,30,Open land species,Dry
+2018,Takaoka,Deposition,D,Yabumame,1,10,Open land species,Moderate
+2018,Takaoka,Deposition,D,Ainutachitsubo violets,1,5,Generalist species,Dry
+2018,Takaoka,Deposition,D,Sansho,1,10,Woody species,Woody species
+2018,Takaoka,Deposition,D,Chishimaazami,1,5,Open land species,Moderate
+2018,Takaoka,Deposition,D,Hanatade,1,10,Forest species,Wet
+2018,Takaoka,Deposition,D,Inutoubana,1,20,Forest species,Wet
+2018,Takaoka,Deposition,D,Asteraceae sp3,1,10,Unknown,Unknown
+2018,Habiu,Initiation,A,Udaikanba,1,1,Woody species,Woody species
+2018,Habiu,Initiation,B,Ocatranoo,5,20,Open land species,Moderate
+2018,Habiu,Initiation,B,Ooyomogi,10,30,Open land species,Dry
+2018,Habiu,Initiation,B,Naginata Koju,5,20,Open land species,Dry
+2018,Habiu,Initiation,B,Ainutachitsubo violets,1,5,Generalist species,Dry
+2018,Habiu,Initiation,B,Poaceae sp5,1,30,Unknown,Unknown
+2018,Habiu,Initiation,B,Otogirisou,1,10,Open land species,Moderate
+2018,Habiu,Initiation,B,Asada,1,5,Woody species,Woody species
+2018,Habiu,Initiation,B,Otokoeshi,5,5,Open land species,Moderate
+2018,Habiu,Initiation,C,Taranoki,5,40,Woody species,Woody species
+2018,Habiu,Initiation,C,Naginata Koju,15,30,Open land species,Dry
+2018,Habiu,Initiation,C,Ocatranoo,1,15,Open land species,Moderate
+2018,Habiu,Initiation,C,Poaceae sp5,5,60,Unknown,Unknown
+2018,Habiu,Initiation,C,Murasaki tsumekusa,1,10,Open land species,Dry
+2018,Habiu,Initiation,D,Naginata Koju,20,20,Open land species,Dry
+2018,Habiu,Initiation,D,Taranoki,1,10,Woody species,Woody species
+2018,Habiu,Initiation,D,Ocatranoo,5,10,Open land species,Moderate
+2018,Habiu,Initiation,D,Otokoeshi,1,5,Open land species,Moderate
+2018,Habiu,Initiation,D,Poaceae sp5,5,30,Unknown,Unknown
+2018,Habiu,Initiation,D,Tanisoba,1,5,Open land species,Wet
+2018,Habiu,Initiation,D,Yabumame,1,5,Open land species,Moderate
+2018,Habiu,Initiation,D,Unknown 4,1,10,Unknown,Unknown
+2018,Habiu,Transport,A,Akitabuki,5,20,Generalist species,Moderate
+2018,Habiu,Transport,A,Himemukashiyomogi,5,30,Open land species,Dry
+2018,Habiu,Transport,A,Ooyomogi,1,20,Open land species,Dry
+2018,Habiu,Transport,A,Naginata Koju,5,10,Open land species,Dry
+2018,Habiu,Transport,A,Onoe willow,1,10,Woody species,Woody species
+2018,Habiu,Transport,A,Udaikanba,1,10,Woody species,Woody species
+2018,Habiu,Transport,A,Ocatranoo,1,10,Open land species,Moderate
+2018,Habiu,Transport,A,Yabumame,1,10,Open land species,Moderate
+2018,Habiu,Transport,A,Katabami,1,5,Open land species,Dry
+2018,Habiu,Transport,A,Poaceae sp5,5,15,Unknown,Unknown
+2018,Habiu,Transport,A,Otokoeshi,1,1,Open land species,Moderate
+2018,Habiu,Transport,B,Hangonsou,1,50,Open land species,Dry
+2018,Habiu,Transport,B,Ooyomogi,5,30,Open land species,Dry
+2018,Habiu,Transport,B,Akitabuki,5,20,Generalist species,Moderate
+2018,Habiu,Transport,B,Taranoki,10,20,Woody species,Woody species
+2018,Habiu,Transport,B,Sansho,10,40,Woody species,Woody species
+2018,Habiu,Transport,B,Udaikanba,5,20,Woody species,Woody species
+2018,Habiu,Transport,B,Otokoeshi,10,10,Open land species,Moderate
+2018,Habiu,Transport,B,Ainutachitsubo violets,5,5,Generalist species,Dry
+2018,Habiu,Transport,B,Ocatranoo,1,1,Open land species,Moderate
+2018,Habiu,Transport,B,Himemukashiyomogi,1,5,Open land species,Dry
+2018,Habiu,Transport,B,Yotsubahiyodori,1,30,Open land species,Moderate
+2018,Habiu,Transport,B,Higokusa,10,20,Generalist species,Moderate
+2018,Habiu,Transport,C,Higokusa,60,40,Generalist species,Moderate
+2018,Habiu,Transport,C,Himemukashiyomogi,10,50,Open land species,Dry
+2018,Habiu,Transport,C,Ooyomogi,5,10,Open land species,Dry
+2018,Habiu,Transport,C,Ocatranoo,5,10,Open land species,Moderate
+2018,Habiu,Transport,C,Yabumame,1,5,Open land species,Moderate
+2018,Habiu,Transport,C,Karamatsu,1,1,Woody species,Woody species
+2018,Habiu,Transport,C,Amerika Oniazami,1,5,Open land species,Dry
+2018,Habiu,Transport,C,Naginata Koju,20,20,Open land species,Dry
+2018,Habiu,Transport,C,Udaikanba,1,10,Woody species,Woody species
+2018,Habiu,Transport,C,Otokoeshi,1,5,Open land species,Moderate
+2018,Habiu,Transport,C,Tsurunigakusa,1,15,Forest species,Wet
+2018,Habiu,Transport,C,Ainutachitsubo violets,1,1,Generalist species,Dry
+2018,Habiu,Transport,C,Akitabuki,1,5,Generalist species,Moderate
+2018,Habiu,Transport,D,Akitabuki,5,10,Generalist species,Moderate
+2018,Habiu,Transport,D,Ezo ichigo,1,20,Woody species,Woody species
+2018,Habiu,Transport,D,Harujion,1,40,Open land species,Moderate
+2018,Habiu,Transport,D,Ocatranoo,1,10,Open land species,Moderate
+2018,Habiu,Transport,D,Ooyomogi,5,20,Open land species,Dry
+2018,Habiu,Transport,D,Amerika Oniazami,10,10,Open land species,Dry
+2018,Habiu,Transport,D,Seiyotampopo,1,10,Open land species,Dry
+2018,Habiu,Transport,D,Naginata Koju,5,15,Open land species,Dry
+2018,Habiu,Transport,D,Himemukashiyomogi,1,15,Open land species,Dry
+2018,Habiu,Transport,D,Higokusa,10,40,Generalist species,Moderate
+2018,Habiu,Transport,D,Poaceae sp5,1,20,Unknown,Unknown
+2018,Habiu,Transport,D,Poaceae sp6,1,30,Unknown,Unknown
+2018,Habiu,Transport,D,Udaikanba,1,10,Woody species,Woody species
+2018,Habiu,Transport,D,Onoe willow,1,5,Woody species,Woody species
+2018,Habiu,Transport,D,Otokoeshi,1,5,Open land species,Moderate
+2018,Habiu,Transport,D,Legumines sp3,1,10,Unknown,Unknown
+2018,Habiu,Transport,D,Yotsubahiyodori,1,5,Open land species,Moderate
+2018,Habiu,Transport,D,Unknown 5,1,10,Unknown,Unknown
+2018,Habiu,Transport,D,Ainutachitsubo violets,1,10,Generalist species,Dry
+2018,Habiu,Deposition,A,Ooyomogi,5,15,Open land species,Dry
+2018,Habiu,Deposition,A,Higokusa,10,30,Generalist species,Moderate
+2018,Habiu,Deposition,A,Amerika Oniazami,1,5,Open land species,Dry
+2018,Habiu,Deposition,A,Kumaizasa,5,20,Generalist species,Moderate
+2018,Habiu,Deposition,A,Udaikanba,5,5,Woody species,Woody species
+2018,Habiu,Deposition,A,Kumaichigo,5,10,Woody species,Woody species
+2018,Habiu,Deposition,A,Ezo ichigo,1,30,Woody species,Woody species
+2018,Habiu,Deposition,A,Mizunara,1,10,Woody species,Woody species
+2018,Habiu,Deposition,A,Karamatsu,1,10,Woody species,Woody species
+2018,Habiu,Deposition,A,Taranoki,1,15,Woody species,Woody species
+2018,Habiu,Deposition,A,Ocatranoo,1,10,Open land species,Moderate
+2018,Habiu,Deposition,A,Ainutachitsubo violets,1,10,Generalist species,Dry
+2018,Habiu,Deposition,A,Nekonomeso,1,5,Forest species,Wet
+2018,Habiu,Deposition,A,Yamamomiji,1,5,Woody species,Woody species
+2018,Habiu,Deposition,B,Hanatade,5,50,Forest species,Wet
+2018,Habiu,Deposition,B,Naginata Koju,10,70,Open land species,Dry
+2018,Habiu,Deposition,B,Himemukashiyomogi,5,40,Open land species,Dry
+2018,Habiu,Deposition,B,Akitabuki,75,50,Generalist species,Moderate
+2018,Habiu,Deposition,B,Yabumame,1,10,Open land species,Moderate
+2018,Habiu,Deposition,B,Ocatranoo,1,5,Open land species,Moderate
+2018,Habiu,Deposition,B,Violets SP2,5,5,Unknown,Unknown
+2018,Habiu,Deposition,B,Kurumabasou,10,20,Forest species,Moderate
+2018,Habiu,Deposition,B,Kikumugura,5,20,Forest species,Moderate
+2018,Habiu,Deposition,B,Ebigaraichigo,1,40,Woody species,Woody species
+2018,Habiu,Deposition,B,Aomizu,5,10,Forest species,Wet
+2018,Habiu,Deposition,B,Katabami,1,10,Open land species,Dry
+2018,Habiu,Deposition,B,Sansho,1,40,Woody species,Woody species
+2018,Habiu,Deposition,B,Yamanigana,1,20,Forest species,Moderate
+2018,Habiu,Deposition,B,Higokusa,50,40,Generalist species,Moderate
+2018,Habiu,Deposition,B,Kumaichigo,1,20,Woody species,Woody species
+2018,Habiu,Deposition,B,Tsurunigakusa,1,20,Forest species,Wet
+2018,Habiu,Deposition,B,Kumaizasa,5,20,Generalist species,Moderate
+2018,Habiu,Deposition,B,Noborogiku,1,10,Open land species,Dry
+2018,Habiu,Deposition,C,Hangonsou,40,190,Open land species,Dry
+2018,Habiu,Deposition,C,Akitabuki,10,40,Generalist species,Moderate
+2018,Habiu,Deposition,C,Kumaizasa,30,60,Generalist species,Moderate
+2018,Habiu,Deposition,C,Nomurasaki,20,80,Open land species,Dry
+2018,Habiu,Deposition,C,Yotsubahiyodori,1,40,Open land species,Moderate
+2018,Habiu,Deposition,C,Sansho,1,40,Woody species,Woody species
+2018,Habiu,Deposition,C,Tsurunigakusa,1,20,Forest species,Wet
+2018,Habiu,Deposition,C,Violets SP2,20,10,Unknown,Unknown
+2018,Habiu,Deposition,C,Mizunara,1,5,Woody species,Woody species
+2018,Habiu,Deposition,C,Ocatranoo,10,10,Open land species,Moderate
+2018,Habiu,Deposition,C,Katabami,20,15,Open land species,Dry
+2018,Habiu,Deposition,C,Irakusa,1,20,Forest species,Wet
+2018,Habiu,Deposition,C,Naginata Koju,1,10,Open land species,Dry
+2018,Habiu,Deposition,C,Poaceae sp5,1,10,Unknown,Unknown
+2018,Habiu,Deposition,C,Ooyomogi,1,40,Open land species,Dry
+2018,Habiu,Deposition,C,Aomizu,1,20,Forest species,Wet
+2018,Habiu,Deposition,C,Higokusa,20,20,Generalist species,Moderate
+2018,Habiu,Deposition,C,Otokoeshi,5,5,Open land species,Moderate
+2018,Habiu,Deposition,C,Himemukashiyomogi,1,5,Open land species,Dry
+2018,Habiu,Deposition,C,Kikumugura,1,10,Forest species,Moderate
+2018,Habiu,Deposition,C,Yabumame,1,10,Open land species,Moderate
+2018,Habiu,Deposition,D,Akitabuki,80,60,Generalist species,Moderate
+2018,Habiu,Deposition,D,Yotsubahiyodori,5,40,Open land species,Moderate
+2018,Habiu,Deposition,D,Taranoki,5,40,Woody species,Woody species
+2018,Habiu,Deposition,D,Aomizu,80,30,Forest species,Wet
+2018,Habiu,Deposition,D,Violets SP2,10,10,Unknown,Unknown
+2018,Habiu,Deposition,D,Otokoyomogi,5,10,Open land species,Dry
+2018,Habiu,Deposition,D,Sansho,1,40,Woody species,Woody species
+2018,Habiu,Deposition,D,Himemukashiyomogi,1,40,Open land species,Dry
+2018,Habiu,Deposition,D,Kumaizasa,5,30,Generalist species,Moderate
+2018,Habiu,Deposition,D,Harutade,10,40,Open land species,Dry
+2018,Habiu,Deposition,D,Higokusa,1,20,Generalist species,Moderate
+2018,Habiu,Deposition,D,Unknown 6,5,5,Unknown,Unknown
+2018,Towa,Initiation,A,-,-,-,Unknown,Unknown
+2018,Towa,Initiation,B,Asada,1,10,Woody species,Woody species
+2018,Towa,Initiation,B,Yamahagi,1,5,Woody species,Woody species
+2018,Towa,Initiation,C,Seitakaawadachisou,5,50,Open land species,Dry
+2018,Towa,Initiation,C,Ocatranoo,1,10,Open land species,Moderate
+2018,Towa,Initiation,C,Unknown7,1,1,Unknown,Unknown
+2018,Towa,Initiation,C,Kumaichigo,10,20,Woody species,Woody species
+2018,Towa,Initiation,C,Kion,1,10,Open land species,Moderate
+2018,Towa,Initiation,C,Suge SP,5,15,Unknown,Unknown
+2018,Towa,Initiation,C,Udaikanba,1,5,Woody species,Woody species
+2018,Towa,Initiation,C,Asada,1,5,Woody species,Woody species
+2018,Towa,Initiation,D,Ooawadachisou,1,50,Open land species,Dry
+2018,Towa,Initiation,D,Seitakaawadachisou,1,50,Open land species,Dry
+2018,Towa,Initiation,D,Himemukashiyomogi,1,40,Open land species,Dry
+2018,Towa,Initiation,D,Ainutachitsubo violets,1,5,Generalist species,Dry
+2018,Towa,Initiation,D,Yabutabako,1,1,Open land species,Moderate
+2018,Towa,Initiation,D,Naginata Koju,5,5,Open land species,Dry
+2018,Towa,Initiation,D,Otogirisou,1,10,Open land species,Moderate
+2018,Towa,Initiation,D,Kion,5,10,Open land species,Moderate
+2018,Towa,Initiation,D,Tanisoba,1,5,Open land species,Wet
+2018,Towa,Initiation,D,Kumaichigo,10,20,Woody species,Woody species
+2018,Towa,Initiation,D,Ocatranoo,1,20,Open land species,Moderate
+2018,Towa,Initiation,D,Suge SP,1,15,Unknown,Unknown
+2018,Towa,Initiation,D,Udaikanba,1,5,Woody species,Woody species
+2018,Towa,Transport,A,Enashihigokusa,1,20,Generalist species,Moderate
+2018,Towa,Transport,A,Suge SP,1,15,Unknown,Unknown
+2018,Towa,Transport,A,Seitakaawadachisou,5,130,Open land species,Dry
+2018,Towa,Transport,A,Himemukashiyomogi,1,20,Open land species,Dry
+2018,Towa,Transport,A,Ocatranoo,1,10,Open land species,Moderate
+2018,Towa,Transport,A,Tanisoba,1,1,Open land species,Wet
+2018,Towa,Transport,A,Naginata Koju,5,5,Open land species,Dry
+2018,Towa,Transport,A,Kion,1,5,Open land species,Moderate
+2018,Towa,Transport,A,Unknown8,1,5,Unknown,Unknown
+2018,Towa,Transport,A,Kumaichigo,5,20,Woody species,Woody species
+2018,Towa,Transport,A,Ainutachitsubo violets,1,1,Generalist species,Dry
+2018,Towa,Transport,B,Mizunara,1,10,Woody species,Woody species
+2018,Towa,Transport,B,Akitabuki,1,5,Generalist species,Moderate
+2018,Towa,Transport,B,Ooawadachisou,1,50,Open land species,Dry
+2018,Towa,Transport,B,Seitakaawadachisou,1,60,Open land species,Dry
+2018,Towa,Transport,B,Hangonsou,1,20,Open land species,Dry
+2018,Towa,Transport,B,Amerika Oniazami,5,15,Open land species,Dry
+2018,Towa,Transport,B,Higokusa,1,10,Generalist species,Moderate
+2018,Towa,Transport,B,Ezo ichigo,5,20,Woody species,Woody species
+2018,Towa,Transport,B,Kumaichigo,5,30,Woody species,Woody species
+2018,Towa,Transport,B,Nomurasaki,1,20,Open land species,Dry
+2018,Towa,Transport,B,Naginata Koju,1,10,Open land species,Dry
+2018,Towa,Transport,B,Ocatranoo,1,5,Open land species,Moderate
+2018,Towa,Transport,B,Seiyotampopo,1,5,Open land species,Dry
+2018,Towa,Transport,B,Kion,5,20,Open land species,Moderate
+2018,Towa,Transport,B,Asada,1,5,Woody species,Woody species
+2018,Towa,Transport,B,Tanisoba,1,1,Open land species,Wet
+2018,Towa,Transport,B,Suge SP2,1,20,Unknown,Unknown
+2018,Towa,Transport,C,Ooawadachisou,5,50,Open land species,Dry
+2018,Towa,Transport,C,Seitakaawadachisou,5,150,Open land species,Dry
+2018,Towa,Transport,C,Tsurunigakusa,1,15,Forest species,Wet
+2018,Towa,Transport,C,Seiyotampopo,1,5,Open land species,Dry
+2018,Towa,Transport,C,Poaceae sp7,1,20,Unknown,Unknown
+2018,Towa,Transport,C,Ocatranoo,5,15,Open land species,Moderate
+2018,Towa,Transport,C,Yamahagi,1,15,Woody species,Woody species
+2018,Towa,Transport,C,Naginata Koju,1,10,Open land species,Dry
+2018,Towa,Transport,C,Kumaichigo,15,35,Woody species,Woody species
+2018,Towa,Transport,C,Amerika Oniazami,5,15,Open land species,Dry
+2018,Towa,Transport,C,Himemukashiyomogi,1,15,Open land species,Dry
+2018,Towa,Transport,C,Rice SP2,1,15,Unknown,Unknown
+2018,Towa,Transport,C,Ainutachitsubo violets,1,5,Generalist species,Dry
+2018,Towa,Transport,C,Higokusa,1,20,Generalist species,Moderate
+2018,Towa,Transport,C,Enashihigokusa,5,15,Generalist species,Moderate
+2018,Towa,Transport,C,Suge SP,10,20,Unknown,Unknown
+2018,Towa,Transport,C,Kohakobe,1,15,Open land species,Wet
+2018,Towa,Transport,C,Hangonsou,5,70,Open land species,Dry
+2018,Towa,Transport,D,Seitakaawadachisou,5,50,Open land species,Dry
+2018,Towa,Transport,D,Kijimushiro,1,10,Open land species,Dry
+2018,Towa,Transport,D,Ocatranoo,10,10,Open land species,Moderate
+2018,Towa,Transport,D,Kion,1,10,Open land species,Moderate
+2018,Towa,Transport,D,Asteraceae sp4,1,10,Unknown,Unknown
+2018,Towa,Transport,D,Himemukashiyomogi,1,30,Open land species,Dry
+2018,Towa,Transport,D,Amerika Oniazami,1,5,Open land species,Dry
+2018,Towa,Transport,D,Kumaichigo,1,15,Woody species,Woody species
+2018,Towa,Transport,D,Udaikanba,1,10,Woody species,Woody species
+2018,Towa,Transport,D,Ainutachitsubo violets,1,5,Generalist species,Dry
+2018,Towa,Transport,D,Yabumame,1,5,Open land species,Moderate
+2018,Towa,Transport,D,Higokusa,5,30,Generalist species,Moderate
+2018,Towa,Transport,D,Kumaizasa,5,15,Generalist species,Moderate
+2018,Towa,Transport,D,Sansho,1,20,Woody species,Woody species
+2018,Towa,Deposition,A,Seitakaawadachisou,25,160,Open land species,Dry
+2018,Towa,Deposition,A,Himemukashiyomogi,5,40,Open land species,Dry
+2018,Towa,Deposition,A,Kumaichigo,5,30,Woody species,Woody species
+2018,Towa,Deposition,A,Fukkisou,5,15,Woody species,Woody species
+2018,Towa,Deposition,A,Tsurunigakusa,1,10,Forest species,Wet
+2018,Towa,Deposition,A,Taranoki,1,20,Woody species,Woody species
+2018,Towa,Deposition,A,Naginata Koju,5,40,Open land species,Dry
+2018,Towa,Deposition,A,Poaceae SP,1,40,Unknown,Unknown
+2018,Towa,Deposition,A,Amerika Oniazami,1,5,Open land species,Dry
+2018,Towa,Deposition,A,Higokusa,15,40,Generalist species,Moderate
+2018,Towa,Deposition,A,Asteraceae sp4,1,40,Unknown,Unknown
+2018,Towa,Deposition,A,Ezo ichigo,1,10,Woody species,Woody species
+2018,Towa,Deposition,A,Unknown 9,1,10,Unknown,Unknown
+2018,Towa,Deposition,A,Ainutachitsubo violets,1,5,Generalist species,Dry
+2018,Towa,Deposition,A,Otokoeshi,1,10,Open land species,Moderate
+2018,Towa,Deposition,B,Seitakaawadachisou,20,110,Open land species,Dry
+2018,Towa,Deposition,B,Ooawadachisou,1,80,Open land species,Dry
+2018,Towa,Deposition,B,Himemukashiyomogi,5,120,Open land species,Dry
+2018,Towa,Deposition,B,Akitabuki,20,40,Generalist species,Moderate
+2018,Towa,Deposition,B,Amerika Oniazami,1,10,Open land species,Dry
+2018,Towa,Deposition,B,Onoe willow,1,20,Woody species,Woody species
+2018,Towa,Deposition,B,Kumaichigo,10,30,Woody species,Woody species
+2018,Towa,Deposition,B,Kijimushiro,1,10,Open land species,Dry
+2018,Towa,Deposition,B,Ezo ichigo,1,20,Woody species,Woody species
+2018,Towa,Deposition,B,Ocatranoo,1,20,Open land species,Moderate
+2018,Towa,Deposition,B,Higokusa,20,60,Generalist species,Moderate
+2018,Towa,Deposition,B,Otogirisou,1,30,Open land species,Moderate
+2018,Towa,Deposition,B,Naginata Koju,5,30,Open land species,Dry
+2018,Towa,Deposition,B,Ainutachitsubo violets,1,5,Generalist species,Dry
+2018,Towa,Deposition,B,Shrubs sp5,1,5,Woody species,Woody species
+2018,Towa,Deposition,B,Katabami,1,5,Open land species,Dry
+2018,Towa,Deposition,B,Legumes sp4,1,10,Unknown,Unknown
+2018,Towa,Deposition,B,Unknown 9,1,5,Unknown,Unknown
+2018,Towa,Deposition,B,Harutade,1,30,Open land species,Dry
+2018,Towa,Deposition,B,Yamahagi,1,1,Woody species,Woody species
+2018,Towa,Deposition,C,Hangonsou,5,90,Open land species,Dry
+2018,Towa,Deposition,C,Seitakaawadachisou,40,140,Open land species,Dry
+2018,Towa,Deposition,C,Naginata Koju,5,20,Open land species,Dry
+2018,Towa,Deposition,C,Sugina,5,15,Open land species,Dry
+2018,Towa,Deposition,C,Tsurunigakusa,5,10,Forest species,Wet
+2018,Towa,Deposition,C,Harutade,5,10,Open land species,Dry
+2018,Towa,Deposition,C,Hanatade,1,10,Forest species,Wet
+2018,Towa,Deposition,C,Himemukashiyomogi,5,40,Open land species,Dry
+2018,Towa,Deposition,C,Kumaichigo,10,40,Woody species,Woody species
+2018,Towa,Deposition,C,Katabami,1,5,Open land species,Dry
+2018,Towa,Deposition,C,Kijimushiro,1,1,Open land species,Dry
+2018,Towa,Deposition,C,Ainutachitsubo violets,5,10,Generalist species,Dry
+2018,Towa,Deposition,C,Ezo ichigo,1,20,Woody species,Woody species
+2018,Towa,Deposition,C,Otokoeshi,1,1,Open land species,Moderate
+2018,Towa,Deposition,C,Higokusa,30,60,Generalist species,Moderate
+2018,Towa,Deposition,D,Seitakaawadachisou,5,60,Open land species,Dry
+2018,Towa,Deposition,D,Himemukashiyomogi,1,30,Open land species,Dry
+2018,Towa,Deposition,D,Akitabuki,10,20,Generalist species,Moderate
+2018,Towa,Deposition,D,Ocatranoo,1,10,Open land species,Moderate
+2018,Towa,Deposition,D,Kumaichigo,20,30,Woody species,Woody species
+2018,Towa,Deposition,D,Naginata Koju,5,20,Open land species,Dry
+2018,Towa,Deposition,D,Sugina,5,10,Open land species,Dry
+2018,Towa,Deposition,D,Onoe willow,1,10,Woody species,Woody species
+2018,Towa,Deposition,D,Amerika Oniazami,1,5,Open land species,Dry
+2018,Towa,Deposition,D,Higokusa,1,25,Generalist species,Moderate
+2018,Towa,Deposition,D,Ainutachitsubo violets,1,5,Generalist species,Dry
+2018,Towa,Deposition,D,Harutade,1,5,Open land species,Dry
+2018,Towa,Deposition,D,Kohakobe,1,5,Open land species,Wet
+2018,Towa,Deposition,D,Tanisoba,1,5,Open land species,Wet
+2003,353,Initiation,A,Akitabuki,20,40,Generalist species,Moderate
+2003,353,Initiation,A,Tachitsubo violets,10,10,Open land species,Dry
+2003,353,Initiation,A,Suge SP,5,40,Unknown,Unknown
+2003,353,Initiation,A,Ezo ajisai,1,10,Woody species,Woody species
+2003,353,Initiation,A,Aodamo,1,1,Woody species,Woody species
+2003,353,Initiation,A,Unknown 10,1,10,Unknown,Unknown
+2003,353,Initiation,A,Unknown 11,1,5,Unknown,Unknown
+2003,353,Initiation,B,Akitabuki,5,10,Generalist species,Moderate
+2003,353,Initiation,B,Miyakozasa,20,20,Generalist species,Moderate
+2003,353,Initiation,B,Ooawadachisou,5,40,Open land species,Dry
+2003,353,Initiation,B,Kitsurifune,1,10,Forest species,Wet
+2003,353,Initiation,B,Tachitsubo violets,1,5,Open land species,Dry
+2003,353,Initiation,B,Hangonsou,5,40,Open land species,Dry
+2003,353,Initiation,B,Sugina,1,10,Open land species,Dry
+2003,353,Initiation,B,Shinanoki,1,10,Woody species,Woody species
+2003,353,Initiation,B,Inutoubana,5,5,Forest species,Wet
+2003,353,Initiation,B,Unknown 12,5,10,Unknown,Unknown
+2003,353,Initiation,B,Unknown 13,1,10,Unknown,Unknown
+2003,353,Initiation,C,Hangonsou,5,140,Open land species,Dry
+2003,353,Initiation,C,Akitabuki,10,40,Generalist species,Moderate
+2003,353,Initiation,C,Aomizu,5,5,Forest species,Wet
+2003,353,Initiation,C,Seiyotampopo,1,1,Open land species,Dry
+2003,353,Initiation,C,Sugina,20,10,Open land species,Dry
+2003,353,Initiation,C,Tachitsubo violets,1,5,Open land species,Dry
+2003,353,Initiation,C,Unknown 13,1,5,Unknown,Unknown
+2003,353,Initiation,C,Unknown 10,1,10,Unknown,Unknown
+2003,353,Initiation,C,Suge SP,1,10,Unknown,Unknown
+2003,353,Initiation,D,Hangonsou,10,80,Open land species,Dry
+2003,353,Initiation,D,Akitabuki,10,20,Generalist species,Moderate
+2003,353,Initiation,D,Kitsurifune,5,10,Forest species,Wet
+2003,353,Initiation,D,Itayakaede,1,5,Woody species,Woody species
+2003,353,Initiation,D,Yamabudou,1,1,Woody species,Woody species
+2003,353,Initiation,D,Kumaizasa,5,40,Generalist species,Moderate
+2003,353,Initiation,D,Seiyotampopo,1,1,Open land species,Dry
+2003,353,Initiation,D,Unknown 14,1,5,Unknown,Unknown
+2003,353,Initiation,D,Tachitsubo violets,1,5,Open land species,Dry
+2003,353,Initiation,D,Koichiyakusou,1,1,Forest species,Moderate
+2003,353,Initiation,D,Umanomitsuba,1,5,Forest species,Wet
+2003,353,Transport,A,Akitabuki,25,30,Generalist species,Moderate
+2003,353,Transport,A,Enashihigokusa,1,30,Generalist species,Moderate
+2003,353,Transport,A,Higokusa,25,50,Generalist species,Moderate
+2003,353,Transport,A,Unknown 13,1,5,Unknown,Unknown
+2003,353,Transport,A,Koichiyakusou,5,5,Forest species,Moderate
+2003,353,Transport,A,Yabumame,1,5,Open land species,Moderate
+2003,353,Transport,A,Inukoriyanagi,1,5,Woody species,Woody species
+2003,353,Transport,A,Sugina,10,10,Open land species,Dry
+2003,353,Transport,A,Hangonsou,5,100,Open land species,Dry
+2003,353,Transport,A,Ooawadachisou,5,20,Open land species,Dry
+2003,353,Transport,A,Kitsurifune,1,5,Forest species,Wet
+2003,353,Transport,A,Tachitsubo violets,5,5,Open land species,Dry
+2003,353,Transport,A,Asada,1,5,Woody species,Woody species
+2003,353,Transport,B,Hangonsou,40,160,Open land species,Dry
+2003,353,Transport,B,Akitabuki,20,30,Generalist species,Moderate
+2003,353,Transport,B,Tachitsubo violets,1,5,Open land species,Dry
+2003,353,Transport,B,Koichiyakusou,10,5,Forest species,Moderate
+2003,353,Transport,B,Aomizu,1,10,Forest species,Wet
+2003,353,Transport,B,Kitsurifune,1,5,Forest species,Wet
+2003,353,Transport,B,Ezo ichigo,1,20,Woody species,Woody species
+2003,353,Transport,B,Momijigasa,1,20,Forest species,Wet
+2003,353,Transport,B,Otogirisou,1,5,Open land species,Moderate
+2003,353,Transport,B,Katsura,1,10,Woody species,Woody species
+2003,353,Transport,B,Sugina,10,20,Open land species,Dry
+2003,353,Transport,B,Fern SP,1,5,Unknown,Unknown
+2003,353,Transport,B,Higokusa,5,30,Generalist species,Moderate
+2003,353,Transport,B,Oobako,1,5,Open land species,Dry
+2003,353,Transport,B,Harujion,1,60,Open land species,Moderate
+2003,353,Transport,C,Akitabuki,20,20,Generalist species,Moderate
+2003,353,Transport,C,Momijigasa,10,20,Forest species,Wet
+2003,353,Transport,C,Ooawadachisou,1,10,Open land species,Dry
+2003,353,Transport,C,Hangonsou,5,20,Open land species,Dry
+2003,353,Transport,C,Sugina,1,20,Open land species,Dry
+2003,353,Transport,C,Higokusa,5,10,Generalist species,Moderate
+2003,353,Transport,C,Nogariyasu,1,15,Generalist species,Moderate
+2003,353,Transport,C,Katsura,1,10,Woody species,Woody species
+2003,353,Transport,C,Aomizu,20,10,Forest species,Wet
+2003,353,Transport,C,Kitsurifune,1,10,Forest species,Wet
+2003,353,Transport,C,Tachitsubo violets,1,5,Open land species,Dry
+2003,353,Transport,C,Ezo ichigo,1,10,Woody species,Woody species
+2003,353,Transport,D,Inutoubana,10,40,Forest species,Wet
+2003,353,Transport,D,Akitabuki,10,50,Generalist species,Moderate
+2003,353,Transport,D,Hangonsou,10,140,Open land species,Dry
+2003,353,Transport,D,Irakusa,10,10,Forest species,Wet
+2003,353,Transport,D,Momijigasa,1,40,Forest species,Wet
+2003,353,Transport,D,Tachitsubo violets,1,10,Open land species,Dry
+2003,353,Transport,D,Ezo ichigo,1,30,Woody species,Woody species
+2003,353,Transport,D,Ooawadachisou,1,10,Open land species,Dry
+2003,353,Transport,D,Enashihigokusa,5,20,Generalist species,Moderate
+2003,353,Transport,D,Higokusa,15,30,Generalist species,Moderate
+2003,353,Transport,D,Iwagarami,1,5,Woody species,Woody species
+2003,353,Transport,D,Kurumabasou,1,10,Forest species,Moderate
+2003,353,Deposition,A,Akitabuki,1,10,Generalist species,Moderate
+2003,353,Deposition,A,Miyakozasa,5,25,Generalist species,Moderate
+2003,353,Deposition,A,Momijigasa,5,10,Forest species,Wet
+2003,353,Deposition,A,Yamabudou,1,10,Woody species,Woody species
+2003,353,Deposition,A,Fern SP,1,5,Unknown,Unknown
+2003,353,Deposition,A,Konronsou,1,40,Forest species,Wet
+2003,353,Deposition,A,Irakusa,10,10,Forest species,Wet
+2003,353,Deposition,A,Inutoubana,1,5,Forest species,Wet
+2003,353,Deposition,A,Mizosoba,1,10,Generalist species,Wet
+2003,353,Deposition,A,Tanisoba,1,10,Open land species,Wet
+2003,353,Deposition,B,Hangonsou,25,110,Open land species,Dry
+2003,353,Deposition,B,Miyakozasa,80,40,Generalist species,Moderate
+2003,353,Deposition,B,Oshida,20,20,Forest species,Moderate
+2003,353,Deposition,B,Momijigasa,15,30,Forest species,Wet
+2003,353,Deposition,B,Irakusa,10,10,Forest species,Wet
+2003,353,Deposition,B,Inutoubana,1,10,Forest species,Wet
+2003,353,Deposition,B,Mizuhiki,5,20,Forest species,Wet
+2003,353,Deposition,B,Yabuninjin,5,10,Forest species,Wet
+2003,353,Deposition,B,Daikonsou,1,10,Forest species,Wet
+2003,353,Deposition,B,Tanisoba,1,10,Open land species,Wet
+2003,353,Deposition,B,Suge SP,25,20,Unknown,Unknown
+2003,353,Deposition,C,Hangonsou,10,100,Open land species,Dry
+2003,353,Deposition,C,Akitabuki,10,40,Generalist species,Moderate
+2003,353,Deposition,C,Momijigasa,10,30,Forest species,Wet
+2003,353,Deposition,C,Mizosoba,10,30,Generalist species,Wet
+2003,353,Deposition,C,Kakidoshi,10,10,Open land species,Moderate
+2003,353,Deposition,C,Yabuninjin,5,10,Forest species,Wet
+2003,353,Deposition,C,Nekonomeso,5,10,Forest species,Wet
+2003,353,Deposition,C,Mizuhiki,1,10,Forest species,Wet
+2003,353,Deposition,C,Irakusa,40,20,Forest species,Wet
+2003,353,Deposition,C,Aomizu,20,20,Forest species,Wet
+2003,353,Deposition,C,Oshida,5,30,Forest species,Moderate
+2003,353,Deposition,C,Sawashiba,1,5,Woody species,Woody species
+2003,353,Deposition,D,Hangonsou,20,100,Open land species,Dry
+2003,353,Deposition,D,Momijigasa,10,20,Forest species,Wet
+2003,353,Deposition,D,Mizuhiki,10,30,Forest species,Wet
+2003,353,Deposition,D,Irakusa,20,10,Forest species,Wet
+2003,353,Deposition,D,Aomizu,20,10,Forest species,Wet
+2003,353,Deposition,D,Yachidamo,1,15,Woody species,Woody species
+2003,353,Deposition,D,Tanisoba,1,10,Open land species,Wet
+2003,353,Deposition,D,Tsurifunesou,1,20,Forest species,Wet
+2003,353,Deposition,D,Nekonomeso,10,10,Forest species,Wet
+2003,353,Deposition,D,Mizosoba,10,20,Generalist species,Wet
+2003,353,Deposition,D,Oshida,5,15,Forest species,Moderate
+2003,353,Deposition,D,Shinanoki,1,10,Woody species,Woody species
+2003,353,Deposition,D,Akitabuki,1,20,Generalist species,Moderate
+2003,353,Deposition,D,Konronsou,1,15,Forest species,Wet
+1947,16,Initiation,A,Miyakozasa,95,30,Generalist species,Moderate
+1947,16,Initiation,A,Akashide,1,5,Woody species,Woody species
+1947,16,Initiation,B,Miyakozasa,80,30,Generalist species,Moderate
+1947,16,Initiation,B,Itayakaede,1,10,Woody species,Woody species
+1947,16,Initiation,B,Suge SP,5,10,Unknown,Unknown
+1947,16,Initiation,C,Miyakozasa,80,40,Generalist species,Moderate
+1947,16,Initiation,C,Akashide,1,10,Woody species,Woody species
+1947,16,Initiation,C,Yamamomiji,1,5,Woody species,Woody species
+1947,16,Initiation,C,Mizunara,1,10,Woody species,Woody species
+1947,16,Initiation,C,Suge SP,5,10,Unknown,Unknown
+1947,16,Initiation,D,Miyakozasa,70,40,Generalist species,Moderate
+1947,16,Initiation,D,Yamamomiji,1,5,Woody species,Woody species
+1947,16,Initiation,D,Akashide,1,5,Woody species,Woody species
+1947,16,Initiation,D,Suge SP,1,5,Unknown,Unknown
+1947,16,Transport,A,Miyakozasa,60,30,Generalist species,Moderate
+1947,16,Transport,A,Kitsurifune,1,5,Forest species,Wet
+1947,16,Transport,A,Sawashiba,5,5,Woody species,Woody species
+1947,16,Transport,A,Yamamomiji,1,5,Woody species,Woody species
+1947,16,Transport,A,Mizunara,1,5,Woody species,Woody species
+1947,16,Transport,A,Suge SP,1,5,Unknown,Unknown
+1947,16,Transport,A,Hanatade,1,5,Forest species,Wet
+1947,16,Transport,B,Miyakozasa,70,30,Generalist species,Moderate
+1947,16,Transport,B,Mizunara,1,10,Woody species,Woody species
+1947,16,Transport,B,Sawashiba,1,5,Woody species,Woody species
+1947,16,Transport,B,Aodamo,1,10,Woody species,Woody species
+1947,16,Transport,B,Otogirisou,1,5,Open land species,Moderate
+1947,16,Transport,B,Iwagarami,1,1,Woody species,Woody species
+1947,16,Transport,C,Tsuriganeso,10,30,Generalist species,Moderate
+1947,16,Transport,C,Miyakozasa,60,40,Generalist species,Moderate
+1947,16,Transport,C,Inutoubana,1,30,Forest species,Wet
+1947,16,Transport,C,Mizunara,5,10,Woody species,Woody species
+1947,16,Transport,C,Yamamomiji,1,10,Woody species,Woody species
+1947,16,Transport,C,Itayakaede,1,5,Woody species,Woody species
+1947,16,Transport,C,Suge SP,5,20,Unknown,Unknown
+1947,16,Transport,C,Ocatranoo,1,5,Open land species,Moderate
+1947,16,Transport,C,Asteraceae sp5,1,10,Unknown,Unknown
+1947,16,Transport,C,Akashide,1,5,Woody species,Woody species
+1947,16,Transport,D,Miyakozasa,50,40,Generalist species,Moderate
+1947,16,Transport,D,Tachitsubo violets,1,10,Open land species,Dry
+1947,16,Transport,D,Ocatranoo,1,10,Open land species,Moderate
+1947,16,Transport,D,Yamamomiji,1,10,Woody species,Woody species
+1947,16,Transport,D,Konronsou,10,40,Forest species,Wet
+1947,16,Transport,D,Shirobanano hebiichigo,1,15,Woody species,Woody species
+1947,16,Transport,D,Yabumame,1,5,Open land species,Moderate
+1947,16,Transport,D,Suge SP,10,5,Unknown,Unknown
+1947,16,Transport,D,Sawashiba,1,5,Woody species,Woody species
+1947,19,Initiation,A,Miyakozasa,70,30,Generalist species,Moderate
+1947,19,Initiation,A,Suge SP,40,20,Unknown,Unknown
+1947,19,Initiation,A,Yamamomiji,1,10,Woody species,Woody species
+1947,19,Initiation,A,Akashide,1,10,Woody species,Woody species
+1947,19,Initiation,A,Yabumame,1,10,Open land species,Moderate
+1947,19,Initiation,A,Maizurusou,5,5,Forest species,Wet
+1947,19,Initiation,A,Kikumugura,1,10,Forest species,Moderate
+1947,19,Initiation,A,Mizunara,1,5,Woody species,Woody species
+1947,19,Initiation,B,Miyakozasa,60,30,Generalist species,Moderate
+1947,19,Initiation,B,Suge SP,20,20,Unknown,Unknown
+1947,19,Initiation,B,Suge SP2,20,10,Unknown,Unknown
+1947,19,Initiation,B,Yamamomiji,1,10,Woody species,Woody species
+1947,19,Initiation,B,Yabumame,1,10,Open land species,Moderate
+1947,19,Initiation,B,Sawashiba,1,10,Woody species,Woody species
+1947,19,Initiation,B,Fukkisou,1,5,Woody species,Woody species
+1947,19,Initiation,B,Shirobanano hebiichigo,1,10,Woody species,Woody species
+1947,19,Initiation,B,Mizunara,1,10,Woody species,Woody species
+1947,19,Initiation,B,Shrubs sp6,5,50,Woody species,Woody species
+1947,19,Initiation,B,Itayakaede,1,5,Woody species,Woody species
+1947,19,Initiation,C,Miyakozasa,50,40,Generalist species,Moderate
+1947,19,Initiation,C,Suge SP,30,20,Unknown,Unknown
+1947,19,Initiation,C,Yamamomiji,1,10,Woody species,Woody species
+1947,19,Initiation,C,Shrubs sp6,1,20,Woody species,Woody species
+1947,19,Initiation,C,Shirobanano hebiichigo,1,1,Woody species,Woody species
+1947,19,Initiation,C,Yabumame,1,5,Open land species,Moderate
+1947,19,Initiation,D,Miyakozasa,80,40,Generalist species,Moderate
+1947,19,Initiation,D,Suge SP,30,20,Unknown,Unknown
+1947,19,Initiation,D,Akashide,5,10,Woody species,Woody species
+1947,19,Initiation,D,Yabumame,1,5,Open land species,Moderate
+1947,19,Initiation,D,Yamamomiji,1,5,Woody species,Woody species
+1947,19,Initiation,D,Shirobanano hebiichigo,1,1,Woody species,Woody species
+1947,19,Transport,A,Miyakozasa,70,40,Generalist species,Moderate
+1947,19,Transport,A,Suge SP,70,20,Unknown,Unknown
+1947,19,Transport,A,Konronsou,5,10,Forest species,Wet
+1947,19,Transport,A,Yamamomiji,1,10,Woody species,Woody species
+1947,19,Transport,A,Yabumame,1,5,Open land species,Moderate
+1947,19,Transport,A,Kikumugura,5,10,Forest species,Moderate
+1947,19,Transport,A,Sawashiba,1,10,Woody species,Woody species
+1947,19,Transport,A,Akashide,1,10,Woody species,Woody species
+1947,19,Transport,A,Yabuninjin,1,10,Forest species,Wet
+1947,19,Transport,A,Mimikoumori,1,20,Forest species,Moderate
+1947,19,Transport,A,Daikonsou,5,10,Forest species,Wet
+1947,19,Transport,B,Miyakozasa,80,40,Generalist species,Moderate
+1947,19,Transport,B,Suge SP,10,5,Unknown,Unknown
+1947,19,Transport,B,Konronsou,10,20,Forest species,Wet
+1947,19,Transport,B,Shirobanano hebiichigo,1,10,Woody species,Woody species
+1947,19,Transport,B,Yabumame,1,10,Open land species,Moderate
+1947,19,Transport,B,Inutoubana,1,5,Forest species,Wet
+1947,19,Transport,B,Daikonsou,1,5,Forest species,Wet
+1947,19,Transport,B,Violets SP,1,1,Unknown,Unknown
+1947,19,Transport,C,Miyakozasa,80,40,Generalist species,Moderate
+1947,19,Transport,C,Suge SP,1,10,Unknown,Unknown
+1947,19,Transport,C,Konronsou,1,20,Forest species,Wet
+1947,19,Transport,C,Fukkisou,1,10,Woody species,Woody species
+1947,19,Transport,C,Yamamomiji,1,10,Woody species,Woody species
+1947,19,Transport,D,Miyakozasa,70,40,Generalist species,Moderate
+1947,19,Transport,D,Suge SP,20,20,Unknown,Unknown
+1947,19,Transport,D,Yamamomiji,1,5,Woody species,Woody species
+1947,19,Transport,D,Daikonsou,1,10,Forest species,Wet
+1947,19,Transport,D,Konronsou,1,20,Forest species,Wet
+1947,19,Transport,D,Yabumame,1,5,Open land species,Moderate
+1947,19,Transport,D,Sawashiba,1,10,Woody species,Woody species
+1947,19,Transport,D,Trefoil A,1,10,Unknown,Unknown
+1947,20,Initiation,A,Miyakozasa,15,20,Generalist species,Moderate
+1947,20,Initiation,A,Suge SP,60,10,Unknown,Unknown
+1947,20,Initiation,A,Yabumame,5,10,Open land species,Moderate
+1947,20,Initiation,A,Akashide,1,5,Woody species,Woody species
+1947,20,Initiation,A,Itayakaede,1,5,Woody species,Woody species
+1947,20,Initiation,A,Yabuninjin,1,5,Forest species,Wet
+1947,20,Initiation,A,Daikonsou,1,5,Forest species,Wet
+1947,20,Initiation,A,Kikumugura,5,5,Forest species,Moderate
+1947,20,Initiation,A,Shirobanano hebiichigo,5,5,Woody species,Woody species
+1947,20,Initiation,A,Maizurusou,1,5,Forest species,Wet
+1947,20,Initiation,A,Otogirisou,1,20,Open land species,Moderate
+1947,20,Initiation,A,Asteraceae sp6,1,5,Unknown,Unknown
+1947,20,Initiation,A,Chishimaazami,1,5,Open land species,Moderate
+1947,20,Initiation,A,Mizunara,1,10,Woody species,Woody species
+1947,20,Initiation,B,Miyakozasa,25,40,Generalist species,Moderate
+1947,20,Initiation,B,Suge SP,10,20,Unknown,Unknown
+1947,20,Initiation,B,Yamamomiji,5,10,Woody species,Woody species
+1947,20,Initiation,B,Umanomitsuba,1,10,Forest species,Wet
+1947,20,Initiation,B,Tanimitsuba,1,30,Forest species,Wet
+1947,20,Initiation,B,Kourai Tennanshou,1,20,Forest species,Moderate
+1947,20,Initiation,C,Miyakozasa,40,40,Generalist species,Moderate
+1947,20,Initiation,C,Suge SP,30,20,Unknown,Unknown
+1947,20,Initiation,C,Chishimaazami,1,5,Open land species,Moderate
+1947,20,Initiation,C,Yabumame,1,10,Open land species,Moderate
+1947,20,Initiation,C,Itayakaede,1,5,Woody species,Woody species
+1947,20,Initiation,C,Akashide,1,5,Woody species,Woody species
+1947,20,Initiation,C,Shirobanano hebiichigo,5,15,Woody species,Woody species
+1947,20,Initiation,C,Kikumugura,5,15,Forest species,Moderate
+1947,20,Initiation,C,Shrubs sp7,1,15,Woody species,Woody species
+1947,20,Initiation,C,Umanomitsuba,1,10,Forest species,Wet
+1947,20,Initiation,C,Matatabi,5,10,Woody species,Woody species
+1947,20,Initiation,C,Yamamomiji,1,10,Woody species,Woody species
+1947,20,Initiation,D,Miyakozasa,10,10,Generalist species,Moderate
+1947,20,Initiation,D,Suge SP,50,10,Unknown,Unknown
+1947,20,Initiation,D,Yamahagi,5,10,Woody species,Woody species
+1947,20,Initiation,D,Shirobanano hebiichigo,5,5,Woody species,Woody species
+1947,20,Initiation,D,Chishimaazami,1,10,Open land species,Moderate
+1947,20,Initiation,D,Maizurusou,1,5,Forest species,Wet
+1947,20,Initiation,D,Kikumugura,1,5,Forest species,Moderate
+1947,20,Initiation,D,Itayakaede,1,5,Woody species,Woody species
+1947,20,Transport,A,Miyakozasa,85,40,Generalist species,Moderate
+1947,20,Transport,A,Mizunara,1,20,Woody species,Woody species
+1947,20,Transport,A,Suge SP,1,10,Unknown,Unknown
+1947,20,Transport,A,Tanimitsuba,1,5,Forest species,Wet
+1947,20,Transport,A,Yamamomiji,1,5,Woody species,Woody species
+1947,20,Transport,A,Yamahagi,1,10,Woody species,Woody species
+1947,20,Transport,A,Torikabuto,1,10,Forest species,Wet
+1947,20,Transport,A,Konronsou,1,10,Forest species,Wet
+1947,20,Transport,B,Miyakozasa,40,30,Generalist species,Moderate
+1947,20,Transport,B,Suge SP,30,10,Unknown,Unknown
+1947,20,Transport,B,Shirobanano hebiichigo,5,10,Woody species,Woody species
+1947,20,Transport,B,Otokoeshi,5,5,Open land species,Moderate
+1947,20,Transport,B,Yabumame,5,10,Open land species,Moderate
+1947,20,Transport,B,Akashide,1,10,Woody species,Woody species
+1947,20,Transport,B,Otogirisou,1,20,Open land species,Moderate
+1947,20,Transport,B,Tsuru ajisai,1,30,Woody species,Woody species
+1947,20,Transport,C,Miyakozasa,50,40,Generalist species,Moderate
+1947,20,Transport,C,Mizunara,1,20,Woody species,Woody species
+1947,20,Transport,C,Fukkisou,5,20,Woody species,Woody species
+1947,20,Transport,C,Yamamomiji,1,10,Woody species,Woody species
+1947,20,Transport,C,Shirobanano hebiichigo,1,10,Woody species,Woody species
+1947,20,Transport,C,Suge SP,1,5,Unknown,Unknown
+1947,20,Transport,D,Miyakozasa,40,25,Generalist species,Moderate
+1947,20,Transport,D,Yamamomiji,1,10,Woody species,Woody species
+1947,20,Transport,D,Akashide,1,10,Woody species,Woody species
+1947,20,Transport,D,Haedokusou,1,20,Forest species,Moderate
+1947,20,Transport,D,Tsuru ajisai,1,5,Woody species,Woody species
+1947,20,Transport,D,Nogariyasu,5,15,Generalist species,Moderate
+1947,20,Transport,D,Aodamo,1,5,Woody species,Woody species
+1947,20,Transport,D,Suge SP2,1,10,Unknown,Unknown
+2003,19,Initiation,A,Akitabuki,10,40,Generalist species,Moderate
+2003,19,Initiation,A,Ocatranoo,1,10,Open land species,Moderate
+2003,19,Initiation,A,Bacco willow,1,20,Woody species,Woody species
+2003,19,Initiation,A,Ooawadachisou,1,20,Open land species,Dry
+2003,19,Initiation,B,Akitabuki,5,30,Generalist species,Moderate
+2003,19,Initiation,B,Koichiyakusou,1,1,Forest species,Moderate
+2003,19,Initiation,B,Unknown 15,1,5,Unknown,Unknown
+2003,19,Initiation,B,Ooawadachisou,1,40,Open land species,Dry
+2003,19,Initiation,B,Aodamo,1,10,Woody species,Woody species
+2003,19,Initiation,B,Violets SP2,1,5,Unknown,Unknown
+2003,19,Initiation,C,Miyakozasa,90,80,Generalist species,Moderate
+2003,19,Initiation,C,Akitabuki,20,50,Generalist species,Moderate
+2003,19,Initiation,C,Ooawadachisou,1,60,Open land species,Dry
+2003,19,Initiation,C,Fukkisou,10,20,Woody species,Woody species
+2003,19,Initiation,C,Iwagarami,5,15,Woody species,Woody species
+2003,19,Initiation,C,Unknown 16,1,5,Unknown,Unknown
+2003,19,Initiation,C,Ezo ajisai,1,20,Woody species,Woody species
+2003,19,Initiation,C,Suge SP,20,30,Unknown,Unknown
+2003,19,Initiation,C,Oshida,1,20,Forest species,Moderate
+2003,19,Initiation,C,Unknown 17,1,5,Unknown,Unknown
+2003,19,Initiation,C,Ikema,1,10,Open land species,Dry
+2003,19,Initiation,D,Miyakozasa,80,60,Generalist species,Moderate
+2003,19,Initiation,D,Hangonsou,15,160,Open land species,Dry
+2003,19,Initiation,D,Akitabuki,10,50,Generalist species,Moderate
+2003,19,Initiation,D,Mizohoozuki,1,15,Generalist species,Wet
+2003,19,Initiation,D,Udaikanba,1,5,Woody species,Woody species
+2003,19,Initiation,D,Koichiyakusou,10,5,Forest species,Moderate
+2003,19,Initiation,D,Aodamo,1,10,Woody species,Woody species
+2003,19,Initiation,D,Yobusumasou,1,15,Forest species,Wet
+2003,19,Initiation,D,Ooawadachisou,1,15,Open land species,Dry
+2003,19,Initiation,D,Unknown 16,5,1,Unknown,Unknown
+2003,19,Initiation,D,Yotsubahiyodori,1,10,Open land species,Moderate
+2003,19,Initiation,D,Yamamomiji,1,5,Woody species,Woody species
+2003,19,Initiation,D,Iwagarami,5,5,Woody species,Woody species
+2003,19,Initiation,D,Matatabi,5,5,Woody species,Woody species
+2003,19,Initiation,D,Suge SP,60,10,Unknown,Unknown
+2003,19,Transport,A,Miyakozasa,80,70,Generalist species,Moderate
+2003,19,Transport,A,Hangonsou,25,130,Open land species,Dry
+2003,19,Transport,A,Nogariyasu,5,60,Generalist species,Moderate
+2003,19,Transport,A,Sugina,1,20,Open land species,Dry
+2003,19,Transport,A,Oshida,15,90,Forest species,Moderate
+2003,19,Transport,A,Konronsou,1,10,Forest species,Wet
+2003,19,Transport,A,Fukkisou,5,10,Woody species,Woody species
+2003,19,Transport,A,Yamamomiji,1,10,Woody species,Woody species
+2003,19,Transport,A,Inutoubana,5,20,Forest species,Wet
+2003,19,Transport,A,Enashihigokusa,5,20,Generalist species,Moderate
+2003,19,Transport,A,Aomizu,5,5,Forest species,Wet
+2003,19,Transport,A,Akitabuki,5,20,Generalist species,Moderate
+2003,19,Transport,A,Matatabi,1,15,Woody species,Woody species
+2003,19,Transport,A,Sawashiba,1,5,Woody species,Woody species
+2003,19,Transport,B,Hangonsou,1,40,Open land species,Dry
+2003,19,Transport,B,Akitabuki,5,40,Generalist species,Moderate
+2003,19,Transport,B,Ocatranoo,1,10,Open land species,Moderate
+2003,19,Transport,B,Aodamo,1,10,Woody species,Woody species
+2003,19,Transport,B,Seitakaawadachisou,1,10,Open land species,Dry
+2003,19,Transport,B,Yamabudou,1,5,Woody species,Woody species
+2003,19,Transport,B,Otogirisou,1,10,Open land species,Moderate
+2003,19,Transport,B,Tachitsubo violets,1,5,Open land species,Dry
+2003,19,Transport,B,Miyakozasa,5,40,Generalist species,Moderate
+2003,19,Transport,B,Legumes sp4,1,5,Unknown,Unknown
+2003,19,Transport,C,Miyakozasa,60,60,Generalist species,Moderate
+2003,19,Transport,C,Yobusumasou,15,140,Forest species,Wet
+2003,19,Transport,C,Akitabuki,30,80,Generalist species,Moderate
+2003,19,Transport,C,Hangonsou,10,160,Open land species,Dry
+2003,19,Transport,C,Matatabi,5,5,Woody species,Woody species
+2003,19,Transport,C,Momijigasa,10,30,Forest species,Wet
+2003,19,Transport,C,Aodamo,5,10,Woody species,Woody species
+2003,19,Transport,C,Mizunara,1,10,Woody species,Woody species
+2003,19,Transport,C,Yamamomiji,1,15,Woody species,Woody species
+2003,19,Transport,C,Koichiyakusou,1,1,Forest species,Moderate
+2003,19,Transport,C,Kourai Tennanshou,1,30,Forest species,Moderate
+2003,19,Transport,C,Sawashiba,1,50,Woody species,Woody species
+2003,19,Transport,C,Tachitsubo violets,1,5,Open land species,Dry
+2003,19,Transport,C,Unknown 18,1,15,Unknown,Unknown
+2003,19,Transport,C,Suge SP,20,10,Unknown,Unknown
+2003,19,Transport,D,Akitabuki,40,80,Generalist species,Moderate
+2003,19,Transport,D,Miyakozasa,60,80,Generalist species,Moderate
+2003,19,Transport,D,Hangonsou,5,100,Open land species,Dry
+2003,19,Transport,D,Azukinashi,1,20,Woody species,Woody species
+2003,19,Transport,D,Yamamomiji,1,15,Woody species,Woody species
+2003,19,Transport,D,Koichiyakusou,10,5,Forest species,Moderate
+2003,19,Transport,D,Aodamo,5,10,Woody species,Woody species
+2003,19,Transport,D,Tachitsubo violets,1,5,Open land species,Dry
+2003,19,Transport,D,Enashihigokusa,20,40,Generalist species,Moderate
+2003,19,Transport,D,Shrubs sp8,1,20,Woody species,Woody species
+2003,19,Transport,D,Konronsou,1,20,Forest species,Wet
+2003,19,Transport,D,Momijigasa,1,35,Forest species,Wet
+2003,19,Transport,D,Sugina,1,40,Open land species,Dry
+2003,19,Transport,D,Kurobiitaya,1,20,Woody species,Woody species
+2003,19,Transport,D,Sawashiba,1,10,Woody species,Woody species
+2003,19,Deposition,A,Akitabuki,40,100,Generalist species,Moderate
+2003,19,Deposition,A,Miyakozasa,40,80,Generalist species,Moderate
+2003,19,Deposition,A,Momijigasa,5,20,Forest species,Wet
+2003,19,Deposition,A,Sawashiba,1,10,Woody species,Woody species
+2003,19,Deposition,A,Aodamo,1,10,Woody species,Woody species
+2003,19,Deposition,A,Sugina,10,25,Open land species,Dry
+2003,19,Deposition,A,Konronsou,1,20,Forest species,Wet
+2003,19,Deposition,A,Aomizu,1,15,Forest species,Wet
+2003,19,Deposition,A,Fukkisou,5,10,Woody species,Woody species
+2003,19,Deposition,A,Hangonsou,1,10,Open land species,Dry
+2003,19,Deposition,A,Tachitsubo violets,1,5,Open land species,Dry
+2003,19,Deposition,A,Matatabi,1,5,Woody species,Woody species
+2003,19,Deposition,A,Yamamomiji,1,5,Woody species,Woody species
+2003,19,Deposition,A,Yobusumasou,1,5,Forest species,Wet
+2003,19,Deposition,A,Koichiyakusou,1,1,Forest species,Moderate
+2003,19,Deposition,A,Kitsurifune,1,10,Forest species,Wet
+2003,19,Deposition,B,Miyakozasa,80,60,Generalist species,Moderate
+2003,19,Deposition,B,Yobusumasou,1,20,Forest species,Wet
+2003,19,Deposition,B,Momijigasa,5,15,Forest species,Wet
+2003,19,Deposition,B,Mitsude kaede,5,15,Woody species,Woody species
+2003,19,Deposition,B,Matatabi,5,10,Woody species,Woody species
+2003,19,Deposition,B,Yamamomiji,1,20,Woody species,Woody species
+2003,19,Deposition,B,Kurobiitaya,1,20,Woody species,Woody species
+2003,19,Deposition,B,Daikonsou,1,5,Forest species,Wet
+2003,19,Deposition,B,Sawashiba,1,5,Woody species,Woody species
+2003,19,Deposition,B,Oshida,1,10,Forest species,Moderate
+2003,19,Deposition,B,Inutoubana,5,10,Forest species,Wet
+2003,19,Deposition,B,Konronsou,1,10,Forest species,Wet
+2003,19,Deposition,B,Unknown 17,1,5,Unknown,Unknown
+2003,19,Deposition,B,Suge SP,20,10,Unknown,Unknown
+2003,19,Deposition,C,Miyakozasa,50,60,Generalist species,Moderate
+2003,19,Deposition,C,Mitsude kaede,20,60,Woody species,Woody species
+2003,19,Deposition,C,Kurobiitaya,1,20,Woody species,Woody species
+2003,19,Deposition,C,Momijigasa,15,25,Forest species,Wet
+2003,19,Deposition,C,Shinanoki,1,20,Woody species,Woody species
+2003,19,Deposition,C,Yabuninjin,10,10,Forest species,Wet
+2003,19,Deposition,C,Sugina,1,35,Open land species,Dry
+2003,19,Deposition,C,Sawashiba,1,10,Woody species,Woody species
+2003,19,Deposition,C,Aodamo,1,10,Woody species,Woody species
+2003,19,Deposition,C,Haedokusou,5,10,Forest species,Moderate
+2003,19,Deposition,C,Futarishizuka,1,30,Forest species,Wet
+2003,19,Deposition,C,Irakusa,20,20,Forest species,Wet
+2003,19,Deposition,C,Oshida,10,30,Forest species,Moderate
+2003,19,Deposition,C,Unknown 17,1,5,Unknown,Unknown
+2003,19,Deposition,D,Akitabuki,10,60,Generalist species,Moderate
+2003,19,Deposition,D,Mitsuba Akebi,1,20,Woody species,Woody species
+2003,19,Deposition,D,Momijigasa,5,30,Forest species,Wet
+2003,19,Deposition,D,Hangonsou,10,25,Open land species,Dry
+2003,19,Deposition,D,Mizuhiki,20,100,Forest species,Wet
+2003,19,Deposition,D,Konronsou,5,25,Forest species,Wet
+2003,19,Deposition,D,Mitsude kaede,5,40,Woody species,Woody species
+2003,19,Deposition,D,Mizosoba,10,20,Generalist species,Wet
+2003,19,Deposition,D,Higokusa,15,30,Generalist species,Moderate
+2003,19,Deposition,D,Suge SP,5,10,Unknown,Unknown
+2003,19,Deposition,D,Hanatade,1,40,Forest species,Wet
+2003,19,Deposition,D,Aomizu,15,10,Forest species,Wet
+2003,19,Deposition,D,Koichiyakusou,10,5,Forest species,Moderate
+2003,19,Deposition,D,Tanimitsuba,1,60,Forest species,Wet
+2003,19,Deposition,D,Mizunara,1,10,Woody species,Woody species
+2003,19,Deposition,D,Yobusumasou,1,15,Forest species,Wet
+2003,19,Deposition,D,Yabuninjin,1,5,Forest species,Wet
+2003,19,Deposition,D,Fern SP,5,10,Unknown,Unknown
+2003,19,Deposition,D,Aodamo,5,10,Woody species,Woody species
+2003,19,Deposition,D,Unknown 17,1,5,Unknown,Unknown
+2003,19,Deposition,D,Yabutabako,1,10,Open land species,Moderate
+2003,19,Deposition,D,Futarishizuka,1,15,Forest species,Wet
+2003,29,Initiation,A,Hangonsou,5,80,Open land species,Dry
+2003,29,Initiation,A,Momijigasa,1,20,Forest species,Wet
+2003,29,Initiation,B,Fukkisou,10,20,Woody species,Woody species
+2003,29,Initiation,B,Momijigasa,1,10,Forest species,Wet
+2003,29,Initiation,B,Okukuruma Mugura,1,10,Forest species,Wet
+2003,29,Initiation,B,Irakusa,1,10,Forest species,Wet
+2003,29,Initiation,B,Ezokurokumosou,1,20,Forest species,Wet
+2003,29,Initiation,B,Seitakaawadachisou,1,15,Open land species,Dry
+2003,29,Initiation,C,Akitabuki,5,10,Generalist species,Moderate
+2003,29,Initiation,D,Hangonsou,5,60,Open land species,Dry
+2003,29,Initiation,D,Akitabuki,5,20,Generalist species,Moderate
+2003,29,Initiation,D,Momijigasa,10,20,Forest species,Wet
+2003,29,Initiation,D,Aomizu,10,10,Forest species,Wet
+2003,29,Initiation,D,Hanatade,1,20,Forest species,Wet
+2003,29,Initiation,D,Yabumame,1,5,Open land species,Moderate
+2003,29,Initiation,D,Okukuruma Mugura,10,10,Forest species,Wet
+2003,29,Initiation,D,Tanisoba,5,10,Open land species,Wet
+2003,29,Initiation,D,Mitsuba,20,10,Forest species,Wet
+2003,29,Transport,A,Hangonsou,5,100,Open land species,Dry
+2003,29,Transport,A,Akitabuki,25,60,Generalist species,Moderate
+2003,29,Transport,A,Oobako,1,10,Open land species,Dry
+2003,29,Transport,A,Aomizu,40,20,Forest species,Wet
+2003,29,Transport,A,Mitsuba,5,10,Forest species,Wet
+2003,29,Transport,A,Harutade,10,20,Open land species,Dry
+2003,29,Transport,A,Koichiyakusou,1,1,Forest species,Moderate
+2003,29,Transport,A,Okukuruma Mugura,1,10,Forest species,Wet
+2003,29,Transport,A,Tanisoba,5,20,Open land species,Wet
+2003,29,Transport,A,Momijigasa,5,15,Forest species,Wet
+2003,29,Transport,A,Suge SP,1,30,Unknown,Unknown
+2003,29,Transport,A,Suge SP2,60,10,Unknown,Unknown
+2003,29,Transport,A,Oshida,20,40,Forest species,Moderate
+2003,29,Transport,A,Harujion,1,30,Open land species,Moderate
+2003,29,Transport,A,Kitsurifune,1,10,Forest species,Wet
+2003,29,Transport,B,Oshida,50,120,Forest species,Moderate
+2003,29,Transport,B,Fukkisou,10,30,Woody species,Woody species
+2003,29,Transport,B,Momijigasa,1,10,Forest species,Wet
+2003,29,Transport,B,Hangonsou,1,20,Open land species,Dry
+2003,29,Transport,B,Shinanoki,1,15,Woody species,Woody species
+2003,29,Transport,C,Hangonsou,15,120,Open land species,Dry
+2003,29,Transport,C,Oshida,40,120,Forest species,Moderate
+2003,29,Transport,C,Fern SP,10,60,Unknown,Unknown
+2003,29,Transport,C,Tsurunigakusa,5,20,Forest species,Wet
+2003,29,Transport,C,Aomizu,10,10,Forest species,Wet
+2003,29,Transport,C,Okukuruma Mugura,10,10,Forest species,Wet
+2003,29,Transport,C,Harutade,1,20,Open land species,Dry
+2003,29,Transport,C,Momijigasa,1,20,Forest species,Wet
+2003,29,Transport,C,Oobako,5,15,Open land species,Dry
+2003,29,Transport,C,Akitabuki,5,30,Generalist species,Moderate
+2003,29,Transport,C,Irakusa,1,20,Forest species,Wet
+2003,29,Transport,D,Hangonsou,60,200,Open land species,Dry
+2003,29,Transport,D,Harutade,15,30,Open land species,Dry
+2003,29,Transport,D,Aomizu,10,20,Forest species,Wet
+2003,29,Transport,D,Oobako,5,10,Open land species,Dry
+2003,29,Transport,D,Nomurasaki,1,70,Open land species,Dry
+2003,29,Transport,D,Akitabuki,5,20,Generalist species,Moderate
+2003,29,Transport,D,Konronsou,5,20,Forest species,Wet
+2003,29,Transport,D,Okukuruma Mugura,10,30,Forest species,Wet
+2003,29,Transport,D,Suge SP,20,15,Unknown,Unknown
+2003,29,Transport,D,Tanisoba,5,20,Open land species,Wet
+2003,29,Transport,D,Momijigasa,1,10,Forest species,Wet
+2003,29,Transport,D,Oshida,1,40,Forest species,Moderate
+2003,29,Transport,D,Suge SP2,1,5,Unknown,Unknown
+2003,29,Deposition,A,Akitabuki,10,40,Generalist species,Moderate
+2003,29,Deposition,A,Futarishizuka,15,60,Forest species,Wet
+2003,29,Deposition,A,Mitsuba,10,10,Forest species,Wet
+2003,29,Deposition,A,Aomizu,30,20,Forest species,Wet
+2003,29,Deposition,A,Inutoubana,5,20,Forest species,Wet
+2003,29,Deposition,A,Harutade,20,20,Open land species,Dry
+2003,29,Deposition,A,Koichiyakusou,5,5,Forest species,Moderate
+2003,29,Deposition,A,Okukuruma Mugura,5,15,Forest species,Wet
+2003,29,Deposition,A,Kitsurifune,5,10,Forest species,Wet
+2003,29,Deposition,A,Fern SP,5,20,Unknown,Unknown
+2003,29,Deposition,A,Violets SP,1,1,Unknown,Unknown
+2003,29,Deposition,B,Oshida,30,60,Forest species,Moderate
+2003,29,Deposition,B,Enreisou,1,20,Forest species,Moderate
+2003,29,Deposition,B,Mitsude kaede,1,20,Woody species,Woody species
+2003,29,Deposition,B,Daikonsou,1,30,Forest species,Wet
+2003,29,Deposition,B,Okukuruma Mugura,20,15,Forest species,Wet
+2003,29,Deposition,B,Mitsuba,5,15,Forest species,Wet
+2003,29,Deposition,B,Aomizu,20,20,Forest species,Wet
+2003,29,Deposition,B,Harutade,10,20,Open land species,Dry
+2003,29,Deposition,B,Kitsurifune,1,10,Forest species,Wet
+2003,29,Deposition,B,Irakusa,5,20,Forest species,Wet
+2003,29,Deposition,B,Koichiyakusou,1,1,Forest species,Moderate
+2003,29,Deposition,B,Suge SP,1,10,Unknown,Unknown
+2003,29,Deposition,B,Suge SP2,1,20,Unknown,Unknown
+2003,29,Deposition,C,Oshida,90,120,Forest species,Moderate
+2003,29,Deposition,C,Ishimikawa,5,60,Open land species,Wet
+2003,29,Deposition,C,Konronsou,1,10,Forest species,Wet
+2003,29,Deposition,C,Kitsurifune,1,10,Forest species,Wet
+2003,29,Deposition,D,Oshida,20,80,Forest species,Moderate
+2003,29,Deposition,D,Aomizu,40,30,Forest species,Wet
+2003,29,Deposition,D,Irakusa,5,15,Forest species,Wet
+2003,29,Deposition,D,Fukkisou,1,15,Woody species,Woody species
+2003,29,Deposition,D,Ishimikawa,5,20,Open land species,Wet
+2003,29,Deposition,D,Harutade,1,20,Open land species,Dry
+2003,29,Deposition,D,Hangonsou,5,20,Open land species,Dry
+2003,29,Deposition,D,Kakidoshi,1,10,Open land species,Moderate
+2003,29,Deposition,D,Kitsurifune,1,10,Forest species,Wet
+2003,482,Initiation,A,Sugina,5,20,Open land species,Dry
+2003,482,Initiation,A,Suge SP,5,20,Unknown,Unknown
+2003,482,Initiation,A,Tachitsubo violets,1,10,Open land species,Dry
+2003,482,Initiation,B,Yabumame,5,5,Open land species,Moderate
+2003,482,Initiation,B,Akitabuki,5,5,Generalist species,Moderate
+2003,482,Initiation,B,Harutade,1,20,Open land species,Dry
+2003,482,Initiation,B,Otokoeshi,5,5,Open land species,Moderate
+2003,482,Initiation,B,Udaikanba,1,20,Woody species,Woody species
+2003,482,Initiation,B,Yamamomiji,1,5,Woody species,Woody species
+2003,482,Initiation,B,Suge SP,5,15,Unknown,Unknown
+2003,482,Initiation,C,Miyakozasa,20,50,Generalist species,Moderate
+2003,482,Initiation,C,Hangonsou,15,40,Open land species,Dry
+2003,482,Initiation,C,Yabumame,5,20,Open land species,Moderate
+2003,482,Initiation,C,Momijigasa,1,10,Forest species,Wet
+2003,482,Initiation,C,Ezo ichigo,1,15,Woody species,Woody species
+2003,482,Initiation,C,Otokoeshi,30,5,Open land species,Moderate
+2003,482,Initiation,C,Yabuninjin,5,5,Forest species,Wet
+2003,482,Initiation,C,Akitabuki,1,10,Generalist species,Moderate
+2003,482,Initiation,C,Aomizu,1,5,Forest species,Wet
+2003,482,Initiation,C,Sugina,5,10,Open land species,Dry
+2003,482,Initiation,C,Tanimitsuba,1,20,Forest species,Wet
+2003,482,Initiation,C,Suge SP,1,10,Unknown,Unknown
+2003,482,Initiation,C,Suge SP2,1,20,Unknown,Unknown
+2003,482,Initiation,C,Kitsurifune,1,5,Forest species,Wet
+2003,482,Initiation,C,Koichiyakusou,1,5,Forest species,Moderate
+2003,482,Initiation,C,Mizunara,1,15,Woody species,Woody species
+2003,482,Initiation,D,Hangonsou,30,140,Open land species,Dry
+2003,482,Initiation,D,Akitabuki,20,40,Generalist species,Moderate
+2003,482,Initiation,D,Yabuninjin,5,5,Forest species,Wet
+2003,482,Initiation,D,Konronsou,1,15,Forest species,Wet
+2003,482,Initiation,D,Yabumame,10,10,Open land species,Moderate
+2003,482,Initiation,D,Sugina,5,15,Open land species,Dry
+2003,482,Initiation,D,Aomizu,1,5,Forest species,Wet
+2003,482,Initiation,D,Ezo ichigo,1,40,Woody species,Woody species
+2003,482,Initiation,D,Nekonomeso,1,5,Forest species,Wet
+2003,482,Transport,A,Hangonsou,25,160,Open land species,Dry
+2003,482,Transport,A,Miyakozasa,10,60,Generalist species,Moderate
+2003,482,Transport,A,Akitabuki,10,40,Generalist species,Moderate
+2003,482,Transport,A,Futarishizuka,10,40,Forest species,Wet
+2003,482,Transport,A,Mizosoba,1,5,Generalist species,Wet
+2003,482,Transport,A,Akaso,1,15,Forest species,Wet
+2003,482,Transport,A,Momijigasa,1,15,Forest species,Wet
+2003,482,Transport,A,Harutade,5,30,Open land species,Dry
+2003,482,Transport,A,Harujion,1,40,Open land species,Moderate
+2003,482,Transport,A,Yabuninjin,5,10,Forest species,Wet
+2003,482,Transport,A,Kikumugura,5,15,Forest species,Moderate
+2003,482,Transport,A,Yabumame,10,10,Open land species,Moderate
+2003,482,Transport,A,Irakusa,5,10,Forest species,Wet
+2003,482,Transport,A,Matatabi,5,10,Woody species,Woody species
+2003,482,Transport,A,Tachitsubo violets,1,5,Open land species,Dry
+2003,482,Transport,A,Konronsou,1,5,Forest species,Wet
+2003,482,Transport,A,Aomizu,5,30,Forest species,Wet
+2003,482,Transport,A,Suge SP,30,10,Unknown,Unknown
+2003,482,Transport,A,Otokoeshi,10,10,Open land species,Moderate
+2003,482,Transport,A,Yamamomiji,1,10,Woody species,Woody species
+2003,482,Transport,A,Poaceae SP,1,60,Unknown,Unknown
+2003,482,Transport,A,Yamabudou,1,10,Woody species,Woody species
+2003,482,Transport,B,Akitabuki,10,40,Generalist species,Moderate
+2003,482,Transport,B,Mizosoba,30,30,Generalist species,Wet
+2003,482,Transport,B,Harutade,15,20,Open land species,Dry
+2003,482,Transport,B,Miyakozasa,1,40,Generalist species,Moderate
+2003,482,Transport,B,Aomizu,10,30,Forest species,Wet
+2003,482,Transport,B,Irakusa,5,10,Forest species,Wet
+2003,482,Transport,B,Yabuninjin,1,15,Forest species,Wet
+2003,482,Transport,B,Konronsou,1,15,Forest species,Wet
+2003,482,Transport,B,Suge SP,5,20,Unknown,Unknown
+2003,482,Transport,B,Yabumame,1,5,Open land species,Moderate
+2003,482,Transport,B,Sugina,1,10,Open land species,Dry
+2003,482,Transport,C,Akitabuki,15,60,Generalist species,Moderate
+2003,482,Transport,C,Harutade,15,20,Open land species,Dry
+2003,482,Transport,C,Seitakaawadachisou,1,20,Open land species,Dry
+2003,482,Transport,C,Mizosoba,1,20,Generalist species,Wet
+2003,482,Transport,C,Yabumame,1,5,Open land species,Moderate
+2003,482,Transport,C,Yabuninjin,1,1,Forest species,Wet
+2003,482,Transport,C,Shirobanano hebiichigo,5,5,Woody species,Woody species
+2003,482,Transport,C,Aomizu,1,5,Forest species,Wet
+2003,482,Transport,C,Konronsou,1,10,Forest species,Wet
+2003,482,Transport,C,Otokoeshi,1,5,Open land species,Moderate
+2003,482,Transport,C,Kurobiitaya,1,20,Woody species,Woody species
+2003,482,Transport,C,Suge SP,1,5,Unknown,Unknown
+2003,482,Transport,C,Suge SP2,5,10,Unknown,Unknown
+2003,482,Transport,D,Akitabuki,40,60,Generalist species,Moderate
+2003,482,Transport,D,Mizosoba,10,30,Generalist species,Wet
+2003,482,Transport,D,Harutade,10,30,Open land species,Dry
+2003,482,Transport,D,Irakusa,1,10,Forest species,Wet
+2003,482,Transport,D,Aomizu,5,10,Forest species,Wet
+2003,482,Transport,D,Momijigasa,1,10,Forest species,Wet
+2003,482,Transport,D,Yabuninjin,1,5,Forest species,Wet
+2003,482,Transport,D,Daikonsou,5,10,Forest species,Wet
+2003,482,Transport,D,Suge SP,1,10,Unknown,Unknown
+2003,482,Transport,D,Koichiyakusou,1,1,Forest species,Moderate
+2003,482,Transport,D,Okukuruma Mugura,1,10,Forest species,Wet
+2003,482,Transport,D,Kourai Tennanshou,1,5,Forest species,Moderate
+2003,482,Transport,D,Miyakozasa,1,20,Generalist species,Moderate
+2003,482,Transport,D,Hangonsou,1,15,Open land species,Dry
+2003,482,Deposition,A,Akitabuki,25,60,Generalist species,Moderate
+2003,482,Deposition,A,Mizosoba,10,20,Generalist species,Wet
+2003,482,Deposition,A,Harutade,5,20,Open land species,Dry
+2003,482,Deposition,A,Irakusa,5,20,Forest species,Wet
+2003,482,Deposition,A,Aomizu,20,20,Forest species,Wet
+2003,482,Deposition,A,Mizuhiki,5,5,Forest species,Wet
+2003,482,Deposition,A,Momijigasa,1,10,Forest species,Wet
+2003,482,Deposition,A,Yabuninjin,15,15,Forest species,Wet
+2003,482,Deposition,A,Okukuruma Mugura,10,15,Forest species,Wet
+2003,482,Deposition,A,Mizohoozuki,1,15,Generalist species,Wet
+2003,482,Deposition,A,Daikonsou,1,15,Forest species,Wet
+2003,482,Deposition,A,Kakidoshi,1,5,Open land species,Moderate
+2003,482,Deposition,B,Hangonsou,15,140,Open land species,Dry
+2003,482,Deposition,B,Akitabuki,15,20,Generalist species,Moderate
+2003,482,Deposition,B,Harutade,15,20,Open land species,Dry
+2003,482,Deposition,B,Aomizu,5,15,Forest species,Wet
+2003,482,Deposition,B,Irakusa,5,20,Forest species,Wet
+2003,482,Deposition,B,Yabuninjin,5,15,Forest species,Wet
+2003,482,Deposition,B,Momijigasa,5,10,Forest species,Wet
+2003,482,Deposition,B,Mizosoba,10,20,Generalist species,Wet
+2003,482,Deposition,B,Mizuhiki,1,10,Forest species,Wet
+2003,482,Deposition,B,Fukkisou,1,20,Woody species,Woody species
+2003,482,Deposition,B,Daikonsou,1,10,Forest species,Wet
+2003,482,Deposition,B,Kitsurifune,1,10,Forest species,Wet
+2003,482,Deposition,B,Yachidamo,1,10,Woody species,Woody species
+2003,482,Deposition,B,Matatabi,1,10,Woody species,Woody species
+2003,482,Deposition,B,Yabumame,1,5,Open land species,Moderate
+2003,482,Deposition,C,Miyakozasa,70,60,Generalist species,Moderate
+2003,482,Deposition,C,Fukkisou,5,30,Woody species,Woody species
+2003,482,Deposition,C,Yabuninjin,5,20,Forest species,Wet
+2003,482,Deposition,C,Harutade,5,40,Open land species,Dry
+2003,482,Deposition,C,Momijigasa,5,10,Forest species,Wet
+2003,482,Deposition,C,Aomizu,20,20,Forest species,Wet
+2003,482,Deposition,C,Irakusa,5,10,Forest species,Wet
+2003,482,Deposition,C,Matatabi,1,10,Woody species,Woody species
+2003,482,Deposition,C,Okukuruma Mugura,1,10,Forest species,Wet
+2003,482,Deposition,C,Daikonsou,1,10,Forest species,Wet
+2003,482,Deposition,C,Mizuhiki,1,20,Forest species,Wet
+2003,482,Deposition,C,Suge SP,10,30,Unknown,Unknown
+2003,482,Deposition,C,Mizosoba,1,15,Generalist species,Wet
+2003,482,Deposition,C,Yamamomiji,1,10,Woody species,Woody species
+2003,482,Deposition,C,Nomurasaki,1,60,Open land species,Dry
+2003,482,Deposition,C,Shirobanano hebiichigo,1,5,Woody species,Woody species
+2003,482,Deposition,C,Konronsou,1,10,Forest species,Wet
+2003,482,Deposition,D,Hangonsou,20,140,Open land species,Dry
+2003,482,Deposition,D,Seitakaawadachisou,1,10,Open land species,Dry
+2003,482,Deposition,D,Harutade,10,30,Open land species,Dry
+2003,482,Deposition,D,Momijigasa,5,30,Forest species,Wet
+2003,482,Deposition,D,Okukuruma Mugura,5,15,Forest species,Wet
+2003,482,Deposition,D,Yabuninjin,1,10,Forest species,Wet
+2003,482,Deposition,D,Daikonsou,5,10,Forest species,Wet
+2003,482,Deposition,D,Mizosoba,5,10,Generalist species,Wet
+2003,482,Deposition,D,Mizuhiki,1,15,Forest species,Wet
+2003,482,Deposition,D,Aomizu,10,15,Forest species,Wet
+2003,482,Deposition,D,Inutoubana,1,10,Forest species,Wet
+2003,482,Deposition,D,Akitabuki,5,40,Generalist species,Moderate
+2003,482,Deposition,D,Suge SP,20,30,Unknown,Unknown
+2003,482,Deposition,D,Konronsou,1,10,Forest species,Wet
+2003,482,Deposition,D,Koichiyakusou,1,1,Forest species,Moderate
+2003,482,Deposition,D,Yabumame,1,10,Open land species,Moderate
+2003,482,Deposition,D,Irakusa,1,10,Forest species,Wet
+2003,482,Deposition,D,Chishimaazami,1,10,Open land species,Moderate
+2003,482,Deposition,D,Tachitsubo violets,1,5,Open land species,Dry
+1981,23,Initiation,A,Miyakozasa,10,50,Generalist species,Moderate
+1981,23,Initiation,A,Kumaichigo,5,20,Woody species,Woody species
+1981,23,Initiation,A,Yabumame,5,20,Open land species,Moderate
+1981,23,Initiation,A,Ooawadachisou,10,80,Open land species,Dry
+1981,23,Initiation,A,Harujion,5,40,Open land species,Moderate
+1981,23,Initiation,A,Harutade,1,60,Open land species,Dry
+1981,23,Initiation,A,Naginata Koju,10,70,Open land species,Dry
+1981,23,Initiation,A,Akitabuki,5,20,Generalist species,Moderate
+1981,23,Initiation,A,Shirotsumekusa,5,10,Open land species,Dry
+1981,23,Initiation,A,Tanisoba,5,20,Open land species,Wet
+1981,23,Initiation,A,Aomizu,5,20,Forest species,Wet
+1981,23,Initiation,A,Hangonsou,5,10,Open land species,Dry
+1981,23,Initiation,A,Oobako,1,10,Open land species,Dry
+1981,23,Initiation,A,Ocatranoo,1,30,Open land species,Moderate
+1981,23,Initiation,A,Inuyomogi,10,30,Open land species,Dry
+1981,23,Initiation,A,Poaceae SP,1,40,Unknown,Unknown
+1981,23,Initiation,A,Higokusa,1,10,Generalist species,Moderate
+1981,23,Initiation,A,Suge SP,5,20,Unknown,Unknown
+1981,23,Initiation,A,Akashide,1,10,Woody species,Woody species
+1981,23,Initiation,B,Miyakozasa,80,80,Generalist species,Moderate
+1981,23,Initiation,B,Yamamomiji,5,110,Woody species,Woody species
+1981,23,Initiation,B,Aomizu,5,20,Forest species,Wet
+1981,23,Initiation,B,Tanisoba,1,10,Open land species,Wet
+1981,23,Initiation,B,Yabumame,1,10,Open land species,Moderate
+1981,23,Initiation,B,Aodamo,1,60,Woody species,Woody species
+1981,23,Initiation,B,Natanetabirako,1,10,Open land species,Moderate
+1981,23,Initiation,B,Futarishizuka,1,20,Forest species,Wet
+1981,23,Initiation,B,Udo,1,70,Open land species,Dry
+1981,23,Initiation,B,Akashide,1,60,Woody species,Woody species
+1981,23,Initiation,C,Miyakozasa,75,80,Generalist species,Moderate
+1981,23,Initiation,C,Naginata Koju,5,60,Open land species,Dry
+1981,23,Initiation,C,Aomizu,10,40,Forest species,Wet
+1981,23,Initiation,C,Kumaichigo,1,10,Woody species,Woody species
+1981,23,Initiation,C,Akitabuki,5,30,Generalist species,Moderate
+1981,23,Initiation,C,Hanatade,1,20,Forest species,Wet
+1981,23,Initiation,C,Asteraceae sp7,1,30,Unknown,Unknown
+1981,23,Initiation,C,Futosuge,1,20,Unknown,Unknown
+1981,23,Initiation,C,Ransuge,1,10,Unknown,Unknown
+1981,23,Initiation,C,Sugina,1,10,Open land species,Dry
+1981,23,Initiation,C,Yabumame,1,10,Open land species,Moderate
+1981,23,Initiation,D,Miyakozasa,90,80,Generalist species,Moderate
+1981,23,Initiation,D,Ooawadachisou,5,60,Open land species,Dry
+1981,23,Initiation,D,Inuyomogi,10,30,Open land species,Dry
+1981,23,Initiation,D,Hangonsou,1,10,Open land species,Dry
+1981,23,Initiation,D,Aomizu,5,10,Forest species,Wet
+1981,23,Initiation,D,Kumaichigo,5,40,Woody species,Woody species
+1981,23,Initiation,D,Yabumame,1,10,Open land species,Moderate
+1981,23,Initiation,D,Akashide,1,10,Woody species,Woody species
+1981,23,Initiation,D,Tanisoba,1,20,Open land species,Wet
+1981,23,Initiation,D,Yomogi,1,20,Open land species,Dry
+1981,23,Initiation,D,Ooyomogi,1,20,Open land species,Dry
+1981,23,Initiation,D,Matatabi,1,20,Woody species,Woody species
+1981,23,Initiation,D,Aodamo,1,60,Woody species,Woody species
+1981,23,Initiation,D,Ransuge,1,10,Unknown,Unknown
+1981,23,Initiation,D,Suge SP,1,10,Unknown,Unknown
+1981,23,Transport,A,Miyakozasa,90,80,Generalist species,Moderate
+1981,23,Transport,A,Fukkisou,5,20,Woody species,Woody species
+1981,23,Transport,A,Konronsou,5,20,Forest species,Wet
+1981,23,Transport,A,Akashide,1,10,Woody species,Woody species
+1981,23,Transport,B,Miyakozasa,70,60,Generalist species,Moderate
+1981,23,Transport,B,Yamabuki Shouma,5,20,Generalist species,Moderate
+1981,23,Transport,B,Aodamo,1,20,Woody species,Woody species
+1981,23,Transport,B,Vine SP,5,60,Unknown,Unknown
+1981,23,Transport,B,Sugina,1,20,Open land species,Dry
+1981,23,Transport,B,Konronsou,1,20,Forest species,Wet
+1981,23,Transport,C,Miyakozasa,75,90,Generalist species,Moderate
+1981,23,Transport,C,Yamabuki Shouma,1,30,Generalist species,Moderate
+1981,23,Transport,C,Aodamo,5,30,Woody species,Woody species
+1981,23,Transport,C,Tsurifunesou,5,20,Forest species,Wet
+1981,23,Transport,C,Sugina,1,10,Open land species,Dry
+1981,23,Transport,C,Torikabuto,1,15,Forest species,Wet
+1981,23,Transport,C,Chishimaazami,1,10,Open land species,Moderate
+1981,23,Transport,C,Nogariyasu,1,40,Generalist species,Moderate
+1981,23,Transport,D,Miyakozasa,70,80,Generalist species,Moderate
+1981,23,Transport,D,Akashide,1,10,Woody species,Woody species
+1981,23,Transport,D,Yamabuki Shouma,1,10,Generalist species,Moderate
+1981,23,Transport,D,Fukkisou,1,15,Woody species,Woody species
+1981,23,Transport,D,Yamamomiji,1,10,Woody species,Woody species
+1981,23,Deposition,A,Miyakozasa,80,60,Generalist species,Moderate
+1981,23,Deposition,A,Tsurifunesou,5,40,Forest species,Wet
+1981,23,Deposition,A,Hanatade,5,30,Forest species,Wet
+1981,23,Deposition,A,Yabumame,1,40,Open land species,Moderate
+1981,23,Deposition,A,Konronsou,5,20,Forest species,Wet
+1981,23,Deposition,A,Akitabuki,1,30,Generalist species,Moderate
+1981,23,Deposition,A,Kikumugura,1,10,Forest species,Moderate
+1981,23,Deposition,A,unknown,1,20,Unknown,Unknown
+1981,23,Deposition,A,Sawashiba,1,10,Woody species,Woody species
+1981,23,Deposition,A,Yabuninjin,1,10,Forest species,Wet
+1981,23,Deposition,B,Miyakozasa,80,60,Generalist species,Moderate
+1981,23,Deposition,B,Sarashina Shouma,5,110,Generalist species,Wet
+1981,23,Deposition,B,Oobasenkyu,5,40,Forest species,Wet
+1981,23,Deposition,B,Haedokusou,5,50,Forest species,Moderate
+1981,23,Deposition,B,Konronsou,5,20,Forest species,Wet
+1981,23,Deposition,B,Aodamo,1,20,Woody species,Woody species
+1981,23,Deposition,B,Akitabuki,20,40,Generalist species,Moderate
+1981,23,Deposition,B,Sawashiba,1,10,Woody species,Woody species
+1981,23,Deposition,B,Iwamitsuba,5,10,Open land species,Dry
+1981,23,Deposition,B,Torikabuto,1,20,Forest species,Wet
+1981,23,Deposition,B,Yabuninjin,1,10,Forest species,Wet
+1981,23,Deposition,B,Hangonsou,5,100,Open land species,Dry
+1981,23,Deposition,B,Suge SP,1,10,Unknown,Unknown
+1981,23,Deposition,C,Miyakozasa,70,80,Generalist species,Moderate
+1981,23,Deposition,C,Yobusumasou,10,130,Forest species,Wet
+1981,23,Deposition,C,Iwamitsuba,1,10,Open land species,Dry
+1981,23,Deposition,C,Asteraceae sp7,1,10,Unknown,Unknown
+1981,23,Deposition,C,Konronsou,1,10,Forest species,Wet
+1981,23,Deposition,C,Suge SP,10,60,Unknown,Unknown
+1981,23,Deposition,C,Suge SP2,1,20,Unknown,Unknown
+1981,23,Deposition,C,Akitabuki,1,20,Generalist species,Moderate
+1981,23,Deposition,C,Sugina,1,10,Open land species,Dry
+1981,23,Deposition,D,Miyakozasa,80,80,Generalist species,Moderate
+1981,23,Deposition,D,Suge SP,30,40,Unknown,Unknown
+1981,23,Deposition,D,Akitabuki,1,15,Generalist species,Moderate
+1981,23,Deposition,D,Yamabuki Shouma,1,15,Generalist species,Moderate
+1981,23,Deposition,D,Konronsou,1,10,Forest species,Wet
+1981,23,Deposition,D,Sawashiba,1,5,Woody species,Woody species
+1981,23,Deposition,D,Kikumugura,1,10,Forest species,Moderate
+1947,30,Initiation,A,Miyakozasa,60,30,Generalist species,Moderate
+1947,30,Initiation,A,Hangonsou,10,60,Open land species,Dry
+1947,30,Initiation,A,Momijigasa,5,20,Forest species,Wet
+1947,30,Initiation,A,Futarishizuka,1,10,Forest species,Wet
+1947,30,Initiation,A,Yabumame,10,10,Open land species,Moderate
+1947,30,Initiation,A,Yamamomiji,5,30,Woody species,Woody species
+1947,30,Initiation,A,Mizunara,1,10,Woody species,Woody species
+1947,30,Initiation,A,Sawashiba,1,40,Woody species,Woody species
+1947,30,Initiation,A,Akashide,1,10,Woody species,Woody species
+1947,30,Initiation,A,Ransuge,1,20,Unknown,Unknown
+1947,30,Initiation,A,Aodamo,1,10,Woody species,Woody species
+1947,30,Initiation,A,Suge SP,10,10,Unknown,Unknown
+1947,30,Initiation,A,Umanomitsuba,1,5,Forest species,Wet
+1947,30,Initiation,A,Suge SP2,1,5,Unknown,Unknown
+1947,30,Initiation,A,Asteraceae sp8,1,5,Unknown,Unknown
+1947,30,Initiation,A,Vine SP,1,10,Unknown,Unknown
+1947,30,Initiation,B,Hangonsou,5,30,Open land species,Dry
+1947,30,Initiation,B,Momijigasa,5,20,Forest species,Wet
+1947,30,Initiation,B,Akitabuki,5,20,Generalist species,Moderate
+1947,30,Initiation,B,Suge SP2,10,20,Unknown,Unknown
+1947,30,Initiation,B,Suge SP,5,10,Unknown,Unknown
+1947,30,Initiation,B,Nogariyasu,1,15,Generalist species,Moderate
+1947,30,Initiation,B,Yabutabako,1,20,Open land species,Moderate
+1947,30,Initiation,B,Yabumame,1,5,Open land species,Moderate
+1947,30,Initiation,B,Akashide,1,5,Woody species,Woody species
+1947,30,Initiation,B,Seedling SP,1,5,Unknown,Unknown
+1947,30,Initiation,B,Kakidoshi,1,5,Open land species,Moderate
+1947,30,Initiation,B,Yamamomiji,5,60,Woody species,Woody species
+1947,30,Initiation,B,Konronsou,1,15,Forest species,Wet
+1947,30,Initiation,B,Aodamo,1,10,Woody species,Woody species
+1947,30,Initiation,B,Vine SP,1,10,Unknown,Unknown
+1947,30,Initiation,C,Miyakozasa,70,40,Generalist species,Moderate
+1947,30,Initiation,C,Futarishizuka,1,20,Forest species,Wet
+1947,30,Initiation,C,Haedokusou,5,30,Forest species,Moderate
+1947,30,Initiation,C,Momijigasa,5,60,Forest species,Wet
+1947,30,Initiation,C,Yamamomiji,1,20,Woody species,Woody species
+1947,30,Initiation,C,Itayakaede,1,10,Woody species,Woody species
+1947,30,Initiation,D,Hangonsou,5,40,Open land species,Dry
+1947,30,Initiation,D,Futarishizuka,15,30,Forest species,Wet
+1947,30,Initiation,D,Haedokusou,5,40,Forest species,Moderate
+1947,30,Initiation,D,Momijigasa,5,40,Forest species,Wet
+1947,30,Initiation,D,Yamamomiji,5,10,Woody species,Woody species
+1947,30,Initiation,D,Yabumame,1,5,Open land species,Moderate
+1947,30,Initiation,D,Asteraceae SP,1,10,Unknown,Unknown
+1947,30,Initiation,D,Nogariyasu,10,30,Generalist species,Moderate
+1947,30,Initiation,D,Suge SP2,15,20,Unknown,Unknown
+1947,30,Initiation,D,Suge SP,5,10,Unknown,Unknown
+1947,30,Initiation,D,Umanomitsuba,1,20,Forest species,Wet
+1947,30,Initiation,D,Aodamo,1,5,Woody species,Woody species
+1947,30,Initiation,D,Yabutabako,1,5,Open land species,Moderate
+1947,30,Initiation,D,Sawashiba,1,10,Woody species,Woody species
+1947,30,Transport,A,Miyakozasa,40,40,Generalist species,Moderate
+1947,30,Transport,A,Futarishizuka,20,30,Forest species,Wet
+1947,30,Transport,A,Momijigasa,10,10,Forest species,Wet
+1947,30,Transport,A,Haedokusou,5,40,Forest species,Moderate
+1947,30,Transport,A,Konronsou,5,10,Forest species,Wet
+1947,30,Transport,A,Hangonsou,1,20,Open land species,Dry
+1947,30,Transport,A,Sarashina Shouma,1,5,Generalist species,Wet
+1947,30,Transport,A,Vine SP,1,15,Unknown,Unknown
+1947,30,Transport,B,Hangonsou,5,80,Open land species,Dry
+1947,30,Transport,B,Miyakozasa,30,30,Generalist species,Moderate
+1947,30,Transport,B,Futarishizuka,15,40,Forest species,Wet
+1947,30,Transport,B,Momijigasa,15,40,Forest species,Wet
+1947,30,Transport,B,Konronsou,5,15,Forest species,Wet
+1947,30,Transport,B,Haedokusou,1,10,Forest species,Moderate
+1947,30,Transport,B,Suge SP,1,10,Unknown,Unknown
+1947,30,Transport,B,Yabumame,1,5,Open land species,Moderate
+1947,30,Transport,B,Sakura SP,1,10,Woody species,Woody species
+1947,30,Transport,B,Sawashiba,1,5,Woody species,Woody species
+1947,30,Transport,B,Nogariyasu,1,10,Generalist species,Moderate
+1947,30,Transport,C,Miyakozasa,80,40,Generalist species,Moderate
+1947,30,Transport,C,Momijigasa,15,20,Forest species,Wet
+1947,30,Transport,C,Yamamomiji,5,40,Woody species,Woody species
+1947,30,Transport,C,Konronsou,10,45,Forest species,Wet
+1947,30,Transport,C,Haedokusou,1,10,Forest species,Moderate
+1947,30,Transport,C,Yabumame,1,15,Open land species,Moderate
+1947,30,Transport,C,Yabutabako,1,10,Open land species,Moderate
+1947,30,Transport,C,Iwamitsuba,1,15,Open land species,Dry
+1947,30,Transport,C,Karamatsusou,1,35,Generalist species,Moderate
+1947,30,Transport,D,Hangonsou,15,140,Open land species,Dry
+1947,30,Transport,D,Futarishizuka,50,40,Forest species,Wet
+1947,30,Transport,D,Momijigasa,20,50,Forest species,Wet
+1947,30,Transport,D,Konronsou,10,20,Forest species,Wet
+1947,30,Transport,D,Yabumame,5,10,Open land species,Moderate
+1947,30,Transport,D,Tsuru ajisai,1,25,Woody species,Woody species
+1947,30,Transport,D,Aodamo,1,10,Woody species,Woody species
+1947,30,Transport,D,Kikumugura,1,10,Forest species,Moderate
+1981,22,Initiation,A,Ooawadachisou,20,110,Open land species,Dry
+1981,22,Initiation,A,Yomogi,10,60,Open land species,Dry
+1981,22,Initiation,A,Naginata Koju,5,30,Open land species,Dry
+1981,22,Initiation,A,Yamahagi,5,35,Woody species,Woody species
+1981,22,Initiation,A,Yabumame,5,20,Open land species,Moderate
+1981,22,Initiation,A,Inutade,10,20,Open land species,Wet
+1981,22,Initiation,A,Inuyomogi,60,40,Open land species,Dry
+1981,22,Initiation,A,Aodamo,1,20,Woody species,Woody species
+1981,22,Initiation,A,Tanisoba,1,20,Open land species,Wet
+1981,22,Initiation,A,Harujion,1,15,Open land species,Moderate
+1981,22,Initiation,A,Oobako,1,15,Open land species,Dry
+1981,22,Initiation,A,Nogariyasu,1,20,Generalist species,Moderate
+1981,22,Initiation,A,Kouzorina,1,50,Open land species,Dry
+1981,22,Initiation,B,Miyakozasa,70,60,Generalist species,Moderate
+1981,22,Initiation,B,Akitabuki,5,20,Generalist species,Moderate
+1981,22,Initiation,B,Tanisoba,1,30,Open land species,Wet
+1981,22,Initiation,B,Yomogi,1,35,Open land species,Dry
+1981,22,Initiation,B,Yabumame,1,20,Open land species,Moderate
+1981,22,Initiation,B,Poaceae SP,1,40,Unknown,Unknown
+1981,22,Initiation,B,Nogariyasu,1,20,Generalist species,Moderate
+1981,22,Initiation,B,Sugina,1,10,Open land species,Dry
+1981,22,Initiation,C,Miyakozasa,65,60,Generalist species,Moderate
+1981,22,Initiation,C,Akitabuki,15,70,Generalist species,Moderate
+1981,22,Initiation,C,Itayakaede,1,10,Woody species,Woody species
+1981,22,Initiation,C,Sugina,1,30,Open land species,Dry
+1981,22,Initiation,C,Nogariyasu,1,20,Generalist species,Moderate
+1981,22,Initiation,C,Inuyomogi,1,10,Open land species,Dry
+1981,22,Initiation,C,Aodamo,1,10,Woody species,Woody species
+1981,22,Initiation,D,Akitabuki,30,50,Generalist species,Moderate
+1981,22,Initiation,D,Sugina,10,20,Open land species,Dry
+1981,22,Initiation,D,Naginata Koju,1,20,Open land species,Dry
+1981,22,Initiation,D,Itayakaede,1,20,Woody species,Woody species
+1981,22,Initiation,D,Inuyomogi,15,40,Open land species,Dry
+1981,22,Initiation,D,Yabumame,10,10,Open land species,Moderate
+1981,22,Initiation,D,Kourai Tennanshou,1,20,Forest species,Moderate
+1981,22,Initiation,D,Aodamo,1,30,Woody species,Woody species
+1981,22,Initiation,D,Yotsubahiyodori,1,20,Open land species,Moderate
+1981,22,Initiation,D,Miyakozasa,20,50,Generalist species,Moderate
+1981,22,Transport,A,Miyakozasa,90,70,Generalist species,Moderate
+1981,22,Transport,A,Akitabuki,5,60,Generalist species,Moderate
+1981,22,Transport,A,Tsuru ajisai,1,15,Woody species,Woody species
+1981,22,Transport,A,Sugina,1,10,Open land species,Dry
+1981,22,Transport,A,Tsurifunesou,1,30,Forest species,Wet
+1981,22,Transport,A,Fern SP,1,5,Unknown,Unknown
+1981,22,Transport,A,Yotsubahiyodori,1,20,Open land species,Moderate
+1981,22,Transport,B,Akitabuki,25,80,Generalist species,Moderate
+1981,22,Transport,B,Hangonsou,10,140,Open land species,Dry
+1981,22,Transport,B,Miyakozasa,80,80,Generalist species,Moderate
+1981,22,Transport,B,Tsurifunesou,1,25,Forest species,Wet
+1981,22,Transport,B,Mizosoba,1,35,Generalist species,Wet
+1981,22,Transport,B,Akashide,1,10,Woody species,Woody species
+1981,22,Transport,B,Kitsurifune,1,20,Forest species,Wet
+1981,22,Transport,C,Tsuru ajisai,1,25,Woody species,Woody species
+1981,22,Transport,C,Itayakaede,1,10,Woody species,Woody species
+1981,22,Transport,C,Miyakozasa,95,80,Generalist species,Moderate
+1981,22,Transport,D,Sarashina Shouma,5,20,Generalist species,Wet
+1981,22,Transport,D,Tsuru ajisai,1,30,Woody species,Woody species
+1981,22,Transport,D,Akashide,5,120,Woody species,Woody species
+1981,22,Transport,D,Aodamo,1,90,Woody species,Woody species
+1981,22,Transport,D,Sugina,1,20,Open land species,Dry
+1981,22,Transport,D,Mizuhiki,1,25,Forest species,Wet
+1981,22,Transport,D,Nogariyasu,1,15,Generalist species,Moderate
+1981,22,Transport,D,Hangonsou,1,60,Open land species,Dry
+1981,22,Deposition,A,Miyakozasa,95,100,Generalist species,Moderate
+1981,22,Deposition,A,Fukkisou,5,20,Woody species,Woody species
+1981,22,Deposition,A,Konronsou,5,20,Forest species,Wet
+1981,22,Deposition,A,Tsurifunesou,5,40,Forest species,Wet
+1981,22,Deposition,A,Kitsurifune,5,40,Forest species,Wet
+1981,22,Deposition,A,Momijigasa,1,30,Forest species,Wet
+1981,22,Deposition,A,Aodamo,1,10,Woody species,Woody species
+1981,22,Deposition,A,Aomizu,1,15,Forest species,Wet
+1981,22,Deposition,B,Mitsuba,5,15,Forest species,Wet
+1981,22,Deposition,B,Inutoubana,15,40,Forest species,Wet
+1981,22,Deposition,B,Naginata Koju,5,25,Open land species,Dry
+1981,22,Deposition,B,Miyakozasa,1,40,Generalist species,Moderate
+1981,22,Deposition,B,Mizosoba,20,40,Generalist species,Wet
+1981,22,Deposition,B,Aomizu,10,20,Forest species,Wet
+1981,22,Deposition,B,Akino unagitsukami,1,25,Generalist species,Wet
+1981,22,Deposition,B,Mizohoozuki,5,10,Generalist species,Wet
+1981,22,Deposition,B,Harutade,20,45,Open land species,Dry
+1981,22,Deposition,B,Mukago irakusa,5,30,Forest species,Wet
+1981,22,Deposition,B,Momijigasa,5,20,Forest species,Wet
+1981,22,Deposition,B,Sarashina Shouma,1,15,Generalist species,Wet
+1981,22,Deposition,B,Kohakobe,5,15,Open land species,Wet
+1981,22,Deposition,B,Kikumugura,1,5,Forest species,Moderate
+1981,22,Deposition,B,Tsurifunesou,10,40,Forest species,Wet
+1981,22,Deposition,B,Yobusumasou,1,30,Forest species,Wet
+1981,22,Deposition,B,Oobako,1,10,Open land species,Dry
+1981,22,Deposition,B,Tanisoba,1,10,Open land species,Wet
+1981,22,Deposition,B,Kakidoshi,1,5,Open land species,Moderate
+1981,22,Deposition,B,Inutade,1,10,Open land species,Wet
+1981,22,Deposition,C,Miyakozasa,80,80,Generalist species,Moderate
+1981,22,Deposition,C,Irakusa,10,70,Forest species,Wet
+1981,22,Deposition,C,Yabuninjin,1,10,Forest species,Wet
+1981,22,Deposition,C,Fukkisou,5,25,Woody species,Woody species
+1981,22,Deposition,C,Aomizu,5,50,Forest species,Wet
+1981,22,Deposition,C,Mitsuba,1,15,Forest species,Wet
+1981,22,Deposition,C,Nekonomeso,5,5,Forest species,Wet
+1981,22,Deposition,C,Kohakobe,1,5,Open land species,Wet
+1981,22,Deposition,C,Kikumugura,1,20,Forest species,Moderate
+1981,22,Deposition,C,Daikonsou,5,70,Forest species,Wet
+1981,22,Deposition,C,Akitabuki,1,30,Generalist species,Moderate
+1981,22,Deposition,C,Fern SP,1,10,Unknown,Unknown
+1981,22,Deposition,C,Suge SP,5,80,Unknown,Unknown
+1981,22,Deposition,D,Miyakozasa,90,110,Generalist species,Moderate
+1981,22,Deposition,D,Fukkisou,10,25,Woody species,Woody species
+1981,22,Deposition,D,Aodamo,5,60,Woody species,Woody species
+1981,22,Deposition,D,Aomizu,1,25,Forest species,Wet
+1981,22,Deposition,D,Konronsou,1,30,Forest species,Wet
+1981,22,Deposition,D,Tsurifunesou,1,30,Forest species,Wet
+1981,22,Deposition,D,Kitsurifune,1,60,Forest species,Wet
+1981,22,Deposition,D,Kohakobe,1,5,Open land species,Wet
+1981,22,Deposition,D,Kikumugura,1,10,Forest species,Moderate
+1981,22,Deposition,D,Momijigasa,1,40,Forest species,Wet
+1981,22,Deposition,D,Mizosoba,1,20,Generalist species,Wet
+1981,62,Initiation,A,Miyakozasa,60,60,Generalist species,Moderate
+1981,62,Initiation,A,Momijigasa,15,40,Forest species,Wet
+1981,62,Initiation,A,Yabuninjin,5,10,Forest species,Wet
+1981,62,Initiation,A,Mukago irakusa,15,30,Forest species,Wet
+1981,62,Initiation,A,Mizuhiki,1,30,Forest species,Wet
+1981,62,Initiation,A,Violets SP,1,5,Unknown,Unknown
+1981,62,Initiation,A,Sarashina Shouma,1,10,Generalist species,Wet
+1981,62,Initiation,A,Poaceae SP,1,10,Unknown,Unknown
+1981,62,Initiation,A,Kohakobe,1,5,Open land species,Wet
+1981,62,Initiation,A,Hahakogusa,1,5,Open land species,Wet
+1981,62,Initiation,A,Fern SP,1,15,Unknown,Unknown
+1981,62,Initiation,B,Miyakozasa,25,60,Generalist species,Moderate
+1981,62,Initiation,B,Momijigasa,5,20,Forest species,Wet
+1981,62,Initiation,B,Yabuninjin,5,10,Forest species,Wet
+1981,62,Initiation,B,Tanimitsuba,10,50,Forest species,Wet
+1981,62,Initiation,B,Konronsou,1,20,Forest species,Wet
+1981,62,Initiation,B,Fern SP,1,5,Unknown,Unknown
+1981,62,Initiation,B,Sawashiba,1,5,Woody species,Woody species
+1981,62,Initiation,C,Miyakozasa,20,60,Generalist species,Moderate
+1981,62,Initiation,C,Momijigasa,5,30,Forest species,Wet
+1981,62,Initiation,C,Tanimitsuba,15,70,Forest species,Wet
+1981,62,Initiation,C,Haedokusou,5,50,Forest species,Moderate
+1981,62,Initiation,C,Yabuninjin,1,15,Forest species,Wet
+1981,62,Initiation,C,Torikabuto,1,15,Forest species,Wet
+1981,62,Initiation,C,Akashide,1,10,Woody species,Woody species
+1981,62,Initiation,D,Miyakozasa,20,60,Generalist species,Moderate
+1981,62,Initiation,D,Momijigasa,20,40,Forest species,Wet
+1981,62,Initiation,D,Torikabuto,5,40,Forest species,Wet
+1981,62,Initiation,D,Tanimitsuba,5,40,Forest species,Wet
+1981,62,Initiation,D,Daikonsou,5,10,Forest species,Wet
+1981,62,Initiation,D,Mizunara,1,5,Woody species,Woody species
+1981,62,Initiation,D,Yabuninjin,5,15,Forest species,Wet
+1981,62,Initiation,D,Mukago irakusa,10,10,Forest species,Wet
+1981,62,Initiation,D,Maizurusou,1,5,Forest species,Wet
+1981,62,Initiation,D,Kurumabasou,15,20,Forest species,Moderate
+1981,62,Initiation,D,Fukkisou,1,10,Woody species,Woody species
+1981,62,Initiation,D,Haedokusou,5,25,Forest species,Moderate
+1981,62,Initiation,D,Oshida,1,30,Forest species,Moderate
+1981,62,Initiation,D,Vine SP,1,5,Unknown,Unknown
+1981,62,Initiation,D,Kohakobe,1,5,Open land species,Wet
+1981,62,Initiation,D,Akashide,1,5,Woody species,Woody species
+1981,62,Initiation,D,Chishimaazami,1,5,Open land species,Moderate
+1981,62,Transport,A,Miyakozasa,60,60,Generalist species,Moderate
+1981,62,Transport,A,Momijigasa,5,15,Forest species,Wet
+1981,62,Transport,A,Yabuninjin,1,10,Forest species,Wet
+1981,62,Transport,A,Konronsou,1,10,Forest species,Wet
+1981,62,Transport,A,Tanimitsuba,1,15,Forest species,Wet
+1981,62,Transport,A,Unknown 18,1,20,Unknown,Unknown
+1981,62,Transport,A,Kourai Tennanshou,1,5,Forest species,Moderate
+1981,62,Transport,A,Yamamomiji,1,15,Woody species,Woody species
+1981,62,Transport,B,Miyakozasa,80,80,Generalist species,Moderate
+1981,62,Transport,B,Fukkisou,5,15,Woody species,Woody species
+1981,62,Transport,B,Tsuribana,5,40,Woody species,Woody species
+1981,62,Transport,B,Momijigasa,5,70,Forest species,Wet
+1981,62,Transport,B,Inutoubana,5,15,Forest species,Wet
+1981,62,Transport,B,Mukago irakusa,5,10,Forest species,Wet
+1981,62,Transport,B,Kikumugura,1,10,Forest species,Moderate
+1981,62,Transport,B,Sawashiba,1,10,Woody species,Woody species
+1981,62,Transport,B,Asada,1,10,Woody species,Woody species
+1981,62,Transport,B,Yabuninjin,1,10,Forest species,Wet
+1981,62,Transport,B,Okukuruma Mugura,1,5,Forest species,Wet
+1981,62,Transport,B,Daikonsou,1,20,Forest species,Wet
+1981,62,Transport,B,Konronsou,1,10,Forest species,Wet
+1981,62,Transport,B,Oshida,1,10,Forest species,Moderate
+1981,62,Transport,C,Miyakozasa,60,60,Generalist species,Moderate
+1981,62,Transport,C,Momijigasa,10,20,Forest species,Wet
+1981,62,Transport,C,Yabuninjin,5,20,Forest species,Wet
+1981,62,Transport,C,Daikonsou,1,20,Forest species,Wet
+1981,62,Transport,C,Konronsou,1,20,Forest species,Wet
+1981,62,Transport,C,Oshida,5,10,Forest species,Moderate
+1981,62,Transport,C,Irakusa,5,10,Forest species,Wet
+1981,62,Transport,C,Yamamomiji,1,10,Woody species,Woody species
+1981,62,Transport,C,Sarashina Shouma,1,10,Generalist species,Wet
+1981,62,Transport,C,Haedokusou,5,20,Forest species,Moderate
+1981,62,Transport,C,Inutoubana,5,10,Forest species,Wet
+1981,62,Transport,C,Fukkisou,1,10,Woody species,Woody species
+1981,62,Transport,C,Tanimitsuba,1,30,Forest species,Wet
+1981,62,Transport,D,Miyakozasa,20,50,Generalist species,Moderate
+1981,62,Transport,D,Momijigasa,10,35,Forest species,Wet
+1981,62,Transport,D,Torikabuto,5,60,Forest species,Wet
+1981,62,Transport,D,Fukkisou,1,10,Woody species,Woody species
+1981,62,Transport,D,Tanimitsuba,10,60,Forest species,Wet
+1981,62,Transport,D,Yamamomiji,1,10,Woody species,Woody species
+1981,62,Transport,D,Daikonsou,1,10,Forest species,Wet
+1981,62,Transport,D,Yabuninjin,1,5,Forest species,Wet
+1981,62,Transport,D,Irakusa,1,10,Forest species,Wet
+1981,62,Transport,D,Haedokusou,5,30,Forest species,Moderate
+1981,62,Transport,D,Kourai Tennanshou,1,20,Forest species,Moderate
+1981,62,Transport,D,Mukago irakusa,5,10,Forest species,Wet
+1981,62,Transport,D,Sansho,1,50,Woody species,Woody species
+1981,62,Transport,D,Kurumabasou,1,10,Forest species,Moderate
+1981,62,Transport,D,Suge SP,1,20,Unknown,Unknown
+1981,62,Deposition,A,Miyakozasa,80,60,Generalist species,Moderate
+1981,62,Deposition,A,Hangonsou,15,140,Open land species,Dry
+1981,62,Deposition,A,Momijigasa,5,60,Forest species,Wet
+1981,62,Deposition,A,Yabumame,1,10,Open land species,Moderate
+1981,62,Deposition,A,Yamamomiji,1,40,Woody species,Woody species
+1981,62,Deposition,A,Haedokusou,5,40,Forest species,Moderate
+1981,62,Deposition,A,Tsurifunesou,5,40,Forest species,Wet
+1981,62,Deposition,A,Konronsou,1,40,Forest species,Wet
+1981,62,Deposition,A,Unknown 19,1,10,Unknown,Unknown
+1981,62,Deposition,A,Itayakaede,1,20,Woody species,Woody species
+1981,62,Deposition,A,Suge SP,5,20,Unknown,Unknown
+1981,62,Deposition,A,Kohakobe,1,5,Open land species,Wet
+1981,62,Deposition,A,Violets SP,1,5,Unknown,Unknown
+1981,62,Deposition,A,Kurumabasou,1,10,Forest species,Moderate
+1981,62,Deposition,A,Yabuninjin,1,10,Forest species,Wet
+1981,62,Deposition,A,Hanatade,5,20,Forest species,Wet
+1981,62,Deposition,A,Saxifrage sp,1,10,Unknown,Unknown
+1981,62,Deposition,A,Daikonsou,1,30,Forest species,Wet
+1981,62,Deposition,B,Miyakozasa,60,50,Generalist species,Moderate
+1981,62,Deposition,B,Momijigasa,10,30,Forest species,Wet
+1981,62,Deposition,B,Daikonsou,5,90,Forest species,Wet
+1981,62,Deposition,B,Tanisoba,1,20,Open land species,Wet
+1981,62,Deposition,B,Okukuruma Mugura,1,10,Forest species,Wet
+1981,62,Deposition,B,Konronsou,10,70,Forest species,Wet
+1981,62,Deposition,B,Haedokusou,1,20,Forest species,Moderate
+1981,62,Deposition,B,Tsurifunesou,5,30,Forest species,Wet
+1981,62,Deposition,B,Irakusa,1,20,Forest species,Wet
+1981,62,Deposition,B,Tanimitsuba,1,20,Forest species,Wet
+1981,62,Deposition,B,Yamamomiji,1,5,Woody species,Woody species
+1981,62,Deposition,B,Sawashiba,1,5,Woody species,Woody species
+1981,62,Deposition,B,Itayakaede,1,10,Woody species,Woody species
+1981,62,Deposition,C,Miyakozasa,90,80,Generalist species,Moderate
+1981,62,Deposition,C,Torikabuto,1,80,Forest species,Wet
+1981,62,Deposition,C,Fukkisou,10,10,Woody species,Woody species
+1981,62,Deposition,C,Sarashina Shouma,5,15,Generalist species,Wet
+1981,62,Deposition,C,Konronsou,1,25,Forest species,Wet
+1981,62,Deposition,D,Hanatade,40,20,Forest species,Wet
+1981,62,Deposition,D,Momijigasa,30,10,Forest species,Wet
+1981,62,Deposition,D,Mizuhiki,10,20,Forest species,Wet
+1981,62,Deposition,D,Daikonsou,5,40,Forest species,Wet
+1981,62,Deposition,D,Naginata Koju,1,10,Open land species,Dry
+1981,62,Deposition,D,Yabuninjin,5,10,Forest species,Wet
+1981,62,Deposition,D,Tsuribana,5,30,Woody species,Woody species
+1981,62,Deposition,D,Inutoubana,5,40,Forest species,Wet
+1981,62,Deposition,D,Itayakaede,1,10,Woody species,Woody species
+1981,62,Deposition,D,Kohakobe,1,5,Open land species,Wet
+1981,62,Deposition,D,Kikumugura,1,5,Forest species,Moderate
+1981,62,Deposition,D,Irakusa,1,15,Forest species,Wet
+1981,62,Deposition,D,Aomizu,5,20,Forest species,Wet
+1981,62,Deposition,D,Mukago irakusa,1,30,Forest species,Wet
+1981,62,Deposition,D,Chishimaazami,5,20,Open land species,Moderate
+1981,62,Deposition,D,Kakidoshi,1,5,Open land species,Moderate
+1981,62,Deposition,D,Mitsuba,1,10,Forest species,Wet
+1981,62,Deposition,D,Suge SP,5,40,Unknown,Unknown
+1981,62,Deposition,D,Suge SP2,1,15,Unknown,Unknown
+1981,62,Deposition,D,Dianthus sp,1,30,Unknown,Unknown
+1981,62,Deposition,D,Miyakozasa,10,40,Generalist species,Moderate
+1947,32,Initiation,A,Miyakozasa,25,40,Generalist species,Moderate
+1947,32,Initiation,A,Tachitsubo violets,1,5,Open land species,Dry
+1947,32,Initiation,A,Suge SP,20,10,Unknown,Unknown
+1947,32,Initiation,A,Suge SP2,10,20,Unknown,Unknown
+1947,32,Initiation,A,Unknown 20,5,10,Unknown,Unknown
+1947,32,Initiation,A,Konronsou,1,10,Forest species,Wet
+1947,32,Initiation,A,Haedokusou,1,10,Forest species,Moderate
+1947,32,Initiation,A,Shrubs sp9,1,10,Woody species,Woody species
+1947,32,Initiation,A,Yamamomiji,1,10,Woody species,Woody species
+1947,32,Initiation,A,Ooamadokoro,1,5,Generalist species,Moderate
+1947,32,Initiation,A,Nogariyasu,1,5,Generalist species,Moderate
+1947,32,Initiation,B,Miyakozasa,50,40,Generalist species,Moderate
+1947,32,Initiation,B,Konronsou,5,15,Forest species,Wet
+1947,32,Initiation,B,Unknown 21,1,10,Unknown,Unknown
+1947,32,Initiation,B,Aodamo,5,20,Woody species,Woody species
+1947,32,Initiation,B,Suge SP,10,20,Unknown,Unknown
+1947,32,Initiation,B,Asada,1,10,Woody species,Woody species
+1947,32,Initiation,B,Tachitsubo violets,1,5,Open land species,Dry
+1947,32,Initiation,B,Tsurumasaki,1,5,Woody species,Woody species
+1947,32,Initiation,C,Yobusumasou,10,160,Forest species,Wet
+1947,32,Initiation,C,Miyakozasa,40,50,Generalist species,Moderate
+1947,32,Initiation,C,Aodamo,5,30,Woody species,Woody species
+1947,32,Initiation,C,Akashide,30,80,Woody species,Woody species
+1947,32,Initiation,C,Sawashiba,5,70,Woody species,Woody species
+1947,32,Initiation,C,Shrubs sp9,1,30,Woody species,Woody species
+1947,32,Initiation,C,Otokoeshi,1,5,Open land species,Moderate
+1947,32,Initiation,C,Yamamomiji,1,10,Woody species,Woody species
+1947,32,Initiation,C,Tachitsubo violets,1,5,Open land species,Dry
+1947,32,Initiation,C,Shirobanano hebiichigo,1,5,Woody species,Woody species
+1947,32,Initiation,C,Momijigasa,1,10,Forest species,Wet
+1947,32,Initiation,C,Suge SP,40,20,Unknown,Unknown
+1947,32,Initiation,C,Hangonsou,1,40,Open land species,Dry
+1947,32,Initiation,D,Akinokirinsou,1,40,Open land species,Dry
+1947,32,Initiation,D,Miyakozasa,30,30,Generalist species,Moderate
+1947,32,Initiation,D,Shirobanano hebiichigo,5,5,Woody species,Woody species
+1947,32,Initiation,D,Otokoeshi,1,5,Open land species,Moderate
+1947,32,Initiation,D,Tachitsubo violets,1,5,Open land species,Dry
+1947,32,Initiation,D,Aodamo,5,10,Woody species,Woody species
+1947,32,Initiation,D,Suge SP,25,10,Unknown,Unknown
+1947,32,Initiation,D,Nogariyasu,10,15,Generalist species,Moderate
+1947,32,Initiation,D,Kikumugura,5,5,Forest species,Moderate
+1947,32,Transport,A,Miyakozasa,60,45,Generalist species,Moderate
+1947,32,Transport,A,Ooyomogi,1,20,Open land species,Dry
+1947,32,Transport,A,Vine SP,1,20,Unknown,Unknown
+1947,32,Transport,A,Haedokusou,5,40,Forest species,Moderate
+1947,32,Transport,A,Yamamomiji,5,45,Woody species,Woody species
+1947,32,Transport,A,Aodamo,1,25,Woody species,Woody species
+1947,32,Transport,A,Otokoeshi,5,10,Open land species,Moderate
+1947,32,Transport,A,Yabumame,1,5,Open land species,Moderate
+1947,32,Transport,A,Yabuninjin,1,5,Forest species,Wet
+1947,32,Transport,A,Suge SP,70,20,Unknown,Unknown
+1947,32,Transport,A,Hangonsou,5,60,Open land species,Dry
+1947,32,Transport,B,Miyakozasa,95,50,Generalist species,Moderate
+1947,32,Transport,B,Konronsou,10,15,Forest species,Wet
+1947,32,Transport,B,Yamahagi,1,10,Woody species,Woody species
+1947,32,Transport,B,Haedokusou,1,10,Forest species,Moderate
+1947,32,Transport,B,Tachitsubo violets,1,10,Open land species,Dry
+1947,32,Transport,B,Hangonsou,1,60,Open land species,Dry
+1947,32,Transport,B,Okukuruma Mugura,1,20,Forest species,Wet
+1947,32,Transport,B,Miyama Mugura,1,5,Forest species,Moderate
+1947,32,Transport,B,Ezo Yamazakura,1,30,Woody species,Woody species
+1947,32,Transport,B,Yamamomiji,1,5,Woody species,Woody species
+1947,32,Transport,C,Miyakozasa,75,50,Generalist species,Moderate
+1947,32,Transport,C,Hangonsou,5,120,Open land species,Dry
+1947,32,Transport,C,Haedokusou,5,30,Forest species,Moderate
+1947,32,Transport,C,Aodamo,1,30,Woody species,Woody species
+1947,32,Transport,C,Mizunara,1,15,Woody species,Woody species
+1947,32,Transport,C,Akashide,1,5,Woody species,Woody species
+1947,32,Transport,C,Ezo Yamazakura,1,15,Woody species,Woody species
+1947,32,Transport,C,Miyama Mugura,5,15,Forest species,Moderate
+1947,32,Transport,C,Okukuruma Mugura,5,10,Forest species,Wet
+1947,32,Transport,C,Nogariyasu,20,15,Generalist species,Moderate
+1947,32,Transport,D,Miyakozasa,40,60,Generalist species,Moderate
+1947,32,Transport,D,Oshida,40,40,Forest species,Moderate
+1947,32,Transport,D,Yamamomiji,1,90,Woody species,Woody species
+1947,32,Transport,D,Haedokusou,10,20,Forest species,Moderate
+1947,32,Transport,D,Futarishizuka,5,15,Forest species,Wet
+1947,32,Transport,D,Aodamo,1,15,Woody species,Woody species
+1947,32,Transport,D,Okukuruma Mugura,1,10,Forest species,Wet
+1947,32,Transport,D,Miyama Mugura,1,10,Forest species,Moderate
+1947,32,Transport,D,Suge SP,10,10,Unknown,Unknown
+Reference,Biratori,Upper,A,Sawashiba,5,25,Woody species,Woody species
+Reference,Biratori,Upper,A,Nogariyasu,10,30,Generalist species,Moderate
+Reference,Biratori,Upper,A,Suge SP,30,20,Unknown,Unknown
+Reference,Biratori,Upper,A,Ransuge,5,5,Unknown,Unknown
+Reference,Biratori,Upper,A,Itayakaede,5,5,Woody species,Woody species
+Reference,Biratori,Upper,A,Akashide,1,10,Woody species,Woody species
+Reference,Biratori,Upper,A,Ezo Yamazakura,1,10,Woody species,Woody species
+Reference,Biratori,Upper,A,Maizurusou,5,5,Forest species,Wet
+Reference,Biratori,Upper,A,Fern SP,20,20,Unknown,Unknown
+Reference,Biratori,Upper,A,Yabutabako,1,20,Open land species,Moderate
+Reference,Biratori,Upper,A,Iwagarami,1,5,Woody species,Woody species
+Reference,Biratori,Upper,A,Koichiyakusou,1,5,Forest species,Moderate
+Reference,Biratori,Upper,A,Tsutaurushi,1,10,Woody species,Woody species
+Reference,Biratori,Upper,B,Sawashiba,5,40,Woody species,Woody species
+Reference,Biratori,Upper,B,Suge SP,60,10,Unknown,Unknown
+Reference,Biratori,Upper,B,Suge SP2,5,10,Unknown,Unknown
+Reference,Biratori,Upper,B,Ransuge,5,10,Unknown,Unknown
+Reference,Biratori,Upper,B,Vine SP,5,20,Unknown,Unknown
+Reference,Biratori,Upper,B,Maizurusou,1,5,Forest species,Wet
+Reference,Biratori,Upper,B,Shinanoki,1,10,Woody species,Woody species
+Reference,Biratori,Upper,B,Asada,1,10,Woody species,Woody species
+Reference,Biratori,Upper,B,Harunire,1,5,Woody species,Woody species
+Reference,Biratori,Upper,B,Akashide,1,5,Woody species,Woody species
+Reference,Biratori,Upper,B,Haedokusou,5,40,Forest species,Moderate
+Reference,Biratori,Upper,B,Ooamadokoro,5,10,Generalist species,Moderate
+Reference,Biratori,Upper,C,Oshida,10,20,Forest species,Moderate
+Reference,Biratori,Upper,C,Sawashiba,5,20,Woody species,Woody species
+Reference,Biratori,Upper,C,Vine SP,1,20,Unknown,Unknown
+Reference,Biratori,Upper,C,Suge SP,20,10,Unknown,Unknown
+Reference,Biratori,Upper,C,Vine SP2,1,10,Unknown,Unknown
+Reference,Biratori,Upper,C,Maizurusou,1,5,Forest species,Wet
+Reference,Biratori,Upper,C,Yamabudou,1,5,Woody species,Woody species
+Reference,Biratori,Upper,C,Ransuge,1,10,Unknown,Unknown
+Reference,Biratori,Upper,C,Yabutabako,1,10,Open land species,Moderate
+Reference,Biratori,Upper,D,Akinokirinsou,5,40,Open land species,Dry
+Reference,Biratori,Upper,D,Sawashiba,5,50,Woody species,Woody species
+Reference,Biratori,Upper,D,Oshida,1,15,Forest species,Moderate
+Reference,Biratori,Upper,D,Tachitsubo violets,1,5,Open land species,Dry
+Reference,Biratori,Upper,D,Tsuru ajisai,5,20,Woody species,Woody species
+Reference,Biratori,Upper,D,Suge SP,30,5,Unknown,Unknown
+Reference,Biratori,Upper,D,Ransuge,1,5,Unknown,Unknown
+Reference,Biratori,Upper,D,Akashide,1,5,Woody species,Woody species
+Reference,Biratori,Upper,D,Aodamo,1,10,Woody species,Woody species
+Reference,Biratori,Middle,A,Torikabuto,1,30,Forest species,Wet
+Reference,Biratori,Middle,A,Tanimitsuba,10,40,Forest species,Wet
+Reference,Biratori,Middle,A,Sawashiba,1,25,Woody species,Woody species
+Reference,Biratori,Middle,A,Fern SP,5,20,Unknown,Unknown
+Reference,Biratori,Middle,A,Vine SP,1,15,Unknown,Unknown
+Reference,Biratori,Middle,A,Ransuge,1,10,Unknown,Unknown
+Reference,Biratori,Middle,A,Suge SP,30,20,Unknown,Unknown
+Reference,Biratori,Middle,A,Chishimaazami,5,5,Open land species,Moderate
+Reference,Biratori,Middle,A,Akinokirinsou,1,10,Open land species,Dry
+Reference,Biratori,Middle,A,Konronsou,1,10,Forest species,Wet
+Reference,Biratori,Middle,A,Tsuru ajisai,1,10,Woody species,Woody species
+Reference,Biratori,Middle,A,Haedokusou,1,5,Forest species,Moderate
+Reference,Biratori,Middle,B,Yamamomiji,5,120,Woody species,Woody species
+Reference,Biratori,Middle,B,Yobusumasou,5,60,Forest species,Wet
+Reference,Biratori,Middle,B,Momijigasa,5,30,Forest species,Wet
+Reference,Biratori,Middle,B,Konronsou,5,20,Forest species,Wet
+Reference,Biratori,Middle,B,Haedokusou,1,40,Forest species,Moderate
+Reference,Biratori,Middle,B,Oshida,20,40,Forest species,Moderate
+Reference,Biratori,Middle,B,Tsuru ajisai,10,30,Woody species,Woody species
+Reference,Biratori,Middle,B,Miyakozasa,5,40,Generalist species,Moderate
+Reference,Biratori,Middle,B,Sawashiba,5,20,Woody species,Woody species
+Reference,Biratori,Middle,B,Suge SP,1,5,Unknown,Unknown
+Reference,Biratori,Middle,B,Vine SP,1,5,Unknown,Unknown
+Reference,Biratori,Middle,C,Oshida,25,40,Forest species,Moderate
+Reference,Biratori,Middle,C,Miyakozasa,10,40,Generalist species,Moderate
+Reference,Biratori,Middle,C,Momijigasa,15,20,Forest species,Wet
+Reference,Biratori,Middle,C,Konronsou,10,35,Forest species,Wet
+Reference,Biratori,Middle,C,Chishimaazami,1,5,Open land species,Moderate
+Reference,Biratori,Middle,C,Ezokurokumosou,1,5,Forest species,Wet
+Reference,Biratori,Middle,C,Haedokusou,1,10,Forest species,Moderate
+Reference,Biratori,Middle,C,Futarishizuka,1,5,Forest species,Wet
+Reference,Biratori,Middle,C,Tsuru ajisai,1,5,Woody species,Woody species
+Reference,Biratori,Middle,C,Sawashiba,1,5,Woody species,Woody species
+Reference,Biratori,Middle,C,Vine SP,1,5,Unknown,Unknown
+Reference,Biratori,Middle,C,Suge SP,1,10,Unknown,Unknown
+Reference,Biratori,Middle,C,Suge SP2,5,5,Unknown,Unknown
+Reference,Biratori,Middle,D,Miyakozasa,25,40,Generalist species,Moderate
+Reference,Biratori,Middle,D,Oshida,5,30,Forest species,Moderate
+Reference,Biratori,Middle,D,Haedokusou,5,40,Forest species,Moderate
+Reference,Biratori,Middle,D,Momijigasa,5,10,Forest species,Wet
+Reference,Biratori,Middle,D,Fukkisou,5,10,Woody species,Woody species
+Reference,Biratori,Middle,D,Konronsou,1,15,Forest species,Wet
+Reference,Biratori,Middle,D,Suge SP,5,10,Unknown,Unknown
+Reference,Biratori,Middle,D,Suge SP3,1,5,Unknown,Unknown
+Reference,Biratori,Middle,D,Nogariyasu,1,10,Generalist species,Moderate
+Reference,Biratori,Middle,D,Ezokurokumosou,1,20,Forest species,Wet
+Reference,Biratori,Middle,D,Vine SP2,1,5,Unknown,Unknown
+Reference,Biratori,Lower,A,Oshida,40,80,Forest species,Moderate
+Reference,Biratori,Lower,A,Fukkisou,25,20,Woody species,Woody species
+Reference,Biratori,Lower,A,Tsurifunesou,5,25,Forest species,Wet
+Reference,Biratori,Lower,A,Momijigasa,1,20,Forest species,Wet
+Reference,Biratori,Lower,A,Irakusa,5,20,Forest species,Wet
+Reference,Biratori,Lower,A,Mukago irakusa,10,15,Forest species,Wet
+Reference,Biratori,Lower,A,Konronsou,5,20,Forest species,Wet
+Reference,Biratori,Lower,B,Oshida,60,50,Forest species,Moderate
+Reference,Biratori,Lower,B,Fukkisou,25,30,Woody species,Woody species
+Reference,Biratori,Lower,B,Konronsou,5,20,Forest species,Wet
+Reference,Biratori,Lower,B,Mukago irakusa,5,10,Forest species,Wet
+Reference,Biratori,Lower,B,Irakusa,5,10,Forest species,Wet
+Reference,Biratori,Lower,B,Nekonomeso,1,5,Forest species,Wet
+Reference,Biratori,Lower,B,Mizosoba,1,25,Generalist species,Wet
+Reference,Biratori,Lower,C,Akitabuki,25,70,Generalist species,Moderate
+Reference,Biratori,Lower,C,Oshida,40,60,Forest species,Moderate
+Reference,Biratori,Lower,C,Fukkisou,10,20,Woody species,Woody species
+Reference,Biratori,Lower,C,Konronsou,5,20,Forest species,Wet
+Reference,Biratori,Lower,C,Irakusa,1,5,Forest species,Wet
+Reference,Biratori,Lower,D,Oshida,20,30,Forest species,Moderate
+Reference,Biratori,Lower,D,Fukkisou,15,30,Woody species,Woody species
+Reference,Biratori,Lower,D,Konronsou,1,30,Forest species,Wet
+Reference,Biratori,Lower,D,Tsurifunesou,1,25,Forest species,Wet
+Reference,Biratori,Lower,D,Mizuhiki,1,30,Forest species,Wet
+Reference,Biratori,Lower,D,Mukago irakusa,5,10,Forest species,Wet
+Reference,Biratori,Lower,D,Itayakaede,1,10,Woody species,Woody species
+Reference,Biratori,Lower,D,Koichiyakusou,1,5,Forest species,Moderate
+Reference,Biratori,Lower,D,Yachidamo,1,10,Woody species,Woody species
+Reference,Hidaka,Upper,A,Miyakozasa,60,50,Generalist species,Moderate
+Reference,Hidaka,Upper,A,Oshida,40,40,Forest species,Moderate
+Reference,Hidaka,Upper,A,Momijigasa,10,30,Forest species,Wet
+Reference,Hidaka,Upper,A,Fukkisou,10,20,Woody species,Woody species
+Reference,Hidaka,Upper,A,Konronsou,10,15,Forest species,Wet
+Reference,Hidaka,Upper,A,Akashide,1,10,Woody species,Woody species
+Reference,Hidaka,Upper,A,Nekonomeso,1,5,Forest species,Wet
+Reference,Hidaka,Upper,B,Oshida,50,90,Forest species,Moderate
+Reference,Hidaka,Upper,B,Miyakozasa,5,30,Generalist species,Moderate
+Reference,Hidaka,Upper,B,Fukkisou,5,30,Woody species,Woody species
+Reference,Hidaka,Upper,B,Konronsou,10,15,Forest species,Wet
+Reference,Hidaka,Upper,B,Momijigasa,5,20,Forest species,Wet
+Reference,Hidaka,Upper,B,Irakusa,1,5,Forest species,Wet
+Reference,Hidaka,Upper,B,Mukago irakusa,5,10,Forest species,Wet
+Reference,Hidaka,Upper,B,Nekonomeso,1,5,Forest species,Wet
+Reference,Hidaka,Upper,B,Tsuru ajisai,1,10,Woody species,Woody species
+Reference,Hidaka,Upper,C,Miyakozasa,25,40,Generalist species,Moderate
+Reference,Hidaka,Upper,C,Oshida,15,60,Forest species,Moderate
+Reference,Hidaka,Upper,C,Fukkisou,5,20,Woody species,Woody species
+Reference,Hidaka,Upper,C,Momijigasa,5,10,Forest species,Wet
+Reference,Hidaka,Upper,C,Mukago irakusa,5,10,Forest species,Wet
+Reference,Hidaka,Upper,C,Irakusa,1,5,Forest species,Wet
+Reference,Hidaka,Upper,C,Konronsou,5,10,Forest species,Wet
+Reference,Hidaka,Upper,C,Kurumabasou,1,5,Forest species,Moderate
+Reference,Hidaka,Upper,D,Miyakozasa,20,40,Generalist species,Moderate
+Reference,Hidaka,Upper,D,Oshida,35,60,Forest species,Moderate
+Reference,Hidaka,Upper,D,Fukkisou,5,30,Woody species,Woody species
+Reference,Hidaka,Upper,D,Konronsou,5,25,Forest species,Wet
+Reference,Hidaka,Middle,A,Oshida,50,60,Forest species,Moderate
+Reference,Hidaka,Middle,A,Miyakozasa,25,40,Generalist species,Moderate
+Reference,Hidaka,Middle,A,Momijigasa,5,5,Forest species,Wet
+Reference,Hidaka,Middle,A,Nekonomeso,1,5,Forest species,Wet
+Reference,Hidaka,Middle,A,Suge SP,1,10,Unknown,Unknown
+Reference,Hidaka,Middle,A,Mukago irakusa,1,10,Forest species,Wet
+Reference,Hidaka,Middle,A,Irakusa,1,15,Forest species,Wet
+Reference,Hidaka,Middle,B,Oshida,20,45,Forest species,Moderate
+Reference,Hidaka,Middle,B,Miyakozasa,80,50,Generalist species,Moderate
+Reference,Hidaka,Middle,B,Konronsou,5,50,Forest species,Wet
+Reference,Hidaka,Middle,B,Momijigasa,1,25,Forest species,Wet
+Reference,Hidaka,Middle,B,Suge SP,1,5,Unknown,Unknown
+Reference,Hidaka,Middle,C,Jumonji fern,5,30,Forest species,Moderate
+Reference,Hidaka,Middle,C,Miyakozasa,60,30,Generalist species,Moderate
+Reference,Hidaka,Middle,C,Momijigasa,5,30,Forest species,Wet
+Reference,Hidaka,Middle,C,Fukkisou,20,20,Woody species,Woody species
+Reference,Hidaka,Middle,C,Konronsou,5,35,Forest species,Wet
+Reference,Hidaka,Middle,C,Irakusa,1,10,Forest species,Wet
+Reference,Hidaka,Middle,C,Tsurumasaki,1,10,Woody species,Woody species
+Reference,Hidaka,Middle,C,Yobusumasou,1,10,Forest species,Wet
+Reference,Hidaka,Middle,C,Kurobiitaya,1,15,Woody species,Woody species
+Reference,Hidaka,Middle,D,Oshida,40,70,Forest species,Moderate
+Reference,Hidaka,Middle,D,Miyakozasa,30,40,Generalist species,Moderate
+Reference,Hidaka,Middle,D,Konronsou,5,30,Forest species,Wet
+Reference,Hidaka,Middle,D,Momijigasa,10,10,Forest species,Wet
+Reference,Hidaka,Middle,D,Tsuru ajisai,1,5,Woody species,Woody species
+Reference,Hidaka,Middle,D,Irakusa,1,10,Forest species,Wet
+Reference,Hidaka,Middle,D,Mukago irakusa,5,10,Forest species,Wet
+Reference,Hidaka,Middle,D,Koichiyakusou,1,5,Forest species,Moderate
+Reference,Hidaka,Middle,D,Itayakaede,1,10,Woody species,Woody species
+Reference,Hidaka,Lower,A,Miyakozasa,40,40,Generalist species,Moderate
+Reference,Hidaka,Lower,A,Fukkisou,15,20,Woody species,Woody species
+Reference,Hidaka,Lower,A,Aomizu,10,25,Forest species,Wet
+Reference,Hidaka,Lower,A,Mitsuba,5,10,Forest species,Wet
+Reference,Hidaka,Lower,A,Mizuhiki,5,10,Forest species,Wet
+Reference,Hidaka,Lower,A,Mizosoba,1,10,Generalist species,Wet
+Reference,Hidaka,Lower,A,Yabuninjin,1,10,Forest species,Wet
+Reference,Hidaka,Lower,A,Daikonsou,1,10,Forest species,Wet
+Reference,Hidaka,Lower,B,Miyakozasa,60,130,Generalist species,Moderate
+Reference,Hidaka,Lower,B,Yobusumasou,10,100,Forest species,Wet
+Reference,Hidaka,Lower,B,Aomizu,10,10,Forest species,Wet
+Reference,Hidaka,Lower,B,Fukkisou,10,20,Woody species,Woody species
+Reference,Hidaka,Lower,B,Tsurifunesou,5,25,Forest species,Wet
+Reference,Hidaka,Lower,B,Konronsou,5,20,Forest species,Wet
+Reference,Hidaka,Lower,B,Irakusa,1,25,Forest species,Wet
+Reference,Hidaka,Lower,B,Daikonsou,1,10,Forest species,Wet
+Reference,Hidaka,Lower,B,Tsuru ajisai,1,5,Woody species,Woody species
+Reference,Hidaka,Lower,C,Miyakozasa,70,35,Generalist species,Moderate
+Reference,Hidaka,Lower,C,Tanimitsuba,20,50,Forest species,Wet
+Reference,Hidaka,Lower,C,Kurobiitaya,5,10,Woody species,Woody species
+Reference,Hidaka,Lower,C,Tsuru ajisai,1,5,Woody species,Woody species
+Reference,Hidaka,Lower,C,Aomizu,1,5,Forest species,Wet
+Reference,Hidaka,Lower,D,Miyakozasa,70,40,Generalist species,Moderate
+Reference,Hidaka,Lower,D,Torikabuto,5,60,Forest species,Wet
+Reference,Hidaka,Lower,D,Fukkisou,10,20,Woody species,Woody species
+Reference,Hidaka,Lower,D,Kurobiitaya,1,10,Woody species,Woody species
+Reference,Hidaka,Lower,D,Mitsuba utsugi,1,5,Woody species,Woody species
+Reference,Hidaka,Lower,D,Kitsurifune,1,10,Forest species,Wet
+1981,70,Initiation,A,Oshida,15,70,Forest species,Moderate
+1981,70,Initiation,A,Miyakozasa,20,40,Generalist species,Moderate
+1981,70,Initiation,A,Yabuninjin,10,15,Forest species,Wet
+1981,70,Initiation,A,Mizuhiki,10,50,Forest species,Wet
+1981,70,Initiation,A,Hangonsou,5,80,Open land species,Dry
+1981,70,Initiation,A,Torikabuto,1,60,Forest species,Wet
+1981,70,Initiation,A,Naginata Koju,10,20,Open land species,Dry
+1981,70,Initiation,A,Kakidoshi,1,5,Open land species,Moderate
+1981,70,Initiation,A,Aodamo,5,15,Woody species,Woody species
+1981,70,Initiation,A,Tachitsubo violets,1,5,Open land species,Dry
+1981,70,Initiation,A,Kohakobe,1,5,Open land species,Wet
+1981,70,Initiation,A,Koichiyakusou,1,5,Forest species,Moderate
+1981,70,Initiation,A,Suge SP,5,5,Unknown,Unknown
+1981,70,Initiation,A,Nogariyasu,1,15,Generalist species,Moderate
+1981,70,Initiation,B,Miyakozasa,10,40,Generalist species,Moderate
+1981,70,Initiation,B,Torikabuto,1,40,Forest species,Wet
+1981,70,Initiation,B,Aodamo,5,100,Woody species,Woody species
+1981,70,Initiation,B,Yamamomiji,5,40,Woody species,Woody species
+1981,70,Initiation,B,Aomizu,5,10,Forest species,Wet
+1981,70,Initiation,B,Haedokusou,5,30,Forest species,Moderate
+1981,70,Initiation,B,Sawashiba,5,20,Woody species,Woody species
+1981,70,Initiation,B,Koichiyakusou,1,5,Forest species,Moderate
+1981,70,Initiation,B,Keyama hannoki,5,10,Woody species,Woody species
+1981,70,Initiation,B,Sugina,1,10,Open land species,Dry
+1981,70,Initiation,B,Oshida,5,5,Forest species,Moderate
+1981,70,Initiation,B,Mizuhiki,1,15,Forest species,Wet
+1981,70,Initiation,B,Miyama Mugura,1,10,Forest species,Moderate
+1981,70,Initiation,B,Tachitsubo violets,1,5,Open land species,Dry
+1981,70,Initiation,C,Miyakozasa,40,40,Generalist species,Moderate
+1981,70,Initiation,C,Hangonsou,5,80,Open land species,Dry
+1981,70,Initiation,C,Momijigasa,10,60,Forest species,Wet
+1981,70,Initiation,C,Aomizu,10,60,Forest species,Wet
+1981,70,Initiation,C,Mizuhiki,5,25,Forest species,Wet
+1981,70,Initiation,C,Oshida,5,40,Forest species,Moderate
+1981,70,Initiation,C,Tachitsubo violets,1,5,Open land species,Dry
+1981,70,Initiation,C,Miyama Mugura,1,5,Forest species,Moderate
+1981,70,Initiation,C,Sawashiba,1,40,Woody species,Woody species
+1981,70,Initiation,C,Nekonomeso,1,5,Forest species,Wet
+1981,70,Initiation,C,Taranoki,1,50,Woody species,Woody species
+1981,70,Initiation,D,Miyakozasa,90,70,Generalist species,Moderate
+1981,70,Initiation,D,Oshida,20,80,Forest species,Moderate
+1981,70,Initiation,D,Momijigasa,15,100,Forest species,Wet
+1981,70,Initiation,D,Naginata Koju,5,50,Open land species,Dry
+1981,70,Initiation,D,Aomizu,10,20,Forest species,Wet
+1981,70,Initiation,D,Mukago irakusa,1,20,Forest species,Wet
+1981,70,Initiation,D,Mizuhiki,1,30,Forest species,Wet
+1981,70,Initiation,D,Yabumame,1,15,Open land species,Moderate
+1981,70,Initiation,D,Miyama Mugura,15,15,Forest species,Moderate
+1981,70,Initiation,D,Sugina,1,20,Open land species,Dry
+1981,70,Initiation,D,Sarashina Shouma,1,20,Generalist species,Wet
+1981,70,Initiation,D,Haedokusou,1,15,Forest species,Moderate
+1981,70,Transport,A,Miyakozasa,20,60,Generalist species,Moderate
+1981,70,Transport,A,Torikabuto,5,110,Forest species,Wet
+1981,70,Transport,A,Tanimitsuba,10,60,Forest species,Wet
+1981,70,Transport,A,Mitsuba,1,10,Forest species,Wet
+1981,70,Transport,A,Fukkisou,20,25,Woody species,Woody species
+1981,70,Transport,A,Mukago irakusa,10,15,Forest species,Wet
+1981,70,Transport,A,Yamaguwa,1,30,Woody species,Woody species
+1981,70,Transport,A,Kurumabasou,5,30,Forest species,Moderate
+1981,70,Transport,A,Suge SP2,1,30,Unknown,Unknown
+1981,70,Transport,B,Mizunara,1,20,Woody species,Woody species
+1981,70,Transport,B,Kurumabasou,5,20,Forest species,Moderate
+1981,70,Transport,B,Fukkisou,15,20,Woody species,Woody species
+1981,70,Transport,B,Sugina,5,5,Open land species,Dry
+1981,70,Transport,B,Tanimitsuba,1,20,Forest species,Wet
+1981,70,Transport,B,Yabuninjin,1,5,Forest species,Wet
+1981,70,Transport,B,Mizuhiki,1,30,Forest species,Wet
+1981,70,Transport,B,Mukago irakusa,1,10,Forest species,Wet
+1981,70,Transport,B,Aomizu,1,10,Forest species,Wet
+1981,70,Transport,B,Tsutaurushi,1,10,Woody species,Woody species
+1981,70,Transport,C,Miyakozasa,10,50,Generalist species,Moderate
+1981,70,Transport,C,Oshida,15,40,Forest species,Moderate
+1981,70,Transport,C,Kurumabasou,5,20,Forest species,Moderate
+1981,70,Transport,C,Akitabuki,1,5,Generalist species,Moderate
+1981,70,Transport,C,Fukkisou,1,10,Woody species,Woody species
+1981,70,Transport,C,Ruiyou shouma,1,10,Forest species,Wet
+1981,70,Transport,C,Mukago irakusa,20,15,Forest species,Wet
+1981,70,Transport,C,Kohakobe,1,5,Open land species,Wet
+1981,70,Transport,C,Konronsou,1,10,Forest species,Wet
+1981,70,Transport,D,Miyakozasa,40,40,Generalist species,Moderate
+1981,70,Transport,D,Fukkisou,10,25,Woody species,Woody species
+1981,70,Transport,D,Kurumabasou,5,15,Forest species,Moderate
+1981,70,Transport,D,Tanimitsuba,5,15,Forest species,Wet
+1981,70,Transport,D,Mukago irakusa,5,10,Forest species,Wet
+1981,70,Transport,D,Kitsurifune,1,10,Forest species,Wet
+1981,70,Transport,D,Suge SP2,1,10,Unknown,Unknown
+1981,70,Deposition,A,Mizosoba,40,30,Generalist species,Wet
+1981,70,Deposition,A,Mukago irakusa,10,45,Forest species,Wet
+1981,70,Deposition,A,Mitsuba,5,10,Forest species,Wet
+1981,70,Deposition,A,Kohakobe,5,10,Open land species,Wet
+1981,70,Deposition,A,Nekonomeso,5,5,Forest species,Wet
+1981,70,Deposition,A,Kakidoshi,5,5,Open land species,Moderate
+1981,70,Deposition,A,Aomizu,1,5,Forest species,Wet
+1981,70,Deposition,A,Mizuhiki,1,35,Forest species,Wet
+1981,70,Deposition,A,Kitsurifune,1,10,Forest species,Wet
+1981,70,Deposition,A,Suge SP,10,20,Unknown,Unknown
+1981,70,Deposition,A,Momijigasa,1,5,Forest species,Wet
+1981,70,Deposition,B,Miyakozasa,80,50,Generalist species,Moderate
+1981,70,Deposition,B,Aomizu,5,20,Forest species,Wet
+1981,70,Deposition,B,Irakusa,5,15,Forest species,Wet
+1981,70,Deposition,B,Mukago irakusa,10,10,Forest species,Wet
+1981,70,Deposition,B,Tanimitsuba,5,20,Forest species,Wet
+1981,70,Deposition,B,Fukkisou,5,15,Woody species,Woody species
+1981,70,Deposition,B,Sugina,1,15,Open land species,Dry
+1981,70,Deposition,B,Kohakobe,1,10,Open land species,Wet
+1981,70,Deposition,B,Momijigasa,5,70,Forest species,Wet
+1981,70,Deposition,B,Suge SP3,1,20,Unknown,Unknown
+1981,70,Deposition,C,Miyakozasa,15,60,Generalist species,Moderate
+1981,70,Deposition,C,Momijigasa,5,50,Forest species,Wet
+1981,70,Deposition,C,Mizuhiki,1,70,Forest species,Wet
+1981,70,Deposition,C,Mizosoba,20,20,Generalist species,Wet
+1981,70,Deposition,C,Tanimitsuba,5,50,Forest species,Wet
+1981,70,Deposition,C,Mitsuba,5,20,Forest species,Wet
+1981,70,Deposition,C,Aomizu,1,20,Forest species,Wet
+1981,70,Deposition,C,Kakidoshi,5,5,Open land species,Moderate
+1981,70,Deposition,C,Miyama Mugura,5,10,Forest species,Moderate
+1981,70,Deposition,C,Mukago irakusa,5,10,Forest species,Wet
+1981,70,Deposition,C,Daikonsou,5,5,Forest species,Wet
+1981,70,Deposition,C,Kohakobe,5,10,Open land species,Wet
+1981,70,Deposition,C,Kitsurifune,1,10,Forest species,Wet
+1981,70,Deposition,C,Akitabuki,1,20,Generalist species,Moderate
+1981,70,Deposition,D,Miyakozasa,20,50,Generalist species,Moderate
+1981,70,Deposition,D,Oshida,50,40,Forest species,Moderate
+1981,70,Deposition,D,Momijigasa,15,70,Forest species,Wet
+1981,70,Deposition,D,Irakusa,1,5,Forest species,Wet
+1981,70,Deposition,D,Fukkisou,5,15,Woody species,Woody species
+1981,70,Deposition,D,Kitsurifune,1,15,Forest species,Wet
+Reference,Atsuma,Lower,A,Oshida,40,60,Forest species,Moderate
+Reference,Atsuma,Lower,A,Kouya warabi,10,80,Forest species,Wet
+Reference,Atsuma,Lower,A,Chishimaazami,1,10,Open land species,Moderate
+Reference,Atsuma,Lower,A,Aodamo,1,15,Woody species,Woody species
+Reference,Atsuma,Lower,A,Tachitsubo violets,1,5,Open land species,Dry
+Reference,Atsuma,Lower,A,Nekonomeso,1,1,Forest species,Wet
+Reference,Atsuma,Lower,A,Momijigasa,5,10,Forest species,Wet
+Reference,Atsuma,Lower,A,Daikonsou,1,5,Forest species,Wet
+Reference,Atsuma,Lower,A,Yabuninjin,10,10,Forest species,Wet
+Reference,Atsuma,Lower,A,Irakusa,1,5,Forest species,Wet
+Reference,Atsuma,Lower,A,Fukkisou,1,10,Woody species,Woody species
+Reference,Atsuma,Lower,A,Okukuruma Mugura,15,10,Forest species,Wet
+Reference,Atsuma,Lower,A,Kohakobe,5,5,Open land species,Wet
+Reference,Atsuma,Lower,A,Haedokusou,5,20,Forest species,Moderate
+Reference,Atsuma,Lower,A,Yobusumasou,5,50,Forest species,Wet
+Reference,Atsuma,Lower,A,Mizuhiki,1,25,Forest species,Wet
+Reference,Atsuma,Lower,A,Suge SP3,5,5,Unknown,Unknown
+Reference,Atsuma,Lower,A,Nogariyasu,1,15,Generalist species,Moderate
+Reference,Atsuma,Lower,A,Kakidoshi,5,5,Open land species,Moderate
+Reference,Atsuma,Lower,A,Mukago irakusa,1,5,Forest species,Wet
+Reference,Atsuma,Lower,B,Torikabuto,5,75,Forest species,Wet
+Reference,Atsuma,Lower,B,Fukkisou,20,20,Woody species,Woody species
+Reference,Atsuma,Lower,B,Daikonsou,5,50,Forest species,Wet
+Reference,Atsuma,Lower,B,Mizuhiki,1,20,Forest species,Wet
+Reference,Atsuma,Lower,B,Aodamo,1,10,Woody species,Woody species
+Reference,Atsuma,Lower,B,Yabuninjin,5,5,Forest species,Wet
+Reference,Atsuma,Lower,B,Momijigasa,1,5,Forest species,Wet
+Reference,Atsuma,Lower,B,Kitsurifune,1,10,Forest species,Wet
+Reference,Atsuma,Lower,B,Fern SP,5,20,Unknown,Unknown
+Reference,Atsuma,Lower,C,Oshida,50,80,Forest species,Moderate
+Reference,Atsuma,Lower,C,Momijigasa,15,10,Forest species,Wet
+Reference,Atsuma,Lower,C,Aomizu,5,10,Forest species,Wet
+Reference,Atsuma,Lower,C,Irakusa,10,10,Forest species,Wet
+Reference,Atsuma,Lower,C,Tachitsubo violets,1,10,Open land species,Dry
+Reference,Atsuma,Lower,C,Daikonsou,1,10,Forest species,Wet
+Reference,Atsuma,Lower,C,Yabuninjin,5,5,Forest species,Wet
+Reference,Atsuma,Lower,C,Kohakobe,1,5,Open land species,Wet
+Reference,Atsuma,Lower,C,Nekonomeso,5,5,Forest species,Wet
+Reference,Atsuma,Lower,C,Suge SP,5,5,Unknown,Unknown
+Reference,Atsuma,Lower,C,Kitsurifune,1,10,Forest species,Wet
+Reference,Atsuma,Lower,C,Konronsou,5,40,Forest species,Wet
+Reference,Atsuma,Lower,C,Harunire,1,5,Woody species,Woody species
+Reference,Atsuma,Lower,D,Fern SP,10,25,Unknown,Unknown
+Reference,Atsuma,Lower,D,Aomizu,15,15,Forest species,Wet
+Reference,Atsuma,Lower,D,Kakidoshi,5,5,Open land species,Moderate
+Reference,Atsuma,Lower,D,Miyama Mugura,1,10,Forest species,Moderate
+Reference,Atsuma,Lower,D,Yabuninjin,5,10,Forest species,Wet
+Reference,Atsuma,Lower,D,Kohakobe,5,5,Open land species,Wet
+Reference,Atsuma,Lower,D,Hanatade,10,35,Forest species,Wet
+Reference,Atsuma,Lower,D,Nekonomeso,1,1,Forest species,Wet
+Reference,Atsuma,Lower,D,Ezo hebiichigo,5,5,Woody species,Woody species
+Reference,Atsuma,Middle,A,Oshida,15,40,Forest species,Moderate
+Reference,Atsuma,Middle,A,Miyakozasa,10,40,Generalist species,Moderate
+Reference,Atsuma,Middle,A,Momijigasa,5,5,Forest species,Wet
+Reference,Atsuma,Middle,A,Tachitsubo violets,1,5,Open land species,Dry
+Reference,Atsuma,Middle,A,Irakusa,1,5,Forest species,Wet
+Reference,Atsuma,Middle,A,Fukkisou,5,15,Woody species,Woody species
+Reference,Atsuma,Middle,A,Kurumabasou,5,10,Forest species,Moderate
+Reference,Atsuma,Middle,A,Konronsou,1,10,Forest species,Wet
+Reference,Atsuma,Middle,A,Yobusumasou,1,15,Forest species,Wet
+Reference,Atsuma,Middle,A,Koichiyakusou,1,1,Forest species,Moderate
+Reference,Atsuma,Middle,B,Miyakozasa,30,40,Generalist species,Moderate
+Reference,Atsuma,Middle,B,Oshida,15,30,Forest species,Moderate
+Reference,Atsuma,Middle,B,Konronsou,5,15,Forest species,Wet
+Reference,Atsuma,Middle,B,Yabuninjin,5,10,Forest species,Wet
+Reference,Atsuma,Middle,B,Momijigasa,5,10,Forest species,Wet
+Reference,Atsuma,Middle,B,Irakusa,1,5,Forest species,Wet
+Reference,Atsuma,Middle,B,Kitsurifune,1,10,Forest species,Wet
+Reference,Atsuma,Middle,C,Miyakozasa,70,40,Generalist species,Moderate
+Reference,Atsuma,Middle,C,Fukkisou,5,15,Woody species,Woody species
+Reference,Atsuma,Middle,C,Suge SP3,10,15,Unknown,Unknown
+Reference,Atsuma,Middle,C,Yabuninjin,1,5,Forest species,Wet
+Reference,Atsuma,Middle,C,Tachitsubo violets,1,5,Open land species,Dry
+Reference,Atsuma,Middle,C,Konronsou,1,10,Forest species,Wet
+Reference,Atsuma,Middle,C,Koichiyakusou,1,1,Forest species,Moderate
+Reference,Atsuma,Middle,C,Momijigasa,1,10,Forest species,Wet
+Reference,Atsuma,Middle,D,Miyakozasa,30,35,Generalist species,Moderate
+Reference,Atsuma,Middle,D,Oshida,10,50,Forest species,Moderate
+Reference,Atsuma,Middle,D,Suge SP3,5,10,Unknown,Unknown
+Reference,Atsuma,Middle,D,Futarishizuka,1,15,Forest species,Wet
+Reference,Atsuma,Middle,D,Miyama Mugura,1,5,Forest species,Moderate
+Reference,Atsuma,Middle,D,Yabuninjin,1,5,Forest species,Wet
+Reference,Atsuma,Middle,D,Fukkisou,1,5,Woody species,Woody species
+Reference,Atsuma,Middle,D,Haedokusou,1,5,Forest species,Moderate
+Reference,Atsuma,Upper,A,Miyakozasa,25,40,Generalist species,Moderate
+Reference,Atsuma,Upper,A,Fukkisou,15,15,Woody species,Woody species
+Reference,Atsuma,Upper,A,Naniwazu,1,15,Forest species,Moderate
+Reference,Atsuma,Upper,A,Oshida,10,25,Forest species,Moderate
+Reference,Atsuma,Upper,A,Sawafutagi,10,50,Woody species,Woody species
+Reference,Atsuma,Upper,A,Miyama Mugura,1,10,Forest species,Moderate
+Reference,Atsuma,Upper,A,Yachidamo,1,5,Woody species,Woody species
+Reference,Atsuma,Upper,A,Ruiyou shouma,1,10,Forest species,Wet
+Reference,Atsuma,Upper,B,Miyakozasa,60,45,Generalist species,Moderate
+Reference,Atsuma,Upper,B,Momijigasa,10,20,Forest species,Wet
+Reference,Atsuma,Upper,B,Fukkisou,10,15,Woody species,Woody species
+Reference,Atsuma,Upper,B,Yamamomiji,1,20,Woody species,Woody species
+Reference,Atsuma,Upper,B,Ruiyou shouma,1,15,Forest species,Wet
+Reference,Atsuma,Upper,C,Miyakozasa,75,40,Generalist species,Moderate
+Reference,Atsuma,Upper,C,Fukkisou,5,20,Woody species,Woody species
+Reference,Atsuma,Upper,C,Konronsou,5,20,Forest species,Wet
+Reference,Atsuma,Upper,D,Miyakozasa,65,50,Generalist species,Moderate
+Reference,Atsuma,Upper,D,Futarishizuka,10,30,Forest species,Wet
+Reference,Atsuma,Upper,D,Irakusa,5,20,Forest species,Wet
+Reference,Atsuma,Upper,D,Momijigasa,10,15,Forest species,Wet
+Reference,Atsuma,Upper,D,Fukkisou,10,10,Woody species,Woody species
+Reference,Atsuma,Upper,D,Asada,1,10,Woody species,Woody species
+Reference,Atsuma,Upper,D,Konronsou,1,10,Forest species,Wet
+Reference,Atsuma,Upper,D,Tanimitsuba,1,15,Forest species,Wet
+Reference,Atsuma,Upper,D,Suge SP3,5,10,Unknown,Unknown
+Reference,Atsuma,Upper,D,Tachitsubo violets,1,5,Open land species,Dry

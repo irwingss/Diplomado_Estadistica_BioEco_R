@@ -1,0 +1,451 @@
+---
+title: "Módulo 5"
+author: "Irwing S. Saldaña"
+format: html
+---
+
+```{r}
+#| message: false
+#| warning: false
+
+# Instalar
+pak::pak("MASS")
+
+# Activar librerías
+library(ggpubr)
+library(tidyverse)
+library(MASS)
+```
+
+# 1. Frecuencia estadística
+
+```{r}
+# Carga de base de datos CSV
+lake <- read.csv("bases/Wudalianchi_Lake_data.csv")
+
+# Obtengamos la columna de riqueza
+
+lake <- lake %>% 
+  rowwise() %>% 
+  mutate(riq = sum(c_across(17:60)>0))
+```
+
+## 1.1. Tablas unidimensionales
+
+```{r}
+# Solo datos
+
+
+# Tabla de frecuencias absolutas de una variable 
+
+
+# Tabla de frecuencias relativas
+
+```
+
+```{r}
+# Cómo se ve la frecuencia absoluta de una variable
+# library(ggpubr)
+
+```
+
+## 1.2. Tablas bidimensionales
+
+```{r}
+# Frecuencia absoluta de una variable 
+
+
+# Frecuencia relativa de una variable
+
+```
+
+# 1. Introducción a Probabilidades
+
+## 1.1. Muestreos
+
+Todo en investigación se basa en el simple hecho de realizar una muestra. La aleatorización de estos procesos son de suma importancia para garantizar la reproducibilidad del estudio, ya que los resultados no estarán sujetas a subjetividades, por el contrario, mostrarán la realidad factible del conjunto de datos que comprende la población de estudio. Realicemos muestreos sencillos en R a partir de vectores.
+
+### Primero conozcamos 
+
+A las funciones asociadas con probabilidades en R (r, d, p, q)
+
+- r: Genera números aleatorios de una distribución específica.
+- d: Calcula la función de densidad de probabilidad para una distribución.
+- p: Calcula la función de distribución acumulada (CDF), es decir, la probabilidad acumulada.
+- q: Calcula el valor cuantil (inverso de la CDF), dado un porcentaje de probabilidad.
+
+
+```{r}
+# Números aleatorios
+rnorm()
+rpois()
+rbinom()
+rgamma()
+
+# Función de densidad
+dnorm()
+dpois()
+dbinom()
+dgamma()
+
+# Probabilidad acumulada
+pnorm()
+ppois()
+pbinom()
+pgamma()
+
+# Valor de un cuantil
+qnorm()
+qois()
+qbinom()
+qgamma()
+```
+
+### Muestreo de vectores con y sin reemplazamiento
+
+```{r}
+# Muestrar vectores
+set.seed(123)
+dat <- ...
+
+# Muestreo sin reemplazamiento
+
+
+# Muestreo con reemplazamiento
+
+
+```
+
+### Influencia del N muestral en la estimación del parámetro
+
+Veamos en tiempo real cómo el definir un N muestral nos permite obtener una muestra lo suficientemente adecuada para que nuestro estimador (el promedio de al muestra) se acerque al parámetro de la población (promedio poblacional):
+
+```{r}
+# Definamos una población
+poblacion <- rnorm(1000, mean = 250, sd=25)
+
+data.frame(poblacion) %>%
+  ggplot(aes(x = poblacion))+
+  geom_density()+
+  theme_classic()
+
+# Define un tamaño de muestra
+tamano <- ...
+
+# Define una cantidad repeticiones para la simulación
+rep <- ...
+
+# Simulemos
+
+
+
+
+```
+
+Ahora, realicemos muchas simulaciones para ver cómo al ir variando el tamaño muestral (de 1 a 1000 muestras), el promedio se estabiliza:
+
+```{r}
+# Iniciar el cronómetro
+start_time <- Sys.time()
+
+# Definamos una población
+poblacion <- ...
+
+# Cantidad de replicas
+B <- ...
+
+# Cantidad de muestras que serán promediadas en cada réplica
+rep <- ...
+
+# Cantidad de elementos a ser muestreados para promediarlos en cada réplica
+tamano <- ...
+  
+# Objeto para almacenar los 1000 promedios de los muestreos
+simulacion <- c()
+
+
+# Simulación
+
+
+# Crear la base de datos de graficación
+base_final <- data.frame(N = 1:B,
+                   Prom = simulacion)
+
+# Obtener promedio y desviación estandar 
+# de los resultados
+pr <- ...
+sd <- ...
+
+# Calcular el error estándar
+ME <- ...
+ME
+
+# Gráfico de la simulación
+base_final %>% 
+  ggplot(aes(x=N, y=Prom))+
+  geom_line(color="red")+
+  geom_hline(yintercept = pr)+
+  geom_hline(yintercept = (pr-ME), lty=2)+
+  geom_hline(yintercept = (pr+ME), lty=2) 
+
+# Finalizar el cronómetro
+end_time <- Sys.time()
+
+# Calcular el tiempo transcurrido
+time_taken <- end_time - start_time
+print(paste("El tiempo total de ejecución fue:", time_taken))
+```
+
+# 2. Aplicación de teoría de probabilidades
+
+## 2.1. Distribución Binomial
+
+### Descripción del caso:
+
+Una especie de ave en peligro de extinción se está monitoreando para ver cuántos polluelos logran sobrevivir en una colonia de 20 nidos. La especie solo tiene un solo polluelo por nido (nido = polluelo). Se sabe que cada polluelo tiene una probabilidad del 55% (0.55) de sobrevivir hasta la madurez. Queremos modelar el número de polluelos que sobreviven utilizando la **distribución Binomial**.
+
+### Pregunta de estudio 01:
+
+Si conocemos que la probabilidad de supervivencia de cada polluelo es del 40% y hay 20 nidos, ¿cuál es el número esperado de polluelos que sobrevivirán en la colonia utilizando una distribución Binomial con estos parámetros?
+
+```{r}
+# Parámetros de la distribución Binomial
+n <- ...
+p <- ...
+
+# Simulación de la supervivencia de 1000 polluelos
+set.seed(123)  
+supervivencia <- ...
+
+# Cálculo del número medio de supervivientes
+promedio_superv <- ...
+promedio_superv
+
+# Visualización de la distribución de supervivencia
+
+
+```
+
+### Pregunta de estudio 02:
+
+En este caso, se proporciona un conjunto de datos donde se ha registrado el número de polluelos que sobrevivieron en 100 colonias de 20 nidos cada una. Tu tarea es estimar la probabilidad de supervivencia por nido y luego simular la distribución usando la **distribución Binomial** con esos parámetros estimados.
+
+#### Datos sintéticos:
+
+```{r}
+# Datos polluelos
+datos_polluelos <- data.frame(
+  polluelos_supervivientes = c(11, 4, 8, 8, 8, 6, 8, 5, 6, 5, 8, 
+                               9, 7, 10, 4, 14, 9, 7, 9, 5, 6, 4,
+                               6, 7, 5, 4, 8, 5, 5, 6, 10, 7, 7, 
+                               6, 4, 7, 5, 8, 5, 4, 8, 8, 7, 5, 
+                               5, 9, 8, 6, 7, 8, 7, 8, 7, 6, 7, 
+                               6, 11, 6, 10, 6, 9, 11, 9, 5, 11,
+                               8, 9, 8, 6, 5, 7, 6, 5, 7, 7, 10,
+                               5, 9, 9, 6, 8, 5, 6, 8, 10, 7, 7, 
+                               9, 6, 9, 9, 5, 4, 7, 10, 7, 7, 7, 
+                               5, 5))
+
+# Estimación de la probabilidad de supervivencia
+n <- ...  
+p_est <- ...
+p_est
+
+# Simulación de la supervivencia con el parámetro estimado
+supervivencia_sim <- ...
+
+# Cálculo del número medio de supervivientes
+promedio_sup <- ...
+promedio_sup
+
+# Visualización de la nueva distribución de supervivencia
+
+
+```
+
+## 2.2. Distribución Poisson
+
+### Descripción del caso:
+
+Un grupo de ecólogos está interesado en estudiar la cantidad de avistamientos de una especie rara de mamíferos nocturnos en una reserva natural. Se ha observado que estos avistamientos ocurren de manera esporádica durante el mes, y el equipo ha registrado un número promedio de 3 avistamientos por semana en las últimas observaciones. Se asume que estos avistamientos siguen una distribución Poisson, ya que modela eventos raros en un intervalo de tiempo fijo.
+
+### Pregunta de estudio 03:
+¿Cuál es la probabilidad de observar exactamente 5 avistamientos de esta especie rara en una semana, sabiendo que el número promedio de avistamientos es de 3 por semana?
+
+```{r}
+# Parámetro de la distribución Poisson (número promedio de eventos)
+# Promedio de avistamientos por semana
+lambda <- ...   
+
+# Probabilidad de observar exactamente 5 avistamientos en una semana
+p5a1s <- ...
+p5a1s
+
+# Simulación de 1000 semanas de observación
+set.seed(123)  
+avistamientos <- ...
+avistamientos
+
+# Cálculo del promedio de avistamientos simulados
+promedio_avistamientos <- ...
+promedio_avistamientos
+
+# Visualización de la distribución de avistamientos
+
+
+
+```
+
+### Pregunta de estudio 04:
+En este caso, se proporciona un conjunto de datos donde se han registrado los avistamientos semanales en los últimos 20 meses. Tu tarea es estimar el número promedio de avistamientos por semana y luego simular la distribución Poisson usando el parámetro estimado.
+
+```{r}
+# Generación de datos sintéticos
+set.seed(456)
+data <- data.frame(
+  semana = 1:80,
+  avistamientos = rpois(80, lambda = 2.8)  
+)
+
+# Estimación del promedio de avistamientos por semana
+lambda_est <- ...
+lambda_est
+
+# Simulación de avistamientos con el parámetro estimado
+avistamientos_est <-...
+
+# Cálculo del promedio de avistamientos simulados
+promedio_avistamientos_est <- ...
+promedio_avistamientos_est
+
+# Visualización de la nueva distribución de avistamientos
+
+
+```
+
+## 2.3. Distribución Gamma
+
+#### Descripción del caso:
+
+Un ecosistema puede experimentar diferentes tipos de disturbios, como incendios, inundaciones o sequías. Estos disturbios alteran su estructura y función, pero los ecosistemas tienen la capacidad de recuperarse con el tiempo. Sin embargo, el tiempo que tarda un ecosistema en volver a su estado inicial puede variar debido a múltiples factores como la gravedad del disturbio, la capacidad de regeneración de las especies, y las condiciones climáticas posteriores.
+
+En este caso, nos interesa modelar el tiempo que tarda un ecosistema en recuperarse completamente después de un incendio forestal, utilizando la **distribución Gamma**. La distribución Gamma es adecuada para este tipo de fenómenos porque modela tiempos de espera hasta que se producen una serie de eventos, en este caso, la completa recuperación del ecosistema.
+
+#### Pregunta de estudio 05:
+¿Cuál es el tiempo esperado para que un ecosistema se recupere completamente después de un incendio forestal, suponiendo que el tiempo de recuperación sigue una distribución Gamma con un parámetro de forma (α) de 5 y un parámetro de tasa (β) de 0.2?
+
+```{r}
+# Parámetros de la distribución Gamma
+## Parámetro de forma
+alpha <- ...    
+
+## Parámetro de tasa
+beta <- ...
+
+# Simulación de 1000 tiempos de recuperación
+set.seed(123)  
+tiempos_recuperacion <- ...
+
+# Cálculo del tiempo medio de recuperación esperado
+tiempo_medio <- ...
+tiempo_medio
+
+# Visualización de la distribución de tiempos de recuperación
+
+
+
+```
+
+#### Pregunta de estudio 06:
+Pero ¿y si tengo datos reales?. Es posible usar teoría de probabilidades para hacer cálculos sobre datos reales. El procedimiento impone un nuevo desafío, calcular los parámetros de la distribución de probabilidades elegidas en base a los datos. Para ello usaremos la función `fitdistr()` del paquete `MASS` que permite calcular los parámetros de una distribución a partir de datos.
+
+En el siguiente caso se desea conocer cómo fluctúa la frecuencia del tiempo de recuperación luego de una perturbación por fuego, sobre dos tipos de bosque (primario y secundario).
+
+```{r}
+# Tiempos de recuperación observados
+datos_recu <- data.frame(
+  tipo = c(rep(c("Primario","Secundario"),4)),
+  tiempos_observados = c(20.5, 29.3, 18.9, 23.1, 21.6, 30.4, 22.7, 24.9))
+
+
+
+# Ajuste de la distribución Gamma para obtener la
+tipo_primario <- ...
+
+library(MASS)
+
+# Estimación de los parámetros α y β
+alpha <- ...
+beta <- ...
+
+# Simulación de 1000 tiempos de recuperación
+set.seed(123) 
+tiempos_recuperacion2 <- ...
+
+# Promedio de la simulación a partir de datos reales
+tiempo_medio2 <- ...
+
+# Visualización de la distribución de tiempos de recuperación
+
+
+  
+```
+
+## 2.4. Distribución Normal
+
+Iniciemos comprendiendo la **Función de Distribución Acumulativa Empírica** (ECDF) para una distribución normal.
+
+```{r}
+# Generar datos de una distribución normal
+set.seed(123)
+normales <- ...
+
+
+# Calcular la ECDF utilizando la función ecdf()
+ecdf_norm <- ...
+
+# Graficar la ECDF
+
+
+# Calcular la probabilidad de que al escoger un valor al azar este sea menor igual de 12
+
+
+# Calcular la probabilidad de que al escoger un valor al azar este sea mayor de 12
+
+
+# Calcular la probabilidad de que al escoger un valor al azar este esté entre 12 o 13
+
+
+```
+
+#### Descripción del caso:
+
+Un equipo de ecólogos está monitoreando el peso corporal de una especie de roedores en un área protegida. Se sabe que el peso de estos roedores sigue una distribución Normal, debido a la variabilidad biológica en su alimentación y estado físico. El peso promedio de los roedores en la población es de 150 gramos, con una desviación estándar de 20 gramos.
+
+La distribución Normal es útil en este contexto, ya que modela fenómenos donde los valores se distribuyen de manera simétrica alrededor de un promedio, lo cual es común en variables biológicas como el peso o la altura de los animales.
+
+#### Pregunta de estudio 07:
+¿Cuál es la probabilidad de que el peso de un roedor elegido al azar esté entre 140 y 160 gramos, sabiendo que el peso sigue una distribución Normal con un promedio de 150 gramos y una desviación estándar de 20 gramos?
+
+```{r}
+# Parámetros de la distribución Normal
+mu <- 150   
+sigma <- 20 
+
+# Probabilidad de que el peso esté entre 140 y 160 gramos
+
+
+# Simulación de pesos de 1000 roedores
+set.seed(123) 
+pesos <- ...
+
+# Cálculo del peso promedio y la desviación estándar
+peso_promedio <- ...
+desviacion_estandar <- ...
+
+
+# Visualización de la distribución de pesos
+
+
+```
+

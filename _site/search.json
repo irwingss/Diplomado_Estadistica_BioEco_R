@@ -1,0 +1,492 @@
+[
+  {
+    "objectID": "slides/01/01-eda.html#temario-del-módulo",
+    "href": "slides/01/01-eda.html#temario-del-módulo",
+    "title": "Estadística descriptiva",
+    "section": "Temario del módulo",
+    "text": "Temario del módulo\n\n\nIntroducción a la estadística descriptiva.\nPoblación y muestra.\nTipos de variables.\nMedidas de tendencia central y dispersión\nMedidas de posición: cuartiles.\nDistribución de frecuencias\nMedidas de forma: simetría y curtosis.\nAnálisis bivariado: covarianza y correlación.\nEDA: análisis exploratorio.\nDesplegar un reporte EDA en GitHub Pages."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#shiny-2",
+    "href": "slides/01/01-eda.html#shiny-2",
+    "title": "Estadística descriptiva",
+    "section": "Shiny 2",
+    "text": "Shiny 2\nlibrary(shiny)\nlibrary(shinylive)\n\nui &lt;- fluidPage(\n  sliderInput(\"bins\", \"Number of bins:\", min = 1, max = 50, value = 30),\n  plotOutput(\"distPlot\")\n)\n\nserver &lt;- function(input, output) {\n  output$distPlot &lt;- renderPlot({\n    x &lt;- faithful[, 2] \n    bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)\n    hist(x, breaks = bins, col = 'darkgray', border = 'white')\n  })\n}\n\nshinyApp(ui, server)\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#disciplina-estadística",
+    "href": "slides/01/01-eda.html#disciplina-estadística",
+    "title": "Estadística descriptiva",
+    "section": "Disciplina estadística",
+    "text": "Disciplina estadística\n\nColecta\nArreglo\nInterpretación\n\nde datos numéricos obtenidos de objetos de interés.\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#origen",
+    "href": "slides/01/01-eda.html#origen",
+    "title": "Estadística descriptiva",
+    "section": "Origen",
+    "text": "Origen\nNace para\n\nColectar\nArreglor\nInterpretar\n\ndatos numéricos obtenidos de objetos de interés.\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#nace-para",
+    "href": "slides/01/01-eda.html#nace-para",
+    "title": "Estadística descriptiva",
+    "section": "Nace para",
+    "text": "Nace para\n\nColectar\nArreglor\nInterpretar\n\ndatos numéricos obtenidos de objetos de interés.\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#estadística-definición",
+    "href": "slides/01/01-eda.html#estadística-definición",
+    "title": "Estadística descriptiva",
+    "section": "Estadística: Definición",
+    "text": "Estadística: Definición\n\nLa estadística es una rama científica que lidia con la colecta sistemática, tabulación, resumen, clasificación, análisis y modelamiento de datos, extrayendo información resumida a partir de datos numéricos (o no), de los cuales genera conclusiones útiles o verifica hipótesis experimentales."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#qué-hacemos-en-ciencias",
+    "href": "slides/01/01-eda.html#qué-hacemos-en-ciencias",
+    "title": "Estadística descriptiva",
+    "section": "¿Qué hacemos en ciencias?",
+    "text": "¿Qué hacemos en ciencias?\nComo científicos, colectamos datos como una muestra de una población y usamos esos datos para generar conclusiones o hacer inferencias de la población entera.\n\nPoblación y muestra"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#section",
+    "href": "slides/01/01-eda.html#section",
+    "title": "Estadística descriptiva",
+    "section": "",
+    "text": "“Sin datos no eres más que otra persona con una opinión”  W. Edward Deming."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#center-background..bg2.png",
+    "href": "slides/01/01-eda.html#center-background..bg2.png",
+    "title": "Estadística descriptiva",
+    "section": "{.center background=“../bg2.png”“}",
+    "text": "{.center background=“../bg2.png”“}\n\nEstadística: Definición La estadística es una rama científica que lidia con la colecta sistemática, tabulación, resumen, clasificación, análisis y modelamiento de datos, extrayendo información resumida a partir de datos numéricos (o no), de los cuales genera conclusiones útiles o verifica hipótesis experimentales."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#section-1",
+    "href": "slides/01/01-eda.html#section-1",
+    "title": "Estadística descriptiva",
+    "section": "",
+    "text": "“La estadística no debería estar relegada a los estadísticos. El objetivo es tener muchos profesionales con habilidades estadística: ingenieros, científicos, administradores…”  W. Edward Deming."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#app",
+    "href": "slides/01/01-eda.html#app",
+    "title": "Estadística descriptiva",
+    "section": "App",
+    "text": "App\nThis is a webR-enabled code cell in a Quarto HTML document.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#población-y-muestra",
+    "href": "slides/01/01-eda.html#población-y-muestra",
+    "title": "Estadística descriptiva",
+    "section": "Población y muestra",
+    "text": "Población y muestra\n\nLa población es el conjunto de individuos u objetos de un estudio estadístico.\nUna muestra es un subconjunto de la población."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#parámetro-y-estadístico",
+    "href": "slides/01/01-eda.html#parámetro-y-estadístico",
+    "title": "Estadística descriptiva",
+    "section": "Parámetro y estadístico",
+    "text": "Parámetro y estadístico\n\n\n\n\n\n\n\n\n\n\n\n\n\nParámetro: Es una medida numérica de una característica resumida de una población.\nEstadístico: Es una medida numérica numérica de una característica de una muestra."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#animación-shiny-parámetro-y-estadístico",
+    "href": "slides/01/01-eda.html#animación-shiny-parámetro-y-estadístico",
+    "title": "Estadística descriptiva",
+    "section": "Animación Shiny: Parámetro y estadístico",
+    "text": "Animación Shiny: Parámetro y estadístico\nEjecutaré una app dinámica para ver qué ocurre cuando se modifica el N muestral para muestrear una población dada:\n\n\n\n\n\n\n\n\n\n\nVersión original: coatless-quarto\n\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#la-historia-de-casi-tods",
+    "href": "slides/01/01-eda.html#la-historia-de-casi-tods",
+    "title": "Estadística descriptiva",
+    "section": "La historia de (casi) tod@s",
+    "text": "La historia de (casi) tod@s\n\n\n\n\n“En algún punto de la vida académica/profesional, todos afrontamos problemas de análisis de datos”.\n¿Le tomaste interés por tu tesis de pregrado o posgrado?\nEn la era de la IA es más útil que nunca."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#center-background16161d",
+    "href": "slides/01/01-eda.html#center-background16161d",
+    "title": "Estadística descriptiva",
+    "section": "{.center background:“#16161d”}",
+    "text": "{.center background:“#16161d”}\n\n“La estadística no debería estar relegada a los estadísticos. El objetivo es tener muchos profesionales con habilidades estadística: ingenieros, científicos, administradores…”  W. Edward Deming."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#pero-qué-es",
+    "href": "slides/01/01-eda.html#pero-qué-es",
+    "title": "Estadística descriptiva",
+    "section": "Pero ¿Qué es?",
+    "text": "Pero ¿Qué es?"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#section-2",
+    "href": "slides/01/01-eda.html#section-2",
+    "title": "Estadística descriptiva",
+    "section": "",
+    "text": "Estadística: Definición La estadística es una rama científica que lidia con la colecta sistemática, tabulación, resumen, clasificación, análisis y modelamiento de datos, extrayendo información resumida a partir de datos numéricos (o no), de los cuales genera conclusiones útiles o verifica hipótesis experimentales."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#conceptos-relacionados-a-un-estadístico",
+    "href": "slides/01/01-eda.html#conceptos-relacionados-a-un-estadístico",
+    "title": "Estadística descriptiva",
+    "section": "Conceptos relacionados a un estadístico",
+    "text": "Conceptos relacionados a un estadístico\n\nEstimador de un parámetro poblacional: Es un estadístico muestral utilizado para estimar o predecir el parámetro poblacional.\nEstimación de un parámetro: Es un valor numérico concreto de una estadística muestral obtenida mediante muestreo.\n\n\n\n\n\n\n\n\n\nEstadístico\nEstadístico Muestral\nParámetro Poblacional\n\n\n\n\nMedia\nx̄\nμ\n\n\nDesviación Estándar\ns\nσ\n\n\nVarianza\ns²\nσ²\n\n\nProporción Binomial\np̂\np"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#cómo-influencia-el-tamaño-de-la-muestra",
+    "href": "slides/01/01-eda.html#cómo-influencia-el-tamaño-de-la-muestra",
+    "title": "Estadística descriptiva",
+    "section": "¿Cómo influencia el tamaño de la muestra?",
+    "text": "¿Cómo influencia el tamaño de la muestra?\nLa siguiente es una app creada con la nueva extensión de Quarto “Shinylive” para R. Esta app dinámica nos permitirá entender qué ocurre cuando se modifica el N muestral para muestrear una población dada:\n\n\nVersión original: coatless-quarto"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#qué-significa-probabilidad",
+    "href": "slides/01/01-eda.html#qué-significa-probabilidad",
+    "title": "Estadística descriptiva",
+    "section": "¿Qué significa probabilidad?",
+    "text": "¿Qué significa probabilidad?\n\n\nEs la medida de la incertidumbre o la posibilidad de que ocurra un evento.\n\nSi algo es seguro, la probabilidad es 1 (o 100%), y si es imposible, la probabilidad es 0 (o 0%).\nLa probabilidad de un evento es su frecuencia relativa (proporción esperada).\n\n\n\n\nSi un evento \\(A\\) ocurre \\(x\\) veces de un total de \\(n\\), su probabilidad converge (a la larga) en:\n\\[\nP(A)=\\frac{x}{n}=\\frac{\\text{Número total de resultados favorables}}{\\text{Número total de resultados posibles}}\n\\]\n\n\n\n\n\n\n\n\nTip\n\n\nCuando \\(n\\) es pequeño, la frecuencia relativa observada de un suceso no es un reflejo fiable de su probabilidad."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#distribuciones-de-probabilidad",
+    "href": "slides/01/01-eda.html#distribuciones-de-probabilidad",
+    "title": "Estadística descriptiva",
+    "section": "Distribuciones de probabilidad",
+    "text": "Distribuciones de probabilidad\n\nUna distribución de probabilidad describe cómo se distribuyen los resultados posibles de un evento aleatorio.\nNos indica cuán probable es que ocurran los diferentes resultados de un experimento aleatorio."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#discretas",
+    "href": "slides/01/01-eda.html#discretas",
+    "title": "Estadística descriptiva",
+    "section": "Discretas",
+    "text": "Discretas\nUna distribución discreta describe variables aleatorias que solo pueden tomar un número finito o contable de valores.\n\n\nSe usa la función de masa de probabilidad (PMF) para asignar una probabilidad a cada valor posible de la variable.\nLa PMF toma un valor específico y devuelve la probabilidad de que la variable tome ese valor.\n\n\n\n\n\n\n\n\n\nTip\n\n\nCuando \\(n\\) es pequeño, la frecuencia relativa observada de un suceso no es un reflejo fiable de su probabilidad."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#continuas",
+    "href": "slides/01/01-eda.html#continuas",
+    "title": "Estadística descriptiva",
+    "section": "Continuas",
+    "text": "Continuas"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#section-3",
+    "href": "slides/01/01-eda.html#section-3",
+    "title": "Estadística descriptiva",
+    "section": "",
+    "text": "La estadística nos permite convertir datos en información útil"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#intento-webr",
+    "href": "slides/01/01-eda.html#intento-webr",
+    "title": "Estadística descriptiva",
+    "section": "Intento webr",
+    "text": "Intento webr\n#| standalone: true\n#| viewerHeight: 700\n\nlibrary(shiny)\nlibrary(bslib)\n\ntheme &lt;- bs_theme(font_scale = 2.5)\n\nui &lt;- page_sidebar(\n  sidebar = sidebar(open = \"open\",\n                    fileInput(\"file\", \"Subir archivo CSV\"),\n                    uiOutput(\"column_selector\"), # Selector de columna dinámico\n                    numericInput(\"n\", \"Sample count\", 100),\n                    checkboxInput(\"pause\", \"Pause\", FALSE)\n  ),\n  plotOutput(\"plot\", width=1200)\n)\n\nserver &lt;- function(input, output, session) {\n  \n  # Reactivo para leer el archivo CSV\n  data_file &lt;- reactive({\n    req(input$file)\n    read.csv(input$file$datapath)\n  })\n  \n  # Crear UI dinámico para el selector de columnas\n  output$column_selector &lt;- renderUI({\n    req(data_file())\n    selectInput(\"selected_column\", \"Seleccione una columna\", \n                choices = names(data_file()), selected = names(data_file())[1])\n  })\n  \n  # Reactivo para extraer la columna seleccionada\n  selected_data &lt;- reactive({\n    req(input$selected_column)\n    column_data &lt;- data_file()[[input$selected_column]]\n    \n    # Filtra solo los valores numéricos\n    column_data &lt;- column_data[is.numeric(column_data)]\n    \n    # Asegura que no hay NA y retorna los datos\n    na.omit(column_data)\n  })\n  \n  # Reactivo para generar los datos simulados basados en la columna seleccionada\n  data_simulated &lt;- reactive({\n    req(selected_data())\n    \n    if (!isTRUE(input$pause)) {\n      invalidateLater(1000)\n    }\n    \n    # Simular la distribución normal basada en la media y desviación estándar de la columna\n    rnorm(input$n, mean = mean(selected_data()), sd = sd(selected_data()))\n  })\n  \n  # Renderiza el histograma basado en la simulación\n  output$plot &lt;- renderPlot({\n    req(data_simulated(), selected_data())\n    \n    # Establece límites dinámicos del eje X basados en los valores reales de la columna\n    x_min &lt;- min(selected_data(), na.rm = TRUE)\n    x_max &lt;- max(selected_data(), na.rm = TRUE)\n    \n    # Calcula la media de la columna seleccionada (poblacional)\n    poblational_mean &lt;- mean(selected_data(), na.rm = TRUE)\n    \n    hist(data_simulated(),\n         breaks = 40,\n         xlim = c(x_min, x_max),  # Actualiza los límites del eje X\n         ylim = c(0, 1),\n         lty = \"blank\",\n         xlab = \"value\",\n         freq = FALSE,\n         main = \"\"\n    )\n    \n    x &lt;- seq(from = x_min, to = x_max, length.out = 500)\n    y &lt;- dnorm(x, mean = mean(selected_data()), sd = sd(selected_data()))\n    lines(x, y, lwd=1.5)\n    \n    lwd &lt;- 5\n    # Línea roja para el promedio poblacional\n    abline(v=poblational_mean, col=\"red\", lwd=lwd, lty=2)  # Media poblacional\n    abline(v=mean(data_simulated()), col=\"blue\", lwd=lwd, lty=1)  # Media de la muestra simulada\n    \n    legend(legend = c(\"Normal\", \"Poblational mean\", \"Sample mean\"),\n           col = c(\"black\", \"red\", \"blue\"),\n           lty = c(1, 2, 1),\n           lwd = c(1, lwd, lwd),\n           x = x_max - (x_max - x_min) * 0.25,\n           y = 0.7,\n           cex = 0.7,\n    )\n  }, res=140)\n}\n\n# Create Shiny app ----\nshinyApp(ui = ui, server = server)"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#section-4",
+    "href": "slides/01/01-eda.html#section-4",
+    "title": "Estadística descriptiva",
+    "section": "",
+    "text": "#| standalone: true\n#| viewerHeight: 700\n\n\nlibrary(shiny)\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Generar la cuadrícula\ngrid_size &lt;- 10  # Tamaño de la cuadrícula (10x10)\ncells &lt;- expand.grid(x = 1:grid_size, y = 1:grid_size)\ncells$id &lt;- 1:nrow(cells)\n\nui &lt;- fluidPage(\n  titlePanel(\"Visualización de Métodos de Muestreo en una Cuadrícula\"),\n  sidebarLayout(\n    sidebarPanel(\n      selectInput(\"sampling_method\", \"Selecciona el Método de Muestreo:\",\n                  choices = c(\"Muestreo Simple\",\n                              \"Muestreo Estratificado\",\n                              \"Muestreo por Conglomerados\",\n                              \"Muestreo Sistemático\")),\n      numericInput(\"sample_size\", \"Tamaño de la Muestra:\", value = 20, min = 1, max = nrow(cells)),\n      conditionalPanel(\n        condition = \"input.sampling_method == 'Muestreo Estratificado'\",\n        numericInput(\"n_strata\", \"Número de Estratos:\", value = 2, min = 2, max=2)\n      ),\n      conditionalPanel(\n        condition = \"input.sampling_method == 'Muestreo por Conglomerados'\",\n        numericInput(\"cluster_rows\", \"Filas por Conglomerado:\", value = 2, min = 1),\n        numericInput(\"cluster_cols\", \"Columnas por Conglomerado:\", value = 2, min = 1)\n      ),\n      conditionalPanel(\n        condition = \"input.sampling_method == 'Muestreo Sistemático'\",\n        numericInput(\"k_value\", \"Valor de k (intervalo de muestreo):\", value = 5, min = 1)\n      ),\n      actionButton(\"sample_button\", \"Tomar Muestra\")\n    ),\n    mainPanel(\n      plotOutput(\"grid_plot\", height = \"600px\")\n    )\n  )\n)\n\nserver &lt;- function(input, output) {\n  \n  sampled_data &lt;- eventReactive(input$sample_button, {\n    method &lt;- input$sampling_method\n    n &lt;- input$sample_size\n    grid &lt;- cells  # Copia de la cuadrícula\n    grid$selected &lt;- FALSE\n    \n    if (method == \"Muestreo Simple\") {\n      sample_ids &lt;- sample(grid$id, n)\n      grid$selected[grid$id %in% sample_ids] &lt;- TRUE\n      \n    } else if (method == \"Muestreo Estratificado\") {\n      n_strata &lt;- input$n_strata\n      grid$stratum &lt;- cut(grid$id, breaks = n_strata, labels = FALSE)\n      strata &lt;- unique(grid$stratum)\n      samples_per_stratum &lt;- n %/% length(strata)\n      extra_samples &lt;- n %% length(strata)\n      for (s in strata) {\n        stratum_cells &lt;- grid %&gt;% filter(stratum == s)\n        stratum_n &lt;- samples_per_stratum + ifelse(s &lt;= extra_samples, 1, 0)\n        sample_ids &lt;- sample(stratum_cells$id, min(stratum_n, nrow(stratum_cells)))\n        grid$selected[grid$id %in% sample_ids] &lt;- TRUE\n      }\n      \n    } else if (method == \"Muestreo por Conglomerados\") {\n      cluster_rows &lt;- input$cluster_rows\n      cluster_cols &lt;- input$cluster_cols\n      num_clusters_row &lt;- grid_size %/% cluster_rows\n      num_clusters_col &lt;- grid_size %/% cluster_cols\n      grid$cluster_row &lt;- ((grid$y - 1) %/% cluster_rows) + 1\n      grid$cluster_col &lt;- ((grid$x - 1) %/% cluster_cols) + 1\n      grid$cluster_id &lt;- paste0(grid$cluster_row, \"-\", grid$cluster_col)\n      clusters &lt;- unique(grid$cluster_id)\n      clusters_selected &lt;- sample(clusters, size = ceiling(length(clusters) * n / nrow(grid)))\n      grid$selected[grid$cluster_id %in% clusters_selected] &lt;- TRUE\n      \n    } else if (method == \"Muestreo Sistemático\") {\n      k &lt;- input$k_value\n      start &lt;- sample(1:k, 1)\n      grid &lt;- grid %&gt;% arrange(y, x)\n      sample_indices &lt;- seq(start, by = k, length.out = n)\n      sample_indices &lt;- sample_indices[sample_indices &lt;= nrow(grid)]\n      grid$selected[sample_indices] &lt;- TRUE\n    }\n    return(grid)\n  })\n  \n  output$grid_plot &lt;- renderPlot({\n    req(sampled_data())\n    grid &lt;- sampled_data()\n    method &lt;- input$sampling_method\n    \n    p &lt;- ggplot(grid, aes(x = x, y = y)) +\n      geom_tile(aes(fill = selected), color = \"black\") +\n      scale_fill_manual(values = c(\"FALSE\" = \"white\", \"TRUE\" = \"red\"), guide = FALSE) +\n      theme_minimal() +\n      coord_fixed() +\n      labs(title = paste(\"Método de Muestreo:\", method),\n           x = \"\", y = \"\") +\n      theme(axis.text = element_blank(),\n            axis.ticks = element_blank())\n    \n    # Añadir numeración\n    p &lt;- p + geom_text(aes(label = id, color = selected), \n                       size = 8) +\n      scale_color_manual(values = c(\"FALSE\" = \"transparent\", \"TRUE\" = \"white\"), guide = FALSE) \n    \n    if (method == \"Muestreo Estratificado\") {\n      p &lt;- p + facet_wrap(~ stratum) +\n        labs(subtitle = paste(\"Número de Estratos:\", input$n_strata))\n      \n    } else if (method == \"Muestreo por Conglomerados\") {\n      cluster_rows &lt;- input$cluster_rows\n      cluster_cols &lt;- input$cluster_cols\n      p &lt;- p +\n        geom_hline(yintercept = seq(0.5, grid_size + 0.5, by = cluster_rows), color = \"blue\", linetype = \"dashed\", lwd = 1) +\n        geom_vline(xintercept = seq(0.5, grid_size + 0.5, by = cluster_cols), color = \"blue\", linetype = \"dashed\", lwd = 1) +\n        labs(subtitle = paste(\"Conglomerados de\", cluster_rows, \"x\", cluster_cols, \"celdas\"))\n      \n    } else if (method == \"Muestreo Sistemático\") {\n      k &lt;- input$k_value\n      p &lt;- p + labs(subtitle = paste(\"Valor de k =\", k))\n    }\n    \n    print(p)\n  })\n}\n\nshinyApp(ui = ui, server = server)"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#en-este-sentido",
+    "href": "slides/01/01-eda.html#en-este-sentido",
+    "title": "Estadística descriptiva",
+    "section": "En este sentido…",
+    "text": "En este sentido…\n\n\nFD PoblaciónFD Muestra"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#fd-muestra",
+    "href": "slides/01/01-eda.html#fd-muestra",
+    "title": "Estadística descriptiva",
+    "section": "FD Muestra",
+    "text": "FD Muestra"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#fd-población",
+    "href": "slides/01/01-eda.html#fd-población",
+    "title": "Estadística descriptiva",
+    "section": "FD Población",
+    "text": "FD Población"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#cómo-se-obtiene-la-muestra-métodos-de-muestreo",
+    "href": "slides/01/01-eda.html#cómo-se-obtiene-la-muestra-métodos-de-muestreo",
+    "title": "Estadística descriptiva",
+    "section": "¿Cómo se obtiene la muestra?: métodos de muestreo",
+    "text": "¿Cómo se obtiene la muestra?: métodos de muestreo\n\n\nMuestreo aleatorio simple: cada unidad de la población tiene la misma probabilidad de ser incluida en la muestra. El muestreo es imparcial, el más común y popular.\n\n\n\n\n\nMuestreo aleatorio estratificado: la población se divide en dos o más subpoblaciones denominadas estratos, y de cada estrato se selecciona aleatoriamente el tamaño de muestra deseado.\n\n\n\n\nMuestreo de conglomerados: se selecciona una muestra aleatoria de los estratos y, a continuación, se obtienen muestras de estos estratos seleccionados. y, a continuación, se obtienen muestras de estos estratos seleccionados."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#cómo-se-obtiene-la-muestra-métodos-de-muestreo-aleatorios",
+    "href": "slides/01/01-eda.html#cómo-se-obtiene-la-muestra-métodos-de-muestreo-aleatorios",
+    "title": "Estadística descriptiva",
+    "section": "¿Cómo se obtiene la muestra?: métodos de muestreo aleatorios",
+    "text": "¿Cómo se obtiene la muestra?: métodos de muestreo aleatorios\n\nMuestreo simple: cada unidad de la población tiene la misma probabilidad de ser incluida en la muestra. El muestreo es imparcial, el más común y popular."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#cómo-se-obtiene-la-muestra-métodos-de-muestreo-aleatorios-1",
+    "href": "slides/01/01-eda.html#cómo-se-obtiene-la-muestra-métodos-de-muestreo-aleatorios-1",
+    "title": "Estadística descriptiva",
+    "section": "¿Cómo se obtiene la muestra?: métodos de muestreo aleatorios",
+    "text": "¿Cómo se obtiene la muestra?: métodos de muestreo aleatorios\n\nMuestreo estratificado: la población se divide en dos o más subpoblaciones denominadas estratos, y de cada estrato se selecciona aleatoriamente el tamaño de muestra deseado."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#cómo-se-obtiene-la-muestra-métodos-de-muestreo-aleatorios-2",
+    "href": "slides/01/01-eda.html#cómo-se-obtiene-la-muestra-métodos-de-muestreo-aleatorios-2",
+    "title": "Estadística descriptiva",
+    "section": "¿Cómo se obtiene la muestra?: métodos de muestreo aleatorios",
+    "text": "¿Cómo se obtiene la muestra?: métodos de muestreo aleatorios\n\nMuestreo de conglomerados: se selecciona una muestra aleatoria de los estratos y, a continuación, se obtienen muestras de estos estratos seleccionados. y, a continuación, se obtienen muestras de estos estratos seleccionados."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#cómo-se-obtiene-la-muestra-métodos-de-muestreo-aleatorios-3",
+    "href": "slides/01/01-eda.html#cómo-se-obtiene-la-muestra-métodos-de-muestreo-aleatorios-3",
+    "title": "Estadística descriptiva",
+    "section": "¿Cómo se obtiene la muestra?: métodos de muestreo aleatorios",
+    "text": "¿Cómo se obtiene la muestra?: métodos de muestreo aleatorios\n\nMuestreo sistemático: se selecciona un punto de partida aleatorio en la población y luego se elige cada k-ésima unidad para formar la muestra. El valor de k se determina dividiendo el tamaño total de la población entre el tamaño de la muestra deseada. Este método es útil cuando los datos están organizados en una secuencia o lista y puede ser más eficiente que el muestreo simple."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#cómo-se-obtiene-la-muestra",
+    "href": "slides/01/01-eda.html#cómo-se-obtiene-la-muestra",
+    "title": "Estadística descriptiva",
+    "section": "¿Cómo se obtiene la muestra?",
+    "text": "¿Cómo se obtiene la muestra?"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#métodos-aleatorios",
+    "href": "slides/01/01-eda.html#métodos-aleatorios",
+    "title": "Estadística descriptiva",
+    "section": "Métodos aleatorios",
+    "text": "Métodos aleatorios\n\nMuestreo simple: cada unidad de la población tiene la misma probabilidad de ser incluida en la muestra. El muestreo es imparcial, el más común y popular.\nMuestreo estratificado: la población se divide en dos o más subpoblaciones denominadas estratos, y de cada estrato se selecciona aleatoriamente el tamaño de muestra deseado.\nMuestreo de conglomerados: se selecciona una muestra aleatoria de los estratos y, a continuación, se obtienen muestras de estos estratos seleccionados. y, a continuación, se obtienen muestras de estos estratos seleccionados.\nMuestreo sistemático: se selecciona un punto de partida aleatorio en la población y luego se elige cada k-ésima unidad para formar la muestra. El valor de k se determina dividiendo el tamaño total de la población entre el tamaño de la muestra deseada. Este método es útil cuando los datos están organizados en una secuencia o lista y puede ser más eficiente que el muestreo simple."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#section-5",
+    "href": "slides/01/01-eda.html#section-5",
+    "title": "Estadística descriptiva",
+    "section": "",
+    "text": "#| standalone: true\n#| viewerHeight: 700\n\nlibrary(shiny)\nlibrary(bslib)\n\ntheme &lt;- bs_theme(font_scale = 2.5)\n\nui &lt;- page_sidebar(\n  sidebar = sidebar(open = \"open\",\n                    fileInput(\"file\", \"Subir archivo CSV\"),\n                    uiOutput(\"column_selector\"), # Selector de columna dinámico\n                    numericInput(\"n\", \"Sample count\", 100),\n                    checkboxInput(\"pause\", \"Pause\", FALSE)\n  ),\n  plotOutput(\"plot\", width=1200)\n)\n\nserver &lt;- function(input, output, session) {\n  \n  # Reactivo para leer el archivo CSV\n  data_file &lt;- reactive({\n    req(input$file)\n    read.csv(input$file$datapath)\n  })\n  \n  # Crear UI dinámico para el selector de columnas\n  output$column_selector &lt;- renderUI({\n    req(data_file())\n    selectInput(\"selected_column\", \"Seleccione una columna\", \n                choices = names(data_file()), selected = names(data_file())[1])\n  })\n  \n  # Reactivo para extraer la columna seleccionada\n  selected_data &lt;- reactive({\n    req(input$selected_column)\n    column_data &lt;- data_file()[[input$selected_column]]\n    \n    # Filtra solo los valores numéricos\n    column_data &lt;- column_data[is.numeric(column_data)]\n    \n    # Asegura que no hay NA y retorna los datos\n    na.omit(column_data)\n  })\n  \n  # Reactivo para generar los datos simulados basados en la columna seleccionada\n  data_simulated &lt;- reactive({\n    req(selected_data())\n    \n    if (!isTRUE(input$pause)) {\n      invalidateLater(1000)\n    }\n    \n    # Simular la distribución normal basada en la media y desviación estándar de la columna\n    rnorm(input$n, mean = mean(selected_data()), sd = sd(selected_data()))\n  })\n  \n  # Renderiza el histograma basado en la simulación\n  output$plot &lt;- renderPlot({\n    req(data_simulated(), selected_data())\n    \n    # Establece límites dinámicos del eje X basados en los valores reales de la columna\n    x_min &lt;- min(selected_data(), na.rm = TRUE)\n    x_max &lt;- max(selected_data(), na.rm = TRUE)\n    \n    # Calcula la media de la columna seleccionada (poblacional)\n    poblational_mean &lt;- mean(selected_data(), na.rm = TRUE)\n    \n    hist(data_simulated(),\n         breaks = 40,\n         xlim = c(x_min, x_max),  # Actualiza los límites del eje X\n         ylim = c(0, 1),\n         lty = \"blank\",\n         xlab = \"Valores de la variable seleccionada\",\n         ylab = \"Densidad\",\n         freq = FALSE,\n         main = \"Histograma de Frecuencia\"\n    )\n    \n    x &lt;- seq(from = x_min, to = x_max, length.out = 500)\n    y &lt;- dnorm(x, mean = mean(selected_data()), sd = sd(selected_data()))\n    lines(x, y, lwd=1.5)\n    \n    lwd &lt;- 5\n    # Línea roja para el promedio poblacional\n    abline(v=poblational_mean, col=\"red\", lwd=lwd, lty=2)  # Media poblacional\n    abline(v=mean(data_simulated()), col=\"blue\", lwd=lwd, lty=1)  # Media de la muestra simulada\n    \n    legend(legend = c(\"Dist. Normal\", \"Promedio Poblacional\", \"Promedio Muestral\"),\n           col = c(\"black\", \"red\", \"blue\"),\n           lty = c(1, 2, 1),\n           lwd = c(1, lwd, lwd),\n           x = x_max - (x_max - x_min) * 0.25,\n           y = 0.7,\n           cex = 0.7,\n    )\n  }, res=140)\n}\n\n# Create Shiny app ----\nshinyApp(ui = ui, server = server)"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#probabilidad-es-diferente-que-estadística",
+    "href": "slides/01/01-eda.html#probabilidad-es-diferente-que-estadística",
+    "title": "Estadística descriptiva",
+    "section": "¿Probabilidad es diferente que estadística?",
+    "text": "¿Probabilidad es diferente que estadística?\nLa probabilidad y la estadística son ramas de las matemáticas que están relacionadas pero tienen enfoques diferentes"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#section-6",
+    "href": "slides/01/01-eda.html#section-6",
+    "title": "Estadística descriptiva",
+    "section": "",
+    "text": "Ya tomaste la muestra, y esta tiene característicias intrínsecas.Para hablar de ellas, veamos qué es probabilidad."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#section-7",
+    "href": "slides/01/01-eda.html#section-7",
+    "title": "Estadística descriptiva",
+    "section": "",
+    "text": "Característica\nProbabilidad\nEstadística\n\n\n\n\nEnfoque\nPredicción de eventos futuros\nAnálisis de datos observados\n\n\nPara\nPredecir eventos futuros\nInferir características de una población o fenómeno\n\n\nObjetivo\nCuantificar la incertidumbre de eventos antes de que sucedan\nInferir características de una población a partir de los datos\n\n\nEjemplo\nCalcular la probabilidad de obtener cara en un lanzamiento de moneda\nAnalizar el número de caras obtenidas en 100 lanzamientos de moneda\n\n\nPunto de partida\nModelo teórico de una situación aleatoria\nDatos reales observados\n\n\nUso\nPredice probabilidades de eventos\nToma decisiones, realiza inferencias, o estima parámetros"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#referencias",
+    "href": "slides/01/01-eda.html#referencias",
+    "title": "Estadística descriptiva",
+    "section": "Referencias",
+    "text": "Referencias\n\n\n\n\n\n\n\n🔗 masterx.academy\n\n\n\n\nNijs, I., and I. Impens. 2000. “Biological Diversity and Probability of Local Extinction of Ecosystems.” Functional Ecology 14 (1): 46–54. https://doi.org/10.1046/j.1365-2435.2000.00394.x."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#función-de-densidad-de-la-población",
+    "href": "slides/01/01-eda.html#función-de-densidad-de-la-población",
+    "title": "Estadística descriptiva",
+    "section": "Función de Densidad de la Población",
+    "text": "Función de Densidad de la Población"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#función-de-densidad-de-la-muestra",
+    "href": "slides/01/01-eda.html#función-de-densidad-de-la-muestra",
+    "title": "Estadística descriptiva",
+    "section": "Función de Densidad de la Muestra",
+    "text": "Función de Densidad de la Muestra"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#probabilidad-de-mantenimiento-de-funciones-ecológicas",
+    "href": "slides/01/01-eda.html#probabilidad-de-mantenimiento-de-funciones-ecológicas",
+    "title": "Estadística descriptiva",
+    "section": "Probabilidad de Mantenimiento de Funciones Ecológicas",
+    "text": "Probabilidad de Mantenimiento de Funciones Ecológicas\n\n\n\n¿cómo la probabilidad de extinción de especies afecta la probabilidad de mantener funciones clave en un ecosistema? (Nijs and Impens 2000)\nPor ejemplo, si varias especies de macroinvertebrados cumplen el mismo rol en la descomposición de materia orgánica, la extinción de algunas de ellas puede no afectar gravemente el ecosistema mientras haya suficientes especies funcionalmente equivalentes."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#distribuciones-discretas",
+    "href": "slides/01/01-eda.html#distribuciones-discretas",
+    "title": "Estadística descriptiva",
+    "section": "Distribuciones Discretas",
+    "text": "Distribuciones Discretas\n\n\nDescribe variables obtenidas de procesos de conteos.\nPosibilidades de valores finitos.\nSe usa la función de masa de probabilidad (PMF) para asignar una probabilidad a cada valor posible de la variable.\nLa PMF toma un valor específico y devuelve la probabilidad de que la variable tome ese valor.\n\n\n\n\n\n\n\n\n\nTip\n\n\nCuando \\(n\\) es pequeño, la frecuencia relativa observada de un suceso no es un reflejo fiable de su probabilidad."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#lista-de-distribuciones-discretas",
+    "href": "slides/01/01-eda.html#lista-de-distribuciones-discretas",
+    "title": "Estadística descriptiva",
+    "section": "Lista de distribuciones discretas",
+    "text": "Lista de distribuciones discretas"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#distribuciones-continuas",
+    "href": "slides/01/01-eda.html#distribuciones-continuas",
+    "title": "Estadística descriptiva",
+    "section": "Distribuciones continuas",
+    "text": "Distribuciones continuas\n\n\nDescribe variables obtenidas de procesos de medición.\nPosibilidades de valores infinitos.\nSe usa la función de densidad de probabilidad (PDF) para asignar la probabilidad de que una variable caiga dentro de un rango específico.\nLa PDF no devuelve una probabilidad directa para un valor específico."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#lista-de-distribuciones-discretas-1",
+    "href": "slides/01/01-eda.html#lista-de-distribuciones-discretas-1",
+    "title": "Estadística descriptiva",
+    "section": "Lista de distribuciones discretas",
+    "text": "Lista de distribuciones discretas"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#función-de-densidad-del-parámetro-población",
+    "href": "slides/01/01-eda.html#función-de-densidad-del-parámetro-población",
+    "title": "Estadística descriptiva",
+    "section": "Función de Densidad del Parámetro (Población)",
+    "text": "Función de Densidad del Parámetro (Población)"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#función-de-densidad-del-estimador-muestra",
+    "href": "slides/01/01-eda.html#función-de-densidad-del-estimador-muestra",
+    "title": "Estadística descriptiva",
+    "section": "Función de Densidad del Estimador (muestra)",
+    "text": "Función de Densidad del Estimador (muestra)"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#conceptos-básicos",
+    "href": "slides/01/01-eda.html#conceptos-básicos",
+    "title": "Estadística descriptiva",
+    "section": "Conceptos básicos",
+    "text": "Conceptos básicos"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#tamaño-de-la-muestra",
+    "href": "slides/01/01-eda.html#tamaño-de-la-muestra",
+    "title": "Estadística descriptiva",
+    "section": "Tamaño de la muestra",
+    "text": "Tamaño de la muestra\n\n\n¿Debe ser muy grande?\n\n\nHacer que sea grande, es costoso.\nPor sí solo, no asegura mayor certeza.\nDiseño muestral es importante.\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://www.surveymonkey.com/mp/sample-size-calculator/\n\n\n\n\n\n\n\n\n\nPasos recomendados:\n\n\nDefine la población.\nDefine tu margen de error.\nDefine tu nivel de confianza."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#métodos-de-muestreo-aleatorio",
+    "href": "slides/01/01-eda.html#métodos-de-muestreo-aleatorio",
+    "title": "Estadística descriptiva",
+    "section": "Métodos de muestreo aleatorio",
+    "text": "Métodos de muestreo aleatorio\n\nMuestreo simple: cada unidad de la población tiene la misma probabilidad de ser incluida en la muestra. El muestreo es imparcial, el más común y popular.\nMuestreo estratificado: la población se divide en dos o más subpoblaciones denominadas estratos, y de cada estrato se selecciona aleatoriamente el tamaño de muestra deseado.\nMuestreo de conglomerados: se selecciona una muestra aleatoria de los estratos y, a continuación, se obtienen muestras de estos estratos seleccionados. y, a continuación, se obtienen muestras de estos estratos seleccionados.\nMuestreo sistemático: se selecciona un punto de partida aleatorio en la población y luego se elige cada k-ésima unidad para formar la muestra. El valor de k se determina dividiendo el tamaño total de la población entre el tamaño de la muestra deseada. Este método es útil cuando los datos están organizados en una secuencia o lista y puede ser más eficiente que el muestreo simple."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#section-8",
+    "href": "slides/01/01-eda.html#section-8",
+    "title": "Estadística descriptiva",
+    "section": "",
+    "text": "Campo\nProbabilidad\nEstadística\n\n\n\n\n🏜 Macroecología️\nModelar la probabilidad de extinción de especies en grandes escalas geográficas.\nAnalizar datos observados de tamaños de áreas y riqueza de especies para inferir patrones macroecológicos.\n\n\n🦜 Bioacústica\nCalcular la probabilidad de que ciertos patrones acústicos sean emitidos por especies específicas.\nEvaluar la variabilidad y patrones en los datos acústicos recogidos para identificar especies.\n\n\n🦤 Distribución de especies\nPredecir la probabilidad de que una especie esté presente en un área aún no muestreada.\nAnalizar la distribución observada de especies para estimar sus rangos geográficos.\n\n\n🦐 Macroinvertebrados\nEstimar la probabilidad de encontrar una especie invasora en un hábitat a partir de datos limitados.\nRealizar análisis de diversidad para describir la composición de comunidades de macroinvertebrados en diferentes hábitats.\n\n\n🪻 Biodiversidad botánica\nCalcular la probabilidad de la aparición de especies raras en una zona de alta biodiversidad.\nAnalizar los datos de inventarios botánicos para estimar la diversidad y la riqueza de especies.\n\n\n🌱 Agronomía\nEstimar la probabilidad de que un tipo de cultivo resista condiciones climáticas extremas.\nEvaluar la productividad observada de diferentes cultivos bajo distintos tratamientos agrícolas."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#section-9",
+    "href": "slides/01/01-eda.html#section-9",
+    "title": "Estadística descriptiva",
+    "section": "",
+    "text": "#| standalone: true\n#| viewerHeight: 760\nlibrary(shiny)\nlibrary(ggplot2)\n\n# Definición de la interfaz de usuario\nui &lt;- fluidPage(\n  titlePanel(\"App de Probabilidad Interactiva\"),\n  \n  sidebarLayout(\n    sidebarPanel(\n      selectInput(\"dist\", \"Selecciona la Distribución:\",\n                  choices = c(\"Binomial\", \"Poisson\", \"Geométrica\", \"Hipergeométrica\", \n                              \"Normal\", \"Exponencial\", \"Gamma\", \"Beta\", \n                              \"Cauchy\", \"Uniforme\", \"Log-Normal\", \"Chi-cuadrado\",\n                              \"t-Student\", \"F-Snedecor\")),\n      \n      # Paneles condicionales para cada distribución\n      conditionalPanel(\n        condition = \"input.dist == 'Binomial'\",\n        numericInput(\"size_binom\", \"Número de Ensayos (n):\", value = 10, min = 1),\n        numericInput(\"prob_binom\", \"Probabilidad de Éxito (p):\", value = 0.5, min = 0, max = 1)\n      ),\n      conditionalPanel(\n        condition = \"input.dist == 'Poisson'\",\n        numericInput(\"lambda_pois\", \"Parámetro Lambda (λ):\", value = 5, min = 0)\n      ),\n      conditionalPanel(\n        condition = \"input.dist == 'Geométrica'\",\n        numericInput(\"prob_geom\", \"Probabilidad de Éxito (p):\", value = 0.5, min = 0, max = 1)\n      ),\n      conditionalPanel(\n        condition = \"input.dist == 'Hipergeométrica'\",\n        numericInput(\"m_hyper\", \"Número de Éxitos en la Población (K):\", value = 7, min = 1),\n        numericInput(\"n_hyper\", \"Número de Fracasos en la Población (N-K):\", value = 13, min = 1),\n        numericInput(\"k_hyper\", \"Tamaño de la Muestra (n):\", value = 10, min = 1)\n      ),\n      conditionalPanel(\n        condition = \"input.dist == 'Normal'\",\n        numericInput(\"mean_norm\", \"Media (μ):\", value = 0),\n        numericInput(\"sd_norm\", \"Desviación Estándar (σ):\", value = 1, min = 0)\n      ),\n      conditionalPanel(\n        condition = \"input.dist == 'Exponencial'\",\n        numericInput(\"rate_exp\", \"Tasa (λ):\", value = 1, min = 0)\n      ),\n      conditionalPanel(\n        condition = \"input.dist == 'Gamma'\",\n        numericInput(\"shape_gamma\", \"Forma (α):\", value = 2, min = 0),\n        numericInput(\"rate_gamma\", \"Tasa (β):\", value = 1, min = 0)\n      ),\n      conditionalPanel(\n        condition = \"input.dist == 'Beta'\",\n        numericInput(\"shape1_beta\", \"Parámetro Alpha (α):\", value = 2, min = 0),\n        numericInput(\"shape2_beta\", \"Parámetro Beta (β):\", value = 5, min = 0)\n      ),\n      # Botón para simular\n      actionButton(\"simulate\", \"Simular\"),\n      \n      # Texto descriptivo de la distribución\n      h3(\"Descripción de la distribución seleccionada\"),\n      uiOutput(\"description\")  # Aquí se mostrará el texto regular\n    ),\n    \n    mainPanel(\n      plotOutput(\"distPlot\"),\n      verbatimTextOutput(\"summary\")\n    )\n  )\n)\n\n# Definición de la lógica del servidor\nserver &lt;- function(input, output) {\n  \n  # Función para generar la descripción de la distribución\n  output$description &lt;- renderUI({\n    if (input$dist == \"Binomial\") {\n      withMathJax(HTML(\"&lt;p&gt;&lt;strong&gt;La distribución binomial:&lt;/strong&gt; Modela el número de éxitos en &lt;em&gt;n&lt;/em&gt; ensayos independientes con una probabilidad &lt;em&gt;p&lt;/em&gt; fija.&lt;/p&gt;\n          &lt;p&gt;Fórmula: $$P(X = k) = \\\\binom{n}{k} p^k (1-p)^{n-k}$$&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 1:&lt;/strong&gt; Supervivencia de plántulas en una población, donde &lt;em&gt;p&lt;/em&gt; es la probabilidad de supervivencia de cada plántula.&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 2:&lt;/strong&gt; Número de especies con una característica genética particular en una muestra de individuos.&lt;/p&gt;\"))\n    } else if (input$dist == \"Poisson\") {\n      withMathJax(HTML(\"&lt;p&gt;&lt;strong&gt;La distribución de Poisson:&lt;/strong&gt; Describe el número de eventos que ocurren en un intervalo de tiempo o espacio dado, con una tasa constante &lt;em&gt;λ&lt;/em&gt;.&lt;/p&gt;\n          &lt;p&gt;Fórmula: $$P(X = k) = \\\\frac{\\\\lambda^k e^{-\\\\lambda}}{k!}$$&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 1:&lt;/strong&gt; Número de individuos de una especie rara en una parcela de terreno.&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 2:&lt;/strong&gt; Número de llamadas a una estación de monitoreo ambiental en un día.&lt;/p&gt;\"))\n    } else if (input$dist == \"Geométrica\") {\n      withMathJax(HTML(\"&lt;p&gt;&lt;strong&gt;La distribución geométrica:&lt;/strong&gt; Modela el número de ensayos hasta obtener el primer éxito, donde &lt;em&gt;p&lt;/em&gt; es la probabilidad de éxito en cada ensayo.&lt;/p&gt;\n          &lt;p&gt;Fórmula: $$P(X = k) = (1-p)^{k-1} p$$&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 1:&lt;/strong&gt; Número de intentos hasta encontrar la primera especie rara en una expedición.&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 2:&lt;/strong&gt; Número de observaciones de depredadores hasta ver una captura exitosa.&lt;/p&gt;\"))\n    } else if (input$dist == \"Hipergeométrica\") {\n      withMathJax(HTML(\"&lt;p&gt;&lt;strong&gt;La distribución hipergeométrica:&lt;/strong&gt; Modela el número de éxitos en una muestra sin reemplazo de una población finita.&lt;/p&gt;\n          &lt;p&gt;Fórmula: $$P(X = k) = \\\\frac{\\\\binom{K}{k} \\\\binom{N-K}{n-k}}{\\\\binom{N}{n}}$$&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 1:&lt;/strong&gt; Número de plantas con flor en una muestra tomada de un ecosistema.&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 2:&lt;/strong&gt; Número de especies invasoras detectadas en un área protegida tras muestrear sin reemplazo.&lt;/p&gt;\"))\n    } else if (input$dist == \"Normal\") {\n      withMathJax(HTML(\"&lt;p&gt;&lt;strong&gt;La distribución normal:&lt;/strong&gt; Describe variables continuas cuya distribución se agrupa alrededor de una media &lt;em&gt;μ&lt;/em&gt;, con una desviación estándar &lt;em&gt;σ&lt;/em&gt;.&lt;/p&gt;\n          &lt;p&gt;Fórmula: $$f(x) = \\\\frac{1}{\\\\sigma\\\\sqrt{2\\\\pi}} e^{-\\\\frac{(x-\\\\mu)^2}{2\\\\sigma^2}}$$&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 1:&lt;/strong&gt; Distribución de alturas de los árboles en un bosque.&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 2:&lt;/strong&gt; Peso de los individuos de una especie animal en una población natural.&lt;/p&gt;\"))\n    }\n    else if (input$dist == \"Gamma\") {\n      withMathJax(HTML(\"&lt;p&gt;&lt;strong&gt;La distribución Gamma:&lt;/strong&gt; Modela tiempos de espera de un evento en un proceso en el que suceden múltiples eventos de manera continua. Utiliza dos parámetros: &lt;em&gt;α&lt;/em&gt; (forma) y &lt;em&gt;β&lt;/em&gt; (tasa).&lt;/p&gt;\n          &lt;p&gt;Fórmula: $$f(x; \\\\alpha, \\\\beta) = \\\\frac{\\\\beta^{\\\\alpha}}{\\\\Gamma(\\\\alpha)} x^{\\\\alpha-1} e^{-\\\\beta x}$$&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 1:&lt;/strong&gt; Tiempo hasta que un ecosistema se recupere después de un disturbio.&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 2:&lt;/strong&gt; Modelar el tiempo que tarda un cultivo en alcanzar su madurez.&lt;/p&gt;\"))\n    } else if (input$dist == \"Exponencial\") {\n      withMathJax(HTML(\"&lt;p&gt;&lt;strong&gt;La distribución Exponencial:&lt;/strong&gt; Modela el tiempo entre eventos en un proceso de Poisson con tasa constante. Se describe con el parámetro &lt;em&gt;λ&lt;/em&gt;.&lt;/p&gt;\n          &lt;p&gt;Fórmula: $$f(x; \\\\lambda) = \\\\lambda e^{-\\\\lambda x}$$&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 1:&lt;/strong&gt; Tiempo hasta la próxima aparición de un incendio en un ecosistema.&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 2:&lt;/strong&gt; Tiempo de espera entre eventos de depredación en un sistema ecológico.&lt;/p&gt;\"))\n    } else if (input$dist == \"Beta\") {\n      withMathJax(HTML(\"&lt;p&gt;&lt;strong&gt;La distribución Beta:&lt;/strong&gt; Modela variables continuas entre 0 y 1, a menudo utilizada en la modelización de proporciones. Se describe con los parámetros &lt;em&gt;α&lt;/em&gt; (shape1) y &lt;em&gt;β&lt;/em&gt; (shape2).&lt;/p&gt;\n          &lt;p&gt;Fórmula: $$f(x; \\\\alpha, \\\\beta) = \\\\frac{x^{\\\\alpha-1}(1-x)^{\\\\beta-1}}{B(\\\\alpha, \\\\beta)}$$&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 1:&lt;/strong&gt; Proporción de la población que sobrevive en diferentes condiciones ambientales.&lt;/p&gt;\n          &lt;p&gt;&lt;strong&gt;Ejemplo 2:&lt;/strong&gt; Fracción del área de un ecosistema afectada por una perturbación.&lt;/p&gt;\"))\n    }\n  })\n  \n  data &lt;- eventReactive(input$simulate, {\n    if (input$dist == \"Binomial\") {\n      rbinom(1000, Csize = input$size_binom, prob = input$prob_binom)\n    } else if (input$dist == \"Poisson\") {\n      rpois(1000, lambda = input$lambda_pois)\n    } else if (input$dist == \"Geométrica\") {\n      rgeom(1000, prob = input$prob_geom)\n    } else if (input$dist == \"Hipergeométrica\") {\n      rhyper(1000, m = input$m_hyper, n = input$n_hyper, k = input$k_hyper)\n    } else if (input$dist == \"Normal\") {\n      rnorm(1000, mean = input$mean_norm, sd = input$sd_norm)\n    } else if (input$dist == \"Exponencial\") {\n      rexp(1000, rate = input$rate_exp)\n    } else if (input$dist == \"Gamma\") {\n      rgamma(1000, shape = input$shape_gamma, rate = input$rate_gamma)\n    } else if (input$dist == \"Beta\") {\n      rbeta(1000, shape1 = input$shape1_beta, shape2 = input$shape2_beta)\n    }\n  })\n  \n  output$distPlot &lt;- renderPlot({\n    req(data())\n    dist_data &lt;- data()\n    ggplot(data.frame(x = dist_data), aes(x = x)) +\n      geom_histogram(binwidth = 1, color = \"black\", fill = \"lightblue\") +\n      theme_minimal() +\n      labs(title = paste(\"Distribución\", input$dist),\n           x = \"Valor\", y = \"Frecuencia\")\n  })\n  \n  output$summary &lt;- renderPrint({\n    summary(data())\n  })\n}\n\n# Ejecutar la aplicación Shiny\nshinyApp(ui = ui, server = server)"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#exportar",
+    "href": "slides/01/01-eda.html#exportar",
+    "title": "Estadística descriptiva",
+    "section": "Exportar",
+    "text": "Exportar"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#qué-es-el-margen-de-error",
+    "href": "slides/01/01-eda.html#qué-es-el-margen-de-error",
+    "title": "Estadística descriptiva",
+    "section": "¿Qué es el margen de error?",
+    "text": "¿Qué es el margen de error?\n\n\n¿Cómo saber si la respuesta obtenida refleja el parámetro de la población?\n\n\n\n\n\n\n\n\n\n\n\nSi preguntas aun grupo de personas si se vacunaría contra la COVID-19, la respuesta es dicotómica.\n\n\n\nSi 70% de los evaluado dicen que sí se vacunarán, un 5% de margen de error significa implica que el valor fluctuará en la población e 65% a 75%.\nMárgenes de error superiores al 10% no son recomendados"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#margen-de-error",
+    "href": "slides/01/01-eda.html#margen-de-error",
+    "title": "Estadística descriptiva",
+    "section": "Margen de error",
+    "text": "Margen de error\nMargen de error del estimador promedio:\n\\[\nME = Z \\times \\frac{S}{\\sqrt{n}}\n\\]\nMargen de error de una proporción:\n\\[\nME = Z \\times \\sqrt{\\frac{p \\times (1 - p)}{n}}\n\\]"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#variables",
+    "href": "slides/01/01-eda.html#variables",
+    "title": "Estadística descriptiva",
+    "section": "Variables",
+    "text": "Variables\n\nNominales: clasificación sin orden (e.g., tipos de hábitat, especies/ géneros/ familias/ órdenes, estación, sexo).\nOrdinales: clasificación con orden intrínseco (e.g., estadios de desarrollo, grupo etario, grado de perturbación, nivel de contaminación categórico).\nCuantitativas continuas: son numéricas obtenidas de procesos de medición. Tienen decimales.\nCuantitativas discretas: son numéricas obtenidas de procesos de conteo. Son números enteros, mayores/iguales a cero, siempre.\nDe razón: numéricas que incluyen un cero absoluto (e.g., peso, altura).\nDe intervalo: diferencias significativas pero sin un cero absoluto (e.g., temperatura en Celsius)."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#tipos-de-variables-y-escalas-de-medición",
+    "href": "slides/01/01-eda.html#tipos-de-variables-y-escalas-de-medición",
+    "title": "Estadística descriptiva",
+    "section": "Tipos de Variables y Escalas de Medición",
+    "text": "Tipos de Variables y Escalas de Medición\nComprender los tipos de variables es fundamental para elegir las estadísticas descriptivas adecuadas.\n\n\nNominales: clasificación sin orden (e.g., tipos de hábitat, especies/ géneros/ familias/ órdenes, estación, sexo).\nOrdinales: clasificación con orden intrínseco (e.g., estadios de desarrollo, grupo etario, grado de perturbación, nivel de contaminación categórico).\nCuantitativas continuas: son numéricas obtenidas de procesos de medición. Tienen decimales.\nCuantitativas discretas: son numéricas obtenidas de procesos de conteo. Son números enteros, mayores/iguales a cero, siempre.\nDe razón: numéricas que incluyen un cero absoluto (e.g., peso, altura).\nDe intervalo: diferencias significativas pero sin un cero absoluto (e.g., temperatura en Celsius)."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#abordaje-en-esta-sección",
+    "href": "slides/01/01-eda.html#abordaje-en-esta-sección",
+    "title": "Estadística descriptiva",
+    "section": "Abordaje en esta sección",
+    "text": "Abordaje en esta sección\n\nPoblación y muestra, parámetro y estimador.\n¿Cómo obtener la muestra?\n¿Qué se mide en la muestra?"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#cómo-obtener-la-muestra",
+    "href": "slides/01/01-eda.html#cómo-obtener-la-muestra",
+    "title": "Estadística descriptiva",
+    "section": "¿Cómo obtener la muestra?",
+    "text": "¿Cómo obtener la muestra?"
+  },
+  {
+    "objectID": "slides/01/01-eda.html#qué-se-mide-en-la-muestra",
+    "href": "slides/01/01-eda.html#qué-se-mide-en-la-muestra",
+    "title": "Estadística descriptiva",
+    "section": "¿Qué se mide en la muestra?",
+    "text": "¿Qué se mide en la muestra?\nTipos de Variables y Escalas de Medición\nComprender los tipos de variables es fundamental para elegir las estadísticas descriptivas adecuadas.\n\n\nNominales: clasificación sin orden (e.g., tipos de hábitat, especies/ géneros/ familias/ órdenes, estación, sexo).\nOrdinales: clasificación con orden intrínseco (e.g., estadios de desarrollo, grupo etario, grado de perturbación, nivel de contaminación categórico).\nCuantitativas continuas: son numéricas obtenidas de procesos de medición. Tienen decimales.\nCuantitativas discretas: son numéricas obtenidas de procesos de conteo. Son números enteros, mayores/iguales a cero, siempre.\nDe razón: numéricas que incluyen un cero absoluto (e.g., peso, altura).\nDe intervalo: diferencias significativas pero sin un cero absoluto (e.g., temperatura en Celsius)."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#abordaje",
+    "href": "slides/01/01-eda.html#abordaje",
+    "title": "Estadística descriptiva",
+    "section": "Abordaje",
+    "text": "Abordaje\n\nTamaño de la muestra (??).\nEl margen de error (&lt;10%).\nNivel de confianza (95%).\nInfluencia del N muestral (simulación).\n¿Cómo afecta el N al estimador?: Función de densidad."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#abordaje-en-esta-sección-1",
+    "href": "slides/01/01-eda.html#abordaje-en-esta-sección-1",
+    "title": "Estadística descriptiva",
+    "section": "Abordaje en esta sección",
+    "text": "Abordaje en esta sección\n\nTamaño de la muestra (??).\nEl margen de error (&lt;10%).\nNivel de confianza (95%).\nInfluencia del N muestral (simulación).\n¿Cómo afecta el N al estimador?: Función de densidad."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#variables-aleatorias-y-distribuciones",
+    "href": "slides/01/01-eda.html#variables-aleatorias-y-distribuciones",
+    "title": "Estadística descriptiva",
+    "section": "Variables Aleatorias y Distribuciones",
+    "text": "Variables Aleatorias y Distribuciones\nUna variable aleatoria es una función que asigna un valor numérico a cada uno de los resultados posibles de un experimento aleatorio.\nSe clasifica en dos tipos principales:\n\nVariable Aleatoria Discreta: Toma un número finito o contable de valores (Ej. número de individuos en una población).\nVariable Aleatoria Continua: Puede tomar cualquier valor dentro de un intervalo (Ej. la altura de una planta)."
+  },
+  {
+    "objectID": "slides/01/01-eda.html#todo-esto-se-generó-con-una-función-sencilla",
+    "href": "slides/01/01-eda.html#todo-esto-se-generó-con-una-función-sencilla",
+    "title": "Estadística descriptiva",
+    "section": "Todo esto se generó con una función sencilla",
+    "text": "Todo esto se generó con una función sencilla\n\\[\nP(X = k) = \\binom{n}{k} p^k (1 - p)^{n - k}\n\\] Donde \\(p\\) es probabilidad de éxito, y \\(1-p\\) de fracaso, en una distribución binomial."
+  },
+  {
+    "objectID": "clases/modulo 5/mod5-eda.html",
+    "href": "clases/modulo 5/mod5-eda.html",
+    "title": "Módulo 5 - EDA",
+    "section": "",
+    "text": "En este informe, realizamos un análisis exploratorio de datos (EDA) del conjunto de datos lake. El objetivo es extraer la máxima información posible aplicando técnicas de EDA usando R. Los gráficos se generarán utilizando ggplot2 y sus extensiones.\n\nlake &lt;- read.csv(\"bases/Wudalianchi_Lake_data.csv\")\n\n\n\n\nEl conjunto de datos lake contiene 42 observaciones y 61 variables, incluyendo mediciones de diversos parámetros ambientales y conteos de especies en diferentes sitios y estaciones.\n\n# Cargar librerías necesarias\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(summarytools)\n\n\nAdjuntando el paquete: 'summarytools'\n\nThe following object is masked from 'package:tibble':\n\n    view\n\nlibrary(Hmisc)\n\n\nAdjuntando el paquete: 'Hmisc'\n\nThe following objects are masked from 'package:summarytools':\n\n    label, label&lt;-\n\nThe following objects are masked from 'package:dplyr':\n\n    src, summarize\n\nThe following objects are masked from 'package:base':\n\n    format.pval, units\n\nlibrary(skimr)\nlibrary(psych)\n\n\nAdjuntando el paquete: 'psych'\n\nThe following object is masked from 'package:Hmisc':\n\n    describe\n\nThe following objects are masked from 'package:ggplot2':\n\n    %+%, alpha\n\n\nPrimero, veamos la estructura del conjunto de datos:\n\nstr(lake)\n\n'data.frame':   42 obs. of  60 variables:\n $ Site     : chr  \"sp1\" \"sp2\" \"su1\" \"su2\" ...\n $ Lake     : chr  \"A\" \"A\" \"A\" \"A\" ...\n $ Season   : chr  \"Spring\" \"Spring\" \"Summer\" \"Summer\" ...\n $ Arable.1 : num  0.473 0.473 0.473 0.473 0.473 0.473 0.455 0.455 0.455 0.455 ...\n $ forest.1 : num  0.308 0.308 0.308 0.308 0.308 0.308 0.305 0.305 0.305 0.305 ...\n $ urban.1  : num  0.028 0.028 0.028 0.028 0.028 0.028 0.027 0.027 0.027 0.027 ...\n $ Area     : num  430025 430025 430025 430025 430025 ...\n $ Perimeter: num  4258 4258 4258 4258 4258 ...\n $ Max.depth: num  4 4 4 4 4 4 9.1 9.1 9.1 9.1 ...\n $ WD       : num  1.3 1.28 3.5 3.2 2.5 2.7 4.2 4 7.1 7.2 ...\n $ SD       : num  0.9 0.9 0.6 0.6 0.4 0.35 1.1 1.1 1.06 1.06 ...\n $ DO       : num  9.2 9.3 9.3 9.4 8.9 9 9.75 9.59 9.42 9.42 ...\n $ TP       : num  0.45 0.46 0.35 0.38 0.12 0.11 0.47 0.47 0.42 0.42 ...\n $ TN       : num  1.02 1.08 1.52 1.47 0.726 0.84 0.8 0.8 1.1 1.08 ...\n $ Chla     : num  12 13.5 22 25.8 11 ...\n $ WT       : num  15.1 15 22 22.3 14.2 14.3 14.9 15 21.7 21.8 ...\n $ Awood    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Ajapo    : int  0 0 0 0 0 0 0 0 6 3 ...\n $ Baeru    : num  0 0 0 0 0 0 0 0 12 0 ...\n $ Bpuri    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Csine    : num  0 0 0 0 0 0 0 0 4.2 2 ...\n $ Cerat    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Chaob    : int  0 0 0 0 8 6 0 0 0 0 ...\n $ Cdors    : num  0 0 0 0 0 0 0 0 12 20 ...\n $ Ckiie    : num  10 5 0 0 16 12 0 0 3.8 9 ...\n $ Cplum    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Csini    : num  0 0 0 0 0 0 85 395 0 5.8 ...\n $ Cchin    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Cedwa    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Cdipt    : num  0 0 0 0 0 0 4 1.3 0 0 ...\n $ Diplo    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Etene    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Eshen    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Ephem    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Gtrun    : int  0 0 0 0 0 0 2 0 0 0 ...\n $ Glata    : num  0 0 0 0 0 ...\n $ Gpost    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Gprye    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Hstag    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Ilybi    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Lambl    : num  0 0 0 0 0 ...\n $ Lclap    : num  0 0 6 4 0 ...\n $ Lhoff    : num  0 0 10 12 0 ...\n $ Ludek    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Mamph    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Neure    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Penta    : int  0 0 0 0 0 0 0 64 0 0 ...\n $ Pflav    : int  4 2 8 12 8 6 7 6 0 3 ...\n $ Pculi    : num  0 0 0 0 0 0 2 0 0 9.6 ...\n $ Pakam    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Rovat    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Samur    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Spani    : int  0 0 0 0 0 0 2 0 0 0 ...\n $ Tchin    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Tvili    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Ttubi    : num  0 0 0 2 0 ...\n $ Udoug    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Vpisc    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Vchui    : int  0 0 12 10 0 5 0 0 0 0 ...\n $ Whitm    : num  0 0 0 0 0 0 0 0 0 0 ...\n\n\n\n\n\nPodemos utilizar varias librerías para generar estadísticas descriptivas del conjunto de datos."
+  },
+  {
+    "objectID": "clases/modulo 5/mod5-eda.html#análisis-exploratorio-de-datos-del-conjunto-lake",
+    "href": "clases/modulo 5/mod5-eda.html#análisis-exploratorio-de-datos-del-conjunto-lake",
+    "title": "Módulo 5 - EDA",
+    "section": "",
+    "text": "En este informe, realizamos un análisis exploratorio de datos (EDA) del conjunto de datos lake. El objetivo es extraer la máxima información posible aplicando técnicas de EDA usando R. Los gráficos se generarán utilizando ggplot2 y sus extensiones.\n\nlake &lt;- read.csv(\"bases/Wudalianchi_Lake_data.csv\")\n\n\n\n\nEl conjunto de datos lake contiene 42 observaciones y 61 variables, incluyendo mediciones de diversos parámetros ambientales y conteos de especies en diferentes sitios y estaciones.\n\n# Cargar librerías necesarias\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(summarytools)\n\n\nAdjuntando el paquete: 'summarytools'\n\nThe following object is masked from 'package:tibble':\n\n    view\n\nlibrary(Hmisc)\n\n\nAdjuntando el paquete: 'Hmisc'\n\nThe following objects are masked from 'package:summarytools':\n\n    label, label&lt;-\n\nThe following objects are masked from 'package:dplyr':\n\n    src, summarize\n\nThe following objects are masked from 'package:base':\n\n    format.pval, units\n\nlibrary(skimr)\nlibrary(psych)\n\n\nAdjuntando el paquete: 'psych'\n\nThe following object is masked from 'package:Hmisc':\n\n    describe\n\nThe following objects are masked from 'package:ggplot2':\n\n    %+%, alpha\n\n\nPrimero, veamos la estructura del conjunto de datos:\n\nstr(lake)\n\n'data.frame':   42 obs. of  60 variables:\n $ Site     : chr  \"sp1\" \"sp2\" \"su1\" \"su2\" ...\n $ Lake     : chr  \"A\" \"A\" \"A\" \"A\" ...\n $ Season   : chr  \"Spring\" \"Spring\" \"Summer\" \"Summer\" ...\n $ Arable.1 : num  0.473 0.473 0.473 0.473 0.473 0.473 0.455 0.455 0.455 0.455 ...\n $ forest.1 : num  0.308 0.308 0.308 0.308 0.308 0.308 0.305 0.305 0.305 0.305 ...\n $ urban.1  : num  0.028 0.028 0.028 0.028 0.028 0.028 0.027 0.027 0.027 0.027 ...\n $ Area     : num  430025 430025 430025 430025 430025 ...\n $ Perimeter: num  4258 4258 4258 4258 4258 ...\n $ Max.depth: num  4 4 4 4 4 4 9.1 9.1 9.1 9.1 ...\n $ WD       : num  1.3 1.28 3.5 3.2 2.5 2.7 4.2 4 7.1 7.2 ...\n $ SD       : num  0.9 0.9 0.6 0.6 0.4 0.35 1.1 1.1 1.06 1.06 ...\n $ DO       : num  9.2 9.3 9.3 9.4 8.9 9 9.75 9.59 9.42 9.42 ...\n $ TP       : num  0.45 0.46 0.35 0.38 0.12 0.11 0.47 0.47 0.42 0.42 ...\n $ TN       : num  1.02 1.08 1.52 1.47 0.726 0.84 0.8 0.8 1.1 1.08 ...\n $ Chla     : num  12 13.5 22 25.8 11 ...\n $ WT       : num  15.1 15 22 22.3 14.2 14.3 14.9 15 21.7 21.8 ...\n $ Awood    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Ajapo    : int  0 0 0 0 0 0 0 0 6 3 ...\n $ Baeru    : num  0 0 0 0 0 0 0 0 12 0 ...\n $ Bpuri    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Csine    : num  0 0 0 0 0 0 0 0 4.2 2 ...\n $ Cerat    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Chaob    : int  0 0 0 0 8 6 0 0 0 0 ...\n $ Cdors    : num  0 0 0 0 0 0 0 0 12 20 ...\n $ Ckiie    : num  10 5 0 0 16 12 0 0 3.8 9 ...\n $ Cplum    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Csini    : num  0 0 0 0 0 0 85 395 0 5.8 ...\n $ Cchin    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Cedwa    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Cdipt    : num  0 0 0 0 0 0 4 1.3 0 0 ...\n $ Diplo    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Etene    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Eshen    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Ephem    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Gtrun    : int  0 0 0 0 0 0 2 0 0 0 ...\n $ Glata    : num  0 0 0 0 0 ...\n $ Gpost    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Gprye    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Hstag    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Ilybi    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Lambl    : num  0 0 0 0 0 ...\n $ Lclap    : num  0 0 6 4 0 ...\n $ Lhoff    : num  0 0 10 12 0 ...\n $ Ludek    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Mamph    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Neure    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Penta    : int  0 0 0 0 0 0 0 64 0 0 ...\n $ Pflav    : int  4 2 8 12 8 6 7 6 0 3 ...\n $ Pculi    : num  0 0 0 0 0 0 2 0 0 9.6 ...\n $ Pakam    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Rovat    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Samur    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Spani    : int  0 0 0 0 0 0 2 0 0 0 ...\n $ Tchin    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Tvili    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Ttubi    : num  0 0 0 2 0 ...\n $ Udoug    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Vpisc    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Vchui    : int  0 0 12 10 0 5 0 0 0 0 ...\n $ Whitm    : num  0 0 0 0 0 0 0 0 0 0 ...\n\n\n\n\n\nPodemos utilizar varias librerías para generar estadísticas descriptivas del conjunto de datos."
+  }
+]

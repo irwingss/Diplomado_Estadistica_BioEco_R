@@ -1,0 +1,124 @@
+Year,LandslideID,Zone,CWDID,Da_cm,Db_cm,L_m,Decay,sp,type,Mass_g
+1947,16,Initiation,1,26,10,5.6,3,broadleaves,downed log,48864.33214
+1947,16,Initiation,2,18,20.5,1.9,3,broadleaves,downed log,16802.22073
+1947,16,Transport,3,19.2,13.5,3.2,2,broadleaves,downed log,27350.01764
+1947,16,Transport,1,11,11,1.6,3,broadleaves,downed log,4607.208458
+1947,16,Transport,2,12,9.8,4.6,3,broadleaves,downed log,13094.29248
+1947,19,Initiation,1,7.9,18,6.5,3,broadleaves,downed log,28570.8104
+1947,19,Initiation,2,5.3,13.5,5.2,3,broadleaves,downed log,12321.10962
+1947,19,Transport,2,10.5,11.5,2,3,broadleaves,downed log,5766.943094
+1947,19,Transport,1,14,8,2,4,broadleaves,downed log,4129.466464
+1947,20,Initiation,2,10.4,9.8,2,3,broadleaves,downed log,4858.034786
+1947,20,Initiation,3,11.3,6.8,2,3,broadleaves,downed log,4058.793588
+1947,20,Transport,1,14.5,7.5,9.2,3,broadleaves,downed log,28279.43898
+1947,20,Transport,2,8.3,18.5,6,3,broadleaves,downed log,28114.44252
+1981,22,Deposition,2,11.8,16,2,3,broadleaves,downed log,9335.784494
+1981,22,Deposition,4,12,12,3,3,broadleaves,downed log,10280.5478
+1981,23,Deposition,2,20,17,2.3,3,broadleaves,downed log,18814.94931
+1981,23,Deposition,3,13,17,2,3,broadleaves,downed log,10835.8243
+1981,62,Deposition,1,16.5,12,2,3,broadleaves,downed log,9825.419382
+1981,62,Deposition,2,13,11,4,3,broadleaves,downed log,13770.85724
+1981,62,Deposition,3,6,20,12,3,broadleaves,downed log,57590.10572
+1981,70,Deposition,1,5.2,15,11,1,broadleaves,downed log,50469.74488
+2003,19,Deposition,1,20,20,6,3,broadleaves,downed log,57114.15444
+2003,19,Transport,1,22,80,3,3,broadleaves,downed log,225719.8978
+2003,65,Deposition,1,10,11,1.4,3,broadleaves,downed log,3678.706822
+2003,482,Deposition,1,14,22,11,3,broadleaves,downed log,87606.7669
+2003,482,Deposition,2,38,15,3.2,3,broadleaves,downed log,60191.97276
+2003,482,Deposition,3,15,20,3,3,broadleaves,downed log,22161.4818
+2003,482,Deposition,4,20,12,7,3,broadleaves,downed log,44422.12012
+2003,482,Deposition,5,30,12,14,3,broadleaves,downed log,164917.121
+2018,Habiu,Deposition,2,16,13,7.3,1,broadleaves,downed log,60095.41788
+2018,Habiu,Deposition,3,25,26,8.9,1,broadleaves,downed log,225048.8242
+2018,Habiu,Deposition,1,13,14,2,2,broadleaves,downed log,11432.92325
+2018,Habiu,Deposition,4,14,2,6,2,broadleaves,downed log,16546.14019
+2018,Horosato,Deposition,1,36,1,12,1,broadleaves,downed log,254917.86
+2018,Horosato,Deposition,2,20,1,14,1,broadleaves,downed log,92754.54134
+2018,Horosato,Deposition,3,21,31,2,1,broadleaves,downed log,53857.89366
+2018,Horosato,Deposition,4,26,20,2.3,1,broadleaves,downed log,47838.40578
+2018,Horosato,Deposition,5,20,10,8.4,1,broadleaves,downed log,78920.73444
+2018,Horosato,Deposition,6,20,3,12,1,broadleaves,downed log,84169.15768
+2018,Horosato,Deposition,7,13,20,1.8,1,broadleaves,downed log,19623.27129
+2018,Takaoka,Deposition,1,11,10,4,2,broadleaves,downed log,13840.67913
+2018,Takaoka,Deposition,2,24,15,2,2,broadleaves,downed log,24678.19204
+2018,Towa,Deposition,2,12,5,8,1,broadleaves,downed log,25011.00452
+2018,Towa,Deposition,5,15,8,7.6,1,broadleaves,downed log,41488.46164
+2018,Towa,Deposition,1,6,14,7.1,2,broadleaves,downed log,24622.82932
+2018,Towa,Deposition,3,13,10,6.6,2,broadleaves,downed log,27663.07812
+2018,Towa,Deposition,4,19,23,4.2,2,broadleaves,downed log,58394.08642
+2018,Towa,Transport,1,2,22,15.6,1,broadleaves,downed log,127766.0599
+2018,Uryu,Deposition,2,14,4,5.4,1,broadleaves,downed log,20503.84008
+2018,Uryu,Deposition,4,22,5,7.6,1,broadleaves,downed log,68080.47264
+2018,Uryu,Deposition,5,16,6,12.3,1,broadleaves,downed log,65830.77814
+2018,Uryu,Deposition,6,17,3,10,1,broadleaves,downed log,51577.0974
+2018,Uryu,Deposition,1,13,2,5.9,2,broadleaves,downed log,14128.72195
+2018,Uryu,Deposition,3,23,5,10.1,2,broadleaves,downed log,79126.90146
+2018,Uryu,Deposition,7,18,12,3.7,2,conifers,downed log,26784.06442
+2018,Uryu,Deposition,8,15,19,3.7,2,conifers,downed log,33818.26316
+2018,Uryu,Deposition,9,15,19,3.7,2,conifers,downed log,33818.26316
+2018,Uryu,Deposition,10,15,19,3.7,2,conifers,downed log,33818.26316
+2018,Uryu,Transport,1,15,1,13,1,broadleaves,downed log,48855.69276
+2018,Uryu,Transport,2,20,1,13,1,broadleaves,downed log,86129.21696
+2018,Uryu,Transport,3,25,1,15,1,broadleaves,downed log,154536.9061
+Reference,Atsuma,Lower,3,19,28.3,6.8,2,broadleaves,downed log,122260.1506
+Reference,Atsuma,Lower,4,17.5,8.5,2.9,3,broadleaves,downed log,12594.86093
+Reference,Atsuma,Lower,1,13.5,23.1,7.4,4,broadleaves,downed log,42137.62856
+Reference,Atsuma,Lower,2,14.3,25.2,7.4,4,broadleaves,downed log,49309.64744
+Reference,Atsuma,Lower,5,12.8,9.8,4.5,4,broadleaves,downed log,9451.51959
+Reference,Atsuma,Lower,6,19.8,20.2,4.3,4,broadleaves,downed log,27965.18044
+Reference,Atsuma,Upper,3,15,8,2,3,broadleaves,downed log,6683.149322
+Reference,Biratori,Lower,3,12.3,6.5,4.8,2,broadleaves,downed log,14134.41491
+Reference,Biratori,Lower,1,32.2,13.9,16.5,3,broadleaves,downed log,230537.447
+Reference,Biratori,Lower,2,19.5,29.5,8.5,3,broadleaves,downed log,124789.4696
+Reference,Biratori,Lower,4,15,19.5,6.9,3,broadleaves,downed log,49414.8987
+Reference,Biratori,Middle,3,7.5,12,1.8,2,broadleaves,downed log,5552.59321
+Reference,Biratori,Middle,4,21.2,18.2,4.3,2,broadleaves,downed log,52497.54972
+Reference,Biratori,Middle,2,7.9,15.3,7,3,broadleaves,downed log,23935.74888
+Reference,Biratori,Upper,4,13.5,14.3,2.5,1,broadleaves,downed log,18789.03118
+Reference,Biratori,Upper,5,11,14.5,1.8,3,broadleaves,downed log,7050.920848
+Reference,Biratori,Upper,6,11.5,16,3,3,broadleaves,downed log,13738.63137
+Reference,Biratori,Upper,3,12.5,19,9.9,4,broadleaves,downed log,41059.43544
+Reference,Hidaka,Lower,3,20.3,6,5.8,2,broadleaves,downed log,37624.42382
+Reference,Hidaka,Lower,5,25,37,1.6,2,broadleaves,downed log,49387.72148
+Reference,Hidaka,Lower,1,11,7,1.8,3,broadleaves,downed log,3583.913192
+Reference,Hidaka,Lower,2,16,17.3,1.2,3,broadleaves,downed log,7924.707916
+Reference,Hidaka,Lower,4,7.5,16,7.3,3,broadleaves,downed log,26076.42902
+Reference,Hidaka,Middle,4,24,4.3,7,1,broadleaves,downed log,72091.14274
+Reference,Hidaka,Middle,5,13.1,10.8,1,4,broadleaves,downed log,2335.980108
+Reference,Hidaka,Upper,1,12.3,12,1.6,3,broadleaves,downed log,5621.46065
+Reference,Hidaka,Upper,2,10.3,17,4.5,3,broadleaves,downed log,20754.30208
+Reference,Hidaka,Upper,3,13.4,18.8,4.5,3,broadleaves,downed log,28279.00268
+Reference,Hidaka,Upper,4,30.5,13.6,13.8,3,broadleaves,downed log,175304.6983
+Reference,Hidaka,Upper,5,7.8,31.2,8.8,3,broadleaves,downed log,98742.9482
+Reference,Hidaka,Upper,6,35,32,1.4,4,broadleaves,downed log,25577.49258
+1981,22,Initiation,1,11,,7.3,1,broadleaves,snag,32509.87759
+1981,22,Deposition,1,16.5,,7.1,2,broadleaves,snag,69110.25236
+1981,22,Deposition,3,17.5,,4.6,2,broadleaves,snag,69842.46002
+1947,30,Initiation,1,19,,7.5,3,broadleaves,snag,73702.32857
+1947,30,Initiation,2,20.1,,5,1,broadleaves,snag,122070.4476
+1947,30,Initiation,3,10,,8,2,broadleaves,snag,20809.33808
+1947,30,Initiation,4,10,,7.5,2,broadleaves,snag,20809.33808
+1947,30,Initiation,5,10.8,,6.8,3,broadleaves,snag,19032.01932
+1947,30,Initiation,6,11.5,,4.6,3,broadleaves,snag,20875.44601
+1947,30,Transport,1,18,,12.75,3,broadleaves,snag,65494.77604
+1981,23,Deposition,1,26,,3.6,2,broadleaves,snag,144216.7706
+Reference,Biratori,Upper,1,22.5,,12.2,2,broadleaves,snag,147962.8061
+Reference,Biratori,Upper,2,22.2,,11.7,2,broadleaves,snag,143235.7663
+Reference,Biratori,Middle,1,10.8,,12.8,2,broadleaves,snag,25067.26707
+1981,62,Initiation,1,13,,11.9,1,broadleaves,snag,48697.66572
+1981,62,Initiation,2,11.3,,14.5,1,broadleaves,snag,34696.20828
+1981,62,Initiation,3,11,,9.9,1,broadleaves,snag,32509.87768
+1981,62,Transport,1,11.3,,6.5,3,broadleaves,snag,21197.03173
+1981,62,Transport,2,11.8,,11.4,2,broadleaves,snag,31055.15159
+1981,62,Transport,3,11.8,,6,1,broadleaves,snag,38159.0914
+1981,62,Transport,4,13.5,,6.6,2,broadleaves,snag,42678.92919
+1947,20,Initiation,1,13,,6.8,3,broadleaves,snag,29698.37123
+1947,19,Transport,3,27.5,,5.1,2,broadleaves,snag,199279.8417
+1947,16,Initiation,3,13.5,,5.4,2,broadleaves,snag,41275.79795
+1947,16,Transport,4,10.5,,5.1,3,broadleaves,snag,17380.3448
+1981,70,Deposition,2,11,,6,1,broadleaves,snag,32322.79635
+Reference,Atsuma,Upper,1,13.1,,11.9,1,broadleaves,snag,49608.72968
+Reference,Atsuma,Upper,2,28.1,,16.8,1,broadleaves,snag,314243.4879
+Reference,Hidaka,Middle,1,13.5,,7.1,2,broadleaves,snag,42897.99714
+Reference,Hidaka,Middle,2,19.9,,5.1,3,broadleaves,snag,73693.54913
+Reference,Hidaka,Middle,3,30,,7.1,2,broadleaves,snag,277618.3783

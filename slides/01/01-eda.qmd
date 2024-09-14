@@ -1,0 +1,1280 @@
+---
+title: Estadística descriptiva
+subtitle: Módulo 5 - Clase 1
+title-slide-attributes:
+  data-background-image: ../bg4.png
+  data-background-size: cover
+  data-slide-number: none
+format:
+  revealjs:
+    theme:
+     - "default"
+     - "../slides.scss"
+    width: "1600"
+    height: "900"
+revealjs-plugins:
+  - ace
+filters:
+  - shinylive
+cache: true
+bibliography: references.bib
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  fig.align = "center"
+)
+```
+
+# Objetivos del módulo {background-image="../bg8.png"}
+
+::: incremental
+1.  **Comprender los conceptos fundamentales** de la estadística descriptiva y cómo aplicarlos a datos biológicos y ecológicos.
+2.  **Seleccionar adecuadamente** las estadísticas descriptivas en función del tipo de variable y contexto ecológico.
+3.  Desarrollar **análisis exploratorios de datos** (EDA) para identificar patrones en estudios ecológicos y biológicos.
+4.  **Desplegar reportes EDA en GitHub** Pages para una mayor accesibilidad y transparencia en la presentación de resultados.
+:::
+
+# Introducción
+
+## Temario del módulo
+
+::: incremental
+-   Introducción a la estadística descriptiva.
+-   Población y muestra.
+-   Tipos de variables.
+-   Medidas de tendencia central y dispersión
+-   Medidas de posición: cuartiles.
+-   Distribución de frecuencias
+-   Medidas de forma: simetría y curtosis.
+-   Análisis bivariado: covarianza y correlación.
+-   EDA: análisis exploratorio.
+-   Desplegar un reporte EDA en GitHub Pages.
+:::
+
+# 1. ¿Qué es estadística?
+
+## La historia de (casi) tod\@s
+
+::::: columns
+:::: column
+::: incremental
+-   "En algún punto de la vida académica/profesional, todos afrontamos problemas de análisis de datos".
+-   ¿Le tomaste interés por tu tesis de pregrado o posgrado?
+-   En la era de la IA es más útil que nunca.
+:::
+::::
+
+:::: column
+```{r}
+#| echo: false
+#| out-width: "100%"
+
+knitr::include_graphics("images/student-statistics.jpg")
+```
+::::
+:::::
+
+## {.center background-color="#16161d"}
+
+::::{.columns}
+:::{.column}
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "65%"
+
+knitr::include_graphics("images/edward_deming.jpeg")
+```
+
+:::
+:::{.column}
+
+<br>
+<br>
+<br>
+
+> ["Sin datos no eres más que otra persona con una opinión" <br> *W. Edward Deming.* ]{style="color:white;"}
+
+
+:::
+::::
+
+
+##  {.center background-color="#16161d"}
+
+> ["La estadística no debería estar relegada a los estadísticos. El objetivo es tener muchos profesionales con habilidades estadística: ingenieros, científicos, administradores..." <br> *W. Edward Deming.* ]{style="color:white;"}
+
+
+## {.center .dark-background background-image="../bg5.png"}
+
+::: task
+<strong>Estadística: Definición</strong><br> La estadística es una rama científica que lidia con la colecta sistemática, tabulación, resumen, clasificación, análisis y modelamiento de datos, extrayendo información resumida a partir de datos numéricos (o no), de los cuales genera conclusiones útiles o verifica hipótesis experimentales.
+:::
+
+## {.center background-color="#16161d"}
+
+> [La estadística nos permite convertir datos en información útil]{style="color:white;"}
+
+# 2. Estadística descriptiva
+
+## ¿Qué hacemos en ciencias?
+
+Como científicos, colectamos datos como una muestra de una población y usamos esos datos para generar conclusiones o hacer inferencias de la población entera.
+
+```{r}
+#| echo: false
+#| out-width: "65%"
+#| fig-cap: "Población y muestra"
+
+knitr::include_graphics("images/muestra.webp")
+```
+
+## Abordaje en esta sección
+
+- Población y muestra, parámetro y estimador.
+- ¿Cómo obtener la muestra?
+- ¿Qué se mide en la muestra?
+
+## Población y muestra
+
+-   La **población** es el conjunto de individuos u objetos de un estudio estadístico.
+
+-   Una **muestra** es un subconjunto de la población.
+
+```{r}
+#| echo: false
+#| out-width: "50%"
+#| fig-align: "center"
+#| fig-cap: ""
+
+knitr::include_graphics("images/sampliong-eco.jpg")
+```
+
+## Parámetro y estadístico
+
+::: columns
+::: column
+```{r}
+#| echo: false
+
+knitr::include_graphics("images/bird-medidas.jpg")
+```
+:::
+
+::: column
+-   **Parámetro:** Es una medida numérica de una característica resumida de una población.
+-   **Estadístico:** Es una medida numérica numérica de una característica de una muestra.
+:::
+:::
+
+
+## Conceptos relacionados a un estadístico
+
+-   **Estimador de un parámetro poblacional:** Es un estadístico muestral utilizado para estimar o predecir el parámetro poblacional.
+-   **Estimación de un parámetro:** Es un valor numérico concreto de una estadística muestral obtenida mediante muestreo.
+
+```{r}
+#| echo: false
+
+library(gt)
+library(tibble)
+
+# Crear el dataframe
+datos_estadisticos <- tibble(
+  Estadístico = c("Media", "Desviación Estándar", "Varianza", "Proporción Binomial"),
+  `Estadístico Muestral` = c("x̄", "s", "s²", "p̂"),
+  `Parámetro Poblacional` = c("μ", "σ", "σ²", "p")
+)
+
+# Crear la tabla con gt
+tabla_estadisticos <- datos_estadisticos %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = c(`Estadístico Muestral`, `Parámetro Poblacional`)
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(
+    column_labels.background.color = "#0013fe",
+    table.font.size = px(28),
+    data_row.padding = px(15)
+  ) %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_estadisticos
+```
+
+
+## ¿Cómo obtener la muestra?
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+
+knitr::include_graphics("images/metodos_muestreo.png")
+```
+
+## Métodos de muestreo aleatorio
+
+-   **Muestreo simple**: cada unidad de la población tiene la misma probabilidad de ser incluida en la muestra. El muestreo es imparcial, el más común y popular.
+
+-   **Muestreo estratificado**: la población se divide en dos o más subpoblaciones denominadas estratos, y de cada estrato se selecciona aleatoriamente el tamaño de muestra deseado.
+
+-   **Muestreo de conglomerados**: se selecciona una muestra aleatoria de los estratos y, a continuación, se obtienen muestras de estos estratos seleccionados. y, a continuación, se obtienen muestras de estos estratos seleccionados.
+
+-   **Muestreo sistemático**: se selecciona un punto de partida aleatorio en la población y luego se elige cada k-ésima unidad para formar la muestra. El valor de k se determina dividiendo el tamaño total de la población entre el tamaño de la muestra deseada. Este método es útil cuando los datos están organizados en una secuencia o lista y puede ser más eficiente que el muestreo simple.
+
+## {}
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 700
+
+
+library(shiny)
+library(ggplot2)
+library(dplyr)
+
+# Generar la cuadrícula
+grid_size <- 10  # Tamaño de la cuadrícula (10x10)
+cells <- expand.grid(x = 1:grid_size, y = 1:grid_size)
+cells$id <- 1:nrow(cells)
+
+ui <- fluidPage(
+  titlePanel("Visualización de Métodos de Muestreo en una Cuadrícula"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("sampling_method", "Selecciona el Método de Muestreo:",
+                  choices = c("Muestreo Simple",
+                              "Muestreo Estratificado",
+                              "Muestreo por Conglomerados",
+                              "Muestreo Sistemático")),
+      numericInput("sample_size", "Tamaño de la Muestra:", value = 20, min = 1, max = nrow(cells)),
+      conditionalPanel(
+        condition = "input.sampling_method == 'Muestreo Estratificado'",
+        numericInput("n_strata", "Número de Estratos:", value = 2, min = 2, max=2)
+      ),
+      conditionalPanel(
+        condition = "input.sampling_method == 'Muestreo por Conglomerados'",
+        numericInput("cluster_rows", "Filas por Conglomerado:", value = 2, min = 1),
+        numericInput("cluster_cols", "Columnas por Conglomerado:", value = 2, min = 1)
+      ),
+      conditionalPanel(
+        condition = "input.sampling_method == 'Muestreo Sistemático'",
+        numericInput("k_value", "Valor de k (intervalo de muestreo):", value = 5, min = 1)
+      ),
+      actionButton("sample_button", "Tomar Muestra")
+    ),
+    mainPanel(
+      plotOutput("grid_plot", height = "600px")
+    )
+  )
+)
+
+server <- function(input, output) {
+  
+  sampled_data <- eventReactive(input$sample_button, {
+    method <- input$sampling_method
+    n <- input$sample_size
+    grid <- cells  # Copia de la cuadrícula
+    grid$selected <- FALSE
+    
+    if (method == "Muestreo Simple") {
+      sample_ids <- sample(grid$id, n)
+      grid$selected[grid$id %in% sample_ids] <- TRUE
+      
+    } else if (method == "Muestreo Estratificado") {
+      n_strata <- input$n_strata
+      grid$stratum <- cut(grid$id, breaks = n_strata, labels = FALSE)
+      strata <- unique(grid$stratum)
+      samples_per_stratum <- n %/% length(strata)
+      extra_samples <- n %% length(strata)
+      for (s in strata) {
+        stratum_cells <- grid %>% filter(stratum == s)
+        stratum_n <- samples_per_stratum + ifelse(s <= extra_samples, 1, 0)
+        sample_ids <- sample(stratum_cells$id, min(stratum_n, nrow(stratum_cells)))
+        grid$selected[grid$id %in% sample_ids] <- TRUE
+      }
+      
+    } else if (method == "Muestreo por Conglomerados") {
+      cluster_rows <- input$cluster_rows
+      cluster_cols <- input$cluster_cols
+      num_clusters_row <- grid_size %/% cluster_rows
+      num_clusters_col <- grid_size %/% cluster_cols
+      grid$cluster_row <- ((grid$y - 1) %/% cluster_rows) + 1
+      grid$cluster_col <- ((grid$x - 1) %/% cluster_cols) + 1
+      grid$cluster_id <- paste0(grid$cluster_row, "-", grid$cluster_col)
+      clusters <- unique(grid$cluster_id)
+      clusters_selected <- sample(clusters, size = ceiling(length(clusters) * n / nrow(grid)))
+      grid$selected[grid$cluster_id %in% clusters_selected] <- TRUE
+      
+    } else if (method == "Muestreo Sistemático") {
+      k <- input$k_value
+      start <- sample(1:k, 1)
+      grid <- grid %>% arrange(y, x)
+      sample_indices <- seq(start, by = k, length.out = n)
+      sample_indices <- sample_indices[sample_indices <= nrow(grid)]
+      grid$selected[sample_indices] <- TRUE
+    }
+    return(grid)
+  })
+  
+  output$grid_plot <- renderPlot({
+    req(sampled_data())
+    grid <- sampled_data()
+    method <- input$sampling_method
+    
+    p <- ggplot(grid, aes(x = x, y = y)) +
+      geom_tile(aes(fill = selected), color = "black") +
+      scale_fill_manual(values = c("FALSE" = "white", "TRUE" = "red"), guide = FALSE) +
+      theme_minimal() +
+      coord_fixed() +
+      labs(title = paste("Método de Muestreo:", method),
+           x = "", y = "") +
+      theme(axis.text = element_blank(),
+            axis.ticks = element_blank())
+    
+    # Añadir numeración
+    p <- p + geom_text(aes(label = id, color = selected), 
+                       size = 8) +
+      scale_color_manual(values = c("FALSE" = "transparent", "TRUE" = "white"), guide = FALSE) 
+    
+    if (method == "Muestreo Estratificado") {
+      p <- p + facet_wrap(~ stratum) +
+        labs(subtitle = paste("Número de Estratos:", input$n_strata))
+      
+    } else if (method == "Muestreo por Conglomerados") {
+      cluster_rows <- input$cluster_rows
+      cluster_cols <- input$cluster_cols
+      p <- p +
+        geom_hline(yintercept = seq(0.5, grid_size + 0.5, by = cluster_rows), color = "blue", linetype = "dashed", lwd = 1) +
+        geom_vline(xintercept = seq(0.5, grid_size + 0.5, by = cluster_cols), color = "blue", linetype = "dashed", lwd = 1) +
+        labs(subtitle = paste("Conglomerados de", cluster_rows, "x", cluster_cols, "celdas"))
+      
+    } else if (method == "Muestreo Sistemático") {
+      k <- input$k_value
+      p <- p + labs(subtitle = paste("Valor de k =", k))
+    }
+    
+    print(p)
+  })
+}
+
+shinyApp(ui = ui, server = server)
+
+```
+
+## ¿Qué se mide en la muestra?
+### Tipos de Variables y Escalas de Medición {}
+
+Comprender los tipos de variables es fundamental para elegir las estadísticas descriptivas adecuadas.
+
+:::{.incremental}
+- **Nominales**: clasificación sin orden (e.g., tipos de hábitat, especies/ géneros/ familias/ órdenes, estación, sexo).
+
+- **Ordinales**: clasificación con orden intrínseco (e.g., estadios de desarrollo, grupo etario, grado de perturbación, nivel de contaminación categórico).
+
+- **Cuantitativas continuas**: son numéricas obtenidas de procesos de medición. Tienen decimales.
+
+- **Cuantitativas discretas**: son numéricas obtenidas de procesos de conteo. Son números enteros, mayores/iguales a cero, siempre.
+
+- **De razón**: numéricas que incluyen un cero absoluto (e.g., peso, altura).
+
+- **De intervalo**: diferencias significativas pero sin un cero absoluto (e.g., temperatura en Celsius).
+:::
+
+# 3. ¿Qué influencia a que un estudio sea estadísticamente bueno?
+
+## Abordaje en esta sección {}
+
+- Tamaño de la muestra (??).
+- El margen de error (<10%).
+- Nivel de confianza (95%).
+- Influencia del N muestral (simulación).
+- ¿Cómo afecta el N al estimador?: Función de densidad.
+
+## Tamaño de la muestra
+
+:::::{.columns}
+
+::::{.column}
+### **¿Debe ser muy grande?**
+
+:::{.incremental}
+- Hacer que sea grande, es **costoso**.
+- Por sí solo, no asegura mayor certeza.
+- **Diseño muestral** es importante.
+:::
+
+```{r}
+#| echo: false
+
+knitr::include_graphics("https://plus.unsplash.com/premium_photo-1664304394734-b991b0fc4132?q=80&w=2382&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+```
+
+::::
+
+::::{.column}
+<https://www.surveymonkey.com/mp/sample-size-calculator/>
+
+```{r}
+#| echo: false
+
+knitr::include_graphics("images/surveymonkey.png")
+```
+
+**Pasos recomendados:**
+
+:::{.incremental}
+1. Define la población.
+2. Define tu margen de error.
+3. Define tu nivel de confianza.
+:::
+
+::::
+
+:::::
+
+## ¿Qué es el margen de error? {}
+
+:::::{.columns}
+::::{.column}
+¿Cómo saber si la respuesta obtenida refleja el parámetro de la población?
+
+```{r}
+#| echo: false
+
+knitr::include_graphics("images/covid_prob.png")
+```
+
+::::
+
+::::{.column}
+>  Si preguntas aun grupo de personas si se vacunaría contra la 
+COVID-19, la respuesta es dicotómica. 
+
+:::{.incremental}
+- Si 70% de los evaluado dicen que sí se vacunarán, un 5% de 
+margen de error significa implica que el valor fluctuará en la 
+población e 65% a 75%.
+- Márgenes de error superiores al 10% no son recomendados
+:::
+::::
+:::::
+
+## Margen de error
+
+### Margen de error del estimador promedio:
+
+$$
+ME = Z \times \frac{S}{\sqrt{n}}
+$$
+
+### Margen de error de una proporción:
+
+$$
+ME = Z \times \sqrt{\frac{p \times (1 - p)}{n}}
+$$
+
+
+## ¿Cómo influencia el tamaño de la muestra?
+
+La siguiente es una app creada con la nueva extensión de Quarto "Shinylive" para R. Esta app dinámica nos permitirá entender qué ocurre cuando se modifica el N muestral para muestrear una población dada:
+
+```{r}
+#| echo: false
+#| out-width: "100%"
+#| fig-cap: ""
+
+knitr::include_graphics("images/app shiny1.png")
+
+```
+
+::: footer
+Versión original: [coatless-quarto](https://quarto.thecoatlessprofessor.com/r-shinylive-demo/R-shinylive-demo.html)
+:::
+
+## 
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 700
+
+library(shiny)
+library(bslib)
+
+theme <- bs_theme(font_scale = 2.5)
+
+ui <- page_sidebar(
+  sidebar = sidebar(open = "open",
+                    fileInput("file", "Subir archivo CSV"),
+                    uiOutput("column_selector"), # Selector de columna dinámico
+                    numericInput("n", "Sample count", 100),
+                    checkboxInput("pause", "Pause", FALSE)
+  ),
+  plotOutput("plot", width=1200)
+)
+
+server <- function(input, output, session) {
+  
+  # Reactivo para leer el archivo CSV
+  data_file <- reactive({
+    req(input$file)
+    read.csv(input$file$datapath)
+  })
+  
+  # Crear UI dinámico para el selector de columnas
+  output$column_selector <- renderUI({
+    req(data_file())
+    selectInput("selected_column", "Seleccione una columna", 
+                choices = names(data_file()), selected = names(data_file())[1])
+  })
+  
+  # Reactivo para extraer la columna seleccionada
+  selected_data <- reactive({
+    req(input$selected_column)
+    column_data <- data_file()[[input$selected_column]]
+    
+    # Filtra solo los valores numéricos
+    column_data <- column_data[is.numeric(column_data)]
+    
+    # Asegura que no hay NA y retorna los datos
+    na.omit(column_data)
+  })
+  
+  # Reactivo para generar los datos simulados basados en la columna seleccionada
+  data_simulated <- reactive({
+    req(selected_data())
+    
+    if (!isTRUE(input$pause)) {
+      invalidateLater(1000)
+    }
+    
+    # Simular la distribución normal basada en la media y desviación estándar de la columna
+    rnorm(input$n, mean = mean(selected_data()), sd = sd(selected_data()))
+  })
+  
+  # Renderiza el histograma basado en la simulación
+  output$plot <- renderPlot({
+    req(data_simulated(), selected_data())
+    
+    # Establece límites dinámicos del eje X basados en los valores reales de la columna
+    x_min <- min(selected_data(), na.rm = TRUE)
+    x_max <- max(selected_data(), na.rm = TRUE)
+    
+    # Calcula la media de la columna seleccionada (poblacional)
+    poblational_mean <- mean(selected_data(), na.rm = TRUE)
+    
+    hist(data_simulated(),
+         breaks = 40,
+         xlim = c(x_min, x_max),  # Actualiza los límites del eje X
+         ylim = c(0, 1),
+         lty = "blank",
+         xlab = "Valores de la variable seleccionada",
+         ylab = "Densidad",
+         freq = FALSE,
+         main = "Histograma de Frecuencia"
+    )
+    
+    x <- seq(from = x_min, to = x_max, length.out = 500)
+    y <- dnorm(x, mean = mean(selected_data()), sd = sd(selected_data()))
+    lines(x, y, lwd=1.5)
+    
+    lwd <- 5
+    # Línea roja para el promedio poblacional
+    abline(v=poblational_mean, col="red", lwd=lwd, lty=2)  # Media poblacional
+    abline(v=mean(data_simulated()), col="blue", lwd=lwd, lty=1)  # Media de la muestra simulada
+    
+    legend(legend = c("Dist. Normal", "Promedio Poblacional", "Promedio Muestral"),
+           col = c("black", "red", "blue"),
+           lty = c(1, 2, 1),
+           lwd = c(1, lwd, lwd),
+           x = x_max - (x_max - x_min) * 0.25,
+           y = 0.7,
+           cex = 0.7,
+    )
+  }, res=140)
+}
+
+# Create Shiny app ----
+shinyApp(ui = ui, server = server)
+
+```
+
+## Función de Densidad del Parámetro (Población)
+
+```{r}
+#| echo: false
+#| fig-align: center
+
+# Cargar las librerías necesarias
+library(ggplot2)
+
+# Crear datos de ejemplo
+set.seed(1000)
+data <- rnorm(1000, mean = 50, sd = 15)  
+sample_points <- sample(data, 20)
+
+# Gráfico
+p <- ggplot(data = data.frame(x = data), aes(x = x)) + 
+  geom_density(fill = "#ffc9d8", color = "#f50041", alpha = 0.4) + 
+  geom_vline(aes(xintercept = mean(data)), 
+             color = "#f50041", lwd = 1.5) + 
+  geom_point(data = data.frame(x = sample_points),
+             aes(x = x, y = 0), color = "#2a00e3", size = 4, alpha = 0.15) +
+  geom_rug(data = data.frame(x = sample_points),
+             aes(x = x),alpha = 0.3, color = "#2a00e3")+
+  annotate("text", x = mean(data), y = 0.005, 
+           label = "Promedio poblacional (µ)", 
+           color = "#f50041", angle = 90, vjust = -0.5, hjust = 0) +
+annotate("text", x = 65, y = 0.02, 
+           label = "Distribución de\nfrecuencias del\nparámetro (μ; N = 1000)",
+           lineheight = 1,
+           color = "#f50041", hjust = 0, fontface =2) +
+  annotate("text", x = mean(sample_points) - 5, y = -0.002, 
+           label = "Puntos de muestreo (n = 20)", color = "#2a00e3", 
+           vjust = 0, hjust = 1) +
+  theme_minimal() +
+  theme(axis.title.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  xlab("Valores de la variable")
+
+# Mostrar el gráfico
+print(p)
+
+```
+
+## Función de Densidad del Estimador (muestra)
+
+```{r}
+#| echo: false
+#| fig-align: center
+
+# Cargar las librerías necesarias
+library(ggplot2)
+
+# Crear datos de ejemplo
+set.seed(1000)
+data <- rnorm(1000, mean = 50, sd = 15)  
+sample_points <- sample(data, 20)
+
+# Gráfico
+p <- ggplot(data = data.frame(x = data), aes(x = x)) + 
+  geom_density(fill = "#d1d1d1", color = "#8f8f8f", alpha = 0.4) + 
+  geom_density(data = data.frame(x = sample_points),
+             aes(x = x), fill = "#a896ff", color = "#2a00e3", alpha = 0.15) + 
+  geom_vline(aes(xintercept = mean(data)), 
+             color = "#f50041", lwd = 1.5) + 
+  geom_vline(aes(xintercept = mean(sample_points)), 
+             color = "#2a00e3", lwd = 1.5) + 
+  geom_point(data = data.frame(x = sample_points),
+             aes(x = x, y = 0), color = "#2a00e3", size = 4, alpha = 0.15) +
+  geom_rug(data = data.frame(x = sample_points),
+             aes(x = x),alpha = 0.3, color = "#2a00e3")+
+  annotate("text", x = mean(data), y = 0.005, 
+           label = "Promedio poblacional (µ)", 
+           color = "#f50041", angle = 90, vjust = -0.5, hjust = 0) +
+  annotate("text", x = mean(sample_points), y = 0.005, 
+           label = "Promedio de la muestra (X̄)",
+           color = "#2a00e3", angle = 90, vjust = -0.5, hjust = 0) +
+  annotate("text", x = 15, y = 0.02, 
+           label = "Distribución de\nfrecuencias del\nparámetro (μ; N = 1000)",
+           lineheight = 1,
+           color = "#8f8f8f", hjust = 0, fontface =2) +
+   annotate("text", x = 75, y = 0.02, 
+           label = "Distribución de\nfrecuencias del\nestimador (X̄; N = 20)",
+           lineheight = 1,
+           color = "#2a00e3", hjust = 0, fontface =2) +
+  annotate("text", x = mean(sample_points) - 5, y = -0.002, 
+           label = "Puntos de muestreo (n = 20)", color = "#2a00e3", 
+           vjust = 0, hjust = 1) +
+  theme_minimal() +
+  theme(axis.title.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  xlab("Valores de la variable")
+
+# Mostrar el gráfico
+print(p)
+
+```
+
+
+
+##  {.center background-image="../landscape3.jpg"}
+
+::: task
+Ya tomaste la muestra, y esta tiene característicias intrínsecas.<br>Para hablar de ellas, veamos [qué es probabilidad.]{.gradiente}
+:::
+
+
+# 4. Probabilidades vs Estadística
+
+## ¿Qué significa probabilidad?
+
+::: incremental
+- Es la **medida de la incertidumbre** o la posibilidad de que ocurra un evento.  
+- Si algo es **seguro**, la probabilidad es 1 (o 100%), y si es **imposible**, la probabilidad es 0 (o 0%).
+- La **probabilidad** de un evento es su **frecuencia relativa** (proporción esperada).
+:::
+
+<br>
+
+::: {.fragment .fade-up}
+Si un evento $A$ ocurre $x$ veces de un total de $n$, su probabilidad converge (a la larga) en:
+
+$$
+P(A)=\frac{x}{n}=\frac{\text{Número total de resultados favorables}}{\text{Número total de resultados posibles}}
+$$
+:::
+
+::: {.fragment .fade-up}
+::: callout-tip
+Cuando $n$ es pequeño, la frecuencia relativa observada de un suceso **no es un reflejo fiable de su probabilidad**.
+:::
+:::
+
+## ¿Probabilidad es diferente que estadística?
+
+La **probabilidad** y la **estadística** son ramas de las matemáticas que están relacionadas pero tienen enfoques diferentes
+
+::: {.fragment .fade-up}
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: "80%"
+
+knitr::include_graphics("images/teoria_probabilidad_estadistica.png")
+```
+:::
+
+## {.center}
+
+```{r}
+#| echo: false
+
+library(gt)
+library(tibble)
+
+# Crear el dataframe
+datos_diferencias <- tibble(
+  Característica = c("Enfoque", "Para", "Objetivo", "Ejemplo", "Punto de partida", "Uso"),
+  Probabilidad = c(
+    "Predicción de eventos futuros", "Predecir eventos futuros",
+    "Cuantificar la incertidumbre de eventos antes de que sucedan", 
+    "Calcular la probabilidad de obtener cara en un lanzamiento de moneda", 
+    "Modelo teórico de una situación aleatoria", 
+    "Predice probabilidades de eventos"
+  ),
+  Estadística = c(
+    "Análisis de datos observados", "Inferir características de una población o fenómeno",
+    "Inferir características de una población a partir de los datos", 
+    "Analizar el número de caras obtenidas en 100 lanzamientos de moneda", 
+    "Datos reales observados", 
+    "Toma decisiones, realiza inferencias, o estima parámetros"
+  )
+)
+
+# Crear la tabla con gt
+tabla_diferencias <- datos_diferencias %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = c(`Probabilidad`, `Estadística`)
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(
+    column_labels.background.color = "#0013fe",
+    table.font.size = px(28),
+    data_row.padding = px(15)
+  ) %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_diferencias
+```
+
+## {.center}
+
+```{r}
+#| echo: false
+
+library(gt)
+library(tibble)
+
+# Crear el dataframe
+datos_campos_aplicacion <- tibble(
+  Campo = c("🏜 Macroecología️", "🦜 Bioacústica", "🦤 Distribución de especies", "🦐 Macroinvertebrados", "🪻 Biodiversidad botánica", "🌱 Agronomía"),
+  Probabilidad = c(
+    "Modelar la probabilidad de extinción de especies en grandes escalas geográficas.",
+    "Calcular la probabilidad de que ciertos patrones acústicos sean emitidos por especies específicas.",
+    "Predecir la probabilidad de que una especie esté presente en un área aún no muestreada.",
+    "Estimar la probabilidad de encontrar una especie invasora en un hábitat a partir de datos limitados.",
+    "Calcular la probabilidad de la aparición de especies raras en una zona de alta biodiversidad.",
+    "Estimar la probabilidad de que un tipo de cultivo resista condiciones climáticas extremas."
+  ),
+  Estadística = c(
+    "Analizar datos observados de tamaños de áreas y riqueza de especies para inferir patrones macroecológicos.",
+    "Evaluar la variabilidad y patrones en los datos acústicos recogidos para identificar especies.",
+    "Analizar la distribución observada de especies para estimar sus rangos geográficos.",
+    "Realizar análisis de diversidad para describir la composición de comunidades de macroinvertebrados en diferentes hábitats.",
+    "Analizar los datos de inventarios botánicos para estimar la diversidad y la riqueza de especies.",
+    "Evaluar la productividad observada de diferentes cultivos bajo distintos tratamientos agrícolas."
+  )
+)
+
+# Crear la tabla con gt
+tabla_campos_aplicacion <- datos_campos_aplicacion %>%
+  gt() %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(
+      columns = c(Campo)
+    )
+  )%>%
+  cols_align(
+    align = "center",
+    columns = c(`Probabilidad`, `Estadística`)
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(
+    column_labels.background.color = "#0013fe",
+    table.font.size = px(28),
+    data_row.padding = px(15)
+  ) %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_campos_aplicacion
+
+```
+
+
+# Teoría de Probabilidad
+
+## Variables Aleatorias y Distribuciones
+
+Una variable aleatoria es una **función** que asigna un valor numérico a cada uno de los resultados posibles de un experimento aleatorio.
+
+
+Se clasifica en dos tipos principales:
+
+- **Variable Aleatoria Discreta**: Toma un número finito o contable de valores (Ej. número de individuos en una población).
+- **Variable Aleatoria Continua**: Puede tomar cualquier valor dentro de un intervalo (Ej. la altura de una planta).
+
+
+
+## Distribuciones de probabilidad
+
+-   Una distribución de probabilidad describe cómo se distribuyen los resultados posibles de un evento aleatorio.
+
+-   Nos indica cuán probable es que ocurran los diferentes resultados de un experimento aleatorio.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-align: "center"
+
+# Cargar las librerías necesarias
+library(ggplot2)
+library(gridExtra)
+
+# Definir una función para crear histogramas con diferentes distribuciones y títulos
+create_distribution_plot <- function(data, color, title) {
+  ggplot(data, aes(x = values)) +
+    geom_histogram(binwidth = 0.5, fill = color, color = "black", alpha = 0.7) +
+    theme_minimal() +
+    ggtitle(title) +
+    theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank(),
+          axis.text.x = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks = element_blank(),
+          plot.title = element_text(size = 10, hjust = 0.5),
+          plot.margin = margin(5, 5, 5, 5, "pt"))
+}
+
+# Generar los datos para cada distribución
+set.seed(123)
+uniform_data <- data.frame(values = runif(10000, min = 10, max = 30))
+normal_data <- data.frame(values = rnorm(10000, mean = 10, sd = 50))
+standard_normal_data <- data.frame(values = rnorm(10000, mean = 0, sd = 1))
+gamma_data <- data.frame(values = rgamma(10000, shape = 5, scale = 2))
+exponential_data <- data.frame(values = rexp(10000, rate = 1))
+beta_data <- data.frame(values = rbeta(10000, shape1 = 5, shape2 = 2))
+binomial_data <- data.frame(values = rbinom(10000, size = 10, prob = 0.8))
+poisson_data <- data.frame(values = rpois(10000, lambda = 3))
+bernoulli_data <- data.frame(values = rbinom(10000, size = 1, prob = 0.6))
+
+# Crear los gráficos de cada distribución con sus títulos
+plot1 <- create_distribution_plot(uniform_data, "firebrick", "Uniform (C)")
+plot2 <- create_distribution_plot(normal_data, "cornflowerblue", "Normal (C)")
+plot3 <- create_distribution_plot(standard_normal_data, "cyan4", "Standard Normal (C)")
+plot4 <- create_distribution_plot(gamma_data, "chartreuse3", "Gamma (C)")
+plot5 <- create_distribution_plot(exponential_data, "orange", "Exponential (C)")
+plot6 <- create_distribution_plot(beta_data, "gold", "Beta (C)")
+plot7 <- create_distribution_plot(binomial_data, "blueviolet", "Binomial (D)")
+plot8 <- create_distribution_plot(poisson_data, "azure4", "Poisson (D)")
+plot9 <- create_distribution_plot(bernoulli_data, "deeppink", "Bernoulli (D)")
+
+# Usar grid.arrange para combinar los gráficos en una sola imagen
+grid.arrange(plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, nrow = 3, ncol = 3)
+
+```
+
+## Distribuciones Discretas
+
+::: incremental
+- Describe variables obtenidas de procesos de **conteos**.
+- Posibilidades de **valores finitos**.
+- Se usa la *función de masa de probabilidad* (*PMF*) para asignar una probabilidad a *cada valor* posible de la variable.
+- La PMF toma un valor específico y devuelve la probabilidad de que la variable tome ese valor.
+:::
+
+::: {.fragment .fade-up}
+::: callout-tip
+Cuando $n$ es pequeño, la frecuencia relativa observada de un suceso **no es un reflejo fiable de su probabilidad**.
+:::
+:::
+
+
+## Distribuciones continuas
+
+::: incremental
+- Describe variables obtenidas de procesos de **medición**.
+- Posibilidades de **valores infinitos**.
+- Se usa la *función de densidad de probabilidad* (*PDF*)  para asignar la probabilidad de que una variable caiga *dentro de un rango específico*.
+- La PDF no devuelve una probabilidad directa para un valor específico.
+:::
+
+
+## {}
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 760
+library(shiny)
+library(ggplot2)
+
+# Definición de la interfaz de usuario
+ui <- fluidPage(
+  titlePanel("App de Probabilidad Interactiva"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("dist", "Selecciona la Distribución:",
+                  choices = c("Binomial", "Poisson", "Geométrica", "Hipergeométrica", 
+                              "Normal", "Exponencial", "Gamma", "Beta", 
+                              "Cauchy", "Uniforme", "Log-Normal", "Chi-cuadrado",
+                              "t-Student", "F-Snedecor")),
+      
+      # Paneles condicionales para cada distribución
+      conditionalPanel(
+        condition = "input.dist == 'Binomial'",
+        numericInput("size_binom", "Número de Ensayos (n):", value = 10, min = 1),
+        numericInput("prob_binom", "Probabilidad de Éxito (p):", value = 0.5, min = 0, max = 1)
+      ),
+      conditionalPanel(
+        condition = "input.dist == 'Poisson'",
+        numericInput("lambda_pois", "Parámetro Lambda (λ):", value = 5, min = 0)
+      ),
+      conditionalPanel(
+        condition = "input.dist == 'Geométrica'",
+        numericInput("prob_geom", "Probabilidad de Éxito (p):", value = 0.5, min = 0, max = 1)
+      ),
+      conditionalPanel(
+        condition = "input.dist == 'Hipergeométrica'",
+        numericInput("m_hyper", "Número de Éxitos en la Población (K):", value = 7, min = 1),
+        numericInput("n_hyper", "Número de Fracasos en la Población (N-K):", value = 13, min = 1),
+        numericInput("k_hyper", "Tamaño de la Muestra (n):", value = 10, min = 1)
+      ),
+      conditionalPanel(
+        condition = "input.dist == 'Normal'",
+        numericInput("mean_norm", "Media (μ):", value = 0),
+        numericInput("sd_norm", "Desviación Estándar (σ):", value = 1, min = 0)
+      ),
+      conditionalPanel(
+        condition = "input.dist == 'Exponencial'",
+        numericInput("rate_exp", "Tasa (λ):", value = 1, min = 0)
+      ),
+      conditionalPanel(
+        condition = "input.dist == 'Gamma'",
+        numericInput("shape_gamma", "Forma (α):", value = 2, min = 0),
+        numericInput("rate_gamma", "Tasa (β):", value = 1, min = 0)
+      ),
+      conditionalPanel(
+        condition = "input.dist == 'Beta'",
+        numericInput("shape1_beta", "Parámetro Alpha (α):", value = 2, min = 0),
+        numericInput("shape2_beta", "Parámetro Beta (β):", value = 5, min = 0)
+      ),
+      # Botón para simular
+      actionButton("simulate", "Simular"),
+      
+      # Texto descriptivo de la distribución
+      h3("Descripción de la distribución seleccionada"),
+      uiOutput("description")  # Aquí se mostrará el texto regular
+    ),
+    
+    mainPanel(
+      plotOutput("distPlot"),
+      verbatimTextOutput("summary")
+    )
+  )
+)
+
+# Definición de la lógica del servidor
+server <- function(input, output) {
+  
+  # Función para generar la descripción de la distribución
+  output$description <- renderUI({
+    if (input$dist == "Binomial") {
+      withMathJax(HTML("<p><strong>La distribución binomial:</strong> Modela el número de éxitos en <em>n</em> ensayos independientes con una probabilidad <em>p</em> fija.</p>
+          <p>Fórmula: $$P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}$$</p>
+          <p><strong>Ejemplo 1:</strong> Supervivencia de plántulas en una población, donde <em>p</em> es la probabilidad de supervivencia de cada plántula.</p>
+          <p><strong>Ejemplo 2:</strong> Número de especies con una característica genética particular en una muestra de individuos.</p>"))
+    } else if (input$dist == "Poisson") {
+      withMathJax(HTML("<p><strong>La distribución de Poisson:</strong> Describe el número de eventos que ocurren en un intervalo de tiempo o espacio dado, con una tasa constante <em>λ</em>.</p>
+          <p>Fórmula: $$P(X = k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}$$</p>
+          <p><strong>Ejemplo 1:</strong> Número de individuos de una especie rara en una parcela de terreno.</p>
+          <p><strong>Ejemplo 2:</strong> Número de llamadas a una estación de monitoreo ambiental en un día.</p>"))
+    } else if (input$dist == "Geométrica") {
+      withMathJax(HTML("<p><strong>La distribución geométrica:</strong> Modela el número de ensayos hasta obtener el primer éxito, donde <em>p</em> es la probabilidad de éxito en cada ensayo.</p>
+          <p>Fórmula: $$P(X = k) = (1-p)^{k-1} p$$</p>
+          <p><strong>Ejemplo 1:</strong> Número de intentos hasta encontrar la primera especie rara en una expedición.</p>
+          <p><strong>Ejemplo 2:</strong> Número de observaciones de depredadores hasta ver una captura exitosa.</p>"))
+    } else if (input$dist == "Hipergeométrica") {
+      withMathJax(HTML("<p><strong>La distribución hipergeométrica:</strong> Modela el número de éxitos en una muestra sin reemplazo de una población finita.</p>
+          <p>Fórmula: $$P(X = k) = \\frac{\\binom{K}{k} \\binom{N-K}{n-k}}{\\binom{N}{n}}$$</p>
+          <p><strong>Ejemplo 1:</strong> Número de plantas con flor en una muestra tomada de un ecosistema.</p>
+          <p><strong>Ejemplo 2:</strong> Número de especies invasoras detectadas en un área protegida tras muestrear sin reemplazo.</p>"))
+    } else if (input$dist == "Normal") {
+      withMathJax(HTML("<p><strong>La distribución normal:</strong> Describe variables continuas cuya distribución se agrupa alrededor de una media <em>μ</em>, con una desviación estándar <em>σ</em>.</p>
+          <p>Fórmula: $$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$</p>
+          <p><strong>Ejemplo 1:</strong> Distribución de alturas de los árboles en un bosque.</p>
+          <p><strong>Ejemplo 2:</strong> Peso de los individuos de una especie animal en una población natural.</p>"))
+    }
+    else if (input$dist == "Gamma") {
+      withMathJax(HTML("<p><strong>La distribución Gamma:</strong> Modela tiempos de espera de un evento en un proceso en el que suceden múltiples eventos de manera continua. Utiliza dos parámetros: <em>α</em> (forma) y <em>β</em> (tasa).</p>
+          <p>Fórmula: $$f(x; \\alpha, \\beta) = \\frac{\\beta^{\\alpha}}{\\Gamma(\\alpha)} x^{\\alpha-1} e^{-\\beta x}$$</p>
+          <p><strong>Ejemplo 1:</strong> Tiempo hasta que un ecosistema se recupere después de un disturbio.</p>
+          <p><strong>Ejemplo 2:</strong> Modelar el tiempo que tarda un cultivo en alcanzar su madurez.</p>"))
+    } else if (input$dist == "Exponencial") {
+      withMathJax(HTML("<p><strong>La distribución Exponencial:</strong> Modela el tiempo entre eventos en un proceso de Poisson con tasa constante. Se describe con el parámetro <em>λ</em>.</p>
+          <p>Fórmula: $$f(x; \\lambda) = \\lambda e^{-\\lambda x}$$</p>
+          <p><strong>Ejemplo 1:</strong> Tiempo hasta la próxima aparición de un incendio en un ecosistema.</p>
+          <p><strong>Ejemplo 2:</strong> Tiempo de espera entre eventos de depredación en un sistema ecológico.</p>"))
+    } else if (input$dist == "Beta") {
+      withMathJax(HTML("<p><strong>La distribución Beta:</strong> Modela variables continuas entre 0 y 1, a menudo utilizada en la modelización de proporciones. Se describe con los parámetros <em>α</em> (shape1) y <em>β</em> (shape2).</p>
+          <p>Fórmula: $$f(x; \\alpha, \\beta) = \\frac{x^{\\alpha-1}(1-x)^{\\beta-1}}{B(\\alpha, \\beta)}$$</p>
+          <p><strong>Ejemplo 1:</strong> Proporción de la población que sobrevive en diferentes condiciones ambientales.</p>
+          <p><strong>Ejemplo 2:</strong> Fracción del área de un ecosistema afectada por una perturbación.</p>"))
+    }
+  })
+  
+  data <- eventReactive(input$simulate, {
+    if (input$dist == "Binomial") {
+      rbinom(1000, Csize = input$size_binom, prob = input$prob_binom)
+    } else if (input$dist == "Poisson") {
+      rpois(1000, lambda = input$lambda_pois)
+    } else if (input$dist == "Geométrica") {
+      rgeom(1000, prob = input$prob_geom)
+    } else if (input$dist == "Hipergeométrica") {
+      rhyper(1000, m = input$m_hyper, n = input$n_hyper, k = input$k_hyper)
+    } else if (input$dist == "Normal") {
+      rnorm(1000, mean = input$mean_norm, sd = input$sd_norm)
+    } else if (input$dist == "Exponencial") {
+      rexp(1000, rate = input$rate_exp)
+    } else if (input$dist == "Gamma") {
+      rgamma(1000, shape = input$shape_gamma, rate = input$rate_gamma)
+    } else if (input$dist == "Beta") {
+      rbeta(1000, shape1 = input$shape1_beta, shape2 = input$shape2_beta)
+    }
+  })
+  
+  output$distPlot <- renderPlot({
+    req(data())
+    dist_data <- data()
+    ggplot(data.frame(x = dist_data), aes(x = x)) +
+      geom_histogram(binwidth = 1, color = "black", fill = "lightblue") +
+      theme_minimal() +
+      labs(title = paste("Distribución", input$dist),
+           x = "Valor", y = "Frecuencia")
+  })
+  
+  output$summary <- renderPrint({
+    summary(data())
+  })
+}
+
+# Ejecutar la aplicación Shiny
+shinyApp(ui = ui, server = server)
+
+```
+
+## Probabilidad de Mantenimiento de Funciones Ecológicas {}
+
+::::{.columns} 
+:::{.column}
+
+- **¿cómo la probabilidad de extinción de especies afecta la probabilidad de mantener funciones clave en un ecosistema?** [@nijs2000]
+
+- Por ejemplo, si varias especies de macroinvertebrados cumplen el mismo rol en la descomposición de materia orgánica, la extinción de algunas de ellas puede no afectar gravemente el ecosistema mientras haya suficientes especies funcionalmente equivalentes.
+
+:::
+
+:::{.column}
+```{r}
+#| echo: false
+#| fig-align: "center"
+
+knitr::include_graphics("images/probabilidad_ejemplo_extincion.png")
+```
+
+:::
+::::
+
+## Todo esto se generó con una función sencilla
+
+$$
+P(X = k) = \binom{n}{k} p^k (1 - p)^{n - k}
+$$
+Donde $p$ es probabilidad de éxito, y $1-p$ de fracaso, en una distribución binomial.
+
+:::{.fragment}
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "70%"
+
+knitr::include_graphics("images/formula_paper.png")
+```
+
+:::
+
+## {.center}
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 16
+#| fig-height: 8
+#| fig-align: "center"
+
+# Cargar las librerías necesarias
+# pak::pak("plotly")
+# pak::pak("metR")
+library(ggplot2)
+library(dplyr)
+library(metR)
+library(plotly)
+# Definir los valores de p (probabilidades de extinción)
+p_values <- seq(0.01, 0.9, by = 0.01)
+
+# Crear una secuencia de valores para el número de especies
+S <- seq(0, 10, by = 1)
+
+# Generar un datos frame que contenga las combinaciones de S y p
+datos <- expand.grid(S = S, P_funcionamiento = p_values)
+
+# Calcular la probabilidad de funcionamiento del ecosistema
+datos <- datos %>%
+  # mutate(P_funcionamiento = 1 - p^S)
+  mutate(p = (1 - P_funcionamiento)^(1 / S))
+  
+
+# Crear el gráfico de contornos con relleno
+titulo <- c("Relación entre la probabilidad de funcionamiento del ecosistema (P)  y el número de especies.")
+
+ppp <-ggplot(data = datos, aes(x = S, y = P_funcionamiento, fill = p)) +
+  geom_tile() +
+  geom_contour(aes(z = p), color = "white",
+               lwd=0.5) +
+  geom_text_contour(aes(z = p), stroke = 0.2, 
+                    size=5, min.size=9, check_overlap=F, skip=0)+
+  labs(title = "",
+       x = "Número de especies",
+       y = "Probabilidad de funcionamiento del ecosistema (P) ",
+       fill = "Probabilidades\nde extinción (p)") +
+  theme_classic() +
+  theme(axis.title = element_text(size = 20, face = 2),    
+        axis.text = element_text(size = 20),     
+        legend.title = element_text(size = 20, face = 2),
+        legend.text = element_text(size = 20),   
+        plot.title = element_text(size = 20, hjust = 0.5))+
+  scale_x_continuous(breaks = scales::pretty_breaks(10),
+                     expand=c(0,0))+
+  scale_y_continuous(breaks = scales::pretty_breaks(10), expand=c(0,0))+
+  scale_fill_viridis_c(option = "D", direction = 1) 
+
+# ggplotly
+ggplotly(ppp, tooltip = "text") %>%
+  layout(
+    hoverlabel = list(font = list(size = 35)),  
+    hovermode = 'closest'
+  ) %>%
+  style(hovertemplate = 'N° Especies: %{x}<br>Prob. Func.: %{y}<br>Prob. Ext.: %{z}<extra></extra>')
+```
+
+## Exportar {}
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: "center"
+#| out-width: "100%"
+
+ppp +
+  theme(axis.title = element_text(size = 12, face = 2),    
+        axis.text = element_text(size = 12),     
+        legend.title = element_text(size = 12, face = 2),
+        legend.text = element_text(size = 12),   
+        plot.title = element_text(size = 12, hjust = 0.5))
+```
+
+
+## Referencias
+
+:::{.refs}
+:::

@@ -1,0 +1,154 @@
+/*-- scss:defaults --*/
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+/*Atkinson Hyperlegible*/
+
+
+$font-family-sans-serif: "Poppins", sans-serif;
+$font-family-body: "Noto Sans", sans-serif;
+$font-family-monospace: "Source Code Pro", monospace;
+
+$presentation-heading-color: #000; 
+$link-color: #0013fe;
+$code-color: #ff4900;
+$code-block-font-size: 0.7em;
+$presentation-h2-font-size: 1.6em !default;
+$presentation-font-size-root: 36px !default;
+
+/*-- scss:rules --*/
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-sans-serif;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.reveal h1, h2 {
+    background: linear-gradient(90deg, #0013fe, #ff4900);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.reveal h2::selection {
+    background: transparent;
+    color: inherit; 
+}
+
+details>summary {
+  font-size: 0.75em;
+}
+
+#title-slide .subtitle {
+  color: #16161d;
+  font-weight: bold;
+  text-align: center;
+}
+
+#title-slide .title {
+  text-align: center;
+  color: #16161d;
+}
+
+#title-slide .author {
+  text-align: center;
+}
+
+#title-slide .institute {
+  text-align: center;
+  padding-bottom: 200px;
+}
+
+.small {
+  font-size: 0.75em;
+}
+
+.smallest {
+  font-size: 0.5em;
+}
+
+.large {
+  font-size: 1.5em;
+}
+
+.medium {
+  font-size: 0.9em;
+}
+
+.center-align {
+  text-align: center;
+}
+
+.reveal .hand {
+  font-family: 'Gochi Hand', cursive;
+  font-size: 1.2em
+}
+
+.reveal .hand2 {
+  font-family: 'Patrick Hand';
+  font-size: 1.2em
+}
+
+.reveal .blanco {
+  color: white;
+}
+
+.reveal .slide .task {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  border-left: solid 10px #0013fe;
+  background-color: #d1efff;
+}
+
+
+.reveal .slide .message {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  border-left: solid 5px #009402;
+  background-color: #c4ffc5;
+}
+
+.reveal pre code {
+  width: 1200px;
+}
+
+.reveal code {
+  background-color: #ffd0d066;
+}
+
+.reveal .quarto-title-block .quarto-title-authors .quarto-title-author {
+  background-color: white;
+}
+
+.reveal .footer a {
+    background: linear-gradient(90deg, #0013fe, #ff4900);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+body.quarto-light .qwebr-output-code-stdout {
+    color: #ffffff!important;
+}
+
+.reveal .gradiente {
+    background: linear-gradient(90deg, #0013fe, #ff4900);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

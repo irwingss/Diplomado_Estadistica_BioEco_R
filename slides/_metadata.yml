@@ -1,0 +1,21 @@
+institute: "Diplomado en Estadística Aplicada<br>en Ciencias Biológicas y Ecológicas en R"
+author: "Biol. Irwing S. Saldaña"
+footer: "[🔗 masterx.academy](https://www.masterx.academy/)"
+logo: "../logo.svg"
+format:
+  revealjs:
+    theme: slides.scss
+    transition: fade
+    slide-number: true
+    chalkboard: true
+    highlight-style: a11y-dark
+editor: visual
+execute:
+  freeze: auto
+  echo: true
+  warning: true
+engine: knitr
+knitr:
+  opts_chunk: 
+    R.options:
+      width: 80

@@ -1,0 +1,44 @@
+---
+title: "Módulo 5 - EDA"
+format: html
+---
+
+## Análisis Exploratorio de Datos del Conjunto 'lake'
+
+### Introducción
+
+En este informe, realizamos un análisis exploratorio de datos (EDA) del conjunto de datos `lake`. El objetivo es extraer la máxima información posible aplicando técnicas de EDA usando R. Los gráficos se generarán utilizando **ggplot2** y sus extensiones.
+
+```{r}
+lake <- read.csv("bases/Wudalianchi_Lake_data.csv")
+```
+
+### Descripción de los Datos
+
+El conjunto de datos `lake` contiene 42 observaciones y 61 variables, incluyendo mediciones de diversos parámetros ambientales y conteos de especies en diferentes sitios y estaciones.
+
+```{r}
+# Cargar librerías necesarias
+library(tidyverse)
+library(summarytools)
+library(Hmisc)
+library(skimr)
+library(psych)
+
+```
+
+Primero, veamos la estructura del conjunto de datos:
+
+```{r}
+str(lake)
+```
+
+### Estadísticas Descriptivas
+
+Podemos utilizar varias librerías para generar estadísticas descriptivas del conjunto de datos.
+
+#### Usando summarytools
+
+```{r}
+
+```
