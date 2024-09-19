@@ -198,24 +198,32 @@ Una especie de ave en peligro de extinción se está monitoreando para ver cuán
 
 ### Pregunta de estudio 01:
 
-Si conocemos que la probabilidad de supervivencia de cada polluelo es del 40% y hay 20 nidos, ¿cuál es el número esperado de polluelos que sobrevivirán en la colonia utilizando una distribución Binomial con estos parámetros?
+Si conocemos que la probabilidad de supervivencia de cada polluelo es del 55% y hay 20 nidos, ¿cuál es el número esperado de polluelos que sobrevivirán en la colonia utilizando una distribución Binomial con estos parámetros?
 
 ```{r}
 # Parámetros de la distribución Binomial
-n <- ...
-p <- ...
+n <- 20
+p <- 0.55
 
 # Simulación de la supervivencia de 1000 polluelos
 set.seed(123)  
-supervivencia <- ...
+supervivencia <- rbinom(1000, size = 20, prob = 0.55)
+supervivencia
 
 # Cálculo del número medio de supervivientes
-promedio_superv <- ...
+promedio_superv <- mean(supervivencia)
 promedio_superv
 
 # Visualización de la distribución de supervivencia
+range(supervivencia)
 
-
+data.frame(supervivencia) %>% 
+  count(supervivencia) %>% 
+  ggbarplot(x="supervivencia", y = "n", 
+            fill = "lightblue") +
+  scale_x_continuous(breaks = 4:18) +
+  geom_vline(xintercept = promedio_superv,
+             color = "blue", lwd = 1, lty = 2)
 ```
 
 ### Pregunta de estudio 02:
@@ -239,20 +247,27 @@ datos_polluelos <- data.frame(
                                5, 5))
 
 # Estimación de la probabilidad de supervivencia
-n <- ...  
-p_est <- ...
+n <- 20  
+p_est <- mean(datos_polluelos$polluelos_supervivientes)/n
 p_est
 
 # Simulación de la supervivencia con el parámetro estimado
-supervivencia_sim <- ...
+set.seed(123)
+supervivencia_sim <- rbinom(1000, size = n, prob = p_est)
+supervivencia_sim
 
 # Cálculo del número medio de supervivientes
-promedio_sup <- ...
+promedio_sup <- mean(supervivencia_sim)
 promedio_sup
 
 # Visualización de la nueva distribución de supervivencia
-
-
+data.frame(supervivencia_sim) %>% 
+  count(supervivencia_sim) %>% 
+  ggbarplot(x="supervivencia_sim", y = "n", 
+            fill = "lightblue") +
+  scale_x_continuous(breaks = 0:15) +
+  geom_vline(xintercept = promedio_sup,
+             color = "blue", lwd = 1, lty = 2)
 ```
 
 ## 2.2. Distribución Poisson
@@ -267,23 +282,36 @@ Un grupo de ecólogos está interesado en estudiar la cantidad de avistamientos 
 ```{r}
 # Parámetro de la distribución Poisson (número promedio de eventos)
 # Promedio de avistamientos por semana
-lambda <- ...   
+lambda <- 3   
 
 # Probabilidad de observar exactamente 5 avistamientos en una semana
-p5a1s <- ...
+p5a1s <- dpois(5, lambda)
 p5a1s
+
+densidad_pois <- dpois(1:10, lambda)
+names(densidad_pois) <- 1:10
+densidad_pois |> sort()
+# Existe una probabilidad del 22.4% de encontrar 3 o 2 individuos de la especie en una semana.
 
 # Simulación de 1000 semanas de observación
 set.seed(123)  
-avistamientos <- ...
+avistamientos <- rpois(1000, lambda = 3)
 avistamientos
 
 # Cálculo del promedio de avistamientos simulados
-promedio_avistamientos <- ...
+promedio_avistamientos <- mean(avistamientos)
 promedio_avistamientos
 
 # Visualización de la distribución de avistamientos
+range(avistamientos)
 
+data.frame(avistamientos) %>% 
+  count(avistamientos) %>% 
+  ggbarplot(x="avistamientos", y = "n", 
+            fill = "chartreuse3") +
+  scale_x_continuous(breaks = 0:10) +
+  geom_vline(xintercept = promedio_avistamientos,
+             color = "darkgreen", lwd = 1, lty = 2)
 
 
 ```
@@ -299,20 +327,33 @@ data <- data.frame(
   avistamientos = rpois(80, lambda = 2.8)  
 )
 
+head(data)
+
 # Estimación del promedio de avistamientos por semana
-lambda_est <- ...
+lambda_est <- mean(data$avistamientos)
 lambda_est
 
 # Simulación de avistamientos con el parámetro estimado
-avistamientos_est <-...
+avistamientos_est <- rpois(1000, lambda_est)
 
 # Cálculo del promedio de avistamientos simulados
-promedio_avistamientos_est <- ...
+promedio_avistamientos_est <- mean(avistamientos_est)
 promedio_avistamientos_est
 
 # Visualización de la nueva distribución de avistamientos
+range(avistamientos_est)
 
+data.frame(avistamientos_est) %>% 
+  count(avistamientos_est) %>% 
+  ggbarplot(x="avistamientos_est", y = "n", 
+            fill = "chartreuse3") +
+  scale_x_continuous(breaks = 0:9) +
+  geom_vline(xintercept = promedio_avistamientos,
+             color = "darkgreen", lwd = 1, lty = 2)
 
+# Calcular la probabilidad exacta de que se aviste una cantidad dada de individuos en una semana:
+
+dpois(0:9, promedio_avistamientos_est) |> round(2)
 ```
 
 ## 2.3. Distribución Gamma
@@ -329,23 +370,26 @@ En este caso, nos interesa modelar el tiempo que tarda un ecosistema en recupera
 ```{r}
 # Parámetros de la distribución Gamma
 ## Parámetro de forma
-alpha <- ...    
+alpha <- 5    
 
 ## Parámetro de tasa
-beta <- ...
+beta <- 0.2
 
 # Simulación de 1000 tiempos de recuperación
 set.seed(123)  
-tiempos_recuperacion <- ...
+tiempos_recuperacion <- rgamma(1000, 
+                               shape = alpha, 
+                               rate = beta)
+tiempos_recuperacion
 
 # Cálculo del tiempo medio de recuperación esperado
-tiempo_medio <- ...
+tiempo_medio <- mean(tiempos_recuperacion)
 tiempo_medio
 
 # Visualización de la distribución de tiempos de recuperación
-
-
-
+# library(ggpubr)
+data.frame(tiempos_recuperacion) %>% 
+  gghistogram(x = "tiempos_recuperacion")
 ```
 
 #### Pregunta de estudio 06:
@@ -359,27 +403,39 @@ datos_recu <- data.frame(
   tipo = c(rep(c("Primario","Secundario"),4)),
   tiempos_observados = c(20.5, 29.3, 18.9, 23.1, 21.6, 30.4, 22.7, 24.9))
 
+datos_recu
+
+tapply(datos_recu$tiempos_observados, 
+       datos_recu$tipo, mean)
 
 
 # Ajuste de la distribución Gamma para obtener la
-tipo_primario <- ...
+tipo_primario <- datos_recu %>% 
+  filter(tipo == "Primario") %>% 
+  pull(tiempos_observados)
 
 library(MASS)
+ajuste_gamma <- fitdistr(tipo_primario, "gamma")
+ajuste_gamma
 
 # Estimación de los parámetros α y β
-alpha <- ...
-beta <- ...
+alpha <- ajuste_gamma$estimate[1]
+beta <- ajuste_gamma$estimate[2]
 
 # Simulación de 1000 tiempos de recuperación
 set.seed(123) 
-tiempos_recuperacion2 <- ...
+tiempos_recuperacion2 <- rgamma(1000, alpha, beta)
+tiempos_recuperacion2
 
 # Promedio de la simulación a partir de datos reales
-tiempo_medio2 <- ...
+tiempo_medio2 <- mean(tiempos_recuperacion2)
+tiempo_medio2
 
 # Visualización de la distribución de tiempos de recuperación
+data.frame(tiempos_recuperacion2) %>% 
+  gghistogram(x = "tiempos_recuperacion2")
 
-
+dgamma(seq(18,24,0.5), shape = alpha, rate = beta)
   
 ```
 
@@ -390,24 +446,32 @@ Iniciemos comprendiendo la **Función de Distribución Acumulativa Empírica** (
 ```{r}
 # Generar datos de una distribución normal
 set.seed(123)
-normales <- ...
-
+normales <- rnorm(1000, mean = 15, sd = 2)
+normales
+mean(normales)
+sd(normales)
 
 # Calcular la ECDF utilizando la función ecdf()
-ecdf_norm <- ...
+ecdf_norm <- ecdf(normales)
+ecdf_norm
 
 # Graficar la ECDF
-
+plot(ecdf_norm)
+# ¿Cuál es la probabilidad de al tomar al azar un datos en mi estudio, este tenga valor menor o igual a 16?
+0.7 # aprox
+pnorm(16, mean = mean(normales), sd = sd(normales))
 
 # Calcular la probabilidad de que al escoger un valor al azar este sea menor igual de 12
-
+pnorm(12, mean = mean(normales), sd = sd(normales))
 
 # Calcular la probabilidad de que al escoger un valor al azar este sea mayor de 12
-
+1 - pnorm(12, mean = mean(normales), sd = sd(normales))
 
 # Calcular la probabilidad de que al escoger un valor al azar este esté entre 12 o 13
+p13 <- pnorm(13, mean = mean(normales), sd = sd(normales))
+p12 <- pnorm(12, mean = mean(normales), sd = sd(normales))
 
-
+p13-p12
 ```
 
 #### Descripción del caso:
@@ -425,19 +489,19 @@ mu <- 150
 sigma <- 20 
 
 # Probabilidad de que el peso esté entre 140 y 160 gramos
-
+pnorm(160, mu, sigma) - pnorm(140, mu, sigma)
+# Existe un 38% de probabilidades de que al sacar al azar a un rato de esta población y pesarlo, este tenga un peso de entre 140 a 160 gr.
 
 # Simulación de pesos de 1000 roedores
 set.seed(123) 
-pesos <- ...
+pesos <- rnorm(1000, mu, sigma)
 
 # Cálculo del peso promedio y la desviación estándar
-peso_promedio <- ...
-desviacion_estandar <- ...
-
+peso_promedio <- mean(pesos)
+desviacion_estandar <- sd(pesos)
 
 # Visualización de la distribución de pesos
-
-
+data.frame(pesos) %>% 
+  gghistogram(x = "pesos")
 ```
 

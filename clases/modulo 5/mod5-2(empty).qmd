@@ -1,0 +1,271 @@
+---
+title: "Módulo 5 - 2"
+author: "Irwing S. Saldaña"
+format: html
+---
+
+```{r}
+# Instalación de paquetes
+pak::pak("moments")
+```
+
+```{r}
+# Activación de paquetes
+library(moments)
+library(ggpubr)
+```
+
+# 1. Medidas de tendencia central: mediana, media y moda
+
+## Promedio o Media
+
+La media aritmética es la suma de todos los valores dividida entre el número total de valores.
+
+```{r}
+# Conjunto de dt1 de ejemplo
+dt1 <- c(5, 7, 3, 8, 9, 2, 5, 6, 4, 7)
+
+
+# ¿Qué ocurre cuando hay NA's?
+dt2 <- c(5, 7, 3, 8, 9, 2, 5, 6, 4, 7, NA)
+
+
+# ¿Cómo se influencia el promedio con números grandes?
+dt3 <- c(5, 7, 3, 8, 90, 2, 5, 6, 4, 7)
+
+```
+
+## Mediana
+
+La mediana es el valor central de un conjunto de datos ordenados.
+
+```{r}
+# Cálculo de la mediana cuando tenemos N muestral impar
+dt4 <- c(5, 7, 3, 8, 9, 2, 5, 6, 4)
+
+# Cálculo de la mediana cuando tenemos N muestral par
+dt5 <- c(5, 7, 3, 8, 9, 2, 5, 6, 4, 7)
+
+
+```
+
+## Moda
+
+La moda es el valor que ocurre con mayor frecuencia en un conjunto de datos. Les he creado una función para calcularlo, aunque no es tampoco necesario.
+
+```{r}
+# Función para calcular la moda
+calcular_moda <- function(x) {
+  valores_unicos <- unique(x)
+  frecuencias <- tabulate(match(x, valores_unicos))
+  index.max <- which(frecuencias == max(frecuencias))
+  moda <- valores_unicos[index.max]
+  return(moda)
+}
+
+# Cálculo de la moda
+
+# Cálculo sin función moda
+
+
+```
+
+# 2. Medidas de dispersión: rango, varianza, desviación estándar y coeficiente de variación
+
+## Rango
+
+El rango es la diferencia entre el valor máximo y el mínimo de un conjunto de datos.
+
+```{r}
+# Cálculo del rango
+
+```
+
+## Varianza y Desviación estándar
+
+La varianza mide la dispersión de los datos respecto a la media al calcular el promedio de las desviaciones al cuadrado.
+
+La desviación estándar es la medida de dispersión más común, que *indica qué tan dispersos están los datos con respecto al promedio*. Mientras mayor sea la desviación estándar, mayor será la dispersión de los datos.
+
+```{r}
+# Desviación estándar
+
+# Cálculo de la varianza
+
+
+```
+
+# 3. Medidas de posición: cuartiles
+
+Los cuartiles dividen un conjunto de datos ordenados en cuatro partes iguales. Sirven para calcular los límites de las gráficos de caja (boxplot):
+
+-   Q0: ceja inferior (0%, no siempre)
+-   Q1: inicio de la caja (25%)
+-   Q2: mediana (50%)
+-   Q3: cierre de la caja (75%)
+-   Q4: ceja superior (100%, no siempre)
+
+Los Q0 y Q4 (las cejas de las cajas)
+
+-   **Ceja inferior**: Se calcula como $Q_1 - 1.5 \times IQR$. Cualquier dato por debajo de este valor se considera un valor atípico.
+
+-   **Ceja superior**: Se calcula como $Q_3 + 1.5 \times IQR$. Cualquier dato por encima de este valor también se considera un valor atípico.
+
+```{r}
+quantile(dt1, probs = c(0, 0.25, 0.5, 0.75, 1))
+```
+
+```{r}
+
+```
+
+Cualquier valor que esté por encima de 1.5 veces la distancia (o rango) intercuantil $IQR = Q3-Q1$, por encima del Q3 o por debajo del Q1, se considera outlier o *valor atípico*.
+
+Cualquier valor que esté por encima de 3 veces la distancia (o rango) intercuantil $IQR = Q3-Q1$, se considera extreme o *valor extremo*.
+
+```{r}
+dt6 <- c(5, 7, 3, 8, 2, 5, 6, 4, 7, 16)
+
+# Cuantiles
+cuantiles <- ...
+cuantiles
+
+# Rango intercuantil (IQR)
+IQR <- ...
+IQR
+
+# Calcular el Umbral para Outliers: 
+umbral <- ...
+umbral
+
+# Q0
+q0 <- ...
+q0
+
+# Q4
+q4 <- ...
+q4
+
+# Outliers
+outliers <- ...
+outliers
+```
+
+Comprobemos la aparición de outliers en la data
+
+```{r}
+# Originalmente teníamos como outliera al 16
+dt6 <- c(5, 7, 3, 8, 2, 5, 6, 4, 7, 16)
+
+
+# Comprobando: cambiemos el valor más alto por 11 y 12.
+# Visualiza cómo afecta cada caso.
+dt7 <- c(5, 7, 3, 8, 2, 5, 6, 4, 7, 11)
+
+```
+
+# 4. Medidas de forma: simetría y curtosis
+
+Estas medidas describen la forma de la distribución de los datos. Podemos visualizar un gráfico de función de densidad, y luego calcularemos los valores de su simetría y curtosis.
+
+## Simetría
+
+La simetría mide la asimetría de la distribución de los datos respecto a su media. En términos de valores:
+
+-   $Simetría = 0$: La distribución es perfectamente simétrica, similar a una distribución normal.
+-   $Simetría > 0$: La distribución es asimétrica positiva (luce empujada hacia la izquierda).
+-   $Simetría < 0$: La distribución es asimétrica negativa (luce empujada hacia la derecha).
+
+## Curtosis
+
+La curtosis mide cuan aguda (alta) es la distribución.
+
+-   $Curtosis = 3$: mesocúrtica, como la distribución normal.
+-   $Curtosis > 3$: leptocúrtica, lo que significa que es más aguda que una distribución normal.
+-   $Curtosis < 3$: platicúrtica, siendo menos aguda que una distribución normal.
+
+Estos valores indican que la distribución es simétrica alrededor de la media y tiene una forma de campana con colas que caen a una tasa normal. En la práctica, sin embargo, pequeñas desviaciones de estos valores aún pueden ser consideradas aproximadamente normales dependiendo del contexto y el propósito del análisis.
+
+```{r}
+# Columna de trabajo de la base de datos lake
+lake$DO
+
+# Función de densidad
+
+
+```
+
+```{r}
+# Cálculo de la asimetría
+
+
+# Cálculo de la curtosis
+
+
+```
+
+El siguiente código les da una idea del uso de funciones de ggplot2 para visualizar la distribución empírica de mis datos reales, y compararla con la distribución teórica normal:
+
+```{r}
+ggplot(lake, aes(x = DO)) +
+  geom_density(color = "blue", lwd = 1) +
+  stat_function(fun = dnorm, 
+                args = list(mean = mean(lake$DO), sd = sd(lake$DO)), 
+                color = "red", lwd = 1) +
+  theme_classic()
+```
+
+# 5. Análisis bivariado: covarianza y correlación
+
+La *covarianza* y la *correlación* son dos conceptos estadísticos que se utilizan para describir la relación entre dos variables numéricas.
+
+## Covarianza
+
+Es una medida que indica el grado en el que dos variables varían juntas. Es decir, te indica si el aumento en una variable tiende a estar asociado con un aumento en otra (covarianza positiva), un descenso en otra (covarianza negativa), o si no existe una tendencia clara (covarianza cercana a cero).
+
+$$
+\text{Cov}(X, Y) = \frac{\sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{n-1}
+$$
+
+**Donde**: - $X_i$ y $Y_i$: Valores de las variables $X$ e $Y$. - $\bar{X}$ y $\bar{Y}$: Promedios de las variables $X$ e $Y$. - $n$: Número de observaciones. - $\text{Cov}(X, Y)$: Covarianza entre $X$ e $Y$.
+
+**Interpretación**: Los valores de la covarianza no están normalizados y pueden variar en magnitud, lo que hace que su interpretación absoluta (más allá del signo) sea difícil (a magnitud de la covarianza directamente, ya que depende de las escalas de ambas variables. En nuestro caso sería algo como mg/L por especie. Raro ¿no?).
+
+```{r}
+
+```
+
+## Correlación (Método de Pearson)
+
+La correlación de Pearson es una medida estadística que evalúa la fuerza y la dirección de la relación lineal entre dos variables numéricas. A diferencia de la covarianza, que nos indica solo la dirección de la relación, la correlación normaliza esta medida, lo que permite compararla independientemente de las escalas de las variables.
+
+La fórmula de la correlación de Pearson se define como:
+
+$$
+\rho_{X,Y} = \frac{\text{Cov}(X, Y)}{\sigma_X \sigma_Y}
+$$ **Donde**: - $\text{Cov}(X, Y)$: Es la covarianza entre las variables $X$ e $Y$. - $\sigma_X$ y $\sigma_Y$: Son las desviaciones estándar de las variables $X$ e $Y$, respectivamente. - $\rho_{X,Y}$: Es el coeficiente de correlación de Pearson entre las variables $X$ e $Y$.
+
+**Interpretación**: El coeficiente de correlación de Pearson ($\rho$) toma valores entre -1 y 1, lo que facilita su interpretación:
+
+-   $\rho = 1$: Existe una correlación positiva perfecta. Es decir, a medida que una variable aumenta, la otra también lo hace de manera proporcional.
+-   $\rho = -1$: Existe una correlación negativa perfecta. Es decir, a medida que una variable aumenta, la otra disminuye proporcionalmente.
+-   $\rho = 0$: No existe una relación lineal entre las dos variables, es decir, no podemos predecir una variable basándonos en la otra.
+
+![Pearson](https://miro.medium.com/v2/resize:fit:2000/format:webp/1*H4Ssq7V7mgWRRJhrIGhw7Q.png)
+
+```{r}
+
+
+```
+
+## ¿Qué necesita la correlación de Pearson para ser válida?
+
+1.  *Relación lineal entre las variables*: Si las variables tienen una relación no lineal (por ejemplo, cuadrática o exponencial), el coeficiente de correlación puede ser engañoso o incorrecto.
+2.  *Homocedasticidad*: Esto significa varianza constante a lo largo de la nube de puntos. Si la nube de puntos es cónica, entonces hay heterocedasticidad, y no homocedasticidad.
+3.  *Normalidad de las variables*: Si las variables no son normales, la correlación puede no ser precisa.
+4.  *Ausencia de valores atípicos*: Los valores atípicos pueden influir fuertemente en el coeficiente de correlación de Pearson, dando resultados engañosos.
+
+```{r}
+
+```
+
