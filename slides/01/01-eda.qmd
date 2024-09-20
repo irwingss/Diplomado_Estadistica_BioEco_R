@@ -57,29 +57,29 @@ knitr::opts_chunk$set(
 
 ## La historia de (casi) tod\@s
 
-::::: columns
-:::: column
+::: columns
+::: column
 ::: incremental
 -   "En algún punto de la vida académica/profesional, todos afrontamos problemas de análisis de datos".
 -   ¿Le tomaste interés por tu tesis de pregrado o posgrado?
 -   En la era de la IA es más útil que nunca.
 :::
-::::
+:::
 
-:::: column
+::: column
 ```{r}
 #| echo: false
 #| out-width: "100%"
 
 knitr::include_graphics("images/student-statistics.jpg")
 ```
-::::
-:::::
+:::
+:::
 
-## {.center background-color="#16161d"}
+##  {.center background-color="#16161d"}
 
-::::{.columns}
-:::{.column}
+::: columns
+::: column
 ```{r}
 #| echo: false
 #| fig-align: "center"
@@ -87,33 +87,26 @@ knitr::include_graphics("images/student-statistics.jpg")
 
 knitr::include_graphics("images/edward_deming.jpeg")
 ```
-
 :::
-:::{.column}
 
-<br>
-<br>
-<br>
+::: column
+<br> <br> <br>
 
-> ["Sin datos no eres más que otra persona con una opinión" <br> *W. Edward Deming.* ]{style="color:white;"}
-
-
+> ["Sin datos no eres más que otra persona con una opinión" <br> *W. Edward Deming.*]{style="color:white;"}
 :::
-::::
-
+:::
 
 ##  {.center background-color="#16161d"}
 
-> ["La estadística no debería estar relegada a los estadísticos. El objetivo es tener muchos profesionales con habilidades estadística: ingenieros, científicos, administradores..." <br> *W. Edward Deming.* ]{style="color:white;"}
+> ["La estadística no debería estar relegada a los estadísticos. El objetivo es tener muchos profesionales con habilidades estadística: ingenieros, científicos, administradores..." <br> *W. Edward Deming.*]{style="color:white;"}
 
-
-## {.center .dark-background background-image="../bg5.png"}
+##  {.center .dark-background background-image="../bg5.png"}
 
 ::: task
 <strong>Estadística: Definición</strong><br> La estadística es una rama científica que lidia con la colecta sistemática, tabulación, resumen, clasificación, análisis y modelamiento de datos, extrayendo información resumida a partir de datos numéricos (o no), de los cuales genera conclusiones útiles o verifica hipótesis experimentales.
 :::
 
-## {.center background-color="#16161d"}
+##  {.center background-color="#16161d"}
 
 > [La estadística nos permite convertir datos en información útil]{style="color:white;"}
 
@@ -133,9 +126,9 @@ knitr::include_graphics("images/muestra.webp")
 
 ## Abordaje en esta sección
 
-- Población y muestra, parámetro y estimador.
-- ¿Cómo obtener la muestra?
-- ¿Qué se mide en la muestra?
+-   Población y muestra, parámetro y estimador.
+-   ¿Cómo obtener la muestra?
+-   ¿Qué se mide en la muestra?
 
 ## Población y muestra
 
@@ -168,7 +161,6 @@ knitr::include_graphics("images/bird-medidas.jpg")
 -   **Estadístico:** Es una medida numérica numérica de una característica de una muestra.
 :::
 :::
-
 
 ## Conceptos relacionados a un estadístico
 
@@ -217,7 +209,6 @@ tabla_estadisticos <- datos_estadisticos %>%
 tabla_estadisticos
 ```
 
-
 ## ¿Cómo obtener la muestra?
 
 ```{r}
@@ -237,7 +228,7 @@ knitr::include_graphics("images/metodos_muestreo.png")
 
 -   **Muestreo sistemático**: se selecciona un punto de partida aleatorio en la población y luego se elige cada k-ésima unidad para formar la muestra. El valor de k se determina dividiendo el tamaño total de la población entre el tamaño de la muestra deseada. Este método es útil cuando los datos están organizados en una secuencia o lista y puede ser más eficiente que el muestreo simple.
 
-## {}
+## 
 
 ```{shinylive-r}
 #| standalone: true
@@ -378,45 +369,45 @@ shinyApp(ui = ui, server = server)
 ```
 
 ## ¿Qué se mide en la muestra?
-### Tipos de Variables y Escalas de Medición {}
+
+### Tipos de Variables y Escalas de Medición
 
 Comprender los tipos de variables es fundamental para elegir las estadísticas descriptivas adecuadas.
 
-:::{.incremental}
-- **Nominales**: clasificación sin orden (e.g., tipos de hábitat, especies/ géneros/ familias/ órdenes, estación, sexo).
+::: incremental
+-   **Nominales**: clasificación sin orden (e.g., tipos de hábitat, especies/ géneros/ familias/ órdenes, estación, sexo).
 
-- **Ordinales**: clasificación con orden intrínseco (e.g., estadios de desarrollo, grupo etario, grado de perturbación, nivel de contaminación categórico).
+-   **Ordinales**: clasificación con orden intrínseco (e.g., estadios de desarrollo, grupo etario, grado de perturbación, nivel de contaminación categórico).
 
-- **Cuantitativas continuas**: son numéricas obtenidas de procesos de medición. Tienen decimales.
+-   **Cuantitativas continuas**: son numéricas obtenidas de procesos de medición. Tienen decimales.
 
-- **Cuantitativas discretas**: son numéricas obtenidas de procesos de conteo. Son números enteros, mayores/iguales a cero, siempre.
+-   **Cuantitativas discretas**: son numéricas obtenidas de procesos de conteo. Son números enteros, mayores/iguales a cero, siempre.
 
-- **De razón**: numéricas que incluyen un cero absoluto (e.g., peso, altura).
+-   **De razón**: numéricas que incluyen un cero absoluto (e.g., peso, altura).
 
-- **De intervalo**: diferencias significativas pero sin un cero absoluto (e.g., temperatura en Celsius).
+-   **De intervalo**: diferencias significativas pero sin un cero absoluto (e.g., temperatura en Celsius).
 :::
 
 # 3. ¿Qué influencia a que un estudio sea estadísticamente bueno?
 
-## Abordaje en esta sección {}
+## Abordaje en esta sección
 
-- Tamaño de la muestra (??).
-- El margen de error (<10%).
-- Nivel de confianza (95%).
-- Influencia del N muestral (simulación).
-- ¿Cómo afecta el N al estimador?: Función de densidad.
+-   Tamaño de la muestra (??).
+-   El margen de error (\<10%).
+-   Nivel de confianza (95%).
+-   Influencia del N muestral (simulación).
+-   ¿Cómo afecta el N al estimador?: Función de densidad.
 
 ## Tamaño de la muestra
 
-:::::{.columns}
-
-::::{.column}
+::: columns
+::: column
 ### **¿Debe ser muy grande?**
 
-:::{.incremental}
-- Hacer que sea grande, es **costoso**.
-- Por sí solo, no asegura mayor certeza.
-- **Diseño muestral** es importante.
+::: incremental
+-   Hacer que sea grande, es **costoso**.
+-   Por sí solo, no asegura mayor certeza.
+-   **Diseño muestral** es importante.
 :::
 
 ```{r}
@@ -424,10 +415,9 @@ Comprender los tipos de variables es fundamental para elegir las estadísticas d
 
 knitr::include_graphics("https://plus.unsplash.com/premium_photo-1664304394734-b991b0fc4132?q=80&w=2382&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 ```
+:::
 
-::::
-
-::::{.column}
+::: column
 <https://www.surveymonkey.com/mp/sample-size-calculator/>
 
 ```{r}
@@ -438,20 +428,18 @@ knitr::include_graphics("images/surveymonkey.png")
 
 **Pasos recomendados:**
 
-:::{.incremental}
-1. Define la población.
-2. Define tu margen de error.
-3. Define tu nivel de confianza.
+::: incremental
+1.  Define la población.
+2.  Define tu margen de error.
+3.  Define tu nivel de confianza.
+:::
+:::
 :::
 
-::::
+## ¿Qué es el margen de error?
 
-:::::
-
-## ¿Qué es el margen de error? {}
-
-:::::{.columns}
-::::{.column}
+::: columns
+::: column
 ¿Cómo saber si la respuesta obtenida refleja el parámetro de la población?
 
 ```{r}
@@ -459,21 +447,17 @@ knitr::include_graphics("images/surveymonkey.png")
 
 knitr::include_graphics("images/covid_prob.png")
 ```
-
-::::
-
-::::{.column}
->  Si preguntas aun grupo de personas si se vacunaría contra la 
-COVID-19, la respuesta es dicotómica. 
-
-:::{.incremental}
-- Si 70% de los evaluado dicen que sí se vacunarán, un 5% de 
-margen de error significa implica que el valor fluctuará en la 
-población e 65% a 75%.
-- Márgenes de error superiores al 10% no son recomendados
 :::
-::::
-:::::
+
+::: column
+> Si preguntas aun grupo de personas si se vacunaría contra la COVID-19, la respuesta es dicotómica.
+
+::: incremental
+-   Si 70% de los evaluado dicen que sí se vacunarán, un 5% de margen de error significa implica que el valor fluctuará en la población e 65% a 75%.
+-   Márgenes de error superiores al 10% no son recomendados
+:::
+:::
+:::
 
 ## Margen de error
 
@@ -488,7 +472,6 @@ $$
 $$
 ME = Z \times \sqrt{\frac{p \times (1 - p)}{n}}
 $$
-
 
 ## ¿Cómo influencia el tamaño de la muestra?
 
@@ -717,23 +700,20 @@ print(p)
 
 ```
 
-
-
 ##  {.center background-image="../landscape3.jpg"}
 
 ::: task
 Ya tomaste la muestra, y esta tiene característicias intrínsecas.<br>Para hablar de ellas, veamos [qué es probabilidad.]{.gradiente}
 :::
 
-
 # 4. Probabilidades vs Estadística
 
 ## ¿Qué significa probabilidad?
 
 ::: incremental
-- Es la **medida de la incertidumbre** o la posibilidad de que ocurra un evento.  
-- Si algo es **seguro**, la probabilidad es 1 (o 100%), y si es **imposible**, la probabilidad es 0 (o 0%).
-- La **probabilidad** de un evento es su **frecuencia relativa** (proporción esperada).
+-   Es la **medida de la incertidumbre** o la posibilidad de que ocurra un evento.\
+-   Si algo es **seguro**, la probabilidad es 1 (o 100%), y si es **imposible**, la probabilidad es 0 (o 0%).
+-   La **probabilidad** de un evento es su **frecuencia relativa** (proporción esperada).
 :::
 
 <br>
@@ -766,7 +746,7 @@ knitr::include_graphics("images/teoria_probabilidad_estadistica.png")
 ```
 :::
 
-## {.center}
+##  {.center}
 
 ```{r}
 #| echo: false
@@ -822,7 +802,7 @@ tabla_diferencias <- datos_diferencias %>%
 tabla_diferencias
 ```
 
-## {.center}
+##  {.center}
 
 ```{r}
 #| echo: false
@@ -887,20 +867,16 @@ tabla_campos_aplicacion
 
 ```
 
-
 # Teoría de Probabilidad
 
 ## Variables Aleatorias y Distribuciones
 
 Una variable aleatoria es una **función** que asigna un valor numérico a cada uno de los resultados posibles de un experimento aleatorio.
 
-
 Se clasifica en dos tipos principales:
 
-- **Variable Aleatoria Discreta**: Toma un número finito o contable de valores (Ej. número de individuos en una población).
-- **Variable Aleatoria Continua**: Puede tomar cualquier valor dentro de un intervalo (Ej. la altura de una planta).
-
-
+-   **Variable Aleatoria Discreta**: Toma un número finito o contable de valores (Ej. número de individuos en una población).
+-   **Variable Aleatoria Continua**: Puede tomar cualquier valor dentro de un intervalo (Ej. la altura de una planta).
 
 ## Distribuciones de probabilidad
 
@@ -964,10 +940,10 @@ grid.arrange(plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, nrow
 ## Distribuciones Discretas
 
 ::: incremental
-- Describe variables obtenidas de procesos de **conteos**.
-- Posibilidades de **valores finitos**.
-- Se usa la *función de masa de probabilidad* (*PMF*) para asignar una probabilidad a *cada valor* posible de la variable.
-- La PMF toma un valor específico y devuelve la probabilidad de que la variable tome ese valor.
+-   Describe variables obtenidas de procesos de **conteos**.
+-   Posibilidades de **valores finitos**.
+-   Se usa la *función de masa de probabilidad* (*PMF*) para asignar una probabilidad a *cada valor* posible de la variable.
+-   La PMF toma un valor específico y devuelve la probabilidad de que la variable tome ese valor.
 :::
 
 ::: {.fragment .fade-up}
@@ -976,18 +952,16 @@ Cuando $n$ es pequeño, la frecuencia relativa observada de un suceso **no es un
 :::
 :::
 
-
 ## Distribuciones continuas
 
 ::: incremental
-- Describe variables obtenidas de procesos de **medición**.
-- Posibilidades de **valores infinitos**.
-- Se usa la *función de densidad de probabilidad* (*PDF*)  para asignar la probabilidad de que una variable caiga *dentro de un rango específico*.
-- La PDF no devuelve una probabilidad directa para un valor específico.
+-   Describe variables obtenidas de procesos de **medición**.
+-   Posibilidades de **valores infinitos**.
+-   Se usa la *función de densidad de probabilidad* (*PDF*) para asignar la probabilidad de que una variable caiga *dentro de un rango específico*.
+-   La PDF no devuelve una probabilidad directa para un valor específico.
 :::
 
-
-## {}
+## 
 
 ```{shinylive-r}
 #| standalone: true
@@ -1150,37 +1124,32 @@ shinyApp(ui = ui, server = server)
 
 ```
 
-## Probabilidad de Mantenimiento de Funciones Ecológicas {}
+## Probabilidad de Mantenimiento de Funciones Ecológicas
 
-::::{.columns} 
-:::{.column}
+::: columns
+::: column
+-   **¿cómo la probabilidad de extinción de especies afecta la probabilidad de mantener funciones clave en un ecosistema?** [@nijs2000]
 
-- **¿cómo la probabilidad de extinción de especies afecta la probabilidad de mantener funciones clave en un ecosistema?** [@nijs2000]
-
-- Por ejemplo, si varias especies de macroinvertebrados cumplen el mismo rol en la descomposición de materia orgánica, la extinción de algunas de ellas puede no afectar gravemente el ecosistema mientras haya suficientes especies funcionalmente equivalentes.
-
+-   Por ejemplo, si varias especies de macroinvertebrados cumplen el mismo rol en la descomposición de materia orgánica, la extinción de algunas de ellas puede no afectar gravemente el ecosistema mientras haya suficientes especies funcionalmente equivalentes.
 :::
 
-:::{.column}
+::: column
 ```{r}
 #| echo: false
 #| fig-align: "center"
 
 knitr::include_graphics("images/probabilidad_ejemplo_extincion.png")
 ```
-
 :::
-::::
+:::
 
 ## Todo esto se generó con una función sencilla
 
 $$
 P(X = k) = \binom{n}{k} p^k (1 - p)^{n - k}
-$$
-Donde $p$ es probabilidad de éxito, y $1-p$ de fracaso, en una distribución binomial.
+$$ Donde $p$ es probabilidad de éxito, y $1-p$ de fracaso, en una distribución binomial.
 
-:::{.fragment}
-
+::: fragment
 ```{r}
 #| echo: false
 #| fig-align: "center"
@@ -1188,10 +1157,9 @@ Donde $p$ es probabilidad de éxito, y $1-p$ de fracaso, en una distribución bi
 
 knitr::include_graphics("images/formula_paper.png")
 ```
-
 :::
 
-## {.center}
+##  {.center}
 
 ```{r}
 #| echo: false
@@ -1256,7 +1224,7 @@ ggplotly(ppp, tooltip = "text") %>%
   style(hovertemplate = 'N° Especies: %{x}<br>Prob. Func.: %{y}<br>Prob. Ext.: %{z}<extra></extra>')
 ```
 
-## Exportar {}
+## Exportar
 
 ```{r}
 #| echo: false
@@ -1273,8 +1241,7 @@ ppp +
         plot.title = element_text(size = 12, hjust = 0.5))
 ```
 
-
 ## Referencias
 
-:::{.refs}
+::: refs
 :::

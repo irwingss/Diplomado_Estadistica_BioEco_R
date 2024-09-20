@@ -1,0 +1,785 @@
+---
+title: Estadística Inferencial Básica
+subtitle: Módulo 6 - Clase 1
+title-slide-attributes:
+  data-background-image: ../bg4.png
+  data-background-size: cover
+  data-slide-number: default
+format:
+  revealjs:
+    theme:
+     - "default"
+     - "../slides.scss"
+    width: "1600"
+    height: "900"
+revealjs-plugins:
+  - ace
+filters:
+  - shinylive
+cache: refresh
+---
+
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  fig.align = "center"
+)
+```
+
+# Objetivos del módulo {background-image="../bg8.png"}
+
+::: incremental
+1. Discernir entre el uso de estadística **paramétrica y no paramétrica**.
+2. Comprender el **concepto de p-valor** y de los errores tipo I y tipo II.
+3. Aplicar **pruebas de hipótesis** y de **normalidad**.
+4. **Elegir adecuadamente el test** estadístico para inferencia a partir de comparaciones de medias.
+5. **Desarrollar scripts de análisis** estadístico de manera efectiva con sintaxis de R.
+:::
+
+# Introducción
+
+## Temario del módulo
+
+::: incremental
+- Introducción a la estadística inferencial
+- Pruebas de normalidad: métodos y pruebas gráficas.
+- Pruebas de hipótesis.
+- Error tipo I y II.
+- Valores de P: nivel de significancia.
+- Pruebas Paramétricas vs No paramétricas.
+- Comparaciones de medias de dos grupos (T de Student, y no paramétricas Wilcoxon, U de Mann-Whitney).
+- Comparaciones de medias de más de dos grupos (ANOVAs, Pruebas de Kruslal Wallis).
+- Test de asociación (Chi-cuadrado, otros).
+:::
+
+# 1. Inferencia estadística
+"Extraer conclusiones sobre una población a partir de una muestra"
+
+## Estadística inferencial
+
+Es el proceso mediante el cual se hacen estimaciones, predicciones o decisiones sobre una población basándose en los resultados obtenidos de una muestra. 
+
+<br>
+
+#### Puntos clave:
+
+::::{.incremental}
+- Población vs. Muestra.
+- Estimación (de parámetros de la población).
+
+- **Pruebas de Hipótesis** ¿hay evidencia suficiente?.
+- **Incertidumbre y Probabilidad** (grado de confianza).
+:::
+
+# 2. Pruebas de hipótesis y el p-valor
+
+## Pruebas de hipótesis
+
+Procedimiento estadístico que se utiliza para evaluar dos **afirmaciones mutuamente excluyentes**.
+
+:::{.incremental}
+- $H_0$: **hipótesis nula**. No existen diferencias (efecto).
+- $H_a$: **hipótesis alterna**. Existen diferencias (efecto).
+:::
+
+<br>
+
+:::{.fragment}
+
+#### Siempre buscamos evidencia para rechazar $H_0$. Las opciones son:
+:::
+
+:::{.incremental}
+- Encontramos evidencia para rechazar $H_0$.
+- O no encontramos evidencia para rechazar $H_0$.
+:::
+
+
+## ¿Cómo se relaciona con el p-valor y la significancia `0.05`?
+
+El **p-valor** de una prueba estadística permite tomar la decisión de rechazo de $H_0$, y consecuente validación de $H_a$. Esto se obtiene al **comparar el p-valor vs el nivel de significancia**, típicamente $0.05$.
+
+<br>
+
+#### Casos:
+
+:::{.incremental}
+- $p-valor < 0.05$: Se halló suficiente evidencia para rechazar $H_0$.
+- $p-valor \geq  0.05$: **No** se halló suficiente evidencia para rechazar $H_0$.
+:::
+
+
+##  {.center .dark-background background-image="../landscape3.jpg"}
+
+::: task
+<strong>p-valor: </strong><br> Recuerda que el p-valor es una probabilidad que se obtiene al analizar tu data con una prueba estadística, y que lo enfrentamos siempre al nivel de significancia (0.05). Esta última es antagonista de la certeza o nivel de confianza (0.95) en esta historia.
+:::
+
+
+## Tabla de Error {.center}
+
+:::{.fragment}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(gt)
+library(tibble)
+
+# Datos para la tabla de decisiones y realidad para H0
+datos_errores <- tribble(
+  ~Concepto, ~`H0 Verdadero`, ~`H0 Falso`,
+  "Rechazar H0", "Falso Positivo (FP)", "Verdadero Positivo (TP)",
+  "No rechazar H0", "Verdadero Negativo (TN)", "Falso Negativo (FN)"
+)
+
+
+# Crear la tabla con gt
+tabla_errores <- datos_errores %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(
+    column_labels.background.color = "#0013fe",
+    table.font.size = px(28),
+    data_row.padding = px(15)
+  ) %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_errores
+```
+:::
+
+<br>
+
+:::{.fragment}
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(gt)
+library(tibble)
+
+# Datos para la tabla de decisiones y realidad para H0
+datos_errores <- tribble(
+  ~Concepto, ~`H0 Verdadero`, ~`H0 Falso`,
+  "Rechazar H0", "Error de tipo I (Nivel de Sig., α)", "Poder (1 - β)",
+  "No rechazar H0", "Confianza (1 - α)", "Error de tipo II (β)"
+)
+
+
+# Crear la tabla con gt
+tabla_errores <- datos_errores %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(
+    column_labels.background.color = "#8a00b8",
+    table.font.size = px(28),
+    data_row.padding = px(15)
+  ) %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_errores
+
+```
+
+:::
+
+<br>
+
+:::{.fragment}
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(gt)
+library(tibble)
+
+# Datos para la tabla de decisiones y realidad para H0
+datos_errores <- tribble(
+  ~Concepto, ~`H0 Verdadero`, ~`H0 Falso`,
+  "Rechazar H0", "0.05", "¡INCREMENTAR!",
+  "No rechazar H0", "0.95", "REDUCIR"
+)
+
+
+# Crear la tabla con gt
+tabla_errores <- datos_errores %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(
+    column_labels.background.color = "#ff4900",
+    table.font.size = px(28),
+    data_row.padding = px(15)
+  ) %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_errores
+
+```
+
+:::
+
+## ¿Qué es el Poder?
+
+:::{.incremental}
+- Es $1 − β$, los verdaderos positivos: rechazar H0 cuando realmente es falsa.
+- Es la probabilidad de detectar un efecto determinado, siendo que este efecto realmente existe (TP).
+- Maneras de llegar a obtener el **poder de un estudio**: cálculo directo, simulación.
+:::
+
+:::{.fragment}
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 45%
+
+knitr::include_graphics("images/tabla_de_errores.png")
+```
+:::
+
+## {.center}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("images/tabla_de_errores_y_funciones.png")
+```
+
+## Maneras de incrementar el poder 1
+
+:::::{.columns}
+
+::::{.column}
+
+:::{.fragment}
+- Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+:::
+
+:::{.fragment}
+
+:::
+
+::::
+
+::::{.column}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1*9JmIG7tKACTmWmGNZ0Kacg.png")
+```
+::::
+:::::
+
+## Maneras de incrementar el poder 2
+
+:::::{.columns}
+
+::::{.column}
+
+:::{.fragment .semi-fade-out}
+- Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+:::
+
+:::{.fragment}
+- Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+:::
+
+::::
+
+::::{.column}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1*cL2a-aqT7_a0MAZcVUb86Q.gif")
+```
+::::
+:::::
+
+## Maneras de incrementar el poder 3
+
+:::::{.columns}
+
+::::{.column}
+
+:::{.fragment .semi-fade-out}
+- Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+- Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+:::
+
+:::{.fragment}
+- Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+:::
+
+::::
+
+::::{.column}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1*cfFd6EOaZIEae8fdQin5tg.gif")
+```
+::::
+:::::
+
+## Maneras de incrementar el poder 4
+
+:::::{.columns}
+
+::::{.column}
+
+:::{.fragment .semi-fade-out}
+- Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+- Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+- Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+:::
+
+:::{.fragment}
+- Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
+:::
+
+::::
+
+::::{.column}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1*RpQFm6HZDThA4Hrntb7LbA.gif")
+```
+::::
+:::::
+
+## Maneras de incrementar el poder 5
+
+:::::{.columns}
+
+::::{.column}
+
+:::{.fragment .semi-fade-out}
+- Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+- Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+- Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+- Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
+:::
+
+:::{.fragment}
+- <span style="color:#ff4900;">Modo 5: disminuir la desviación estándar. Reducir errores de muestreo. ¡MEJORAR DISEÑO!</span> 
+:::
+
+::::
+
+::::{.column}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1*G-KJaRJ3AMfTS--LeJtJHg.gif")
+```
+::::
+:::::
+
+## Maneras de incrementar el poder 6
+
+:::::{.columns}
+
+::::{.column}
+
+:::{.fragment .semi-fade-out}
+- Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+- Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+- Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+- Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
+- <span style="color:#ff4900;">Modo 5: disminuir la desviación estándar. Reducir errores de muestreo. ¡MEJORAR DISEÑO!</span> 
+:::
+
+:::{.fragment}
+- <span style="color:#ff4900;">Modo 6: incrementar el tamaño de la muestra. ¡TAMBIÉN ES CORRECTO!</span> 
+:::
+
+::::
+
+::::{.column}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1*q0WMA_Xp9gtF5tIWBesABA.gif")
+```
+::::
+:::::
+
+## Ejemplo aplicativo: Geckos
+
+:::{.panel-tabset}
+
+### Paper
+
+:::{.columns}
+:::{.column}
+
+:::{.small}
+Paper:
+<https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2656.12591>
+
+Dataset:
+<https://zenodo.org/records/5007334>
+:::
+
+Se recolectó datos de evidencia de autotomía (cola desprendida en defensa) en Geckos _M. kotschyi_ en islas donde había presencia o ausencia de _Vipera ammodytes_, y se planteó la pregunta:
+
+:::
+
+:::{.column}
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("images/paper_geckos.png")
+```
+:::
+:::
+
+### Gecko 
+
+_Mediodactylus kotschyi_
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 60%
+
+knitr::include_graphics("images/Mediodactylus_kotschyi.jpg")
+```
+
+### Depredador 
+
+_Vipera ammodytes_
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 60%
+
+knitr::include_graphics("images/Vipera_ammodytes.jpeg")
+```
+
+### Pregunta
+
+**¿Existe diferencia en la proporción de geckos con autotomía entre islas con presencia o ausencia de su depredador?**
+
+:::{.fragment .small}
+- $H_0$: La proporción de geckos con autotomía <span style="color:#ff4900;">es la misma</span>  en islas con presencia de _Vipera ammodytes_ que en islas sin el depredador. Es decir, **la presencia del depredador no afecta la proporción de autotomía en los geckos**.
+
+$$
+H_0: p_{presencia} = p_{ausencia}
+$$
+:::
+
+
+:::{.fragment .small}
+- $H_a$: La proporción de geckos con autotomía <span style="color:#ff4900;">difiere</span>  entre islas con presencia y ausencia de _Vipera ammodytes_. Es decir, **la presencia del depredador afecta la proporción de autotomía en los geckos**.
+
+$$
+H_a: p_{presencia} \neq p_{ausencia}
+$$
+:::
+
+:::
+
+
+## {}
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 800
+
+# Paquetes necesarios
+library(shiny)
+library(ggplot2)
+library(ggridges)
+library(plotly)
+
+# Interfaz de usuario (UI)
+ui <- fluidPage(
+  tags$head(tags$style(HTML("
+    .irs--shiny .irs-grid-text {
+    bottom: 5px;
+    font-size: 16px;
+    }
+    .irs--shiny .irs-min, .irs--shiny .irs-max {
+    font-size: 16px;
+    }
+    .sidebar { 
+    height: 100vh; 
+    position: -webkit-sticky;   
+    position: sticky; 
+    top: 20px; /* Ajusta la distancia desde el top */
+  }
+  "))),
+  
+  titlePanel("Tabla de Errores"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("n", "Tamaño de la muestra (n):", min = 10, max = 1000, value = 100, step = 10),
+      sliderInput("delta", "Diferencia de medias (Δ):", min = 0.1, max = 2, value = 0.3, step = 0.1),
+      sliderInput("sigma", "Desviación estándar (σ):", min = 0.1, max = 2, value = 1, step = 0.1),
+      sliderInput("alpha", "Nivel de significancia (α):", min = 0.01, max = 0.2, value = 0.05, step = 0.01),
+      style = "font-size: 22px; position: -webkit-sticky; position: sticky; top: 20px;"
+    ),
+    
+    mainPanel(
+      plotOutput("grafico_poder", height = "700px"),
+      plotlyOutput("grafico_dispersion", height = "400px")  # plotlyOutput para el gráfico interactivo
+    )
+  ),
+)
+
+# Lógica del servidor (Server)
+server <- function(input, output) {
+  
+  # Gráfico general de poder
+  output$grafico_poder <- renderPlot({
+    n <- input$n
+    delta <- input$delta
+    sigma <- input$sigma
+    alpha <- input$alpha
+    
+    # Calcular el error estándar y el parámetro de no centralidad
+    se <- sigma / sqrt(n)
+    ncp <- delta / se
+    
+    # Valor crítico
+    z_alpha <- qnorm(1 - alpha)
+    
+    # Generar valores z
+    z_min <- min(-4, ncp - 4)
+    z_max <- max(4, ncp + 4)
+    z <- seq(z_min, z_max, length.out = 1000)
+    
+    # Densidades bajo H0 y H1
+    h0_density <- dnorm(z, mean = 0, sd = 1)
+    h1_density <- dnorm(z, mean = ncp, sd = 1)
+    
+    # Crear data frames
+    df_h0 <- data.frame(
+      z = z,
+      density = h0_density,
+      hypothesis = "H0",
+      region = ifelse(z >= z_alpha, "Sig. o Error Tipo I (α)", "Confianza (1-α)")
+    )
+    
+    df_h1 <- data.frame(
+      z = z,
+      density = h1_density,
+      hypothesis = "H1",
+      region = ifelse(z >= z_alpha, "Poder (1-β)", "Error Tipo II (β)")
+    )
+    
+    # Combinar data frames
+    df <- rbind(df_h0, df_h1)
+    
+    # Asignar colores
+    df$fill_color <- factor(df$region, levels = c("Sig. o Error Tipo I (α)", "Confianza (1-α)", "Error Tipo II (β)", "Poder (1-β)"))
+    
+    # Definir colores
+    fill_colors <- c(
+      "Sig. o Error Tipo I (α)" = "#ff9c96",
+      "Confianza (1-α)" = "#a0ff78",
+      "Error Tipo II (β)" = "#ff0d00",
+      "Poder (1-β)" = "#2fa100"
+    )
+    
+    # Cambiar orden factor
+    df$hypothesis <- factor(df$hypothesis, levels = c("H1", "H0"))
+    
+    # Generar el gráfico
+    ggplot(df, aes(x = z, y = hypothesis, height = density, fill = fill_color)) +
+      geom_ridgeline(alpha = 0.8, color = "black", size = 0.3) +
+      scale_fill_manual(values = fill_colors) +
+      geom_vline(xintercept = z_alpha, linetype = "dashed", color = "black") +
+      labs(x = "", y = "", fill = "") +
+      theme_minimal() +
+      theme(legend.position = "bottom",
+            axis.text = element_text(size = 20),
+            legend.text = element_text(size = 15)) +
+      guides(fill = guide_legend(nrow = 2))
+  })
+  
+  # Gráfico de dispersión comparando H0 vs Ha
+  output$grafico_dispersion <- renderPlotly({
+    n <- input$n
+    delta <- input$delta
+    sigma <- input$sigma
+    alpha <- input$alpha
+    
+    # Calcular el error estándar y el parámetro de no centralidad
+    se <- sigma / sqrt(n)
+    ncp <- delta / se
+    
+    # Valor crítico
+    z_alpha <- qnorm(1 - alpha)
+    
+    # Generar puntos aleatorios para las distribuciones
+    set.seed(123)
+    z_h0 <- rnorm(n, mean = 0, sd = 1)
+    z_h1 <- rnorm(n, mean = ncp, sd = 1)
+    
+    # Crear data frame para el gráfico
+    df_dispersion <- data.frame(
+      z_h0 = z_h0,
+      z_h1 = z_h1
+    )
+    
+    # Generar el gráfico de dispersión
+    plot2 <- ggplot(df_dispersion, aes(x = z_h0, y = z_h1)) +
+      geom_point(color = "#0013fe", size = 3, alpha = 0.7) +
+      geom_vline(xintercept = z_alpha, linetype = "dashed", color = "black") +
+      geom_hline(yintercept = z_alpha, linetype = "dashed", color = "black") +
+      labs(x = "H0", y = "Ha") +
+      theme_minimal() +
+      theme(axis.text.y = element_blank(),  # Oculta los valores del eje Y
+            axis.ticks.y = element_blank(), # Oculta las marcas del eje Y
+            axis.text = element_text(size = 15)) 
+    
+    # Convertir el gráfico a plotly
+    ggplotly(plot2) %>%
+      layout(
+        autosize = TRUE,  # Ajuste automático del tamaño
+        yaxis = list(showticklabels = FALSE),  # Oculta las etiquetas del eje Y
+        margin = list(l = 0, r = 0, b = 50, t = 50)  # Ajuste de márgenes
+      )
+  })
+}
+
+# Ejecutar la aplicación
+shinyApp(ui = ui, server = server)
+
+```
+
+## ¿Qué es el p-valor? 
+
+Es la probabilidad de obtener un resultado (diferencia o efecto) tan extremo o más extremo ($\geq$) que el observado, si la hipótesis nula es verdadera.
+
+
+::::{.fragment .fade-up}
+::: {.callout-tip collapse="true"}
+## Un p-valor pequeño (< 0.05): 
+
+- Hay evidencia suficiente para rechazar la hipótesis nula.
+- Los resultados observados no se deben al azar.
+:::
+::::
+
+::::{.fragment .fade-up}
+::: {.callout-caution collapse="true"}
+## Un p-valor grande (≥ 0.05): 
+
+- No hay suficiente evidencia para rechazar la hipótesis nula.
+- Los resultados podrían deberse al azar.
+:::
+::::
+
+##  {.center background-color="#16161d"}
+
+> Un p-valor más pequeño generalmente indica que es menos probable que los resultados observados se deban al azar, bajo la suposición de que la hipótesis nula es verdadera.
+
+# 3. Medir normalidad
+
+
+# 4. Comparaciones de grupos
+
+## Concepto de comparación
+
+## Paramétrico vs No paramétrico
+
+## Mapa de las pruebas estadísticas disponibles
+
+# 5. Pruebas de comparaciones de medias de dos grupos
+
+## Paramétrica: Prueba T de Student
+
+## No paramétrica: Prueba de Wilcoxon
+
+## No paramétrica: Prueba de U de Mann-Whitney
+
+# 6. Pruebas de comparaciones de medias de más de dos grupos
+
+## Paramétrico: Anova
+
+## No paramétrico: Kruskal-Wallis
+
+# 7. Pruebas de Asociación
+
+## Prueba de Chi-cuadrado
+
+## Prueba de Fisher

@@ -488,5 +488,250 @@
     "title": "Módulo 5 - EDA",
     "section": "",
     "text": "En este informe, realizamos un análisis exploratorio de datos (EDA) del conjunto de datos lake. El objetivo es extraer la máxima información posible aplicando técnicas de EDA usando R. Los gráficos se generarán utilizando ggplot2 y sus extensiones.\n\nlake &lt;- read.csv(\"bases/Wudalianchi_Lake_data.csv\")\n\n\n\n\nEl conjunto de datos lake contiene 42 observaciones y 61 variables, incluyendo mediciones de diversos parámetros ambientales y conteos de especies en diferentes sitios y estaciones.\n\n# Cargar librerías necesarias\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(summarytools)\n\n\nAdjuntando el paquete: 'summarytools'\n\nThe following object is masked from 'package:tibble':\n\n    view\n\nlibrary(Hmisc)\n\n\nAdjuntando el paquete: 'Hmisc'\n\nThe following objects are masked from 'package:summarytools':\n\n    label, label&lt;-\n\nThe following objects are masked from 'package:dplyr':\n\n    src, summarize\n\nThe following objects are masked from 'package:base':\n\n    format.pval, units\n\nlibrary(skimr)\nlibrary(psych)\n\n\nAdjuntando el paquete: 'psych'\n\nThe following object is masked from 'package:Hmisc':\n\n    describe\n\nThe following objects are masked from 'package:ggplot2':\n\n    %+%, alpha\n\n\nPrimero, veamos la estructura del conjunto de datos:\n\nstr(lake)\n\n'data.frame':   42 obs. of  60 variables:\n $ Site     : chr  \"sp1\" \"sp2\" \"su1\" \"su2\" ...\n $ Lake     : chr  \"A\" \"A\" \"A\" \"A\" ...\n $ Season   : chr  \"Spring\" \"Spring\" \"Summer\" \"Summer\" ...\n $ Arable.1 : num  0.473 0.473 0.473 0.473 0.473 0.473 0.455 0.455 0.455 0.455 ...\n $ forest.1 : num  0.308 0.308 0.308 0.308 0.308 0.308 0.305 0.305 0.305 0.305 ...\n $ urban.1  : num  0.028 0.028 0.028 0.028 0.028 0.028 0.027 0.027 0.027 0.027 ...\n $ Area     : num  430025 430025 430025 430025 430025 ...\n $ Perimeter: num  4258 4258 4258 4258 4258 ...\n $ Max.depth: num  4 4 4 4 4 4 9.1 9.1 9.1 9.1 ...\n $ WD       : num  1.3 1.28 3.5 3.2 2.5 2.7 4.2 4 7.1 7.2 ...\n $ SD       : num  0.9 0.9 0.6 0.6 0.4 0.35 1.1 1.1 1.06 1.06 ...\n $ DO       : num  9.2 9.3 9.3 9.4 8.9 9 9.75 9.59 9.42 9.42 ...\n $ TP       : num  0.45 0.46 0.35 0.38 0.12 0.11 0.47 0.47 0.42 0.42 ...\n $ TN       : num  1.02 1.08 1.52 1.47 0.726 0.84 0.8 0.8 1.1 1.08 ...\n $ Chla     : num  12 13.5 22 25.8 11 ...\n $ WT       : num  15.1 15 22 22.3 14.2 14.3 14.9 15 21.7 21.8 ...\n $ Awood    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Ajapo    : int  0 0 0 0 0 0 0 0 6 3 ...\n $ Baeru    : num  0 0 0 0 0 0 0 0 12 0 ...\n $ Bpuri    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Csine    : num  0 0 0 0 0 0 0 0 4.2 2 ...\n $ Cerat    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Chaob    : int  0 0 0 0 8 6 0 0 0 0 ...\n $ Cdors    : num  0 0 0 0 0 0 0 0 12 20 ...\n $ Ckiie    : num  10 5 0 0 16 12 0 0 3.8 9 ...\n $ Cplum    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Csini    : num  0 0 0 0 0 0 85 395 0 5.8 ...\n $ Cchin    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Cedwa    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Cdipt    : num  0 0 0 0 0 0 4 1.3 0 0 ...\n $ Diplo    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Etene    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Eshen    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Ephem    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Gtrun    : int  0 0 0 0 0 0 2 0 0 0 ...\n $ Glata    : num  0 0 0 0 0 ...\n $ Gpost    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Gprye    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Hstag    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Ilybi    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Lambl    : num  0 0 0 0 0 ...\n $ Lclap    : num  0 0 6 4 0 ...\n $ Lhoff    : num  0 0 10 12 0 ...\n $ Ludek    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Mamph    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Neure    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Penta    : int  0 0 0 0 0 0 0 64 0 0 ...\n $ Pflav    : int  4 2 8 12 8 6 7 6 0 3 ...\n $ Pculi    : num  0 0 0 0 0 0 2 0 0 9.6 ...\n $ Pakam    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Rovat    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Samur    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Spani    : int  0 0 0 0 0 0 2 0 0 0 ...\n $ Tchin    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Tvili    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Ttubi    : num  0 0 0 2 0 ...\n $ Udoug    : num  0 0 0 0 0 0 0 0 0 0 ...\n $ Vpisc    : int  0 0 0 0 0 0 0 0 0 0 ...\n $ Vchui    : int  0 0 12 10 0 5 0 0 0 0 ...\n $ Whitm    : num  0 0 0 0 0 0 0 0 0 0 ...\n\n\n\n\n\nPodemos utilizar varias librerías para generar estadísticas descriptivas del conjunto de datos."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#temario-del-módulo",
+    "href": "slides/02/02-basic-stats.html#temario-del-módulo",
+    "title": "Estadística Inferencial Básica",
+    "section": "Temario del módulo",
+    "text": "Temario del módulo\n\n\nIntroducción a la estadística inferencial\nPruebas de normalidad: métodos y pruebas gráficas.\nPruebas de hipótesis.\nError tipo I y II.\nValores de P: nivel de significancia.\nPruebas Paramétricas vs No paramétricas.\nComparaciones de medias de dos grupos (T de Student, y no paramétricas Wilcoxon, U de Mann-Whitney).\nComparaciones de medias de más de dos grupos (ANOVAs, Pruebas de Kruslal Wallis).\nTest de asociación (Chi-cuadrado, otros)."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#concepto-de-comparación",
+    "href": "slides/02/02-basic-stats.html#concepto-de-comparación",
+    "title": "Estadística Inferencial Básica",
+    "section": "Concepto de comparación",
+    "text": "Concepto de comparación"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#paramétrico-vs-no-paramétrico",
+    "href": "slides/02/02-basic-stats.html#paramétrico-vs-no-paramétrico",
+    "title": "Estadística Inferencial Básica",
+    "section": "Paramétrico vs No paramétrico",
+    "text": "Paramétrico vs No paramétrico"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#mapa-de-las-pruebas-estadísticas-disponibles",
+    "href": "slides/02/02-basic-stats.html#mapa-de-las-pruebas-estadísticas-disponibles",
+    "title": "Estadística Inferencial Básica",
+    "section": "Mapa de las pruebas estadísticas disponibles",
+    "text": "Mapa de las pruebas estadísticas disponibles"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#paramétrica-prueba-t-de-student",
+    "href": "slides/02/02-basic-stats.html#paramétrica-prueba-t-de-student",
+    "title": "Estadística Inferencial Básica",
+    "section": "Paramétrica: Prueba T de Student",
+    "text": "Paramétrica: Prueba T de Student"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#no-paramétrica-prueba-de-wilcoxon",
+    "href": "slides/02/02-basic-stats.html#no-paramétrica-prueba-de-wilcoxon",
+    "title": "Estadística Inferencial Básica",
+    "section": "No paramétrica: Prueba de Wilcoxon",
+    "text": "No paramétrica: Prueba de Wilcoxon"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#no-paramétrica-prueba-de-u-de-mann-whitney",
+    "href": "slides/02/02-basic-stats.html#no-paramétrica-prueba-de-u-de-mann-whitney",
+    "title": "Estadística Inferencial Básica",
+    "section": "No paramétrica: Prueba de U de Mann-Whitney",
+    "text": "No paramétrica: Prueba de U de Mann-Whitney"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#paramétrico-anova",
+    "href": "slides/02/02-basic-stats.html#paramétrico-anova",
+    "title": "Estadística Inferencial Básica",
+    "section": "Paramétrico: Anova",
+    "text": "Paramétrico: Anova"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#no-paramétrico-kruskal-wallis",
+    "href": "slides/02/02-basic-stats.html#no-paramétrico-kruskal-wallis",
+    "title": "Estadística Inferencial Básica",
+    "section": "No paramétrico: Kruskal-Wallis",
+    "text": "No paramétrico: Kruskal-Wallis"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#prueba-de-chi-cuadrado",
+    "href": "slides/02/02-basic-stats.html#prueba-de-chi-cuadrado",
+    "title": "Estadística Inferencial Básica",
+    "section": "Prueba de Chi-cuadrado",
+    "text": "Prueba de Chi-cuadrado"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#prueba-de-fisher",
+    "href": "slides/02/02-basic-stats.html#prueba-de-fisher",
+    "title": "Estadística Inferencial Básica",
+    "section": "Prueba de Fisher",
+    "text": "Prueba de Fisher\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#estadística-inferencial",
+    "href": "slides/02/02-basic-stats.html#estadística-inferencial",
+    "title": "Estadística Inferencial Básica",
+    "section": "Estadística inferencial",
+    "text": "Estadística inferencial\nEs el proceso mediante el cual se hacen estimaciones, predicciones o decisiones sobre una población basándose en los resultados obtenidos de una muestra.\n\nPuntos clave:\n\n\nPoblación vs. Muestra.\nEstimación (de parámetros de la población).\nPruebas de Hipótesis ¿hay evidencia suficiente?.\nIncertidumbre y Probabilidad (grado de confianza)."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#pruebas-de-hipótesis",
+    "href": "slides/02/02-basic-stats.html#pruebas-de-hipótesis",
+    "title": "Estadística Inferencial Básica",
+    "section": "Pruebas de hipótesis",
+    "text": "Pruebas de hipótesis\nProcedimiento estadístico que se utiliza para evaluar dos afirmaciones mutuamente excluyentes.\n\n\n\\(H_0\\): hipótesis nula. No existen diferencias (efecto).\n\\(H_a\\): hipótesis alterna. Existen diferencias (efecto).\n\n\n\n\n\nSiempre buscamos evidencia para rechazar \\(H_0\\). Las opciones son:\n\n\n\nEncontramos evidencia para rechazar \\(H_0\\).\nO no encontramos evidencia para rechazar \\(H_0\\)."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#section",
+    "href": "slides/02/02-basic-stats.html#section",
+    "title": "Estadística Inferencial Básica",
+    "section": "",
+    "text": "p-valor:  Recuerda que el p-valor es una probabilidad que se obtiene al analizar tu data con una prueba estadística, y que lo enfrentamos siempre al nivel de significancia (0.05). Esta última es antagonista de la certeza o nivel de confianza (0.95) en esta historia."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#tabla-de-error",
+    "href": "slides/02/02-basic-stats.html#tabla-de-error",
+    "title": "Estadística Inferencial Básica",
+    "section": "Tabla de Error",
+    "text": "Tabla de Error\n\n\n\n\n\n\n\n\n\nConcepto\nH0 Verdadero\nH0 Falso\n\n\n\n\nRechazar H0\nFalso Positivo (FP)\nVerdadero Positivo (TP)\n\n\nNo rechazar H0\nVerdadero Negativo (TN)\nFalso Negativo (FN)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConcepto\nH0 Verdadero\nH0 Falso\n\n\n\n\nRechazar H0\nError de tipo I (Nivel de Sig., α)\nPoder (1 - β)\n\n\nNo rechazar H0\nConfianza (1 - α)\nError de tipo II (β)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConcepto\nH0 Verdadero\nH0 Falso\n\n\n\n\nRechazar H0\n0.05\n¡INCREMENTAR!\n\n\nNo rechazar H0\n0.95\nREDUCIR"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#qué-es-el-poder",
+    "href": "slides/02/02-basic-stats.html#qué-es-el-poder",
+    "title": "Estadística Inferencial Básica",
+    "section": "¿Qué es el Poder?",
+    "text": "¿Qué es el Poder?\n\n\nEs \\(1 − β\\), los verdaderos positivos: rechazar H0 cuando realmente es falsa.\nEs la probabilidad de detectar un efecto determinado, siendo que este efecto realmente existe (TP).\nManeras de llegar a obtener el poder de un estudio: cálculo directo, simulación."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#section-1",
+    "href": "slides/02/02-basic-stats.html#section-1",
+    "title": "Estadística Inferencial Básica",
+    "section": "",
+    "text": "#| standalone: true\n#| viewerHeight: 800\n\n# Paquetes necesarios\nlibrary(shiny)\nlibrary(ggplot2)\nlibrary(ggridges)\nlibrary(plotly)\n\n# Interfaz de usuario (UI)\nui &lt;- fluidPage(\n  tags$head(tags$style(HTML(\"\n    .irs--shiny .irs-grid-text {\n    bottom: 5px;\n    font-size: 16px;\n    }\n    .irs--shiny .irs-min, .irs--shiny .irs-max {\n    font-size: 16px;\n    }\n    .sidebar { \n    height: 100vh; \n    position: -webkit-sticky;   \n    position: sticky; \n    top: 20px; /* Ajusta la distancia desde el top */\n  }\n  \"))),\n  \n  titlePanel(\"Tabla de Errores\"),\n  \n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"n\", \"Tamaño de la muestra (n):\", min = 10, max = 1000, value = 100, step = 10),\n      sliderInput(\"delta\", \"Diferencia de medias (Δ):\", min = 0.1, max = 2, value = 0.3, step = 0.1),\n      sliderInput(\"sigma\", \"Desviación estándar (σ):\", min = 0.1, max = 2, value = 1, step = 0.1),\n      sliderInput(\"alpha\", \"Nivel de significancia (α):\", min = 0.01, max = 0.2, value = 0.05, step = 0.01),\n      style = \"font-size: 22px; position: -webkit-sticky; position: sticky; top: 20px;\"\n    ),\n    \n    mainPanel(\n      plotOutput(\"grafico_poder\", height = \"700px\"),\n      plotlyOutput(\"grafico_dispersion\", height = \"400px\")  # plotlyOutput para el gráfico interactivo\n    )\n  ),\n)\n\n# Lógica del servidor (Server)\nserver &lt;- function(input, output) {\n  \n  # Gráfico general de poder\n  output$grafico_poder &lt;- renderPlot({\n    n &lt;- input$n\n    delta &lt;- input$delta\n    sigma &lt;- input$sigma\n    alpha &lt;- input$alpha\n    \n    # Calcular el error estándar y el parámetro de no centralidad\n    se &lt;- sigma / sqrt(n)\n    ncp &lt;- delta / se\n    \n    # Valor crítico\n    z_alpha &lt;- qnorm(1 - alpha)\n    \n    # Generar valores z\n    z_min &lt;- min(-4, ncp - 4)\n    z_max &lt;- max(4, ncp + 4)\n    z &lt;- seq(z_min, z_max, length.out = 1000)\n    \n    # Densidades bajo H0 y H1\n    h0_density &lt;- dnorm(z, mean = 0, sd = 1)\n    h1_density &lt;- dnorm(z, mean = ncp, sd = 1)\n    \n    # Crear data frames\n    df_h0 &lt;- data.frame(\n      z = z,\n      density = h0_density,\n      hypothesis = \"H0\",\n      region = ifelse(z &gt;= z_alpha, \"Sig. o Error Tipo I (α)\", \"Confianza (1-α)\")\n    )\n    \n    df_h1 &lt;- data.frame(\n      z = z,\n      density = h1_density,\n      hypothesis = \"H1\",\n      region = ifelse(z &gt;= z_alpha, \"Poder (1-β)\", \"Error Tipo II (β)\")\n    )\n    \n    # Combinar data frames\n    df &lt;- rbind(df_h0, df_h1)\n    \n    # Asignar colores\n    df$fill_color &lt;- factor(df$region, levels = c(\"Sig. o Error Tipo I (α)\", \"Confianza (1-α)\", \"Error Tipo II (β)\", \"Poder (1-β)\"))\n    \n    # Definir colores\n    fill_colors &lt;- c(\n      \"Sig. o Error Tipo I (α)\" = \"#ff9c96\",\n      \"Confianza (1-α)\" = \"#a0ff78\",\n      \"Error Tipo II (β)\" = \"#ff0d00\",\n      \"Poder (1-β)\" = \"#2fa100\"\n    )\n    \n    # Cambiar orden factor\n    df$hypothesis &lt;- factor(df$hypothesis, levels = c(\"H1\", \"H0\"))\n    \n    # Generar el gráfico\n    ggplot(df, aes(x = z, y = hypothesis, height = density, fill = fill_color)) +\n      geom_ridgeline(alpha = 0.8, color = \"black\", size = 0.3) +\n      scale_fill_manual(values = fill_colors) +\n      geom_vline(xintercept = z_alpha, linetype = \"dashed\", color = \"black\") +\n      labs(x = \"\", y = \"\", fill = \"\") +\n      theme_minimal() +\n      theme(legend.position = \"bottom\",\n            axis.text = element_text(size = 20),\n            legend.text = element_text(size = 15)) +\n      guides(fill = guide_legend(nrow = 2))\n  })\n  \n  # Gráfico de dispersión comparando H0 vs Ha\n  output$grafico_dispersion &lt;- renderPlotly({\n    n &lt;- input$n\n    delta &lt;- input$delta\n    sigma &lt;- input$sigma\n    alpha &lt;- input$alpha\n    \n    # Calcular el error estándar y el parámetro de no centralidad\n    se &lt;- sigma / sqrt(n)\n    ncp &lt;- delta / se\n    \n    # Valor crítico\n    z_alpha &lt;- qnorm(1 - alpha)\n    \n    # Generar puntos aleatorios para las distribuciones\n    set.seed(123)\n    z_h0 &lt;- rnorm(n, mean = 0, sd = 1)\n    z_h1 &lt;- rnorm(n, mean = ncp, sd = 1)\n    \n    # Crear data frame para el gráfico\n    df_dispersion &lt;- data.frame(\n      z_h0 = z_h0,\n      z_h1 = z_h1\n    )\n    \n    # Generar el gráfico de dispersión\n    plot2 &lt;- ggplot(df_dispersion, aes(x = z_h0, y = z_h1)) +\n      geom_point(color = \"#0013fe\", size = 3, alpha = 0.7) +\n      geom_vline(xintercept = z_alpha, linetype = \"dashed\", color = \"black\") +\n      geom_hline(yintercept = z_alpha, linetype = \"dashed\", color = \"black\") +\n      labs(x = \"H0\", y = \"Ha\") +\n      theme_minimal() +\n      theme(axis.text.y = element_blank(),  # Oculta los valores del eje Y\n            axis.ticks.y = element_blank(), # Oculta las marcas del eje Y\n            axis.text = element_text(size = 15)) \n    \n    # Convertir el gráfico a plotly\n    ggplotly(plot2) %&gt;%\n      layout(\n        autosize = TRUE,  # Ajuste automático del tamaño\n        yaxis = list(showticklabels = FALSE),  # Oculta las etiquetas del eje Y\n        margin = list(l = 0, r = 0, b = 50, t = 50)  # Ajuste de márgenes\n      )\n  })\n}\n\n# Ejecutar la aplicación\nshinyApp(ui = ui, server = server)"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-y-reducir-el-error-tipo-ii",
+    "href": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-y-reducir-el-error-tipo-ii",
+    "title": "Estadística Inferencial Básica",
+    "section": "Maneras de incrementar el poder (y reducir el error tipo II)",
+    "text": "Maneras de incrementar el poder (y reducir el error tipo II)\n\n\n\n\nModo 1: aumentar el nivel de significancia (alpha). ¡ERROR!\n\n\n\n\nModo 2: cambiar de test de dos colas a una sola cola.\nModo 3: incrementar la diferencia de los promedio comparados.\nModo 4: usar la distribución z en lugar de la distribución de t.\nModo 5: disminuir la desviación estándar. = Cambiar la forma de la curva.\nModo 6: incrementar el tamaño de la muestra. ¡LO CORRECTO!"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder",
+    "href": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder",
+    "title": "Estadística Inferencial Básica",
+    "section": "Maneras de incrementar el poder",
+    "text": "Maneras de incrementar el poder\n\n\n\n\nModo 1: aumentar el nivel de significancia (alpha). ¡ERROR!"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-1",
+    "href": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-1",
+    "title": "Estadística Inferencial Básica",
+    "section": "Maneras de incrementar el poder 1",
+    "text": "Maneras de incrementar el poder 1\n\n\n\n\nModo 1: aumentar el nivel de significancia (alpha). ¡ERROR!"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-2",
+    "href": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-2",
+    "title": "Estadística Inferencial Básica",
+    "section": "Maneras de incrementar el poder 2",
+    "text": "Maneras de incrementar el poder 2\n\n\n\n\nModo 1: aumentar el nivel de significancia (alpha). ¡ERROR!\n\n\n\n\nModo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-3",
+    "href": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-3",
+    "title": "Estadística Inferencial Básica",
+    "section": "Maneras de incrementar el poder 3",
+    "text": "Maneras de incrementar el poder 3\n\n\n\n\nModo 1: aumentar el nivel de significancia (alpha). ¡ERROR!\nModo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.\n\n\n\n\nModo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-4",
+    "href": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-4",
+    "title": "Estadística Inferencial Básica",
+    "section": "Maneras de incrementar el poder 4",
+    "text": "Maneras de incrementar el poder 4\n\n\n\n\nModo 1: aumentar el nivel de significancia (alpha). ¡ERROR!\nModo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.\nModo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!\n\n\n\n\nModo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-5",
+    "href": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-5",
+    "title": "Estadística Inferencial Básica",
+    "section": "Maneras de incrementar el poder 5",
+    "text": "Maneras de incrementar el poder 5\n\n\n\n\nModo 1: aumentar el nivel de significancia (alpha). ¡ERROR!\nModo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.\nModo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!\nModo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.\n\n\n\n\nModo 5: disminuir la desviación estándar. Reducir errores de muestreo. ¡MEJORAR DISEÑO!"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-6",
+    "href": "slides/02/02-basic-stats.html#maneras-de-incrementar-el-poder-6",
+    "title": "Estadística Inferencial Básica",
+    "section": "Maneras de incrementar el poder 6",
+    "text": "Maneras de incrementar el poder 6\n\n\n\n\nModo 1: aumentar el nivel de significancia (alpha). ¡ERROR!\nModo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.\nModo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!\nModo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.\nModo 5: disminuir la desviación estándar. Reducir errores de muestreo. ¡MEJORAR DISEÑO!\n\n\n\n\nModo 6: incrementar el tamaño de la muestra. ¡TAMBIÉN ES CORRECTO!"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#ejemplo-aplicativo-geckos",
+    "href": "slides/02/02-basic-stats.html#ejemplo-aplicativo-geckos",
+    "title": "Estadística Inferencial Básica",
+    "section": "Ejemplo aplicativo: Geckos",
+    "text": "Ejemplo aplicativo: Geckos\n\nPaperGeckoDepredadorPregunta\n\n\n\n\n\nPaper: https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2656.12591\nDataset: https://zenodo.org/records/5007334\n\nSe recolectó datos de evidencia de autotomía (cola desprendida en defensa) en Geckos M. kotschyi en islas donde había presencia o ausencia de Vipera ammodytes, y se planteó la pregunta:\n\n\n\n\n\n\n\n\n\n\n\n\n\nMediodactylus kotschyi\n\n\n\n\n\n\n\n\n\n\n\nVipera ammodytes\n\n\n\n\n\n\n\n\n\n\n\n¿Existe diferencia en la proporción de geckos con autotomía entre islas con presencia o ausencia de su depredador?\n\n\n\\(H_0\\): La proporción de geckos con autotomía es la misma en islas con presencia de Vipera ammodytes que en islas sin el depredador. Es decir, la presencia del depredador no afecta la proporción de autotomía en los geckos.\n\n\\[\nH_0: p_{presencia} = p_{ausencia}\n\\]\n\n\n\n\\(H_a\\): La proporción de geckos con autotomía difiere entre islas con presencia y ausencia de Vipera ammodytes. Es decir, la presencia del depredador afecta la proporción de autotomía en los geckos.\n\n\\[\nH_a: p_{presencia} \\neq p_{ausencia}\n\\]"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#paper",
+    "href": "slides/02/02-basic-stats.html#paper",
+    "title": "Estadística Inferencial Básica",
+    "section": "Paper",
+    "text": "Paper\nPaper: https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2656.12591\nDataset: https://zenodo.org/records/5007334"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#gecko",
+    "href": "slides/02/02-basic-stats.html#gecko",
+    "title": "Estadística Inferencial Básica",
+    "section": "Gecko",
+    "text": "Gecko\nMediodactylus kotschyi"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#depredador",
+    "href": "slides/02/02-basic-stats.html#depredador",
+    "title": "Estadística Inferencial Básica",
+    "section": "Depredador",
+    "text": "Depredador\nVipera ammodytes"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#pregunta",
+    "href": "slides/02/02-basic-stats.html#pregunta",
+    "title": "Estadística Inferencial Básica",
+    "section": "Pregunta",
+    "text": "Pregunta\nSe recolectó datos de evidencia de autotomía (cola desprendida en defensa) en Geckos M. kotschyi en islas donde había presencia o ausencia de Vipera ammodytes, y se planteó la pregunta:\n¿Existe diferencia en la proporción de geckos con autotomía entre islas con presencia o ausencia de su depredador?"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#cómo-se-relaciona-con-el-p-valor-0.05",
+    "href": "slides/02/02-basic-stats.html#cómo-se-relaciona-con-el-p-valor-0.05",
+    "title": "Estadística Inferencial Básica",
+    "section": "¿Cómo se relaciona con el p-valor 0.05?",
+    "text": "¿Cómo se relaciona con el p-valor 0.05?\nPermite tomar la decisión de rechazo de \\(H_0\\), y consecuente validación de \\(H_a\\).\n\nCasos:\n\n\n\\(H_0 &lt; 0.05\\): Se halló suficiente evidencia para rechazar \\(H_0\\).\n\\(H_0 \\geq  0.05\\): No se halló suficiente evidencia para rechazar \\(H_0\\)."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#cómo-se-relaciona-con-el-p-valor-y-la-significancia-0.05",
+    "href": "slides/02/02-basic-stats.html#cómo-se-relaciona-con-el-p-valor-y-la-significancia-0.05",
+    "title": "Estadística Inferencial Básica",
+    "section": "¿Cómo se relaciona con el p-valor y la significancia 0.05?",
+    "text": "¿Cómo se relaciona con el p-valor y la significancia 0.05?\nEl p-valor de una prueba estadística permite tomar la decisión de rechazo de \\(H_0\\), y consecuente validación de \\(H_a\\). Esto se obtiene al comparar el p-valor vs el nivel de significancia, típicamente \\(0.05\\).\n\nCasos:\n\n\n\\(p-valor &lt; 0.05\\): Se halló suficiente evidencia para rechazar \\(H_0\\).\n\\(p-valor \\geq  0.05\\): No se halló suficiente evidencia para rechazar \\(H_0\\)."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#section-2",
+    "href": "slides/02/02-basic-stats.html#section-2",
+    "title": "Estadística Inferencial Básica",
+    "section": "",
+    "text": "#| standalone: true\n#| viewerHeight: 800\n\n# Paquetes necesarios\nlibrary(shiny)\nlibrary(ggplot2)\nlibrary(ggridges)\nlibrary(plotly)\n\n# Interfaz de usuario (UI)\nui &lt;- fluidPage(\n  tags$head(tags$style(HTML(\"\n    .irs--shiny .irs-grid-text {\n    bottom: 5px;\n    font-size: 16px;\n    }\n    .irs--shiny .irs-min, .irs--shiny .irs-max {\n    font-size: 16px;\n    }\n    .sidebar { \n    height: 100vh; \n    position: -webkit-sticky;   \n    position: sticky; \n    top: 20px; /* Ajusta la distancia desde el top */\n  }\n  \"))),\n  \n  titlePanel(\"Tabla de Errores\"),\n  \n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"n\", \"Tamaño de la muestra (n):\", min = 10, max = 1000, value = 100, step = 10),\n      sliderInput(\"delta\", \"Diferencia de medias (Δ):\", min = 0.1, max = 2, value = 0.3, step = 0.1),\n      sliderInput(\"sigma\", \"Desviación estándar (σ):\", min = 0.1, max = 2, value = 1, step = 0.1),\n      sliderInput(\"alpha\", \"Nivel de significancia (α):\", min = 0.01, max = 0.2, value = 0.05, step = 0.01),\n      style = \"font-size: 22px; position: -webkit-sticky; position: sticky; top: 20px;\"\n    ),\n    \n    mainPanel(\n      plotOutput(\"grafico_poder\", height = \"700px\"),\n      plotlyOutput(\"grafico_dispersion\", height = \"400px\")  # plotlyOutput para el gráfico interactivo\n    )\n  ),\n)\n\n# Lógica del servidor (Server)\nserver &lt;- function(input, output) {\n  \n  # Gráfico general de poder\n  output$grafico_poder &lt;- renderPlot({\n    n &lt;- input$n\n    delta &lt;- input$delta\n    sigma &lt;- input$sigma\n    alpha &lt;- input$alpha\n    \n    # Calcular el error estándar y el parámetro de no centralidad\n    se &lt;- sigma / sqrt(n)\n    ncp &lt;- delta / se\n    \n    # Valor crítico\n    z_alpha &lt;- qnorm(1 - alpha)\n    \n    # Generar valores z\n    z_min &lt;- min(-4, ncp - 4)\n    z_max &lt;- max(4, ncp + 4)\n    z &lt;- seq(z_min, z_max, length.out = 1000)\n    \n    # Densidades bajo H0 y H1\n    h0_density &lt;- dnorm(z, mean = 0, sd = 1)\n    h1_density &lt;- dnorm(z, mean = ncp, sd = 1)\n    \n    # Crear data frames\n    df_h0 &lt;- data.frame(\n      z = z,\n      density = h0_density,\n      hypothesis = \"H0\",\n      region = ifelse(z &gt;= z_alpha, \"Sig. o Error Tipo I (α)\", \"Confianza (1-α)\")\n    )\n    \n    df_h1 &lt;- data.frame(\n      z = z,\n      density = h1_density,\n      hypothesis = \"H1\",\n      region = ifelse(z &gt;= z_alpha, \"Poder (1-β)\", \"Error Tipo II (β)\")\n    )\n    \n    # Combinar data frames\n    df &lt;- rbind(df_h0, df_h1)\n    \n    # Asignar colores\n    df$fill_color &lt;- factor(df$region, levels = c(\"Sig. o Error Tipo I (α)\", \"Confianza (1-α)\", \"Error Tipo II (β)\", \"Poder (1-β)\"))\n    \n    # Definir colores\n    fill_colors &lt;- c(\n      \"Sig. o Error Tipo I (α)\" = \"#ff9c96\",\n      \"Confianza (1-α)\" = \"#a0ff78\",\n      \"Error Tipo II (β)\" = \"#ff0d00\",\n      \"Poder (1-β)\" = \"#2fa100\"\n    )\n    \n    # Cambiar orden factor\n    df$hypothesis &lt;- factor(df$hypothesis, levels = c(\"H1\", \"H0\"))\n    \n    # Generar el gráfico\n    ggplot(df, aes(x = z, y = hypothesis, height = density, fill = fill_color)) +\n      geom_ridgeline(alpha = 0.8, color = \"black\", size = 0.3) +\n      scale_fill_manual(values = fill_colors) +\n      geom_vline(xintercept = z_alpha, linetype = \"dashed\", color = \"black\") +\n      labs(x = \"\", y = \"\", fill = \"\") +\n      theme_minimal() +\n      theme(legend.position = \"bottom\",\n            axis.text = element_text(size = 20),\n            legend.text = element_text(size = 15)) +\n      guides(fill = guide_legend(nrow = 2))\n  })\n  \n  # Gráfico de dispersión comparando H0 vs Ha\n  output$grafico_dispersion &lt;- renderPlotly({\n    n &lt;- input$n\n    delta &lt;- input$delta\n    sigma &lt;- input$sigma\n    alpha &lt;- input$alpha\n    \n    # Calcular el error estándar y el parámetro de no centralidad\n    se &lt;- sigma / sqrt(n)\n    ncp &lt;- delta / se\n    \n    # Valor crítico\n    z_alpha &lt;- qnorm(1 - alpha)\n    \n    # Generar puntos aleatorios para las distribuciones\n    set.seed(123)\n    z_h0 &lt;- rnorm(n, mean = 0, sd = 1)\n    z_h1 &lt;- rnorm(n, mean = ncp, sd = 1)\n    \n    # Crear data frame para el gráfico\n    df_dispersion &lt;- data.frame(\n      z_h0 = z_h0,\n      z_h1 = z_h1\n    )\n    \n    # Generar el gráfico de dispersión\n    plot2 &lt;- ggplot(df_dispersion, aes(x = z_h0, y = z_h1)) +\n      geom_point(color = \"#0013fe\", size = 3, alpha = 0.7) +\n      geom_vline(xintercept = z_alpha, linetype = \"dashed\", color = \"black\") +\n      geom_hline(yintercept = z_alpha, linetype = \"dashed\", color = \"black\") +\n      labs(x = \"H0\", y = \"Ha\") +\n      theme_minimal() +\n      theme(axis.text.y = element_blank(),  # Oculta los valores del eje Y\n            axis.ticks.y = element_blank(), # Oculta las marcas del eje Y\n            axis.text = element_text(size = 15)) \n    \n    # Convertir el gráfico a plotly\n    ggplotly(plot2) %&gt;%\n      layout(\n        autosize = TRUE,  # Ajuste automático del tamaño\n        yaxis = list(showticklabels = FALSE),  # Oculta las etiquetas del eje Y\n        margin = list(l = 0, r = 0, b = 50, t = 50)  # Ajuste de márgenes\n      )\n  })\n}\n\n# Ejecutar la aplicación\nshinyApp(ui = ui, server = server)"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#qué-es-el-p-valor",
+    "href": "slides/02/02-basic-stats.html#qué-es-el-p-valor",
+    "title": "Estadística Inferencial Básica",
+    "section": "¿Qué es el p-valor?",
+    "text": "¿Qué es el p-valor?\nEs la probabilidad de obtener un resultado (diferencia o efecto) tan extremo o más extremo (\\(\\geq\\)) que el observado, si la hipótesis nula es verdadera.\n\n\n\n\n\n\n\nUn p-valor pequeño (&lt; 0.05):\n\n\n\nHay evidencia suficiente para rechazar la hipótesis nula.\nLos resultados observados no se deben al azar.\n\n\n\n\n\n\n\n\n\n\n\n\nUn p-valor grande (≥ 0.05):\n\n\n\nNo hay suficiente evidencia para rechazar la hipótesis nula.\nLos resultados podrían deberse al azar."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#section-3",
+    "href": "slides/02/02-basic-stats.html#section-3",
+    "title": "Estadística Inferencial Básica",
+    "section": "",
+    "text": "Un p-valor más pequeño generalmente indica que es menos probable que los resultados observados se deban al azar, bajo la suposición de que la hipótesis nula es verdadera."
   }
 ]
