@@ -12,13 +12,19 @@ format:
      - "../slides.scss"
     width: "1600"
     height: "900"
+    slide-number: true
+    highlight-style: atom-one
+    chalkboard: 
+       theme: chalkboard
+       chalk-effect: 0.1
+       chalk-width: 5
+       boardmarker-width: 7
 revealjs-plugins:
   - ace
 filters:
   - shinylive
-cache: refresh
+cache: true
 ---
-
 
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(
@@ -30,11 +36,11 @@ knitr::opts_chunk$set(
 # Objetivos del módulo {background-image="../bg8.png"}
 
 ::: incremental
-1. Discernir entre el uso de estadística **paramétrica y no paramétrica**.
-2. Comprender el **concepto de p-valor** y de los errores tipo I y tipo II.
-3. Aplicar **pruebas de hipótesis** y de **normalidad**.
-4. **Elegir adecuadamente el test** estadístico para inferencia a partir de comparaciones de medias.
-5. **Desarrollar scripts de análisis** estadístico de manera efectiva con sintaxis de R.
+1.  Discernir entre el uso de estadística **paramétrica y no paramétrica**.
+2.  Comprender el **concepto de p-valor** y de los errores tipo I y tipo II.
+3.  Aplicar **pruebas de hipótesis** y de **normalidad**.
+4.  **Elegir adecuadamente el test** estadístico para inferencia a partir de comparaciones de medias.
+5.  **Desarrollar scripts de análisis** estadístico de manera efectiva con sintaxis de R.
 :::
 
 # Introducción
@@ -42,34 +48,37 @@ knitr::opts_chunk$set(
 ## Temario del módulo
 
 ::: incremental
-- Introducción a la estadística inferencial
-- Pruebas de normalidad: métodos y pruebas gráficas.
-- Pruebas de hipótesis.
-- Error tipo I y II.
-- Valores de P: nivel de significancia.
-- Pruebas Paramétricas vs No paramétricas.
-- Comparaciones de medias de dos grupos (T de Student, y no paramétricas Wilcoxon, U de Mann-Whitney).
-- Comparaciones de medias de más de dos grupos (ANOVAs, Pruebas de Kruslal Wallis).
-- Test de asociación (Chi-cuadrado, otros).
+-   Introducción a la estadística inferencial
+-   Pruebas de hipótesis.
+-   Error tipo I y II.
+-   Valores de P: nivel de significancia.
+-   Pruebas de normalidad: métodos y pruebas gráficas.
+-   Pruebas Paramétricas vs No paramétricas.
+-   Comparaciones de medias de dos grupos (T de Student, y no paramétricas Wilcoxon, U de Mann-Whitney).
+-   Comparaciones de medias de más de dos grupos (ANOVAs, Pruebas de Kruslal Wallis).
+-   Test de asociación (Chi-cuadrado, otros).
 :::
 
 # 1. Inferencia estadística
+
 "Extraer conclusiones sobre una población a partir de una muestra"
 
 ## Estadística inferencial
 
-Es el proceso mediante el cual se hacen estimaciones, predicciones o decisiones sobre una población basándose en los resultados obtenidos de una muestra. 
+Es el proceso mediante el cual se hacen estimaciones, predicciones o decisiones sobre una población basándose en los resultados obtenidos de una muestra.
 
 <br>
 
 #### Puntos clave:
 
-::::{.incremental}
-- Población vs. Muestra.
-- Estimación (de parámetros de la población).
+::: incremental
+-   Población vs. Muestra.
 
-- **Pruebas de Hipótesis** ¿hay evidencia suficiente?.
-- **Incertidumbre y Probabilidad** (grado de confianza).
+-   Estimación (de parámetros de la población).
+
+-   **Pruebas de Hipótesis** ¿hay evidencia suficiente?.
+
+-   **Incertidumbre y Probabilidad** (grado de confianza).
 :::
 
 # 2. Pruebas de hipótesis y el p-valor
@@ -78,23 +87,41 @@ Es el proceso mediante el cual se hacen estimaciones, predicciones o decisiones 
 
 Procedimiento estadístico que se utiliza para evaluar dos **afirmaciones mutuamente excluyentes**.
 
-:::{.incremental}
-- $H_0$: **hipótesis nula**. No existen diferencias (efecto).
-- $H_a$: **hipótesis alterna**. Existen diferencias (efecto).
+::: incremental
+-   $H_0$: **hipótesis nula**. No existen diferencias (efecto).
+-   $H_a$: **hipótesis alterna**. Existen diferencias (efecto).
 :::
 
 <br>
 
-:::{.fragment}
-
+::: fragment
 #### Siempre buscamos evidencia para rechazar $H_0$. Las opciones son:
 :::
 
-:::{.incremental}
-- Encontramos evidencia para rechazar $H_0$.
-- O no encontramos evidencia para rechazar $H_0$.
+::: incremental
+-   Encontramos evidencia para rechazar $H_0$.
+-   O no encontramos evidencia para rechazar $H_0$.
 :::
 
+## Falsabilidad de Karl Popper
+
+Para que una hipótesis ($H_a$) sea científica, debe ser falsable.
+
+:::{.callout-tip}
+## Entonces
+Debe haber una manera clara y objetiva de refutarla mediante la observación o experimentación.
+:::
+
+:::{.fragment}
+
+#### Ejemplo:
+
+- $H_a$: **Una mayor biodiversidad aumenta la productividad del ecosistema.**
+:::
+
+:::{.fragment}
+- Para que esta afirmación sea falsable, debe ser posible observar un ecosistema con mayor biodiversidad que no muestre un aumento en productividad.
+:::
 
 ## ¿Cómo se relaciona con el p-valor y la significancia `0.05`?
 
@@ -104,11 +131,10 @@ El **p-valor** de una prueba estadística permite tomar la decisión de rechazo 
 
 #### Casos:
 
-:::{.incremental}
-- $p-valor < 0.05$: Se halló suficiente evidencia para rechazar $H_0$.
-- $p-valor \geq  0.05$: **No** se halló suficiente evidencia para rechazar $H_0$.
+::: incremental
+-   $p-valor < 0.05$: Se halló suficiente evidencia para rechazar $H_0$.
+-   $p-valor \geq  0.05$: **No** se halló suficiente evidencia para rechazar $H_0$.
 :::
-
 
 ##  {.center .dark-background background-image="../landscape3.jpg"}
 
@@ -116,10 +142,9 @@ El **p-valor** de una prueba estadística permite tomar la decisión de rechazo 
 <strong>p-valor: </strong><br> Recuerda que el p-valor es una probabilidad que se obtiene al analizar tu data con una prueba estadística, y que lo enfrentamos siempre al nivel de significancia (0.05). Esta última es antagonista de la certeza o nivel de confianza (0.95) en esta historia.
 :::
 
-
 ## Tabla de Error {.center}
 
-:::{.fragment}
+::: fragment
 ```{r}
 #| echo: false
 #| message: false
@@ -168,8 +193,7 @@ tabla_errores
 
 <br>
 
-:::{.fragment}
-
+::: fragment
 ```{r}
 #| echo: false
 #| message: false
@@ -215,13 +239,11 @@ tabla_errores <- datos_errores %>%
 tabla_errores
 
 ```
-
 :::
 
 <br>
 
-:::{.fragment}
-
+::: fragment
 ```{r}
 #| echo: false
 #| message: false
@@ -267,18 +289,17 @@ tabla_errores <- datos_errores %>%
 tabla_errores
 
 ```
-
 :::
 
 ## ¿Qué es el Poder?
 
-:::{.incremental}
-- Es $1 − β$, los verdaderos positivos: rechazar H0 cuando realmente es falsa.
-- Es la probabilidad de detectar un efecto determinado, siendo que este efecto realmente existe (TP).
-- Maneras de llegar a obtener el **poder de un estudio**: cálculo directo, simulación.
+::: incremental
+-   Es $1 − β$, los verdaderos positivos: rechazar H0 cuando realmente es falsa.
+-   Es la probabilidad de detectar un efecto determinado, siendo que este efecto realmente existe (TP).
+-   Maneras de llegar a obtener el **poder de un estudio**: cálculo directo, simulación.
 :::
 
-:::{.fragment}
+::: fragment
 ```{r}
 #| echo: false
 #| fig-align: center
@@ -288,7 +309,7 @@ knitr::include_graphics("images/tabla_de_errores.png")
 ```
 :::
 
-## {.center}
+##  {.center}
 
 ```{r}
 #| echo: false
@@ -300,22 +321,17 @@ knitr::include_graphics("images/tabla_de_errores_y_funciones.png")
 
 ## Maneras de incrementar el poder 1
 
-:::::{.columns}
-
-::::{.column}
-
-:::{.fragment}
-- Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+::: columns
+::: column
+::: fragment
+-   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
 :::
 
-:::{.fragment}
-
+::: fragment
+:::
 :::
 
-::::
-
-::::{.column}
-
+::: column
 ```{r}
 #| echo: false
 #| fig-align: center
@@ -323,27 +339,23 @@ knitr::include_graphics("images/tabla_de_errores_y_funciones.png")
 
 knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1*9JmIG7tKACTmWmGNZ0Kacg.png")
 ```
-::::
-:::::
+:::
+:::
 
 ## Maneras de incrementar el poder 2
 
-:::::{.columns}
-
-::::{.column}
-
-:::{.fragment .semi-fade-out}
-- Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+::: columns
+::: column
+::: {.fragment .semi-fade-out}
+-   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
 :::
 
-:::{.fragment}
-- Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+::: fragment
+-   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+:::
 :::
 
-::::
-
-::::{.column}
-
+::: column
 ```{r}
 #| echo: false
 #| fig-align: center
@@ -351,28 +363,24 @@ knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1
 
 knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1*cL2a-aqT7_a0MAZcVUb86Q.gif")
 ```
-::::
-:::::
+:::
+:::
 
 ## Maneras de incrementar el poder 3
 
-:::::{.columns}
-
-::::{.column}
-
-:::{.fragment .semi-fade-out}
-- Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
-- Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+::: columns
+::: column
+::: {.fragment .semi-fade-out}
+-   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+-   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
 :::
 
-:::{.fragment}
-- Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+::: fragment
+-   Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+:::
 :::
 
-::::
-
-::::{.column}
-
+::: column
 ```{r}
 #| echo: false
 #| fig-align: center
@@ -380,29 +388,25 @@ knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1
 
 knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1*cfFd6EOaZIEae8fdQin5tg.gif")
 ```
-::::
-:::::
+:::
+:::
 
 ## Maneras de incrementar el poder 4
 
-:::::{.columns}
-
-::::{.column}
-
-:::{.fragment .semi-fade-out}
-- Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
-- Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
-- Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+::: columns
+::: column
+::: {.fragment .semi-fade-out}
+-   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+-   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+-   Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
 :::
 
-:::{.fragment}
-- Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
+::: fragment
+-   Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
+:::
 :::
 
-::::
-
-::::{.column}
-
+::: column
 ```{r}
 #| echo: false
 #| fig-align: center
@@ -410,30 +414,26 @@ knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1
 
 knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1*RpQFm6HZDThA4Hrntb7LbA.gif")
 ```
-::::
-:::::
+:::
+:::
 
 ## Maneras de incrementar el poder 5
 
-:::::{.columns}
-
-::::{.column}
-
-:::{.fragment .semi-fade-out}
-- Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
-- Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
-- Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
-- Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
+::: columns
+::: column
+::: {.fragment .semi-fade-out}
+-   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+-   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+-   Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+-   Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
 :::
 
-:::{.fragment}
-- <span style="color:#ff4900;">Modo 5: disminuir la desviación estándar. Reducir errores de muestreo. ¡MEJORAR DISEÑO!</span> 
+::: fragment
+-   [Modo 5: disminuir la desviación estándar. Reducir errores de muestreo. ¡MEJORAR DISEÑO!]{style="color:#ff4900;"}
+:::
 :::
 
-::::
-
-::::{.column}
-
+::: column
 ```{r}
 #| echo: false
 #| fig-align: center
@@ -441,31 +441,27 @@ knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1
 
 knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1*G-KJaRJ3AMfTS--LeJtJHg.gif")
 ```
-::::
-:::::
+:::
+:::
 
 ## Maneras de incrementar el poder 6
 
-:::::{.columns}
-
-::::{.column}
-
-:::{.fragment .semi-fade-out}
-- Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
-- Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
-- Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
-- Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
-- <span style="color:#ff4900;">Modo 5: disminuir la desviación estándar. Reducir errores de muestreo. ¡MEJORAR DISEÑO!</span> 
+::: columns
+::: column
+::: {.fragment .semi-fade-out}
+-   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+-   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+-   Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+-   Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
+-   [Modo 5: disminuir la desviación estándar. Reducir errores de muestreo. ¡MEJORAR DISEÑO!]{style="color:#ff4900;"}
 :::
 
-:::{.fragment}
-- <span style="color:#ff4900;">Modo 6: incrementar el tamaño de la muestra. ¡TAMBIÉN ES CORRECTO!</span> 
+::: fragment
+-   [Modo 6: incrementar el tamaño de la muestra. ¡TAMBIÉN ES CORRECTO!]{style="color:#ff4900;"}
+:::
 :::
 
-::::
-
-::::{.column}
-
+::: column
 ```{r}
 #| echo: false
 #| fig-align: center
@@ -473,88 +469,8 @@ knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1
 
 knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1*q0WMA_Xp9gtF5tIWBesABA.gif")
 ```
-::::
-:::::
-
-## Ejemplo aplicativo: Geckos
-
-:::{.panel-tabset}
-
-### Paper
-
-:::{.columns}
-:::{.column}
-
-:::{.small}
-Paper:
-<https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2656.12591>
-
-Dataset:
-<https://zenodo.org/records/5007334>
-:::
-
-Se recolectó datos de evidencia de autotomía (cola desprendida en defensa) en Geckos _M. kotschyi_ en islas donde había presencia o ausencia de _Vipera ammodytes_, y se planteó la pregunta:
-
-:::
-
-:::{.column}
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 100%
-
-knitr::include_graphics("images/paper_geckos.png")
-```
 :::
 :::
-
-### Gecko 
-
-_Mediodactylus kotschyi_
-
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 60%
-
-knitr::include_graphics("images/Mediodactylus_kotschyi.jpg")
-```
-
-### Depredador 
-
-_Vipera ammodytes_
-
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 60%
-
-knitr::include_graphics("images/Vipera_ammodytes.jpeg")
-```
-
-### Pregunta
-
-**¿Existe diferencia en la proporción de geckos con autotomía entre islas con presencia o ausencia de su depredador?**
-
-:::{.fragment .small}
-- $H_0$: La proporción de geckos con autotomía <span style="color:#ff4900;">es la misma</span>  en islas con presencia de _Vipera ammodytes_ que en islas sin el depredador. Es decir, **la presencia del depredador no afecta la proporción de autotomía en los geckos**.
-
-$$
-H_0: p_{presencia} = p_{ausencia}
-$$
-:::
-
-
-:::{.fragment .small}
-- $H_a$: La proporción de geckos con autotomía <span style="color:#ff4900;">difiere</span>  entre islas con presencia y ausencia de _Vipera ammodytes_. Es decir, **la presencia del depredador afecta la proporción de autotomía en los geckos**.
-
-$$
-H_a: p_{presencia} \neq p_{ausencia}
-$$
-:::
-
-:::
-
 
 ## {}
 
@@ -726,28 +642,78 @@ shinyApp(ui = ui, server = server)
 
 ```
 
-## ¿Qué es el p-valor? 
+## Cálculo de Poder con R
+
+```{r}
+#| echo: false
+
+library(gt)
+library(tibble)
+
+# Crear el dataframe
+datos_funciones <- tibble(
+  Paquete = c("pwr", "pwr", "pwr", "pwr", "pwr", "pwr2", "simr"),
+  Función = c("pwr.chisq.test()", "pwr.anova.test()", "pwr.f2.test()", 
+              "pwr.t.test()", "pwr.t2n.test()", "pwr.2way()", "powerSim()"),
+  Definición = c("Para Pruebas de Chi-cuadrado.", 
+                 "Para Anovas de una vía balanceados.",
+                 "Para regresiones lineales y Anova de dos vías.",
+                 "Para Pruebas de t (una muestra, dos muestras, muestras pareadas). Mismo N muestral.",
+                 "Para Pruebas de t (dos muestras). Diferente N muestral.",
+                 "Para Anovas de dos vías balanceado.",
+                 "Para simulaciones de modelos GLM y GLMM.")
+)
+
+# Crear la tabla con gt
+tabla_funciones <- datos_funciones %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = c("Paquete", "Función", "Definición")
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", color = "white"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_options(
+    column_labels.background.color = "#0013fe", 
+    table.font.size = px(20),
+    data_row.padding = px(15)
+  ) %>%
+  opt_row_striping() %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_funciones
+```
+
+## ¿Qué es el p-valor?
 
 Es la probabilidad de obtener un resultado (diferencia o efecto) tan extremo o más extremo ($\geq$) que el observado, si la hipótesis nula es verdadera.
 
-
-::::{.fragment .fade-up}
+::: {.fragment .fade-up}
 ::: {.callout-tip collapse="true"}
-## Un p-valor pequeño (< 0.05): 
+## Un p-valor pequeño (\< 0.05):
 
-- Hay evidencia suficiente para rechazar la hipótesis nula.
-- Los resultados observados no se deben al azar.
+-   Hay evidencia suficiente para rechazar la hipótesis nula.
+-   Los resultados observados no se deben al azar.
 :::
-::::
+:::
 
-::::{.fragment .fade-up}
+::: {.fragment .fade-up}
 ::: {.callout-caution collapse="true"}
-## Un p-valor grande (≥ 0.05): 
+## Un p-valor grande (≥ 0.05):
 
-- No hay suficiente evidencia para rechazar la hipótesis nula.
-- Los resultados podrían deberse al azar.
+-   No hay suficiente evidencia para rechazar la hipótesis nula.
+-   Los resultados podrían deberse al azar.
 :::
-::::
+:::
 
 ##  {.center background-color="#16161d"}
 
@@ -755,31 +721,187 @@ Es la probabilidad de obtener un resultado (diferencia o efecto) tan extremo o m
 
 # 3. Medir normalidad
 
+## Normalidad
+
+:::{.callout-tip}
+## El teorema del límite central
+Establece que cuando el tamaño de la muestra tiene 100 o más observaciones, la violación de la normalidad no es un problema importante.
+:::
+
+Puedes estimar normalidad:
+
+- Simetría y curtosis.
+- Pruebas de Normalidad.
+- Gráfico cuantil-cuantil (QQ-Plot)
+
+## Normalidad
+
+::::{.columns}
+:::{.column}
+
+- El gráfico compara los cuantiles de los datos observados con los cuantiles de una distribución teórica determinada. 
+
+- Si los puntos del gráfico Q-Q caen aproximadamente sobre una línea recta, los datos siguen la distribución teórica.
+
+- Si los puntos se desvían significativamente de la línea, los datos no siguen la distribución especificada.
+:::   
+
+:::{.column}
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: "70%"
+
+knitr::include_graphics("images/formas_normal.jpg")
+```
+:::
+::::
+
+## Pruebas de normalidad
+
+Existen varias pruebas que nos permiten evaluar si un conjunto de datos sigue una distribución normal. En esta presentación exploraremos:
+
+- Shapiro-Wilk Test
+- Kolmogorov-Smirnov Test
+- Pruebas del paquete `nortest`
+- Shapiro-Francia Test
+- Test Z de Anderson-Darling
+
+## Test de Normalidad 1
+
+```{r}
+#| echo: false
+
+# Datos
+set.seed(123)
+datos_n <- rpois(250, lambda = 25) 
+```
+
+```{r}
+# Shapiro Test
+shapiro.test(datos_n)
+
+# Kolmogorov-Smirnovs Test
+ks.test(datos_n, "pnorm", mean(datos_n), sd(datos_n))
+
+# Lilliefors Test
+nortest::lillie.test(datos_n)
+
+```
+
+## Test de Normalidad 2
+
+```{r}
+# Anderson-Darling Test
+nortest::ad.test(datos_n)
+
+# Shapiro-Francia Test
+nortest::sf.test(datos_n)
+
+# Cramér-von Mises Test
+nortest::cvm.test(datos_n)
+```
+
+## Varios test a la vez
+
+```{r}
+masterX::NormTests(datos_n)
+```
+
+# Pruebas estadísticas que aplican pruebas de hipótesis
+
+## {}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("images/StatsTest Flowchart Colored with Key.jpg")
+```
+
+::: footer
+<https://www.statstest.com/>
+:::
+
 
 # 4. Comparaciones de grupos
 
 ## Concepto de comparación
 
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("images/normalizacion-n-muestral.png")
+```
+
+## Concepto de comparación
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("images/significancia decision.png")
+```
+
 ## Paramétrico vs No paramétrico
 
-## Mapa de las pruebas estadísticas disponibles
+- **Pruebas paramétricas:** son más poderosas si las asunciones se cumplen.
+- **Pruebas no paramétricas:** son más flexibles y robustas, pero menos poderosas en datos ideales.
 
-# 5. Pruebas de comparaciones de medias de dos grupos
+```{r}
+#| echo: false
 
-## Paramétrica: Prueba T de Student
+library(gt)
+library(tibble)
 
-## No paramétrica: Prueba de Wilcoxon
+# Crear el dataframe transpuesto
+datos_transpuestos <- tibble(
+  `Característica` = c("Distribución de los datos", "Medidas clave", "Ejemplos", "Uso"),
+  `Pruebas Paramétricas` = c("Normal o aproximadamente normal", 
+                              "Media y Varianza", 
+                              "t-test, ANOVA", 
+                              "Mayor potencia si se cumplen las asunciones"),
+  `Pruebas No Paramétricas` = c("Cualquier distribución (sin suposiciones)", 
+                                "Mediana y Rangos", 
+                                "Wilcoxon, Kruskal-Wallis", 
+                                "Menor potencia, pero más robustas ante violaciones")
+)
 
-## No paramétrica: Prueba de U de Mann-Whitney
+# Crear la tabla con gt
+tabla_transpuesta <- datos_transpuestos %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = c("Pruebas Paramétricas", "Pruebas No Paramétricas")
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", color = "white"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_options(
+    column_labels.background.color = "#0013fe", 
+    table.font.size = px(20),
+    data_row.padding = px(15)
+  ) %>%
+  opt_row_striping() %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
 
-# 6. Pruebas de comparaciones de medias de más de dos grupos
+# Mostrar la tabla
+tabla_transpuesta
+```
 
-## Paramétrico: Anova
+:::{.callout-tip}
+## Poder:
+Capacidad para detectar efectos reales o diferencias significativas cuando estas existen.
+:::
 
-## No paramétrico: Kruskal-Wallis
-
-# 7. Pruebas de Asociación
-
-## Prueba de Chi-cuadrado
-
-## Prueba de Fisher

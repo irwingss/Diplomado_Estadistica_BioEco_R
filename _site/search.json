@@ -494,7 +494,7 @@
     "href": "slides/02/02-basic-stats.html#temario-del-módulo",
     "title": "Estadística Inferencial Básica",
     "section": "Temario del módulo",
-    "text": "Temario del módulo\n\n\nIntroducción a la estadística inferencial\nPruebas de normalidad: métodos y pruebas gráficas.\nPruebas de hipótesis.\nError tipo I y II.\nValores de P: nivel de significancia.\nPruebas Paramétricas vs No paramétricas.\nComparaciones de medias de dos grupos (T de Student, y no paramétricas Wilcoxon, U de Mann-Whitney).\nComparaciones de medias de más de dos grupos (ANOVAs, Pruebas de Kruslal Wallis).\nTest de asociación (Chi-cuadrado, otros)."
+    "text": "Temario del módulo\n\n\nIntroducción a la estadística inferencial\nPruebas de hipótesis.\nError tipo I y II.\nValores de P: nivel de significancia.\nPruebas de normalidad: métodos y pruebas gráficas.\nPruebas Paramétricas vs No paramétricas.\nComparaciones de medias de dos grupos (T de Student, y no paramétricas Wilcoxon, U de Mann-Whitney).\nComparaciones de medias de más de dos grupos (ANOVAs, Pruebas de Kruslal Wallis).\nTest de asociación (Chi-cuadrado, otros)."
   },
   {
     "objectID": "slides/02/02-basic-stats.html#concepto-de-comparación",
@@ -508,7 +508,7 @@
     "href": "slides/02/02-basic-stats.html#paramétrico-vs-no-paramétrico",
     "title": "Estadística Inferencial Básica",
     "section": "Paramétrico vs No paramétrico",
-    "text": "Paramétrico vs No paramétrico"
+    "text": "Paramétrico vs No paramétrico\n\nPruebas paramétricas: son más poderosas si las asunciones se cumplen.\nPruebas no paramétricas: son más flexibles y robustas, pero menos poderosas en datos ideales.\n\n\n\n\n\n\n\n\n\nCaracterística\nPruebas Paramétricas\nPruebas No Paramétricas\n\n\n\n\nDistribución de los datos\nNormal o aproximadamente normal\nCualquier distribución (sin suposiciones)\n\n\nMedidas clave\nMedia y Varianza\nMediana y Rangos\n\n\nEjemplos\nt-test, ANOVA\nWilcoxon, Kruskal-Wallis\n\n\nUso\nMayor potencia si se cumplen las asunciones\nMenor potencia, pero más robustas ante violaciones\n\n\n\n\n\n\n\n\n\n\n\n\n\nPoder:\n\n\nCapacidad para detectar efectos reales o diferencias significativas cuando estas existen.\n\n\n\n\n\n\n\n🔗 masterx.academy"
   },
   {
     "objectID": "slides/02/02-basic-stats.html#mapa-de-las-pruebas-estadísticas-disponibles",
@@ -733,5 +733,96 @@
     "title": "Estadística Inferencial Básica",
     "section": "",
     "text": "Un p-valor más pequeño generalmente indica que es menos probable que los resultados observados se deban al azar, bajo la suposición de que la hipótesis nula es verdadera."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#falsabilidad-de-karl-popper",
+    "href": "slides/02/02-basic-stats.html#falsabilidad-de-karl-popper",
+    "title": "Estadística Inferencial Básica",
+    "section": "Falsabilidad de Karl Popper",
+    "text": "Falsabilidad de Karl Popper\nPara que una hipótesis (\\(H_a\\)) sea científica, debe ser falsable.\n\n\n\n\n\n\nEntonces\n\n\nDebe haber una manera clara y objetiva de refutarla mediante la observación o experimentación.\n\n\n\n\n\nEjemplo:\n\n\\(H_a\\): Una mayor biodiversidad aumenta la productividad del ecosistema.\n\n\n\n\nPara que esta afirmación sea falsable, debe ser posible observar un ecosistema con mayor biodiversidad que no muestre un aumento en productividad."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#normalidad",
+    "href": "slides/02/02-basic-stats.html#normalidad",
+    "title": "Estadística Inferencial Básica",
+    "section": "Normalidad",
+    "text": "Normalidad\n\n\n\n\n\n\nEl teorema del límite central\n\n\nEstablece que cuando el tamaño de la muestra tiene 100 o más observaciones, la violación de la normalidad no es un problema importante.\n\n\n\nPuedes estimar normalidad:\n\nSimetría y curtosis.\nPruebas de Normalidad.\nGráfico cuantil-cuantil (QQ-Plot)"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#section-4",
+    "href": "slides/02/02-basic-stats.html#section-4",
+    "title": "Estadística Inferencial Básica",
+    "section": "",
+    "text": "https://www.statstest.com/"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#normalidad-1",
+    "href": "slides/02/02-basic-stats.html#normalidad-1",
+    "title": "Estadística Inferencial Básica",
+    "section": "Normalidad",
+    "text": "Normalidad\n\n\n\nEl gráfico compara los cuantiles de los datos observados con los cuantiles de una distribución teórica determinada.\nSi los puntos del gráfico Q-Q caen aproximadamente sobre una línea recta, los datos siguen la distribución teórica.\nSi los puntos se desvían significativamente de la línea, los datos no siguen la distribución especificada."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#normalidad-2",
+    "href": "slides/02/02-basic-stats.html#normalidad-2",
+    "title": "Estadística Inferencial Básica",
+    "section": "Normalidad",
+    "text": "Normalidad"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#normalidad-3",
+    "href": "slides/02/02-basic-stats.html#normalidad-3",
+    "title": "Estadística Inferencial Básica",
+    "section": "Normalidad",
+    "text": "Normalidad"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#cálculo-de-poder-con-r",
+    "href": "slides/02/02-basic-stats.html#cálculo-de-poder-con-r",
+    "title": "Estadística Inferencial Básica",
+    "section": "Cálculo de Poder con R",
+    "text": "Cálculo de Poder con R\n\n\n\n\n\n\n\n\nPaquete\nFunción\nDefinición\n\n\n\n\npwr\npwr.chisq.test()\nPara Pruebas de Chi-cuadrado.\n\n\npwr\npwr.anova.test()\nPara Anovas de una vía balanceados.\n\n\npwr\npwr.f2.test()\nPara regresiones lineales y Anova de dos vías.\n\n\npwr\npwr.t.test()\nPara Pruebas de t (una muestra, dos muestras, muestras pareadas). Mismo N muestral.\n\n\npwr\npwr.t2n.test()\nPara Pruebas de t (dos muestras). Diferente N muestral.\n\n\npwr2\npwr.2way()\nPara Anovas de dos vías balanceado.\n\n\nsimr\npowerSim()\nPara simulaciones de modelos GLM y GLMM."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#pruebas-de-normalidad",
+    "href": "slides/02/02-basic-stats.html#pruebas-de-normalidad",
+    "title": "Estadística Inferencial Básica",
+    "section": "Pruebas de normalidad",
+    "text": "Pruebas de normalidad\nExisten varias pruebas que nos permiten evaluar si un conjunto de datos sigue una distribución normal. En esta presentación exploraremos:\n\nShapiro-Wilk Test\nKolmogorov-Smirnov Test\nPruebas del paquete nortest\nShapiro-Francia Test\nTest Z de Anderson-Darling"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#varios-test-a-la-vez",
+    "href": "slides/02/02-basic-stats.html#varios-test-a-la-vez",
+    "title": "Estadística Inferencial Básica",
+    "section": "Varios test a la vez",
+    "text": "Varios test a la vez\n\nmasterX::NormTests(datos_n)\n\n       SW        KS        LF        AD        SF       CVM        ZC        ZA \n0.9278568 0.9346721 0.5233478 0.8529147 0.9396819 0.7406910 0.8910000 0.9740000"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#test-de-normalidad-1",
+    "href": "slides/02/02-basic-stats.html#test-de-normalidad-1",
+    "title": "Estadística Inferencial Básica",
+    "section": "Test de Normalidad 1",
+    "text": "Test de Normalidad 1\n\n# Shapiro Test\nshapiro.test(datos_n)\n\n\n    Shapiro-Wilk normality test\n\ndata:  datos_n\nW = 0.98928, p-value = 0.9279\n\n# Kolmogorov-Smirnovs Test\nks.test(datos_n, \"pnorm\", mean(datos_n), sd(datos_n))\n\n\n    Exact one-sample Kolmogorov-Smirnov test\n\ndata:  datos_n\nD = 0.083232, p-value = 0.8506\nalternative hypothesis: two-sided\n\n# Lilliefors Test\nnortest::lillie.test(datos_n)\n\n\n    Lilliefors (Kolmogorov-Smirnov) normality test\n\ndata:  datos_n\nD = 0.083232, p-value = 0.5233"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#test-de-normalidad-2",
+    "href": "slides/02/02-basic-stats.html#test-de-normalidad-2",
+    "title": "Estadística Inferencial Básica",
+    "section": "Test de Normalidad 2",
+    "text": "Test de Normalidad 2\n\n# Anderson-Darling Test\nnortest::ad.test(datos_n)\n\n\n    Anderson-Darling normality test\n\ndata:  datos_n\nA = 0.20995, p-value = 0.8529\n\n# Shapiro-Francia Test\nnortest::sf.test(datos_n)\n\n\n    Shapiro-Francia normality test\n\ndata:  datos_n\nW = 0.99156, p-value = 0.9397\n\n# Cramér-von Mises Test\nnortest::cvm.test(datos_n)\n\n\n    Cramer-von Mises normality test\n\ndata:  datos_n\nW = 0.036407, p-value = 0.7407"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#httpswww.statstest.com",
+    "href": "slides/02/02-basic-stats.html#httpswww.statstest.com",
+    "title": "Estadística Inferencial Básica",
+    "section": "https://www.statstest.com/",
+    "text": "https://www.statstest.com/"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#concepto-de-comparación-1",
+    "href": "slides/02/02-basic-stats.html#concepto-de-comparación-1",
+    "title": "Estadística Inferencial Básica",
+    "section": "Concepto de comparación",
+    "text": "Concepto de comparación"
   }
 ]

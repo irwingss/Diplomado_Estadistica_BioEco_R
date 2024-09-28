@@ -4,8 +4,10 @@ output: html_notebook
 ---
 
 ```{r}
-pak::pak(c("openxlsx","rstatix", "tidyverse",
-           "ggstatsplot", "performance"))
+pak::pak(c("openxlsx","rstatix", "tidyverse", "nortest",
+           "ggstatsplot", "performance", "pwr", "pwr2", "simr"))
+
+pak::pak("irwingss/masterX")
 ```
 
 ```{r}
@@ -14,6 +16,10 @@ library(openxlsx)
 library(performance)
 library(ggstatsplot)
 library(rstatix)
+library(pwr)
+library(pwr2)
+library(simr)
+library(nortest)
 ```
 
 ## Intraspecific competition, not predation, drives lizard tail loss on islands
