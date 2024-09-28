@@ -774,7 +774,7 @@ Existen varias pruebas que nos permiten evaluar si un conjunto de datos sigue un
 
 # Datos
 set.seed(123)
-datos_n <- rpois(250, lambda = 25) 
+datos_n <- c(rpois(250,25)) 
 ```
 
 ```{r}
