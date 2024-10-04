@@ -1,0 +1,78 @@
+---
+title: "Módulo 6: Inferencia Estadística"
+output: html_notebook
+---
+
+```{r}
+pak::pak(c("openxlsx","rstatix", "tidyverse", "nortest",
+           "ggstatsplot", "performance", "pwr", "pwr2", "simr"))
+
+pak::pak("irwingss/masterX")
+```
+
+```{r}
+library(tidyverse)
+library(openxlsx)
+library(performance)
+library(ggstatsplot)
+library(rstatix)
+library(pwr)
+library(pwr2)
+library(simr)
+library(nortest)
+```
+
+## Intraspecific competition, not predation, drives lizard tail loss on islands
+
+Paper:
+<https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2656.12591>
+
+Dataset:
+<https://zenodo.org/records/5007334>
+
+```{r}
+geckos <- openxlsx::read.xlsx("bases/lagartijas_colas_islas.xlsx")
+
+gk <- pivot_longer(geckos,
+    cols = starts_with("mk_") | starts_with("ht_"),
+    names_to = c("sp", ".value"),
+    names_pattern = "^(mk_|ht_)(.*)"
+  ) %>% 
+  mutate(sp = ifelse(sp=="mk_","Mediodactylus", "Hemidactylus"))
+```
+
+
+**Objetivo general**: 
+¿La pérdida de colas de los geckos _Mediodactylus kotschyi_ está mediadada por predadores o por competencia interespecífica con Hemidactylus turcicus?
+
+**Objetivos específicos**:
+- Existen diferencias en la proporción de autotomía entre los individuos de _Mediodactylus kotschyi_ de islas "libres de víboras" y "con presencia de víboras"
+
+
+```{r}
+gkm <- gk %>% filter(sp == "Hemidactylus")
+
+t.test(af_prop ~ viper_pres, data = gkm)
+
+plot(gkm$af_prop, gkm$viper_pres)
+
+
+gk %>%
+  group_by(sp) %>%
+  # filter(sp == "Hemidactylus") %>%
+  rstatix::t_test(af_prop ~ viper_pres, detailed = T)
+```
+```{r}
+gk %>% 
+  ggplot(aes(x=af_prop, y=viper_pres)) +
+  geom_point() + 
+  facet_wrap(~sp)
+```
+```{r}
+gk %>% 
+  filter(viper_pres == 1) %>% 
+  ggplot(aes(x=af_freq, y=viper_abund)) +
+  geom_point() + 
+  facet_wrap(~sp) 
+```
+

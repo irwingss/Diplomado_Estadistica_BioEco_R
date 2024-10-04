@@ -508,7 +508,7 @@
     "href": "slides/02/02-basic-stats.html#paramétrico-vs-no-paramétrico",
     "title": "Estadística Inferencial Básica",
     "section": "Paramétrico vs No paramétrico",
-    "text": "Paramétrico vs No paramétrico\n\nPruebas paramétricas: son más poderosas si las asunciones se cumplen.\nPruebas no paramétricas: son más flexibles y robustas, pero menos poderosas en datos ideales.\n\n\n\n\n\n\n\n\n\nCaracterística\nPruebas Paramétricas\nPruebas No Paramétricas\n\n\n\n\nDistribución de los datos\nNormal o aproximadamente normal\nCualquier distribución (sin suposiciones)\n\n\nMedidas clave\nMedia y Varianza\nMediana y Rangos\n\n\nEjemplos\nt-test, ANOVA\nWilcoxon, Kruskal-Wallis\n\n\nUso\nMayor potencia si se cumplen las asunciones\nMenor potencia, pero más robustas ante violaciones\n\n\n\n\n\n\n\n\n\n\n\n\n\nPoder:\n\n\nCapacidad para detectar efectos reales o diferencias significativas cuando estas existen.\n\n\n\n\n\n\n\n🔗 masterx.academy"
+    "text": "Paramétrico vs No paramétrico\n\nPruebas paramétricas: son más poderosas si las asunciones se cumplen.\nPruebas no paramétricas: son más flexibles y robustas, pero menos poderosas en datos ideales.\n\n\n\n\n\n\n\n\n\nCaracterística\nPruebas Paramétricas\nPruebas No Paramétricas\n\n\n\n\nDistribución de los datos\nNormal o aproximadamente normal\nCualquier distribución (sin suposiciones)\n\n\nMedidas clave\nMedia y Varianza\nMediana y Rangos\n\n\nEjemplos\nt-test, ANOVA\nWilcoxon, Kruskal-Wallis\n\n\nUso\nMayor potencia si se cumplen las asunciones\nMenor potencia, pero más robustas ante violaciones\n\n\n\n\n\n\n\n\n\n\n\n\n\nPoder:\n\n\nCapacidad para detectar efectos reales o diferencias significativas cuando estas existen."
   },
   {
     "objectID": "slides/02/02-basic-stats.html#mapa-de-las-pruebas-estadísticas-disponibles",
@@ -824,5 +824,131 @@
     "title": "Estadística Inferencial Básica",
     "section": "Concepto de comparación",
     "text": "Concepto de comparación"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#prueba-t-de-student-para-muestras-independientes",
+    "href": "slides/02/02-basic-stats.html#prueba-t-de-student-para-muestras-independientes",
+    "title": "Estadística Inferencial Básica",
+    "section": "Prueba t de Student para muestras independientes",
+    "text": "Prueba t de Student para muestras independientes\n\nIndependencia de las observaciones.\nNormalidad: Las distribuciones de las dos poblaciones deben ser aproximadamente normales.\nHomogeneidad de varianzas: Verificable con la prueba de Levene o Bartlett.\n\nHipótesis:\n\nH₀: Los promedios de las dos poblaciones son iguales.\nH₁: Los promedios de las dos poblaciones son diferentes."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#aplicación-con-r-prueba-t-de-student-para-muestras-independientes",
+    "href": "slides/02/02-basic-stats.html#aplicación-con-r-prueba-t-de-student-para-muestras-independientes",
+    "title": "Estadística Inferencial Básica",
+    "section": "Aplicación con R: Prueba t de Student para muestras independientes",
+    "text": "Aplicación con R: Prueba t de Student para muestras independientes\n\n# Prueba de normalidad\nshapiro.test(datos$grupo1)\nshapiro.test(datos$grupo2)\n\n# Prueba de homogeneidad de varianzas\nleveneTest(valor ~ grupo, datos)\n\n# Prueba t para muestras independientes\nt.test(grupo1, grupo2, var.equal = TRUE)"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#prueba-t-para-muestras-pareadas",
+    "href": "slides/02/02-basic-stats.html#prueba-t-para-muestras-pareadas",
+    "title": "Estadística Inferencial Básica",
+    "section": "Prueba t para muestras pareadas",
+    "text": "Prueba t para muestras pareadas\n\nDependencia de las observaciones.\nNormalidad de las diferencias: Las diferencias entre pares deben seguir una distribución normal.\n\nHipótesis:\n\nH₀: El promedio de las diferencias es igual a cero.\nH₁: El promedio de las diferencias es diferente de cero."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#aplicación-con-r-prueba-t-para-muestras-pareadas",
+    "href": "slides/02/02-basic-stats.html#aplicación-con-r-prueba-t-para-muestras-pareadas",
+    "title": "Estadística Inferencial Básica",
+    "section": "Aplicación con R: Prueba t para muestras pareadas",
+    "text": "Aplicación con R: Prueba t para muestras pareadas\n\n# Prueba de normalidad de las diferencias\ndiferencias &lt;- datos$antes - datos$despues\nshapiro.test(diferencias)\n\n# Prueba t para muestras pareadas\nt.test(datos$antes, datos$despues, paired = TRUE)"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#prueba-de-mann-whitney-u",
+    "href": "slides/02/02-basic-stats.html#prueba-de-mann-whitney-u",
+    "title": "Estadística Inferencial Básica",
+    "section": "Prueba de Mann-Whitney U",
+    "text": "Prueba de Mann-Whitney U\n\nIndependencia de las observaciones.\nEscala ordinal o de intervalo: Las variables deben ser al menos ordinales.\nDistribuciones similares: Las dos poblaciones deben tener formas de distribución similares.\n\nHipótesis:\n\nH₀: Las distribuciones de las dos poblaciones son iguales.\nH₁: Las distribuciones de las dos poblaciones son diferentes."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#aplicación-con-r-prueba-de-mann-whitney-u",
+    "href": "slides/02/02-basic-stats.html#aplicación-con-r-prueba-de-mann-whitney-u",
+    "title": "Estadística Inferencial Básica",
+    "section": "Aplicación con R: Prueba de Mann-Whitney U",
+    "text": "Aplicación con R: Prueba de Mann-Whitney U\n\n# Prueba de distribución similar (opcional)\nhist(datos$grupo1)\nhist(datos$grupo2)\n\n# Prueba de Mann-Whitney U para muestras independientes\nwilcox.test(grupo1, grupo2)"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#prueba-de-wilcoxon",
+    "href": "slides/02/02-basic-stats.html#prueba-de-wilcoxon",
+    "title": "Estadística Inferencial Básica",
+    "section": "Prueba de Wilcoxon",
+    "text": "Prueba de Wilcoxon\n\nDependencia de las observaciones.\nEscala ordinal o de intervalo: Las diferencias deben ser al menos de naturaleza ordinal.\nSimetría de las diferencias: Se asume que las diferencias son simétricas alrededor de la mediana.\n\nHipótesis:\n\nH₀: La mediana de las diferencias es igual a cero.\nH₁: La mediana de las diferencias es diferente de cero."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#aplicación-con-r-prueba-de-wilcoxon",
+    "href": "slides/02/02-basic-stats.html#aplicación-con-r-prueba-de-wilcoxon",
+    "title": "Estadística Inferencial Básica",
+    "section": "Aplicación con R: Prueba de Wilcoxon",
+    "text": "Aplicación con R: Prueba de Wilcoxon\n\n# Evaluar la simetría de las diferencias\ndiferencias &lt;- datos$antes - datos$despues\nhist(diferencias)\n\n# Prueba de Wilcoxon para muestras pareadas\nwilcox.test(datos$antes, datos$despues, paired = TRUE)"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#anova-de-una-vía",
+    "href": "slides/02/02-basic-stats.html#anova-de-una-vía",
+    "title": "Estadística Inferencial Básica",
+    "section": "ANOVA de Una Vía",
+    "text": "ANOVA de Una Vía\n\nIndependencia de las observaciones.\nNormalidad: Las distribuciones de los grupos deben ser aproximadamente normales.\nHomogeneidad de varianzas: Igualdad de varianzas entre los grupos (prueba de Levene).\n\nHipótesis: \n\nH₀: Los promedios de los grupos son iguales.\nH₁: Al menos una media es diferente."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#aplicación-con-r-anova-de-una-vía",
+    "href": "slides/02/02-basic-stats.html#aplicación-con-r-anova-de-una-vía",
+    "title": "Estadística Inferencial Básica",
+    "section": "Aplicación con R: ANOVA de Una Vía",
+    "text": "Aplicación con R: ANOVA de Una Vía\n\n# Prueba de normalidad para cada grupo\nby(datos$valor, datos$grupo, shapiro.test)\n\n# Prueba de homogeneidad de varianzas\nleveneTest(valor ~ grupo, datos)\n\n# ANOVA de una vía\nanova_modelo &lt;- aov(valor ~ grupo, data = datos)\nsummary(anova_modelo)"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#anova-de-dos-vías-unifactorial",
+    "href": "slides/02/02-basic-stats.html#anova-de-dos-vías-unifactorial",
+    "title": "Estadística Inferencial Básica",
+    "section": "ANOVA de Dos Vías Unifactorial",
+    "text": "ANOVA de Dos Vías Unifactorial\n\nIndependencia de las observaciones.\nNormalidad: Las combinaciones de factores deben tener distribuciones normales.\nHomogeneidad de varianzas: Igualdad de varianzas entre combinaciones de factores.\n\nHipótesis:\n\nH₀: Los promedios de todas las combinaciones de factores son iguales.\nH₁: Al menos una combinación de promedios es diferente."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#aplicación-con-r-anova-de-dos-vías-unifactorial",
+    "href": "slides/02/02-basic-stats.html#aplicación-con-r-anova-de-dos-vías-unifactorial",
+    "title": "Estadística Inferencial Básica",
+    "section": "Aplicación con R: ANOVA de Dos Vías Unifactorial",
+    "text": "Aplicación con R: ANOVA de Dos Vías Unifactorial\n\n# Prueba de normalidad por combinación de factores\nby(datos$valor, list(datos$factor1, datos$factor2), shapiro.test)\n\n# Prueba de homogeneidad de varianzas\nleveneTest(valor ~ factor1 * factor2, datos)\n\n# ANOVA de dos vías unifactorial\nanova_modelo &lt;- aov(valor ~ factor1 + factor2, data = datos)\nsummary(anova_modelo)"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#anova-de-dos-vías-factorial",
+    "href": "slides/02/02-basic-stats.html#anova-de-dos-vías-factorial",
+    "title": "Estadística Inferencial Básica",
+    "section": "ANOVA de Dos Vías Factorial",
+    "text": "ANOVA de Dos Vías Factorial\n\nIndependencia de las observaciones.\nNormalidad.\nHomogeneidad de varianzas.\nAdición de efectos independientes: Sin interacción no especificada entre factores.\n\nHipótesis: - H₀: No hay interacción entre factores. - H₁: Hay interacción entre factores."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#aplicación-con-r-anova-de-dos-vías-factorial",
+    "href": "slides/02/02-basic-stats.html#aplicación-con-r-anova-de-dos-vías-factorial",
+    "title": "Estadística Inferencial Básica",
+    "section": "Aplicación con R: ANOVA de Dos Vías Factorial",
+    "text": "Aplicación con R: ANOVA de Dos Vías Factorial\n\n# Prueba de homogeneidad de varianzas\nleveneTest(valor ~ factor1 * factor2, datos)\n\n# ANOVA de dos vías factorial\nanova_modelo &lt;- aov(valor ~ factor1 * factor2, data = datos)\nsummary(anova_modelo)"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#modelos-anova-balanceados-vs.-no-balanceados",
+    "href": "slides/02/02-basic-stats.html#modelos-anova-balanceados-vs.-no-balanceados",
+    "title": "Estadística Inferencial Básica",
+    "section": "Modelos ANOVA Balanceados vs. No Balanceados",
+    "text": "Modelos ANOVA Balanceados vs. No Balanceados\n\nBalanceados: Facilita el cumplimiento de las asunciones de homogeneidad de varianzas.\nNo balanceados: Mayor atención a la homogeneidad de varianzas. Métodos robustos o correcciones pueden ser necesarias."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#prueba-de-kruskal-wallis",
+    "href": "slides/02/02-basic-stats.html#prueba-de-kruskal-wallis",
+    "title": "Estadística Inferencial Básica",
+    "section": "Prueba de Kruskal-Wallis",
+    "text": "Prueba de Kruskal-Wallis\n\nIndependencia de las observaciones.\nEscala ordinal o de intervalo.\nDistribuciones similares: No requieren normalidad pero se asume que las distribuciones son similares.\n\nHipótesis: - H₀: Las distribuciones de los grupos son iguales. - H₁: Al menos un grupo tiene una distribución diferente."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#aplicación-con-r-anova-de-dos-vías-factorial-1",
+    "href": "slides/02/02-basic-stats.html#aplicación-con-r-anova-de-dos-vías-factorial-1",
+    "title": "Estadística Inferencial Básica",
+    "section": "Aplicación con R: ANOVA de Dos Vías Factorial",
+    "text": "Aplicación con R: ANOVA de Dos Vías Factorial\n\n# Evaluar la distribución de los grupos\nhist(datos$grupo1)\nhist(datos$grupo2)\n\n# Realizar la prueba de Kruskal-Wallis\nkruskal.test(valor ~ grupo, data = datos)"
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#consideraciones-adicionales-evaluación-de-asunciones",
+    "href": "slides/02/02-basic-stats.html#consideraciones-adicionales-evaluación-de-asunciones",
+    "title": "Estadística Inferencial Básica",
+    "section": "Consideraciones Adicionales: Evaluación de Asunciones",
+    "text": "Consideraciones Adicionales: Evaluación de Asunciones\n\nGráficos: Histogramas, Q-Q plots, gráficos de residuos.\nPruebas: Shapiro-Wilk (normalidad), Levene (homogeneidad), Mauchly (esfericidad).\nTransformaciones: Logarítmica, raíz cuadrada o alternativas no paramétricas.\n\n\n\n\n\n🔗 masterx.academy"
   }
 ]

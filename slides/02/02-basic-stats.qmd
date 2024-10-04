@@ -1,6 +1,6 @@
 ---
 title: Estadística Inferencial Básica
-subtitle: Módulo 6 - Clase 1
+subtitle: Módulo 6
 title-slide-attributes:
   data-background-image: ../bg4.png
   data-background-size: cover
@@ -904,4 +904,205 @@ tabla_transpuesta
 ## Poder:
 Capacidad para detectar efectos reales o diferencias significativas cuando estas existen.
 :::
+
+# Asunciones de las pruebas estadísticas básicas
+
+## Prueba t de Student para muestras independientes
+
+- **Independencia de las observaciones.**
+- **Normalidad:** Las distribuciones de las dos poblaciones deben ser aproximadamente normales.
+- **Homogeneidad de varianzas:** Verificable con la prueba de Levene o Bartlett.
+
+**Hipótesis:**<br>
+
+- **H₀:** Los promedios de las dos poblaciones son iguales.
+- **H₁:** Los promedios de las dos poblaciones son diferentes.
+
+## Aplicación con R: Prueba t de Student para muestras independientes
+
+```{r, eval=FALSE, echo=TRUE}
+# Prueba de normalidad
+shapiro.test(datos$grupo1)
+shapiro.test(datos$grupo2)
+
+# Prueba de homogeneidad de varianzas
+leveneTest(valor ~ grupo, datos)
+
+# Prueba t para muestras independientes
+t.test(grupo1, grupo2, var.equal = TRUE)
+```
+
+## Prueba t para muestras pareadas
+
+- **Dependencia de las observaciones.**
+- **Normalidad de las diferencias:** Las diferencias entre pares deben seguir una distribución normal.
+
+**Hipótesis:**<br>
+
+- **H₀:** El promedio de las diferencias es igual a cero.
+- **H₁:** El promedio de las diferencias es diferente de cero.
+
+## Aplicación con R: Prueba t para muestras pareadas
+
+```{r, eval=FALSE, echo=TRUE}
+# Prueba de normalidad de las diferencias
+diferencias <- datos$antes - datos$despues
+shapiro.test(diferencias)
+
+# Prueba t para muestras pareadas
+t.test(datos$antes, datos$despues, paired = TRUE)
+```
+
+
+## Prueba de Mann-Whitney U
+
+- **Independencia de las observaciones.**
+- **Escala ordinal o de intervalo:** Las variables deben ser al menos ordinales.
+- **Distribuciones similares:** Las dos poblaciones deben tener formas de distribución similares.
+
+**Hipótesis:**<br>
+
+- **H₀:** Las distribuciones de las dos poblaciones son iguales.
+- **H₁:** Las distribuciones de las dos poblaciones son diferentes.
+
+## Aplicación con R: Prueba de Mann-Whitney U
+
+```{r, eval=FALSE, echo=TRUE}
+# Prueba de distribución similar (opcional)
+hist(datos$grupo1)
+hist(datos$grupo2)
+
+# Prueba de Mann-Whitney U para muestras independientes
+wilcox.test(grupo1, grupo2)
+```
+
+## Prueba de Wilcoxon
+
+- **Dependencia de las observaciones.**
+- **Escala ordinal o de intervalo:** Las diferencias deben ser al menos de naturaleza ordinal.
+- **Simetría de las diferencias:** Se asume que las diferencias son simétricas alrededor de la mediana.
+
+**Hipótesis:**<br>
+
+- **H₀:** La mediana de las diferencias es igual a cero.
+- **H₁:** La mediana de las diferencias es diferente de cero.
+
+## Aplicación con R: Prueba de Wilcoxon
+
+```{r, eval=FALSE, echo=TRUE}
+# Evaluar la simetría de las diferencias
+diferencias <- datos$antes - datos$despues
+hist(diferencias)
+
+# Prueba de Wilcoxon para muestras pareadas
+wilcox.test(datos$antes, datos$despues, paired = TRUE)
+```
+
+## ANOVA de Una Vía
+
+- **Independencia de las observaciones.**
+- **Normalidad:** Las distribuciones de los grupos deben ser aproximadamente normales.
+- **Homogeneidad de varianzas:** Igualdad de varianzas entre los grupos (prueba de Levene).
+
+**Hipótesis:** <br>
+
+- **H₀:** Los promedios de los grupos son iguales.
+- **H₁:** Al menos una media es diferente.
+
+## Aplicación con R: ANOVA de Una Vía
+
+```{r, eval=FALSE, echo=TRUE}
+# Prueba de normalidad para cada grupo
+by(datos$valor, datos$grupo, shapiro.test)
+
+# Prueba de homogeneidad de varianzas
+leveneTest(valor ~ grupo, datos)
+
+# ANOVA de una vía
+anova_modelo <- aov(valor ~ grupo, data = datos)
+summary(anova_modelo)
+```
+
+## ANOVA de Dos Vías Unifactorial
+
+- **Independencia de las observaciones.**
+- **Normalidad:** Las combinaciones de factores deben tener distribuciones normales.
+- **Homogeneidad de varianzas:** Igualdad de varianzas entre combinaciones de factores.
+
+**Hipótesis:**<br>
+
+- **H₀:** Los promedios de todas las combinaciones de factores son iguales.
+- **H₁:** Al menos una combinación de promedios es diferente.
+
+## Aplicación con R: ANOVA de Dos Vías Unifactorial
+
+```{r, eval=FALSE, echo=TRUE}
+# Prueba de normalidad por combinación de factores
+by(datos$valor, list(datos$factor1, datos$factor2), shapiro.test)
+
+# Prueba de homogeneidad de varianzas
+leveneTest(valor ~ factor1 * factor2, datos)
+
+# ANOVA de dos vías unifactorial
+anova_modelo <- aov(valor ~ factor1 + factor2, data = datos)
+summary(anova_modelo)
+```
+
+## ANOVA de Dos Vías Factorial
+
+- **Independencia de las observaciones.**
+- **Normalidad.**
+- **Homogeneidad de varianzas.**
+- **Adición de efectos independientes:** Sin interacción no especificada entre factores.
+
+**Hipótesis:**
+- **H₀:** No hay interacción entre factores.
+- **H₁:** Hay interacción entre factores.
+
+## Aplicación con R: ANOVA de Dos Vías Factorial
+
+```{r, eval=FALSE, echo=TRUE}
+# Prueba de homogeneidad de varianzas
+leveneTest(valor ~ factor1 * factor2, datos)
+
+# ANOVA de dos vías factorial
+anova_modelo <- aov(valor ~ factor1 * factor2, data = datos)
+summary(anova_modelo)
+
+```
+
+## Modelos ANOVA Balanceados vs. No Balanceados
+
+- **Balanceados**: Facilita el cumplimiento de las asunciones de homogeneidad de varianzas.
+  
+- **No balanceados**: Mayor atención a la homogeneidad de varianzas. Métodos robustos o correcciones pueden ser necesarias.
+
+## Prueba de Kruskal-Wallis
+
+- **Independencia de las observaciones.**
+- **Escala ordinal o de intervalo.**
+- **Distribuciones similares:** No requieren normalidad pero se asume que las distribuciones son similares.
+
+**Hipótesis:**
+- **H₀:** Las distribuciones de los grupos son iguales.
+- **H₁:** Al menos un grupo tiene una distribución diferente.
+
+## Aplicación con R: ANOVA de Dos Vías Factorial
+
+```{r, eval=FALSE, echo=TRUE}
+# Evaluar la distribución de los grupos
+hist(datos$grupo1)
+hist(datos$grupo2)
+
+# Realizar la prueba de Kruskal-Wallis
+kruskal.test(valor ~ grupo, data = datos)
+```
+
+
+## Consideraciones Adicionales: Evaluación de Asunciones
+
+- **Gráficos:** Histogramas, Q-Q plots, gráficos de residuos.
+- **Pruebas:** Shapiro-Wilk (normalidad), Levene (homogeneidad), Mauchly (esfericidad).
+- **Transformaciones:** Logarítmica, raíz cuadrada o alternativas no paramétricas.
+
 

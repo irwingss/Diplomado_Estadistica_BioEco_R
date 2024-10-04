@@ -400,7 +400,7 @@
 
 <section id="title-slide" data-background-image="../bg4.png" data-background-size="cover" data-slide-number="default" class="quarto-title-block center">
   <h1 class="title">Estadística Inferencial Básica</h1>
-  <p class="subtitle">Módulo 6 - Clase 1</p>
+  <p class="subtitle">Módulo 6</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -3575,6 +3575,219 @@ W = 0.036407, p-value = 0.7407</code></pre>
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="asunciones-de-las-pruebas-estadísticas-básicas" class="title-slide slide level1 center">
+<h1>Asunciones de las pruebas estadísticas básicas</h1>
+
+</section>
+<section id="prueba-t-de-student-para-muestras-independientes" class="slide level2">
+<h2>Prueba t de Student para muestras independientes</h2>
+<ul>
+<li><strong>Independencia de las observaciones.</strong></li>
+<li><strong>Normalidad:</strong> Las distribuciones de las dos poblaciones deben ser aproximadamente normales.</li>
+<li><strong>Homogeneidad de varianzas:</strong> Verificable con la prueba de Levene o Bartlett.</li>
+</ul>
+<p><strong>Hipótesis:</strong><br></p>
+<ul>
+<li><strong>H₀:</strong> Los promedios de las dos poblaciones son iguales.</li>
+<li><strong>H₁:</strong> Los promedios de las dos poblaciones son diferentes.</li>
+</ul>
+</section>
+<section id="aplicación-con-r-prueba-t-de-student-para-muestras-independientes" class="slide level2">
+<h2>Aplicación con R: Prueba t de Student para muestras independientes</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># Prueba de normalidad</span></span>
+<span id="cb16-2"><a></a><span class="fu">shapiro.test</span>(datos<span class="sc">$</span>grupo1)</span>
+<span id="cb16-3"><a></a><span class="fu">shapiro.test</span>(datos<span class="sc">$</span>grupo2)</span>
+<span id="cb16-4"><a></a></span>
+<span id="cb16-5"><a></a><span class="co"># Prueba de homogeneidad de varianzas</span></span>
+<span id="cb16-6"><a></a><span class="fu">leveneTest</span>(valor <span class="sc">~</span> grupo, datos)</span>
+<span id="cb16-7"><a></a></span>
+<span id="cb16-8"><a></a><span class="co"># Prueba t para muestras independientes</span></span>
+<span id="cb16-9"><a></a><span class="fu">t.test</span>(grupo1, grupo2, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="prueba-t-para-muestras-pareadas" class="slide level2">
+<h2>Prueba t para muestras pareadas</h2>
+<ul>
+<li><strong>Dependencia de las observaciones.</strong></li>
+<li><strong>Normalidad de las diferencias:</strong> Las diferencias entre pares deben seguir una distribución normal.</li>
+</ul>
+<p><strong>Hipótesis:</strong><br></p>
+<ul>
+<li><strong>H₀:</strong> El promedio de las diferencias es igual a cero.</li>
+<li><strong>H₁:</strong> El promedio de las diferencias es diferente de cero.</li>
+</ul>
+</section>
+<section id="aplicación-con-r-prueba-t-para-muestras-pareadas" class="slide level2">
+<h2>Aplicación con R: Prueba t para muestras pareadas</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># Prueba de normalidad de las diferencias</span></span>
+<span id="cb17-2"><a></a>diferencias <span class="ot">&lt;-</span> datos<span class="sc">$</span>antes <span class="sc">-</span> datos<span class="sc">$</span>despues</span>
+<span id="cb17-3"><a></a><span class="fu">shapiro.test</span>(diferencias)</span>
+<span id="cb17-4"><a></a></span>
+<span id="cb17-5"><a></a><span class="co"># Prueba t para muestras pareadas</span></span>
+<span id="cb17-6"><a></a><span class="fu">t.test</span>(datos<span class="sc">$</span>antes, datos<span class="sc">$</span>despues, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="prueba-de-mann-whitney-u" class="slide level2">
+<h2>Prueba de Mann-Whitney U</h2>
+<ul>
+<li><strong>Independencia de las observaciones.</strong></li>
+<li><strong>Escala ordinal o de intervalo:</strong> Las variables deben ser al menos ordinales.</li>
+<li><strong>Distribuciones similares:</strong> Las dos poblaciones deben tener formas de distribución similares.</li>
+</ul>
+<p><strong>Hipótesis:</strong><br></p>
+<ul>
+<li><strong>H₀:</strong> Las distribuciones de las dos poblaciones son iguales.</li>
+<li><strong>H₁:</strong> Las distribuciones de las dos poblaciones son diferentes.</li>
+</ul>
+</section>
+<section id="aplicación-con-r-prueba-de-mann-whitney-u" class="slide level2">
+<h2>Aplicación con R: Prueba de Mann-Whitney U</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># Prueba de distribución similar (opcional)</span></span>
+<span id="cb18-2"><a></a><span class="fu">hist</span>(datos<span class="sc">$</span>grupo1)</span>
+<span id="cb18-3"><a></a><span class="fu">hist</span>(datos<span class="sc">$</span>grupo2)</span>
+<span id="cb18-4"><a></a></span>
+<span id="cb18-5"><a></a><span class="co"># Prueba de Mann-Whitney U para muestras independientes</span></span>
+<span id="cb18-6"><a></a><span class="fu">wilcox.test</span>(grupo1, grupo2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="prueba-de-wilcoxon" class="slide level2">
+<h2>Prueba de Wilcoxon</h2>
+<ul>
+<li><strong>Dependencia de las observaciones.</strong></li>
+<li><strong>Escala ordinal o de intervalo:</strong> Las diferencias deben ser al menos de naturaleza ordinal.</li>
+<li><strong>Simetría de las diferencias:</strong> Se asume que las diferencias son simétricas alrededor de la mediana.</li>
+</ul>
+<p><strong>Hipótesis:</strong><br></p>
+<ul>
+<li><strong>H₀:</strong> La mediana de las diferencias es igual a cero.</li>
+<li><strong>H₁:</strong> La mediana de las diferencias es diferente de cero.</li>
+</ul>
+</section>
+<section id="aplicación-con-r-prueba-de-wilcoxon" class="slide level2">
+<h2>Aplicación con R: Prueba de Wilcoxon</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Evaluar la simetría de las diferencias</span></span>
+<span id="cb19-2"><a></a>diferencias <span class="ot">&lt;-</span> datos<span class="sc">$</span>antes <span class="sc">-</span> datos<span class="sc">$</span>despues</span>
+<span id="cb19-3"><a></a><span class="fu">hist</span>(diferencias)</span>
+<span id="cb19-4"><a></a></span>
+<span id="cb19-5"><a></a><span class="co"># Prueba de Wilcoxon para muestras pareadas</span></span>
+<span id="cb19-6"><a></a><span class="fu">wilcox.test</span>(datos<span class="sc">$</span>antes, datos<span class="sc">$</span>despues, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="anova-de-una-vía" class="slide level2">
+<h2>ANOVA de Una Vía</h2>
+<ul>
+<li><strong>Independencia de las observaciones.</strong></li>
+<li><strong>Normalidad:</strong> Las distribuciones de los grupos deben ser aproximadamente normales.</li>
+<li><strong>Homogeneidad de varianzas:</strong> Igualdad de varianzas entre los grupos (prueba de Levene).</li>
+</ul>
+<p><strong>Hipótesis:</strong> <br></p>
+<ul>
+<li><strong>H₀:</strong> Los promedios de los grupos son iguales.</li>
+<li><strong>H₁:</strong> Al menos una media es diferente.</li>
+</ul>
+</section>
+<section id="aplicación-con-r-anova-de-una-vía" class="slide level2">
+<h2>Aplicación con R: ANOVA de Una Vía</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Prueba de normalidad para cada grupo</span></span>
+<span id="cb20-2"><a></a><span class="fu">by</span>(datos<span class="sc">$</span>valor, datos<span class="sc">$</span>grupo, shapiro.test)</span>
+<span id="cb20-3"><a></a></span>
+<span id="cb20-4"><a></a><span class="co"># Prueba de homogeneidad de varianzas</span></span>
+<span id="cb20-5"><a></a><span class="fu">leveneTest</span>(valor <span class="sc">~</span> grupo, datos)</span>
+<span id="cb20-6"><a></a></span>
+<span id="cb20-7"><a></a><span class="co"># ANOVA de una vía</span></span>
+<span id="cb20-8"><a></a>anova_modelo <span class="ot">&lt;-</span> <span class="fu">aov</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> datos)</span>
+<span id="cb20-9"><a></a><span class="fu">summary</span>(anova_modelo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="anova-de-dos-vías-unifactorial" class="slide level2">
+<h2>ANOVA de Dos Vías Unifactorial</h2>
+<ul>
+<li><strong>Independencia de las observaciones.</strong></li>
+<li><strong>Normalidad:</strong> Las combinaciones de factores deben tener distribuciones normales.</li>
+<li><strong>Homogeneidad de varianzas:</strong> Igualdad de varianzas entre combinaciones de factores.</li>
+</ul>
+<p><strong>Hipótesis:</strong><br></p>
+<ul>
+<li><strong>H₀:</strong> Los promedios de todas las combinaciones de factores son iguales.</li>
+<li><strong>H₁:</strong> Al menos una combinación de promedios es diferente.</li>
+</ul>
+</section>
+<section id="aplicación-con-r-anova-de-dos-vías-unifactorial" class="slide level2">
+<h2>Aplicación con R: ANOVA de Dos Vías Unifactorial</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># Prueba de normalidad por combinación de factores</span></span>
+<span id="cb21-2"><a></a><span class="fu">by</span>(datos<span class="sc">$</span>valor, <span class="fu">list</span>(datos<span class="sc">$</span>factor1, datos<span class="sc">$</span>factor2), shapiro.test)</span>
+<span id="cb21-3"><a></a></span>
+<span id="cb21-4"><a></a><span class="co"># Prueba de homogeneidad de varianzas</span></span>
+<span id="cb21-5"><a></a><span class="fu">leveneTest</span>(valor <span class="sc">~</span> factor1 <span class="sc">*</span> factor2, datos)</span>
+<span id="cb21-6"><a></a></span>
+<span id="cb21-7"><a></a><span class="co"># ANOVA de dos vías unifactorial</span></span>
+<span id="cb21-8"><a></a>anova_modelo <span class="ot">&lt;-</span> <span class="fu">aov</span>(valor <span class="sc">~</span> factor1 <span class="sc">+</span> factor2, <span class="at">data =</span> datos)</span>
+<span id="cb21-9"><a></a><span class="fu">summary</span>(anova_modelo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="anova-de-dos-vías-factorial" class="slide level2">
+<h2>ANOVA de Dos Vías Factorial</h2>
+<ul>
+<li><strong>Independencia de las observaciones.</strong></li>
+<li><strong>Normalidad.</strong></li>
+<li><strong>Homogeneidad de varianzas.</strong></li>
+<li><strong>Adición de efectos independientes:</strong> Sin interacción no especificada entre factores.</li>
+</ul>
+<p><strong>Hipótesis:</strong> - <strong>H₀:</strong> No hay interacción entre factores. - <strong>H₁:</strong> Hay interacción entre factores.</p>
+</section>
+<section id="aplicación-con-r-anova-de-dos-vías-factorial" class="slide level2">
+<h2>Aplicación con R: ANOVA de Dos Vías Factorial</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># Prueba de homogeneidad de varianzas</span></span>
+<span id="cb22-2"><a></a><span class="fu">leveneTest</span>(valor <span class="sc">~</span> factor1 <span class="sc">*</span> factor2, datos)</span>
+<span id="cb22-3"><a></a></span>
+<span id="cb22-4"><a></a><span class="co"># ANOVA de dos vías factorial</span></span>
+<span id="cb22-5"><a></a>anova_modelo <span class="ot">&lt;-</span> <span class="fu">aov</span>(valor <span class="sc">~</span> factor1 <span class="sc">*</span> factor2, <span class="at">data =</span> datos)</span>
+<span id="cb22-6"><a></a><span class="fu">summary</span>(anova_modelo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="modelos-anova-balanceados-vs.-no-balanceados" class="slide level2">
+<h2>Modelos ANOVA Balanceados vs.&nbsp;No Balanceados</h2>
+<ul>
+<li><p><strong>Balanceados</strong>: Facilita el cumplimiento de las asunciones de homogeneidad de varianzas.</p></li>
+<li><p><strong>No balanceados</strong>: Mayor atención a la homogeneidad de varianzas. Métodos robustos o correcciones pueden ser necesarias.</p></li>
+</ul>
+</section>
+<section id="prueba-de-kruskal-wallis" class="slide level2">
+<h2>Prueba de Kruskal-Wallis</h2>
+<ul>
+<li><strong>Independencia de las observaciones.</strong></li>
+<li><strong>Escala ordinal o de intervalo.</strong></li>
+<li><strong>Distribuciones similares:</strong> No requieren normalidad pero se asume que las distribuciones son similares.</li>
+</ul>
+<p><strong>Hipótesis:</strong> - <strong>H₀:</strong> Las distribuciones de los grupos son iguales. - <strong>H₁:</strong> Al menos un grupo tiene una distribución diferente.</p>
+</section>
+<section id="aplicación-con-r-anova-de-dos-vías-factorial-1" class="slide level2">
+<h2>Aplicación con R: ANOVA de Dos Vías Factorial</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># Evaluar la distribución de los grupos</span></span>
+<span id="cb23-2"><a></a><span class="fu">hist</span>(datos<span class="sc">$</span>grupo1)</span>
+<span id="cb23-3"><a></a><span class="fu">hist</span>(datos<span class="sc">$</span>grupo2)</span>
+<span id="cb23-4"><a></a></span>
+<span id="cb23-5"><a></a><span class="co"># Realizar la prueba de Kruskal-Wallis</span></span>
+<span id="cb23-6"><a></a><span class="fu">kruskal.test</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> datos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="consideraciones-adicionales-evaluación-de-asunciones" class="slide level2">
+<h2>Consideraciones Adicionales: Evaluación de Asunciones</h2>
+<ul>
+<li><strong>Gráficos:</strong> Histogramas, Q-Q plots, gráficos de residuos.</li>
+<li><strong>Pruebas:</strong> Shapiro-Wilk (normalidad), Levene (homogeneidad), Mauchly (esfericidad).</li>
+<li><strong>Transformaciones:</strong> Logarítmica, raíz cuadrada o alternativas no paramétricas.</li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <p><img src="../logo.svg" class="slide-logo"></p>

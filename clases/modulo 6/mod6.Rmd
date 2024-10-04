@@ -1,11 +1,24 @@
 ---
 title: "Módulo 6: Inferencia Estadística"
 output: html_notebook
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r}
 pak::pak(c("openxlsx","rstatix", "tidyverse", "nortest",
-           "ggstatsplot", "performance", "pwr", "pwr2", "simr"))
+           "ggstatsplot", "performance", "pwr", 
+           "pwr2", "simr"))
+
+install.packages("openxlsx")
+install.packages("rstatix")
+install.packages("tidyverse")
+install.packages("nortest")
+install.packages("ggstatsplot")
+install.packages("performance")
+install.packages("pwr")
+install.packages("pwr2")
+install.packages("simr")
 
 pak::pak("irwingss/masterX")
 ```
@@ -22,57 +35,85 @@ library(simr)
 library(nortest)
 ```
 
-## Intraspecific competition, not predation, drives lizard tail loss on islands
-
-Paper:
-<https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2656.12591>
-
-Dataset:
-<https://zenodo.org/records/5007334>
+# Cargar bases de datos
 
 ```{r}
-geckos <- openxlsx::read.xlsx("bases/lagartijas_colas_islas.xlsx")
+macro <- openxlsx::read.xlsx("bases/Khatri et al 2022 benthic macroinvertebrates assemblages.xlsx")
+fire <- openxlsx::read.xlsx("bases/Fire 2024/fxh_complete_2021-2_dryad.xlsx")
 
-gk <- pivot_longer(geckos,
-    cols = starts_with("mk_") | starts_with("ht_"),
-    names_to = c("sp", ".value"),
-    names_pattern = "^(mk_|ht_)(.*)"
-  ) %>% 
-  mutate(sp = ifelse(sp=="mk_","Mediodactylus", "Hemidactylus"))
+macro <- openxlsx::read.xlsx(file.choose())
+fire <- openxlsx::read.xlsx(file.choose())
+```
+
+# Pruebas de Normalidad
+
+```{r}
+# Ejemplo de clase Shapiro
+shapiro.test(macro$Total.Catch) # No existen normalidad en los datos
+length(macro$Total.Catch)
+
+shapiro.test(fire$grass_biomass_21) #No existe normalidad
+
+for (i in 10:13){
+  normalidad <- shapiro.test(fire[,i]) # Test automatizado de normalidad
+  print(normalidad)
+}
+
+# Ejemplo de clase Kolmogorov-Smirnov
+ks.test(fire$grass_biomass_21, "pnorm", 
+        mean(fire$grass_biomass_21, na.rm = TRUE),
+        sd(fire$grass_biomass_21, na.rm = TRUE))
+
+# Ejemplo de clase Normtest
+nortest::lillie.test(fire$grass_biomass_21)
+nortest::cvm.test(fire$grass_biomass_21)
+nortest::ad.test(fire$grass_biomass_21)
+nortest::sf.test(fire$grass_biomass_21)
+
+# Ejemplo de clase masterX
+masterX::NormTests(fire$grass_biomass_21)
+masterX::NormTests(macro$Total.Catch)
+```
+
+```{r}
+qqnorm(fire$grass_biomass_21)
+qqline(fire$grass_biomass_21)
+
+plot(density(fire$grass_biomass_21, na.rm = TRUE))
+
+fire %>% 
+  filter(fire == "Hot") %>% 
+  pull(grass_biomass_21) %>% 
+  density(na.rm = TRUE) %>% 
+  plot()
+
+```
+
+```{r}
+ggplot(fire, aes(sample = grass_biomass_21,
+                 color = fire)) +
+  geom_qq()+
+  geom_qq_line() +
+  facet_wrap(~fire) # AUTOMÁTICO
+  # facet_grid(.~fire) # TODO LATERAL
+    # facet_grid(fire~.) # TODo HACIA ABAJO
 ```
 
 
-**Objetivo general**: 
-¿La pérdida de colas de los geckos _Mediodactylus kotschyi_ está mediadada por predadores o por competencia interespecífica con Hemidactylus turcicus?
-
-**Objetivos específicos**:
-- Existen diferencias en la proporción de autotomía entre los individuos de _Mediodactylus kotschyi_ de islas "libres de víboras" y "con presencia de víboras"
-
+# Pruebas de T, Wilcoxon y Mann-Withney
 
 ```{r}
-gkm <- gk %>% filter(sp == "Hemidactylus")
 
-t.test(af_prop ~ viper_pres, data = gkm)
-
-plot(gkm$af_prop, gkm$viper_pres)
-
-
-gk %>%
-  group_by(sp) %>%
-  # filter(sp == "Hemidactylus") %>%
-  rstatix::t_test(af_prop ~ viper_pres, detailed = T)
 ```
+
+# Pruebas de ANOVA y Kruskal-Wallis
+
 ```{r}
-gk %>% 
-  ggplot(aes(x=af_prop, y=viper_pres)) +
-  geom_point() + 
-  facet_wrap(~sp)
-```
-```{r}
-gk %>% 
-  filter(viper_pres == 1) %>% 
-  ggplot(aes(x=af_freq, y=viper_abund)) +
-  geom_point() + 
-  facet_wrap(~sp) 
+
 ```
 
+# Prueba de Chi-cuadrado
+
+```{r}
+
+```
