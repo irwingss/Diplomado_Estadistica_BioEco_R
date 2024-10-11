@@ -949,6 +949,34 @@
     "href": "slides/02/02-basic-stats.html#consideraciones-adicionales-evaluación-de-asunciones",
     "title": "Estadística Inferencial Básica",
     "section": "Consideraciones Adicionales: Evaluación de Asunciones",
-    "text": "Consideraciones Adicionales: Evaluación de Asunciones\n\nGráficos: Histogramas, Q-Q plots, gráficos de residuos.\nPruebas: Shapiro-Wilk (normalidad), Levene (homogeneidad), Mauchly (esfericidad).\nTransformaciones: Logarítmica, raíz cuadrada o alternativas no paramétricas.\n\n\n\n\n\n🔗 masterx.academy"
+    "text": "Consideraciones Adicionales: Evaluación de Asunciones\n\nGráficos: Histogramas, Q-Q plots, gráficos de residuos.\nPruebas: Shapiro-Wilk (normalidad), Levene (homogeneidad), Mauchly (esfericidad).\nTransformaciones: Logarítmica, raíz cuadrada o alternativas no paramétricas."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#prueba-de-independencia-de-chi-cuadrado",
+    "href": "slides/02/02-basic-stats.html#prueba-de-independencia-de-chi-cuadrado",
+    "title": "Estadística Inferencial Básica",
+    "section": "Prueba de Independencia de Chi-cuadrado",
+    "text": "Prueba de Independencia de Chi-cuadrado\n\nLa prueba de chi-cuadrado es una técnica estadística utilizada para comparar distribuciones de frecuencias de datos categóricos.\nPermite evaluar si las diferencias observadas entre categorías son estadísticamente significativas o simplemente producto del azar.\n\n\\[\n\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{E_i}\n\\]\nDonde:\n\\(O_i\\) es la frecuencia observada en la categoría. \\(E_i\\) es la frecuencia esperada en la categoría.\nEl valor \\(X^2\\) se compara con un valor crítico de la distribución chi-cuadrado con un número determinado de grados de libertad para determinar si las diferencias observadas son significativas."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#aplicación",
+    "href": "slides/02/02-basic-stats.html#aplicación",
+    "title": "Estadística Inferencial Básica",
+    "section": "Aplicación",
+    "text": "Aplicación\nLa prueba de independencia evalúa si dos variables categóricas están asociadas o si son independientes. En términos ecológicos, se utiliza para verificar si hay una relación significativa entre dos factores ecológicos categóricos, como el tipo de hábitat y la presencia de una especie, o la dieta de un animal y la estación del año. \nProblema: Queremos saber si la presencia de una especie de anfibio está asociada al tipo de ecosistema en el que se encuentran (bosque, pradera, humedal). \n\nHipótesis nula (H0): La presencia de la especie no depende del tipo de ecosistema; es decir, son independientes.\nHipótesis alterna (Ha): La presencia de la especie depende del tipo de ecosistema; existe una relación entre las dos variables."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#asunciones-teóricas",
+    "href": "slides/02/02-basic-stats.html#asunciones-teóricas",
+    "title": "Estadística Inferencial Básica",
+    "section": "Asunciones teóricas",
+    "text": "Asunciones teóricas\n\nIndependencia de las observaciones: Las observaciones deben ser independientes entre sí. Esto significa que los eventos que ocurren en una categoría no deben influir en los eventos de otra categoría.\nFrecuencias esperadas mínimas &gt;=5: En cada celda de la tabla de contingencia, las frecuencias esperadas deben ser suficientemente grandes (&gt;=5).\nDatos deben ser categóricos: La prueba de chi-cuadrado solo es válida para datos categóricos, y no debe aplicarse a datos continuos sin antes ser clasificados en categorías."
+  },
+  {
+    "objectID": "slides/02/02-basic-stats.html#interpretación",
+    "href": "slides/02/02-basic-stats.html#interpretación",
+    "title": "Estadística Inferencial Básica",
+    "section": "Interpretación",
+    "text": "Interpretación\n\nSi el valor p-valor de \\(X^2\\) es menor que 0.05, entonces se encuentra evidencia suficiente para rechazar \\(H_0\\). Por lo tanto, se acepta \\(H_a\\): existe relación entre las dos variables.\n\n\n\n\n\n🔗 masterx.academy"
   }
 ]

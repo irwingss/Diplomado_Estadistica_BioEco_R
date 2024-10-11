@@ -3788,6 +3788,47 @@ W = 0.036407, p-value = 0.7407</code></pre>
 <li><strong>Pruebas:</strong> Shapiro-Wilk (normalidad), Levene (homogeneidad), Mauchly (esfericidad).</li>
 <li><strong>Transformaciones:</strong> Logarítmica, raíz cuadrada o alternativas no paramétricas.</li>
 </ul>
+</section></section>
+<section>
+<section id="medida-de-asociación" class="title-slide slide level1 center">
+<h1>Medida de asociación</h1>
+
+</section>
+<section id="prueba-de-independencia-de-chi-cuadrado" class="slide level2">
+<h2>Prueba de Independencia de Chi-cuadrado</h2>
+<ul>
+<li>La prueba de chi-cuadrado es una técnica estadística utilizada para comparar distribuciones de frecuencias de datos categóricos.</li>
+<li>Permite evaluar si las diferencias observadas entre categorías son estadísticamente significativas o simplemente producto del azar.</li>
+</ul>
+<p><span class="math display">\[
+\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
+\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(O_i\)</span> es la frecuencia observada en la categoría. <span class="math inline">\(E_i\)</span> es la frecuencia esperada en la categoría.</p>
+<p>El valor <span class="math inline">\(X^2\)</span> se compara con un valor crítico de la distribución chi-cuadrado con un número determinado de grados de libertad para determinar si las diferencias observadas son significativas.</p>
+</section>
+<section id="aplicación" class="slide level2">
+<h2>Aplicación</h2>
+<p>La prueba de independencia evalúa si dos variables categóricas están asociadas o si son independientes. En términos ecológicos, se utiliza para verificar si hay una relación significativa entre dos factores ecológicos categóricos, como el tipo de hábitat y la presencia de una especie, o la dieta de un animal y la estación del año. <br></p>
+<p><strong>Problema</strong>: Queremos saber si la presencia de una especie de anfibio está asociada al tipo de ecosistema en el que se encuentran (bosque, pradera, humedal). <br></p>
+<ul>
+<li><strong>Hipótesis nula (H0)</strong>: La presencia de la especie no depende del tipo de ecosistema; es decir, <em>son independientes</em>.</li>
+<li><strong>Hipótesis alterna (Ha)</strong>: La presencia de la especie depende del tipo de ecosistema; <em>existe una relación</em> entre las dos variables.</li>
+</ul>
+</section>
+<section id="asunciones-teóricas" class="slide level2">
+<h2>Asunciones teóricas</h2>
+<ul>
+<li><strong>Independencia de las observaciones</strong>: Las observaciones deben ser independientes entre sí. Esto significa que los eventos que ocurren en una categoría no deben influir en los eventos de otra categoría.</li>
+<li><strong>Frecuencias esperadas mínimas &gt;=5</strong>: En cada celda de la tabla de contingencia, las frecuencias esperadas deben ser suficientemente grandes (&gt;=5).</li>
+<li><strong>Datos deben ser categóricos</strong>: La prueba de chi-cuadrado solo es válida para datos categóricos, y no debe aplicarse a datos continuos sin antes ser clasificados en categorías.</li>
+</ul>
+</section>
+<section id="interpretación" class="slide level2">
+<h2>Interpretación</h2>
+<ul>
+<li>Si el valor p-valor de <span class="math inline">\(X^2\)</span> es menor que 0.05, entonces se encuentra evidencia suficiente para rechazar <span class="math inline">\(H_0\)</span>. Por lo tanto, se acepta <span class="math inline">\(H_a\)</span>: existe relación entre las dos variables.</li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <p><img src="../logo.svg" class="slide-logo"></p>

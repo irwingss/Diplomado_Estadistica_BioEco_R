@@ -1105,4 +1105,41 @@ kruskal.test(valor ~ grupo, data = datos)
 - **Pruebas:** Shapiro-Wilk (normalidad), Levene (homogeneidad), Mauchly (esfericidad).
 - **Transformaciones:** Logarítmica, raíz cuadrada o alternativas no paramétricas.
 
+# Medida de asociación
 
+## Prueba de Independencia de Chi-cuadrado
+
+- La prueba de chi-cuadrado es una técnica estadística utilizada para comparar distribuciones de frecuencias de datos categóricos. 
+- Permite evaluar si las diferencias observadas entre categorías son estadísticamente significativas o simplemente producto del azar.
+
+$$ 
+\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
+$$
+
+Donde:
+
+$O_i$ es la frecuencia observada en la categoría.
+$E_i$ es la frecuencia esperada en la categoría.
+
+El valor $X^2$ se compara con un valor crítico de la distribución chi-cuadrado con un número determinado de grados de libertad para determinar si las diferencias observadas son significativas.
+
+## Aplicación
+
+La prueba de independencia evalúa si dos variables categóricas están asociadas o si son independientes. En términos ecológicos, se utiliza para verificar si hay una relación significativa entre dos factores ecológicos categóricos, como el tipo de hábitat y la presencia de una especie, o la dieta de un animal y la estación del año. <br>
+
+**Problema**: Queremos saber si la presencia de una especie de anfibio está asociada al tipo de ecosistema en el que se encuentran (bosque, pradera, humedal).
+<br>
+
+- **Hipótesis nula (H0)**: La presencia de la especie no depende del tipo de ecosistema; es decir, *son independientes*.
+- **Hipótesis alterna (Ha)**: La presencia de la especie depende del tipo de ecosistema; *existe una relación* entre las dos variables.
+
+## Asunciones teóricas
+
+- **Independencia de las observaciones**: Las observaciones deben ser independientes entre sí. Esto significa que los eventos que ocurren en una categoría no deben influir en los eventos de otra categoría.
+- **Frecuencias esperadas mínimas >=5**:  En cada celda de la tabla de contingencia, las frecuencias esperadas deben ser suficientemente grandes (>=5).
+- **Datos deben ser categóricos**: La prueba de chi-cuadrado solo es válida para datos categóricos, y no debe aplicarse a datos continuos sin antes ser clasificados en categorías.
+
+## Interpretación
+
+- Si el valor p-valor de $X^2$ es menor que 0.05, entonces se encuentra evidencia suficiente para rechazar $H_0$. Por lo tanto, se acepta $H_a$: existe relación entre las dos variables.
+ 

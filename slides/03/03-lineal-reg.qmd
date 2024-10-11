@@ -1,0 +1,1100 @@
+---
+title: Estadística Inferencial Básica
+subtitle: Módulo 6
+title-slide-attributes:
+  data-background-image: ../bg4.png
+  data-background-size: cover
+  data-slide-number: default
+format:
+  revealjs:
+    theme:
+     - "default"
+     - "../slides.scss"
+    width: "1600"
+    height: "900"
+    slide-number: true
+    highlight-style: atom-one
+    chalkboard: 
+       theme: chalkboard
+       chalk-effect: 0.1
+       chalk-width: 5
+       boardmarker-width: 7
+revealjs-plugins:
+  - ace
+filters:
+  - shinylive
+cache: true
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  fig.align = "center"
+)
+```
+
+# Objetivos del módulo {background-image="../bg8.png"}
+
+::: incremental
+1.  Discernir entre el uso de estadística **paramétrica y no paramétrica**.
+2.  Comprender el **concepto de p-valor** y de los errores tipo I y tipo II.
+3.  Aplicar **pruebas de hipótesis** y de **normalidad**.
+4.  **Elegir adecuadamente el test** estadístico para inferencia a partir de comparaciones de medias.
+5.  **Desarrollar scripts de análisis** estadístico de manera efectiva con sintaxis de R.
+:::
+
+# Introducción
+
+## Temario del módulo
+
+::: incremental
+-   Introducción a la estadística inferencial
+-   Pruebas de hipótesis.
+-   Error tipo I y II.
+-   Valores de P: nivel de significancia.
+-   Pruebas de normalidad: métodos y pruebas gráficas.
+-   Pruebas Paramétricas vs No paramétricas.
+-   Comparaciones de medias de dos grupos (T de Student, y no paramétricas Wilcoxon, U de Mann-Whitney).
+-   Comparaciones de medias de más de dos grupos (ANOVAs, Pruebas de Kruslal Wallis).
+-   Test de asociación (Chi-cuadrado, otros).
+:::
+
+# 1. Inferencia estadística
+
+"Extraer conclusiones sobre una población a partir de una muestra"
+
+## Estadística inferencial
+
+Es el proceso mediante el cual se hacen estimaciones, predicciones o decisiones sobre una población basándose en los resultados obtenidos de una muestra.
+
+<br>
+
+#### Puntos clave:
+
+::: incremental
+-   Población vs. Muestra.
+
+-   Estimación (de parámetros de la población).
+
+-   **Pruebas de Hipótesis** ¿hay evidencia suficiente?.
+
+-   **Incertidumbre y Probabilidad** (grado de confianza).
+:::
+
+# 2. Pruebas de hipótesis y el p-valor
+
+## Pruebas de hipótesis
+
+Procedimiento estadístico que se utiliza para evaluar dos **afirmaciones mutuamente excluyentes**.
+
+::: incremental
+-   $H_0$: **hipótesis nula**. No existen diferencias (efecto).
+-   $H_a$: **hipótesis alterna**. Existen diferencias (efecto).
+:::
+
+<br>
+
+::: fragment
+#### Siempre buscamos evidencia para rechazar $H_0$. Las opciones son:
+:::
+
+::: incremental
+-   Encontramos evidencia para rechazar $H_0$.
+-   O no encontramos evidencia para rechazar $H_0$.
+:::
+
+## Falsabilidad de Karl Popper
+
+Para que una hipótesis ($H_a$) sea científica, debe ser falsable.
+
+::: callout-tip
+## Entonces
+
+Debe haber una manera clara y objetiva de refutarla mediante la observación o experimentación.
+:::
+
+::: fragment
+#### Ejemplo:
+
+-   $H_a$: **Una mayor biodiversidad aumenta la productividad del ecosistema.**
+:::
+
+::: fragment
+-   Para que esta afirmación sea falsable, debe ser posible observar un ecosistema con mayor biodiversidad que no muestre un aumento en productividad.
+:::
+
+## ¿Cómo se relaciona con el p-valor y la significancia `0.05`?
+
+El **p-valor** de una prueba estadística permite tomar la decisión de rechazo de $H_0$, y consecuente validación de $H_a$. Esto se obtiene al **comparar el p-valor vs el nivel de significancia**, típicamente $0.05$.
+
+<br>
+
+#### Casos:
+
+::: incremental
+-   $p-valor < 0.05$: Se halló suficiente evidencia para rechazar $H_0$.
+-   $p-valor \geq  0.05$: **No** se halló suficiente evidencia para rechazar $H_0$.
+:::
+
+##  {.center .dark-background background-image="../landscape3.jpg"}
+
+::: task
+<strong>p-valor: </strong><br> Recuerda que el p-valor es una probabilidad que se obtiene al analizar tu data con una prueba estadística, y que lo enfrentamos siempre al nivel de significancia (0.05). Esta última es antagonista de la certeza o nivel de confianza (0.95) en esta historia.
+:::
+
+## Tabla de Error {.center}
+
+::: fragment
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(gt)
+library(tibble)
+
+# Datos para la tabla de decisiones y realidad para H0
+datos_errores <- tribble(
+  ~Concepto, ~`H0 Verdadero`, ~`H0 Falso`,
+  "Rechazar H0", "Falso Positivo (FP)", "Verdadero Positivo (TP)",
+  "No rechazar H0", "Verdadero Negativo (TN)", "Falso Negativo (FN)"
+)
+
+
+# Crear la tabla con gt
+tabla_errores <- datos_errores %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(
+    column_labels.background.color = "#0013fe",
+    table.font.size = px(28),
+    data_row.padding = px(15)
+  ) %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_errores
+```
+:::
+
+<br>
+
+::: fragment
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(gt)
+library(tibble)
+
+# Datos para la tabla de decisiones y realidad para H0
+datos_errores <- tribble(
+  ~Concepto, ~`H0 Verdadero`, ~`H0 Falso`,
+  "Rechazar H0", "Error de tipo I (Nivel de Sig., α)", "Poder (1 - β)",
+  "No rechazar H0", "Confianza (1 - α)", "Error de tipo II (β)"
+)
+
+
+# Crear la tabla con gt
+tabla_errores <- datos_errores %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(
+    column_labels.background.color = "#8a00b8",
+    table.font.size = px(28),
+    data_row.padding = px(15)
+  ) %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_errores
+
+```
+:::
+
+<br>
+
+::: fragment
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(gt)
+library(tibble)
+
+# Datos para la tabla de decisiones y realidad para H0
+datos_errores <- tribble(
+  ~Concepto, ~`H0 Verdadero`, ~`H0 Falso`,
+  "Rechazar H0", "0.05", "¡INCREMENTAR!",
+  "No rechazar H0", "0.95", "REDUCIR"
+)
+
+
+# Crear la tabla con gt
+tabla_errores <- datos_errores %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(
+    column_labels.background.color = "#ff4900",
+    table.font.size = px(28),
+    data_row.padding = px(15)
+  ) %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_errores
+
+```
+:::
+
+## ¿Qué es el Poder?
+
+::: incremental
+-   Es $1 − β$, los verdaderos positivos: rechazar H0 cuando realmente es falsa.
+-   Es la probabilidad de detectar un efecto determinado, siendo que este efecto realmente existe (TP).
+-   Maneras de llegar a obtener el **poder de un estudio**: cálculo directo, simulación.
+:::
+
+::: fragment
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 45%
+
+knitr::include_graphics("images/tabla_de_errores.png")
+```
+:::
+
+##  {.center}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("images/tabla_de_errores_y_funciones.png")
+```
+
+## Maneras de incrementar el poder 1
+
+::::::: columns
+::::: column
+::: fragment
+-   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+:::
+
+::: fragment
+:::
+:::::
+
+::: column
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1*9JmIG7tKACTmWmGNZ0Kacg.png")
+```
+:::
+:::::::
+
+## Maneras de incrementar el poder 2
+
+::::::: columns
+::::: column
+::: {.fragment .semi-fade-out}
+-   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+:::
+
+::: fragment
+-   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+:::
+:::::
+
+::: column
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1*cL2a-aqT7_a0MAZcVUb86Q.gif")
+```
+:::
+:::::::
+
+## Maneras de incrementar el poder 3
+
+::::::: columns
+::::: column
+::: {.fragment .semi-fade-out}
+-   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+-   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+:::
+
+::: fragment
+-   Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+:::
+:::::
+
+::: column
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1*cfFd6EOaZIEae8fdQin5tg.gif")
+```
+:::
+:::::::
+
+## Maneras de incrementar el poder 4
+
+::::::: columns
+::::: column
+::: {.fragment .semi-fade-out}
+-   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+-   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+-   Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+:::
+
+::: fragment
+-   Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
+:::
+:::::
+
+::: column
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1*RpQFm6HZDThA4Hrntb7LbA.gif")
+```
+:::
+:::::::
+
+## Maneras de incrementar el poder 5
+
+::::::: columns
+::::: column
+::: {.fragment .semi-fade-out}
+-   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+-   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+-   Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+-   Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
+:::
+
+::: fragment
+-   [Modo 5: disminuir la desviación estándar. Reducir errores de muestreo. ¡MEJORAR DISEÑO!]{style="color:#ff4900;"}
+:::
+:::::
+
+::: column
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1*G-KJaRJ3AMfTS--LeJtJHg.gif")
+```
+:::
+:::::::
+
+## Maneras de incrementar el poder 6
+
+::::::: columns
+::::: column
+::: {.fragment .semi-fade-out}
+-   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
+-   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
+-   Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
+-   Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
+-   [Modo 5: disminuir la desviación estándar. Reducir errores de muestreo. ¡MEJORAR DISEÑO!]{style="color:#ff4900;"}
+:::
+
+::: fragment
+-   [Modo 6: incrementar el tamaño de la muestra. ¡TAMBIÉN ES CORRECTO!]{style="color:#ff4900;"}
+:::
+:::::
+
+::: column
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1*q0WMA_Xp9gtF5tIWBesABA.gif")
+```
+:::
+:::::::
+
+## 
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 800
+
+# Paquetes necesarios
+library(shiny)
+library(ggplot2)
+library(ggridges)
+library(plotly)
+
+# Interfaz de usuario (UI)
+ui <- fluidPage(
+  tags$head(tags$style(HTML("
+    .irs--shiny .irs-grid-text {
+    bottom: 5px;
+    font-size: 16px;
+    }
+    .irs--shiny .irs-min, .irs--shiny .irs-max {
+    font-size: 16px;
+    }
+    .sidebar { 
+    height: 100vh; 
+    position: -webkit-sticky;   
+    position: sticky; 
+    top: 20px; /* Ajusta la distancia desde el top */
+  }
+  "))),
+  
+  titlePanel("Tabla de Errores"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("n", "Tamaño de la muestra (n):", min = 10, max = 1000, value = 100, step = 10),
+      sliderInput("delta", "Diferencia de medias (Δ):", min = 0.1, max = 2, value = 0.3, step = 0.1),
+      sliderInput("sigma", "Desviación estándar (σ):", min = 0.1, max = 2, value = 1, step = 0.1),
+      sliderInput("alpha", "Nivel de significancia (α):", min = 0.01, max = 0.2, value = 0.05, step = 0.01),
+      style = "font-size: 22px; position: -webkit-sticky; position: sticky; top: 20px;"
+    ),
+    
+    mainPanel(
+      plotOutput("grafico_poder", height = "700px"),
+      plotlyOutput("grafico_dispersion", height = "400px")  # plotlyOutput para el gráfico interactivo
+    )
+  ),
+)
+
+# Lógica del servidor (Server)
+server <- function(input, output) {
+  
+  # Gráfico general de poder
+  output$grafico_poder <- renderPlot({
+    n <- input$n
+    delta <- input$delta
+    sigma <- input$sigma
+    alpha <- input$alpha
+    
+    # Calcular el error estándar y el parámetro de no centralidad
+    se <- sigma / sqrt(n)
+    ncp <- delta / se
+    
+    # Valor crítico
+    z_alpha <- qnorm(1 - alpha)
+    
+    # Generar valores z
+    z_min <- min(-4, ncp - 4)
+    z_max <- max(4, ncp + 4)
+    z <- seq(z_min, z_max, length.out = 1000)
+    
+    # Densidades bajo H0 y H1
+    h0_density <- dnorm(z, mean = 0, sd = 1)
+    h1_density <- dnorm(z, mean = ncp, sd = 1)
+    
+    # Crear data frames
+    df_h0 <- data.frame(
+      z = z,
+      density = h0_density,
+      hypothesis = "H0",
+      region = ifelse(z >= z_alpha, "Sig. o Error Tipo I (α)", "Confianza (1-α)")
+    )
+    
+    df_h1 <- data.frame(
+      z = z,
+      density = h1_density,
+      hypothesis = "H1",
+      region = ifelse(z >= z_alpha, "Poder (1-β)", "Error Tipo II (β)")
+    )
+    
+    # Combinar data frames
+    df <- rbind(df_h0, df_h1)
+    
+    # Asignar colores
+    df$fill_color <- factor(df$region, levels = c("Sig. o Error Tipo I (α)", "Confianza (1-α)", "Error Tipo II (β)", "Poder (1-β)"))
+    
+    # Definir colores
+    fill_colors <- c(
+      "Sig. o Error Tipo I (α)" = "#ff9c96",
+      "Confianza (1-α)" = "#a0ff78",
+      "Error Tipo II (β)" = "#ff0d00",
+      "Poder (1-β)" = "#2fa100"
+    )
+    
+    # Cambiar orden factor
+    df$hypothesis <- factor(df$hypothesis, levels = c("H1", "H0"))
+    
+    # Generar el gráfico
+    ggplot(df, aes(x = z, y = hypothesis, height = density, fill = fill_color)) +
+      geom_ridgeline(alpha = 0.8, color = "black", size = 0.3) +
+      scale_fill_manual(values = fill_colors) +
+      geom_vline(xintercept = z_alpha, linetype = "dashed", color = "black") +
+      labs(x = "", y = "", fill = "") +
+      theme_minimal() +
+      theme(legend.position = "bottom",
+            axis.text = element_text(size = 20),
+            legend.text = element_text(size = 15)) +
+      guides(fill = guide_legend(nrow = 2))
+  })
+  
+  # Gráfico de dispersión comparando H0 vs Ha
+  output$grafico_dispersion <- renderPlotly({
+    n <- input$n
+    delta <- input$delta
+    sigma <- input$sigma
+    alpha <- input$alpha
+    
+    # Calcular el error estándar y el parámetro de no centralidad
+    se <- sigma / sqrt(n)
+    ncp <- delta / se
+    
+    # Valor crítico
+    z_alpha <- qnorm(1 - alpha)
+    
+    # Generar puntos aleatorios para las distribuciones
+    set.seed(123)
+    z_h0 <- rnorm(n, mean = 0, sd = 1)
+    z_h1 <- rnorm(n, mean = ncp, sd = 1)
+    
+    # Crear data frame para el gráfico
+    df_dispersion <- data.frame(
+      z_h0 = z_h0,
+      z_h1 = z_h1
+    )
+    
+    # Generar el gráfico de dispersión
+    plot2 <- ggplot(df_dispersion, aes(x = z_h0, y = z_h1)) +
+      geom_point(color = "#0013fe", size = 3, alpha = 0.7) +
+      geom_vline(xintercept = z_alpha, linetype = "dashed", color = "black") +
+      geom_hline(yintercept = z_alpha, linetype = "dashed", color = "black") +
+      labs(x = "H0", y = "Ha") +
+      theme_minimal() +
+      theme(axis.text.y = element_blank(),  # Oculta los valores del eje Y
+            axis.ticks.y = element_blank(), # Oculta las marcas del eje Y
+            axis.text = element_text(size = 15)) 
+    
+    # Convertir el gráfico a plotly
+    ggplotly(plot2) %>%
+      layout(
+        autosize = TRUE,  # Ajuste automático del tamaño
+        yaxis = list(showticklabels = FALSE),  # Oculta las etiquetas del eje Y
+        margin = list(l = 0, r = 0, b = 50, t = 50)  # Ajuste de márgenes
+      )
+  })
+}
+
+# Ejecutar la aplicación
+shinyApp(ui = ui, server = server)
+
+```
+
+## Cálculo de Poder con R
+
+```{r}
+#| echo: false
+
+library(gt)
+library(tibble)
+
+# Crear el dataframe
+datos_funciones <- tibble(
+  Paquete = c("pwr", "pwr", "pwr", "pwr", "pwr", "pwr2", "simr"),
+  Función = c("pwr.chisq.test()", "pwr.anova.test()", "pwr.f2.test()", 
+              "pwr.t.test()", "pwr.t2n.test()", "pwr.2way()", "powerSim()"),
+  Definición = c("Para Pruebas de Chi-cuadrado.", 
+                 "Para Anovas de una vía balanceados.",
+                 "Para regresiones lineales y Anova de dos vías.",
+                 "Para Pruebas de t (una muestra, dos muestras, muestras pareadas). Mismo N muestral.",
+                 "Para Pruebas de t (dos muestras). Diferente N muestral.",
+                 "Para Anovas de dos vías balanceado.",
+                 "Para simulaciones de modelos GLM y GLMM.")
+)
+
+# Crear la tabla con gt
+tabla_funciones <- datos_funciones %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = c("Paquete", "Función", "Definición")
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", color = "white"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_options(
+    column_labels.background.color = "#0013fe", 
+    table.font.size = px(20),
+    data_row.padding = px(15)
+  ) %>%
+  opt_row_striping() %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_funciones
+```
+
+## ¿Qué es el p-valor?
+
+Es la probabilidad de obtener un resultado (diferencia o efecto) tan extremo o más extremo ($\geq$) que el observado, si la hipótesis nula es verdadera.
+
+:::: {.fragment .fade-up}
+::: {.callout-tip collapse="true"}
+## Un p-valor pequeño (\< 0.05):
+
+-   Hay evidencia suficiente para rechazar la hipótesis nula.
+-   Los resultados observados no se deben al azar.
+:::
+::::
+
+:::: {.fragment .fade-up}
+::: {.callout-caution collapse="true"}
+## Un p-valor grande (≥ 0.05):
+
+-   No hay suficiente evidencia para rechazar la hipótesis nula.
+-   Los resultados podrían deberse al azar.
+:::
+::::
+
+##  {.center background-color="#16161d"}
+
+> Un p-valor más pequeño generalmente indica que es menos probable que los resultados observados se deban al azar, bajo la suposición de que la hipótesis nula es verdadera.
+
+# 3. Medir normalidad
+
+## Normalidad
+
+::: callout-tip
+## El teorema del límite central
+
+Establece que cuando el tamaño de la muestra tiene 100 o más observaciones, la violación de la normalidad no es un problema importante.
+:::
+
+Puedes estimar normalidad:
+
+-   Simetría y curtosis.
+-   Pruebas de Normalidad.
+-   Gráfico cuantil-cuantil (QQ-Plot)
+
+## Normalidad
+
+::::: columns
+::: column
+-   El gráfico compara los cuantiles de los datos observados con los cuantiles de una distribución teórica determinada.
+
+-   Si los puntos del gráfico Q-Q caen aproximadamente sobre una línea recta, los datos siguen la distribución teórica.
+
+-   Si los puntos se desvían significativamente de la línea, los datos no siguen la distribución especificada.
+:::
+
+::: column
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: "70%"
+
+knitr::include_graphics("images/formas_normal.jpg")
+```
+:::
+:::::
+
+## Pruebas de normalidad
+
+Existen varias pruebas que nos permiten evaluar si un conjunto de datos sigue una distribución normal. En esta presentación exploraremos:
+
+-   Shapiro-Wilk Test
+-   Kolmogorov-Smirnov Test
+-   Pruebas del paquete `nortest`
+-   Shapiro-Francia Test
+-   Test Z de Anderson-Darling
+
+## Test de Normalidad 1
+
+```{r}
+#| echo: false
+
+# Datos
+set.seed(123)
+datos_n <- c(rpois(250,25)) 
+```
+
+```{r}
+# Shapiro Test
+shapiro.test(datos_n)
+
+# Kolmogorov-Smirnovs Test
+ks.test(datos_n, "pnorm", mean(datos_n), sd(datos_n))
+
+# Lilliefors Test
+nortest::lillie.test(datos_n)
+
+```
+
+## Test de Normalidad 2
+
+```{r}
+# Anderson-Darling Test
+nortest::ad.test(datos_n)
+
+# Shapiro-Francia Test
+nortest::sf.test(datos_n)
+
+# Cramér-von Mises Test
+nortest::cvm.test(datos_n)
+```
+
+## Varios test a la vez
+
+```{r}
+masterX::NormTests(datos_n)
+```
+
+# Pruebas estadísticas que aplican pruebas de hipótesis
+
+## 
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("images/StatsTest Flowchart Colored with Key.jpg")
+```
+
+::: footer
+<https://www.statstest.com/>
+:::
+
+# 4. Comparaciones de grupos
+
+## Concepto de comparación
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("images/normalizacion-n-muestral.png")
+```
+
+## Concepto de comparación
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+knitr::include_graphics("images/significancia decision.png")
+```
+
+## Paramétrico vs No paramétrico
+
+-   **Pruebas paramétricas:** son más poderosas si las asunciones se cumplen.
+-   **Pruebas no paramétricas:** son más flexibles y robustas, pero menos poderosas en datos ideales.
+
+```{r}
+#| echo: false
+
+library(gt)
+library(tibble)
+
+# Crear el dataframe transpuesto
+datos_transpuestos <- tibble(
+  `Característica` = c("Distribución de los datos", "Medidas clave", "Ejemplos", "Uso"),
+  `Pruebas Paramétricas` = c("Normal o aproximadamente normal", 
+                              "Media y Varianza", 
+                              "t-test, ANOVA", 
+                              "Mayor potencia si se cumplen las asunciones"),
+  `Pruebas No Paramétricas` = c("Cualquier distribución (sin suposiciones)", 
+                                "Mediana y Rangos", 
+                                "Wilcoxon, Kruskal-Wallis", 
+                                "Menor potencia, pero más robustas ante violaciones")
+)
+
+# Crear la tabla con gt
+tabla_transpuesta <- datos_transpuestos %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = c("Pruebas Paramétricas", "Pruebas No Paramétricas")
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", color = "white"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_options(
+    column_labels.background.color = "#0013fe", 
+    table.font.size = px(20),
+    data_row.padding = px(15)
+  ) %>%
+  opt_row_striping() %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_transpuesta
+```
+
+::: callout-tip
+## Poder:
+
+Capacidad para detectar efectos reales o diferencias significativas cuando estas existen.
+:::
+
+# Asunciones de las pruebas estadísticas básicas
+
+## Prueba t de Student para muestras independientes
+
+-   **Independencia de las observaciones.**
+-   **Normalidad:** Las distribuciones de las dos poblaciones deben ser aproximadamente normales.
+-   **Homogeneidad de varianzas:** Verificable con la prueba de Levene o Bartlett.
+
+**Hipótesis:**<br>
+
+-   **H₀:** Los promedios de las dos poblaciones son iguales.
+-   **H₁:** Los promedios de las dos poblaciones son diferentes.
+
+## Aplicación con R: Prueba t de Student para muestras independientes
+
+```{r, eval=FALSE, echo=TRUE}
+# Prueba de normalidad
+shapiro.test(datos$grupo1)
+shapiro.test(datos$grupo2)
+
+# Prueba de homogeneidad de varianzas
+leveneTest(valor ~ grupo, datos)
+
+# Prueba t para muestras independientes
+t.test(grupo1, grupo2, var.equal = TRUE)
+```
+
+## Prueba t para muestras pareadas
+
+-   **Dependencia de las observaciones.**
+-   **Normalidad de las diferencias:** Las diferencias entre pares deben seguir una distribución normal.
+
+**Hipótesis:**<br>
+
+-   **H₀:** El promedio de las diferencias es igual a cero.
+-   **H₁:** El promedio de las diferencias es diferente de cero.
+
+## Aplicación con R: Prueba t para muestras pareadas
+
+```{r, eval=FALSE, echo=TRUE}
+# Prueba de normalidad de las diferencias
+diferencias <- datos$antes - datos$despues
+shapiro.test(diferencias)
+
+# Prueba t para muestras pareadas
+t.test(datos$antes, datos$despues, paired = TRUE)
+```
+
+## Prueba de Mann-Whitney U
+
+-   **Independencia de las observaciones.**
+-   **Escala ordinal o de intervalo:** Las variables deben ser al menos ordinales.
+-   **Distribuciones similares:** Las dos poblaciones deben tener formas de distribución similares.
+
+**Hipótesis:**<br>
+
+-   **H₀:** Las distribuciones de las dos poblaciones son iguales.
+-   **H₁:** Las distribuciones de las dos poblaciones son diferentes.
+
+## Aplicación con R: Prueba de Mann-Whitney U
+
+```{r, eval=FALSE, echo=TRUE}
+# Prueba de distribución similar (opcional)
+hist(datos$grupo1)
+hist(datos$grupo2)
+
+# Prueba de Mann-Whitney U para muestras independientes
+wilcox.test(grupo1, grupo2)
+```
+
+## Prueba de Wilcoxon
+
+-   **Dependencia de las observaciones.**
+-   **Escala ordinal o de intervalo:** Las diferencias deben ser al menos de naturaleza ordinal.
+-   **Simetría de las diferencias:** Se asume que las diferencias son simétricas alrededor de la mediana.
+
+**Hipótesis:**<br>
+
+-   **H₀:** La mediana de las diferencias es igual a cero.
+-   **H₁:** La mediana de las diferencias es diferente de cero.
+
+## Aplicación con R: Prueba de Wilcoxon
+
+```{r, eval=FALSE, echo=TRUE}
+# Evaluar la simetría de las diferencias
+diferencias <- datos$antes - datos$despues
+hist(diferencias)
+
+# Prueba de Wilcoxon para muestras pareadas
+wilcox.test(datos$antes, datos$despues, paired = TRUE)
+```
+
+## ANOVA de Una Vía
+
+-   **Independencia de las observaciones.**
+-   **Normalidad:** Las distribuciones de los grupos deben ser aproximadamente normales.
+-   **Homogeneidad de varianzas:** Igualdad de varianzas entre los grupos (prueba de Levene).
+
+**Hipótesis:** <br>
+
+-   **H₀:** Los promedios de los grupos son iguales.
+-   **H₁:** Al menos una media es diferente.
+
+## Aplicación con R: ANOVA de Una Vía
+
+```{r, eval=FALSE, echo=TRUE}
+# Prueba de normalidad para cada grupo
+by(datos$valor, datos$grupo, shapiro.test)
+
+# Prueba de homogeneidad de varianzas
+leveneTest(valor ~ grupo, datos)
+
+# ANOVA de una vía
+anova_modelo <- aov(valor ~ grupo, data = datos)
+summary(anova_modelo)
+```
+
+## ANOVA de Dos Vías Unifactorial
+
+-   **Independencia de las observaciones.**
+-   **Normalidad:** Las combinaciones de factores deben tener distribuciones normales.
+-   **Homogeneidad de varianzas:** Igualdad de varianzas entre combinaciones de factores.
+
+**Hipótesis:**<br>
+
+-   **H₀:** Los promedios de todas las combinaciones de factores son iguales.
+-   **H₁:** Al menos una combinación de promedios es diferente.
+
+## Aplicación con R: ANOVA de Dos Vías Unifactorial
+
+```{r, eval=FALSE, echo=TRUE}
+# Prueba de normalidad por combinación de factores
+by(datos$valor, list(datos$factor1, datos$factor2), shapiro.test)
+
+# Prueba de homogeneidad de varianzas
+leveneTest(valor ~ factor1 * factor2, datos)
+
+# ANOVA de dos vías unifactorial
+anova_modelo <- aov(valor ~ factor1 + factor2, data = datos)
+summary(anova_modelo)
+```
+
+## ANOVA de Dos Vías Factorial
+
+-   **Independencia de las observaciones.**
+-   **Normalidad.**
+-   **Homogeneidad de varianzas.**
+-   **Adición de efectos independientes:** Sin interacción no especificada entre factores.
+
+**Hipótesis:** - **H₀:** No hay interacción entre factores. - **H₁:** Hay interacción entre factores.
+
+## Aplicación con R: ANOVA de Dos Vías Factorial
+
+```{r, eval=FALSE, echo=TRUE}
+# Prueba de homogeneidad de varianzas
+leveneTest(valor ~ factor1 * factor2, datos)
+
+# ANOVA de dos vías factorial
+anova_modelo <- aov(valor ~ factor1 * factor2, data = datos)
+summary(anova_modelo)
+
+```
+
+## Modelos ANOVA Balanceados vs. No Balanceados
+
+-   **Balanceados**: Facilita el cumplimiento de las asunciones de homogeneidad de varianzas.
+
+-   **No balanceados**: Mayor atención a la homogeneidad de varianzas. Métodos robustos o correcciones pueden ser necesarias.
+
+## Prueba de Kruskal-Wallis
+
+-   **Independencia de las observaciones.**
+-   **Escala ordinal o de intervalo.**
+-   **Distribuciones similares:** No requieren normalidad pero se asume que las distribuciones son similares.
+
+**Hipótesis:** - **H₀:** Las distribuciones de los grupos son iguales. - **H₁:** Al menos un grupo tiene una distribución diferente.
+
+## Aplicación con R: ANOVA de Dos Vías Factorial
+
+```{r, eval=FALSE, echo=TRUE}
+# Evaluar la distribución de los grupos
+hist(datos$grupo1)
+hist(datos$grupo2)
+
+# Realizar la prueba de Kruskal-Wallis
+kruskal.test(valor ~ grupo, data = datos)
+```
+
+## Consideraciones Adicionales: Evaluación de Asunciones
+
+-   **Gráficos:** Histogramas, Q-Q plots, gráficos de residuos.
+-   **Pruebas:** Shapiro-Wilk (normalidad), Levene (homogeneidad), Mauchly (esfericidad).
+-   **Transformaciones:** Logarítmica, raíz cuadrada o alternativas no paramétricas.
