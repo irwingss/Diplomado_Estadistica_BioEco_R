@@ -57,14 +57,14 @@ knitr::opts_chunk$set(
 
 ## La historia de (casi) tod\@s
 
-::: columns
-::: column
+:::::: columns
+:::: column
 ::: incremental
 -   "En algún punto de la vida académica/profesional, todos afrontamos problemas de análisis de datos".
 -   ¿Le tomaste interés por tu tesis de pregrado o posgrado?
 -   En la era de la IA es más útil que nunca.
 :::
-:::
+::::
 
 ::: column
 ```{r}
@@ -74,11 +74,11 @@ knitr::opts_chunk$set(
 knitr::include_graphics("images/student-statistics.jpg")
 ```
 :::
-:::
+::::::
 
 ##  {.center background-color="#16161d"}
 
-::: columns
+::::: columns
 ::: column
 ```{r}
 #| echo: false
@@ -94,7 +94,7 @@ knitr::include_graphics("images/edward_deming.jpeg")
 
 > ["Sin datos no eres más que otra persona con una opinión" <br> *W. Edward Deming.*]{style="color:white;"}
 :::
-:::
+:::::
 
 ##  {.center background-color="#16161d"}
 
@@ -147,7 +147,7 @@ knitr::include_graphics("images/sampliong-eco.jpg")
 
 ## Parámetro y estadístico
 
-::: columns
+::::: columns
 ::: column
 ```{r}
 #| echo: false
@@ -160,7 +160,7 @@ knitr::include_graphics("images/bird-medidas.jpg")
 -   **Parámetro:** Es una medida numérica de una característica resumida de una población.
 -   **Estadístico:** Es una medida numérica numérica de una característica de una muestra.
 :::
-:::
+:::::
 
 ## Conceptos relacionados a un estadístico
 
@@ -400,8 +400,8 @@ Comprender los tipos de variables es fundamental para elegir las estadísticas d
 
 ## Tamaño de la muestra
 
-::: columns
-::: column
+::::::: columns
+:::: column
 ### **¿Debe ser muy grande?**
 
 ::: incremental
@@ -415,9 +415,9 @@ Comprender los tipos de variables es fundamental para elegir las estadísticas d
 
 knitr::include_graphics("https://plus.unsplash.com/premium_photo-1664304394734-b991b0fc4132?q=80&w=2382&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 ```
-:::
+::::
 
-::: column
+:::: column
 <https://www.surveymonkey.com/mp/sample-size-calculator/>
 
 ```{r}
@@ -433,12 +433,12 @@ knitr::include_graphics("images/surveymonkey.png")
 2.  Define tu margen de error.
 3.  Define tu nivel de confianza.
 :::
-:::
-:::
+::::
+:::::::
 
 ## ¿Qué es el margen de error?
 
-::: columns
+:::::: columns
 ::: column
 ¿Cómo saber si la respuesta obtenida refleja el parámetro de la población?
 
@@ -449,15 +449,15 @@ knitr::include_graphics("images/covid_prob.png")
 ```
 :::
 
-::: column
+:::: column
 > Si preguntas aun grupo de personas si se vacunaría contra la COVID-19, la respuesta es dicotómica.
 
 ::: incremental
 -   Si 70% de los evaluado dicen que sí se vacunarán, un 5% de margen de error significa implica que el valor fluctuará en la población e 65% a 75%.
 -   Márgenes de error superiores al 10% no son recomendados
 :::
-:::
-:::
+::::
+::::::
 
 ## Margen de error
 
@@ -726,11 +726,11 @@ P(A)=\frac{x}{n}=\frac{\text{Número total de resultados favorables}}{\text{Núm
 $$
 :::
 
-::: {.fragment .fade-up}
+:::: {.fragment .fade-up}
 ::: callout-tip
 Cuando $n$ es pequeño, la frecuencia relativa observada de un suceso **no es un reflejo fiable de su probabilidad**.
 :::
-:::
+::::
 
 ## ¿Probabilidad es diferente que estadística?
 
@@ -946,11 +946,11 @@ grid.arrange(plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, nrow
 -   La PMF toma un valor específico y devuelve la probabilidad de que la variable tome ese valor.
 :::
 
-::: {.fragment .fade-up}
+:::: {.fragment .fade-up}
 ::: callout-tip
 Cuando $n$ es pequeño, la frecuencia relativa observada de un suceso **no es un reflejo fiable de su probabilidad**.
 :::
-:::
+::::
 
 ## Distribuciones continuas
 
@@ -1126,7 +1126,7 @@ shinyApp(ui = ui, server = server)
 
 ## Probabilidad de Mantenimiento de Funciones Ecológicas
 
-::: columns
+::::: columns
 ::: column
 -   **¿cómo la probabilidad de extinción de especies afecta la probabilidad de mantener funciones clave en un ecosistema?** [@nijs2000]
 
@@ -1141,7 +1141,7 @@ shinyApp(ui = ui, server = server)
 knitr::include_graphics("images/probabilidad_ejemplo_extincion.png")
 ```
 :::
-:::
+:::::
 
 ## Todo esto se generó con una función sencilla
 

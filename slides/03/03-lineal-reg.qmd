@@ -1,6 +1,6 @@
 ---
-title: Estadística Inferencial Básica
-subtitle: Módulo 6
+title: Modelamiento Lineal
+subtitle: Módulo 7
 title-slide-attributes:
   data-background-image: ../bg4.png
   data-background-size: cover
@@ -14,13 +14,12 @@ format:
     height: "900"
     slide-number: true
     highlight-style: atom-one
+    incremental: true   
     chalkboard: 
        theme: chalkboard
        chalk-effect: 0.1
        chalk-width: 5
        boardmarker-width: 7
-revealjs-plugins:
-  - ace
 filters:
   - shinylive
 cache: true
@@ -36,11 +35,11 @@ knitr::opts_chunk$set(
 # Objetivos del módulo {background-image="../bg8.png"}
 
 ::: incremental
-1.  Discernir entre el uso de estadística **paramétrica y no paramétrica**.
-2.  Comprender el **concepto de p-valor** y de los errores tipo I y tipo II.
-3.  Aplicar **pruebas de hipótesis** y de **normalidad**.
-4.  **Elegir adecuadamente el test** estadístico para inferencia a partir de comparaciones de medias.
-5.  **Desarrollar scripts de análisis** estadístico de manera efectiva con sintaxis de R.
+1. Comprender los **fundamentos del modelamiento lineal**, aplicaciones y limitaciones.
+2. Analizar el cumplimiento de los **supuestos teóricos** en modelos lineales.
+3. **Interpretar** de manera correcta los resultados numéricos de un modelo lineal.
+4. Aplicar procesos de selección de variables en modelos lineales múltiples.
+5. Desarrollar scripts de modelamiento lineal de manera efectiva con sintaxis de R.
 :::
 
 # Introducción
@@ -48,125 +47,724 @@ knitr::opts_chunk$set(
 ## Temario del módulo
 
 ::: incremental
--   Introducción a la estadística inferencial
--   Pruebas de hipótesis.
--   Error tipo I y II.
--   Valores de P: nivel de significancia.
--   Pruebas de normalidad: métodos y pruebas gráficas.
--   Pruebas Paramétricas vs No paramétricas.
--   Comparaciones de medias de dos grupos (T de Student, y no paramétricas Wilcoxon, U de Mann-Whitney).
--   Comparaciones de medias de más de dos grupos (ANOVAs, Pruebas de Kruslal Wallis).
--   Test de asociación (Chi-cuadrado, otros).
+- Concepto de modelo lineal y función matemática.
+- Aplicaciones y limitaciones.
+- Supuestos teóricos del modelo lineal.
+- Implementación de modelos lineales simples.
+- Coeficiente de determinación.
+- Estimación de parámetros: OLS vs Maximum Likelihood.
+- Interpretación para variables explicativas numéricas y factores.
+- Regresión lineal múltiple: interpretación.
+- Concepto de interacción.
+- Selección de variables: AIC.
+- Regresiones polinómicas y transformaciones.
+- Modelos Log.
+- Posibilidades analíticas si no se cumplen los supuestos teóricos.
 :::
 
-# 1. Inferencia estadística
+# 1. Modelos lineales
 
-"Extraer conclusiones sobre una población a partir de una muestra"
+"La generalización de la realidad más utilizada. Pero ¿es la más adecuada?"
 
-## Estadística inferencial
+## Modelo lineal simple
 
-Es el proceso mediante el cual se hacen estimaciones, predicciones o decisiones sobre una población basándose en los resultados obtenidos de una muestra.
+Es la forma más simple de modelar la realidad.
+
+$$
+y = \beta_0 + \beta_1 x_1 + \epsilon
+$$
+
+Donde:
 
 <br>
 
-#### Puntos clave:
+- $y$ es la variable dependiente.
+- $x_1$ es la variable independiente.
+- $\beta_0$ es el coeficiente que representa el intercepto de la recta en $y$.
+- $\beta_1$ es el coeficiente que representa la pendiente de la recta.
+- $\epsilon$ es el término de error, que captura la variabilidad no explicada por el modelo.
 
-::: incremental
--   Población vs. Muestra.
+## {}
 
--   Estimación (de parámetros de la población).
+ 
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 700
 
--   **Pruebas de Hipótesis** ¿hay evidencia suficiente?.
+# Cargar las librerías necesarias
+library(shiny)
+library(ggplot2)
 
--   **Incertidumbre y Probabilidad** (grado de confianza).
-:::
+# Definir la interfaz de usuario
+ui <- fluidPage(
+  titlePanel("Visualización Interactiva de un Modelo Lineal"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("beta1", "β₁ (Pendiente):", min = -5, max = 5, value = 1, step = 0.1),
+      sliderInput("beta0", "β₀ (Intercepto):", min = -10, max = 10, value = 0, step = 0.5),
+      actionButton("reset", "Restablecer Valores")
+    ),
+    
+    mainPanel(
+      plotOutput("linePlot"),
+      br(),
+      h4("Ecuación de la Recta:"),
+      uiOutput("equation")
+    )
+  )
+)
 
-# 2. Pruebas de hipótesis y el p-valor
+# Definir la lógica del servidor
+server <- function(input, output, session) {
+  
+  # Generar datos sintéticos
+  set.seed(123)  # Para reproducibilidad
+  x_data <- seq(1, 10, length.out = 100)
+  true_beta1 <- 2
+  true_beta0 <- 1
+  noise <- rnorm(100, mean = 0, sd = 2)
+  y_data <- true_beta1 * x_data + true_beta0 + noise
+  data <- data.frame(X = x_data, Y = y_data)
+  
+  # Reactivo para restablecer los valores
+  observeEvent(input$reset, {
+    updateSliderInput(session, "beta1", value = 1)
+    updateSliderInput(session, "beta0", value = 0)
+  })
+  
+  # Crear el gráfico
+  output$linePlot <- renderPlot({
+    ggplot(data, aes(x = X, y = Y)) +
+      geom_point(color = "blue") +
+      geom_abline(intercept = input$beta0, slope = input$beta1, color = "red", size = 1) +
+      labs(title = "Datos Sintéticos y Recta Ajustable",
+           x = "Variable Independiente (X)",
+           y = "Variable Dependiente (Y)") +
+      theme_minimal()
+  })
+  
+  # Mostrar la ecuación de la recta con notación matemática
+  output$equation <- renderUI({
+    eq <- paste0("Y = ", input$beta0, " + ", input$beta1, " × X")
+    withMathJax(paste0("$$", eq, "$$"))
+  })
+}
 
-## Pruebas de hipótesis
+# Ejecutar la aplicación
+shinyApp(ui = ui, server = server)
 
-Procedimiento estadístico que se utiliza para evaluar dos **afirmaciones mutuamente excluyentes**.
 
-::: incremental
--   $H_0$: **hipótesis nula**. No existen diferencias (efecto).
--   $H_a$: **hipótesis alterna**. Existen diferencias (efecto).
-:::
+```
+ 
+## Modelo lineal múltiple
+
+Implica tener más de una variable independiente. Cada una con su respectivo coeficiente $\beta_i$:
+
+$$
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n + \epsilon
+$$
+
+Donde:
 
 <br>
 
-::: fragment
-#### Siempre buscamos evidencia para rechazar $H_0$. Las opciones son:
+- $y$ es la variable dependiente.
+- $x_1, x_2, \dots, x_n$ son las variables independientes.
+- $\beta_0$ es el intercepto de la curva.
+- $\beta_1, \beta_2, \dots, \beta_n$ son los coeficientes que representan la pendiente de cada variable.
+- $\epsilon$ es el término de error, que captura la variabilidad no explicada por el modelo.
+
+##  {.center .dark-background background-image="../landscape1.jpg"}
+
+::: task
+En ecología, los modelos lineales ayudan a entender las relaciones entre mediciones de factores bioticos/abióticos (como temperatura, luz, radiación, o humedad, densidad poblacional, cobertura vegetal, densidad del depredador) y las respuestas biológicas de las especies.
 :::
 
-::: incremental
--   Encontramos evidencia para rechazar $H_0$.
--   O no encontramos evidencia para rechazar $H_0$.
+## {}
+
+:::{.fragment}
+Predecir la **biomasa** de una comunidad vegetal en función de la **cobertura vegetal** del suelo.
+
+$$
+\text{Biomasa} = \beta_0 + \beta_1\cdot\text{Cobertura Vegetal}
+$$
 :::
 
-## Falsabilidad de Karl Popper
+:::{.fragment}
+Se puede aproximar la riqueza de especies frente a la extensión del hábitat (basado en la teoría de la biogeografía de islas) con un modelo lineal log-transformado:
 
-Para que una hipótesis ($H_a$) sea científica, debe ser falsable.
-
-::: callout-tip
-## Entonces
-
-Debe haber una manera clara y objetiva de refutarla mediante la observación o experimentación.
+$$
+\log_e{(\text{Riqueza})}= \beta_0 + \beta_1\cdot\log_e{(\text{Área})}
+$$
 :::
 
-::: fragment
-#### Ejemplo:
+:::{.fragment}
+Analizar cómo la concentración de **nutrientes** (nitrógeno o fósforo) influye en la métrica de **diversidad de especies** de macroinvertebrados en un río:
 
--   $H_a$: **Una mayor biodiversidad aumenta la productividad del ecosistema.**
-:::
-
-::: fragment
--   Para que esta afirmación sea falsable, debe ser posible observar un ecosistema con mayor biodiversidad que no muestre un aumento en productividad.
-:::
-
-## ¿Cómo se relaciona con el p-valor y la significancia `0.05`?
-
-El **p-valor** de una prueba estadística permite tomar la decisión de rechazo de $H_0$, y consecuente validación de $H_a$. Esto se obtiene al **comparar el p-valor vs el nivel de significancia**, típicamente $0.05$.
-
-<br>
-
-#### Casos:
-
-::: incremental
--   $p-valor < 0.05$: Se halló suficiente evidencia para rechazar $H_0$.
--   $p-valor \geq  0.05$: **No** se halló suficiente evidencia para rechazar $H_0$.
+$$
+\log_e{(\text{Riqueza})}= \beta_0 + \beta_1\cdot\log_e{(\text{Área})}
+$$
 :::
 
 ##  {.center .dark-background background-image="../landscape3.jpg"}
 
 ::: task
-<strong>p-valor: </strong><br> Recuerda que el p-valor es una probabilidad que se obtiene al analizar tu data con una prueba estadística, y que lo enfrentamos siempre al nivel de significancia (0.05). Esta última es antagonista de la certeza o nivel de confianza (0.95) en esta historia.
+<strong>Recuerda:</strong><br>
+Sin datos nada es posible. Estos modelos permiten eso: crear un modelo a partir de los datos para entender la relación de las variables o para futuras predicciones.
 :::
 
-## Tabla de Error {.center}
+## Aplicaciones y limitaciones
 
-::: fragment
+Siempre que la respuesta biológica, o la parte de nuestro interés, sea lineal, puedes utilizarlo.
+
+:::::{.columns}
+::::{.column}
 ```{r}
 #| echo: false
-#| message: false
-#| warning: false
+
+knitr::include_graphics("images/linear relationship.png")
+```
+
+<br>
+
+::: task
+¿Es linear la relación entre la talla de los árboles y la biomasa?
+:::
+
+::::
+
+::::{.column}
+```{r}
+#| echo: false
+
+knitr::include_graphics("images/tallesttrees.png")
+```
+::::
+:::::
+
+## Allometric equations for integrating remote sensing imagery into forest monitoring programmes {}
+
+::::{.columns}
+:::{.column}
+```{r}
+#| echo: false
+
+knitr::include_graphics("images/lidar.png")
+```
+:::
+
+:::{.column}
+```{r}
+#| echo: false
+
+knitr::include_graphics("images/lidar2.png")
+```
+:::
+::::
+
+::: footer
+<https://onlinelibrary.wiley.com/doi/10.1111/gcb.13388>
+:::
+
+## Above-ground biomass models for dominant trees species in cacao agroforestry systems in Talamanca, Costa Rica {}
+
+::::{.columns}
+:::{.column}
+```{r}
+#| echo: false
+#| out-width: 80%
+
+knitr::include_graphics("images/cacao biomasa1.png")
+```
+:::
+
+:::{.column}
+```{r}
+#| echo: false
+
+knitr::include_graphics("images/cacao biomasa.png")
+```
+:::
+::::
+
+::: footer
+<https://link.springer.com/article/10.1007/s10457-022-00741-y>
+:::
+
+
+## Supuestos teóricos del modelo lineal
+
+- **Relación lineal**: Las variables independientes y la variable de respuesta tienen una relación lineal. 
+- **Normalidad**: Los residuos se distribuyen normalmente. No es necesario que los predictores y el resultado estén distribuidos normalmente, siempre que los residuos lo estén. - **Homocedasticidad**: El término de error es el mismo para todos los valores de las variables independientes. 
+- **No autocorrelación**: Los residuos o términos de error son independientes entre sí. 
+- **No multicolinealidad**: Las variables independientes de un modelo de regresión no deben estar muy correlacionadas entre sí.
+- **No valores influyentes**: Los datos no contienen valores atípicos que sean influyentes.
+
+## Posibilidades analíticas al fallar asunciones teóricas
+
+```{r}
+#| echo: false
+
 
 library(gt)
 library(tibble)
 
-# Datos para la tabla de decisiones y realidad para H0
-datos_errores <- tribble(
-  ~Concepto, ~`H0 Verdadero`, ~`H0 Falso`,
-  "Rechazar H0", "Falso Positivo (FP)", "Verdadero Positivo (TP)",
-  "No rechazar H0", "Verdadero Negativo (TN)", "Falso Negativo (FN)"
+# Crear el dataframe con las asunciones, modelos alternativos y transformaciones
+datos_asunciones_regresion <- tibble(
+  Asunción = c(
+    "Relación Lineal",
+    "Normalidad de Residuos",
+    "Homocedasticidad",
+    "No Autocorrelación",
+    "No Multicolinealidad",
+    "No Valores Influyentes"
+  ),
+  `Modelos Alternativos` = c(
+    "• Regresión Polinomial • Regresión con Splines • Modelos No Lineales (e.g., exponenciales, logarítmicos) • Modelos de Machine Learning (Árboles de decisión, Random Forest, Redes Neuronales)",
+    "• Modelos Lineales Generalizados (GLM) • Regresión Cuantílica (QR) • Modelos No Paramétricos (GAM)",
+    "• Mínimos Cuadrados Ponderados (WLS)",
+    "• Modelos de Efectos Mixtos, Data Panel Regression (DPR)",
+    "• Regresión Ridge • Regresión Lasso • Regresión Elastic Net • Análisis de Componentes Principales (PCA) para obtener componentes principales",
+    "• Regresión Robusta • Modelos No Paramétricos (GAM)"
+  ),
+  `Transformación de X` = c(
+    "• Logaritmo • Raíz cuadrada • Exponencial",
+    "",
+    "• Opcional (e.g., transformación de X)",
+    "",
+    "• PCA • Combinación de variables",
+    ""
+  ),
+  `Transformación de Y` = c(
+    "• Logaritmo • Raíz cuadrada • Potencias (e.g., Box-Cox)",
+    "• Logaritmo • Raíz cuadrada • Box-Cox",
+    "• Logaritmo • Raíz cuadrada",
+    "• Diferenciación • Logaritmo",
+    "",
+    ""
+  )
 )
 
+# Crear la tabla con gt
+tabla_asunciones_regresion <- datos_asunciones_regresion %>%
+  gt() %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(
+      columns = c(Asunción)
+    )
+  ) %>%
+  cols_align(
+    align = "left",
+    columns = c(`Modelos Alternativos`, `Transformación de X`, `Transformación de Y`)
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(
+    column_labels.background.color = "#0013fe",
+    table.font.size = px(25)
+  ) %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  ) 
+
+# Mostrar la tabla
+tabla_asunciones_regresion
+
+```
+
+
+
+## Aplicación en R: Corregir Fallas en Relación Lineal
+
+```{r}
+#| eval: false
+
+# Regresión lineal simple
+modelo_lineal <- lm(Y ~ X, data = datos)
+
+# Regresión polinomial de grado 2
+modelo_polinomial <- lm(Y ~ poly(X, 2), data = datos)
+```
+
+```{r}
+#| eval: false
+
+# Regresión con Spline
+library(splines)
+modelo_splines <- lm(Y ~ bs(X, df = 3), data = datos)
+
+# Modelo Exponencial: Y = β0 * exp(β1 * X) + ϵ
+modelo_exponencial <- nls(Y ~ b0 * exp(b1 * X), data = datos,
+                           start = list(b0 = 1, b1 = 0.05))
+```
+
+```{r}
+#| eval: false
+
+# Modelo Logarítmico: log(Y) = β0 + β1 * X + ϵ
+modelo_logaritmico <- lm(log(Y) ~ X, data = datos)
+
+# Ajustar una red neuronal con una capa oculta de 5 neuronas
+library(nnet)
+modelo_nn <- nnet(Y ~ X, data = datos, size = 5, linout = TRUE, trace = FALSE)
+
+```
+
+## Aplicación en R: Corregir Fallas en Normalidad de Residuos
+
+```{r}
+#| eval: false
+
+# Modelo GLM con distribución normal (similar a lm)
+modelo_glm_normal <- glm(Y ~ X, data = datos, family = gaussian())
+
+# Modelo GLM con distribución Gamma (si los datos son positivos y asimétricos)
+modelo_glm_gamma <- glm(Y ~ X, data = datos, family = Gamma(link = "log"))
+
+# Regresión cuantílica para el cuantil 0.5 (mediana)
+library(quantreg)
+modelo_qr <- rq(Y ~ X, data = datos, tau = 0.5)
+
+# Modelo GAM con término suave para X
+library(mgcv)
+modelo_gam <- gam(Y ~ s(X), data = datos)
+```
+
+## Aplicación en R: Corregir Fallas en Homocedasticidad (WLS)
+
+```{r}
+#| eval: false
+
+# Ajustar un modelo OLS inicial
+modelo_ols <- lm(Y ~ X, data = datos)
+
+# Obtener residuos y analizar la varianza
+datos <- datos %>%
+  mutate(resid = resid(modelo_ols))
+
+# Ajustar un modelo para la varianza utilizando GAM
+modelo_gam_var <- gam(resid^2 ~ s(X), data = datos, family = gaussian())
+
+# Predicciones de la varianza
+datos <- datos %>%
+  mutate(var_pred = predict(modelo_gam_var, 
+                            newdata = datos),
+         peso = 1 / var_pred)
+```
+
+```{r}
+#| eval: false
+
+# Modelo WLS
+modelo_wls <- lm(Y ~ X, data = datos, weights = peso)
+```
+
+## Aplicación en R: Corregir Autocorrelación
+
+```{r}
+#| eval: false
+
+# Modelo de efectos mixtos con intercepto aleatorio
+modelo_mixto <- lmer(Y ~ X + (1 | grupo), data = datos)
+```
+
+## Aplicación en R: Corregir Multicolinearidad
+
+```{r}
+#| eval: false
+
+library(glmnet)
+
+# Modelo Ridge con validación cruzada. alpha = 0
+cv_ridge <- cv.glmnet(x, y, alpha = 0)
+
+# Modelo Lasso con validación cruzada. alpha = 1
+cv_ridge <- cv.glmnet(x, y, alpha = 1)
+
+# Modelo Elastic Net con validación cruzada. alpha = 0.5
+cv_ridge <- cv.glmnet(x, y, alpha = 0.5)
+```
+
+## Aplicación en R: Corregir Valores Influyentes
+
+```{r}
+#| eval: false
+
+# Modelo de regresión robusta
+library(MASS)
+modelo_robusto <- rlm(Y ~ X, data = datos)
+
+# Modelo GAM con término suave para X
+library(mgcv)
+modelo_gam_robusto <- gam(Y ~ s(X), data = datos)
+
+```
+
+## ¿Cómo se estiman los parámetros?: Optimización
+
+::: nonincremental
+
+- **Mínimos Cuadrados Ordinarios (OLS)**: Es el método más utilizado en Reg. Lineal. OLS busca minimizar la suma de los cuadrados de las diferencias (residuos) entre los valores observados y los valores predichos por el modelo.
+
+- **Máxima Verosimilitud (MLE)**: Este método se basa en maximizar la función de verosimilitud, que representa la probabilidad de observar los datos dados los parámetros del modelo.
+
+:::
+
+```{r}
+#| echo: false
+
+knitr::include_graphics("images/mle.png")
+```
+
+
+## Resultados de los modelos 1:
+
+```{r}
+#| echo: false
+summary(lm(Petal.Length ~ Sepal.Length + Species, data = iris))
+```
+
+- Residuals: 
+- Coefficients: Pendiente $\beta$ de cada variable y el intercepto $\alpha$ de la recta.
+- $p_{value}$ de los coeficientes: para evaluar la $H_0$ "no existe efecto de la variable $X$". $p_{value} < 0.05$, variable significativa, se rechaza $H_0$, hay efecto.
+
+## Resultados de los modelos 2:
+
+```{r}
+#| echo: false
+summary(lm(Petal.Length ~ Sepal.Length + Species, data = iris))
+```
+
+- $RSE$ o Error estándar residual: 
+- $R^2$ o coeficiente de determinación: proporción de la varianza de $Y$ explicada por las variables $X$. Usar el penalizado $Adj. R^2$.
+- $p_{value}$ del modelo: para evaluar la $H_0$ "el modelo no explica la variable $Y$". $p_{value} < 0.05$, modelo significativo.
+
+## Modelo con interacciones
+
+En modelos de regresión, un término de interacción **captura el efecto combinado de dos o más variables independientes sobre la variable dependiente**. Es decir, el efecto de una variable independiente $X$ sobre $Y$ depende del valor de otra variable independiente.
+
+#### ¿Cuando Incorporar Interacciones?
+
+- **Dependencia de Efectos**: Si se sospecha que el efecto de una variable sobre la respuesta varía según otra variable.
+
+- **Complejidad de Relaciones**: Para modelar relaciones más complejas que no pueden ser capturadas por términos aditivos simples.
+
+$$
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 (x_1\cdot x_2)  + \epsilon
+$$
+Aquí $\beta_3$ representa la interacción de $X_1$ y $X_2$.
+
+## Regresión lineal múltiple: X numéricas
+
+```{r}
+#| echo: false
+summary(lm(Petal.Length ~ Sepal.Length + Sepal.Width, data = iris))
+```
+
+::: nonincremental
+- Por cada unidad de aumento de $X$, $Y$ aumenta en $\beta_i$
+ unidades
+:::
+
+## Regresión lineal múltiple: X factores
+
+```{r}
+#| echo: false
+summary(lm(Petal.Length ~ Sepal.Length + Species, data = iris))
+```
+
+::: nonincremental
+- Por el efecto de la categoría 2 de $X$ genera un aumento/disminución en $Y$ en $\beta_i$ unidades, respecto a la categoría 1 (nivel base, nivel de contraste, placebo).
+ unidades
+:::
+
+## Interpretación de interacciones
+
+- $\beta_1$ es el efecto de $X_1$ en $Y$ cuando $X_2 = 0$.
+- $\beta_2$ es el efecto de $X_2$ en $Y$ cuando $X_1 = 0$.
+- $\beta_3$ es el cambio en el efecto de $X_1$ sobre $Y$ por cada unidad adicional de $X_2$ y viceversa.
+
+```{r}
+#| echo: false
+summary(lm(Petal.Length ~ Sepal.Length * Sepal.Width, data = iris))
+```
+
+## Métricas de evaluación y comparación de modelos
+
+```{r}
+#| echo: false
+
+library(gt)
+library(tibble)
+
+# Crear el dataframe con las métricas de evaluación
+datos_metricas_regresion <- tibble(
+  Métrica = c(
+    "RSE (Residual Standard Error)",
+    "RMSE (Root Mean Squared Error)",
+    "R-cuadrado (R²)",
+    "R-cuadrado Ajustado (R²_adj)",
+    "MAE (Mean Absolute Error)",
+    "MSE (Mean Squared Error)",
+    "AIC (Akaike Information Criterion)",
+    "BIC (Bayesian Information Criterion)",
+    "MAPE (Mean Absolute Percentage Error)"
+  ),
+  Descripción = c(
+    "Raíz de la suma de residuos al cuadrado dividida por los grados de libertad.",
+    "Raíz cuadrada del promedio de los residuos al cuadrado.",
+    "Proporción de la variabilidad en Y explicada por los predictores.",
+    "R² ajustado por el número de predictores, penalizando la inclusión de variables irrelevantes.",
+    "Promedio de las diferencias absolutas entre observados y predichos.",
+    "Promedio de los residuos al cuadrado.",
+    "Métrica basada en la verosimilitud penalizada por la complejidad del modelo.",
+    "Similar a AIC pero con penalización más fuerte para la complejidad.",
+    "Promedio de los errores absolutos expresados como porcentaje de Y."
+  ),
+  Ventajas = c(
+    "Ajusta el error por la complejidad del modelo.",
+    "Intuitivo y ampliamente usado.",
+    "Fácil de interpretar.",
+    "Mejora la comparabilidad entre modelos con diferente complejidad.",
+    "Robusto ante outliers.",
+    "Utilizado en muchos métodos de optimización.",
+    "Útil para comparar modelos no anidados.",
+    "Preferido cuando se busca un balance más estricto entre ajuste y simplicidad.",
+    "Intuitivo en términos relativos."
+  ),
+  Limitaciones = c(
+    "No es tan intuitivo fuera del contexto de regresión.",
+    "Sensible a outliers.",
+    "No penaliza la complejidad del modelo.",
+    "Menos intuitivo que R².",
+    "No penaliza errores grandes de manera diferenciada.",
+    "Sensible a outliers.",
+    "Puede favorecer modelos más simples de forma excesiva.",
+    "Puede ser demasiado restrictivo con muchos predictores.",
+    "No definido cuando Y = 0 o cerca de cero."
+  )
+)
 
 # Crear la tabla con gt
-tabla_errores <- datos_errores %>%
+tabla_metricas_regresion <- datos_metricas_regresion %>%
   gt() %>%
+  # Estilo de negrita para la columna 'Métrica'
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(
+      columns = c(Métrica)
+    )
+  ) %>%
+  # Alinear el texto a la izquierda para las demás columnas
+  cols_align(
+    align = "left",
+    columns = c(Descripción, Ventajas, Limitaciones)
+  ) %>%
+  # Estilo de negrita para los encabezados de las columnas
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  # Añadir franjas de color alternadas en las filas
+  opt_row_striping() %>%
+  # Configuración de opciones de la tabla
+  tab_options(
+    column_labels.background.color = "#0013fe",  # Color de fondo de los encabezados
+    column_labels.font.size = px(25),             # Tamaño de fuente de los encabezados
+    table.font.size = px(21),                      # Tamaño de fuente de los datos
+    data_row.padding = px(8)                       # Padding de las filas de datos
+  ) %>%
+  # Añadir CSS personalizado para cambiar el color de fondo al pasar el cursor
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  ) 
+
+# Mostrar la tabla
+tabla_metricas_regresion
+
+```
+
+
+## Modelos logarítmicos 
+
+:::{.nonincremental}
+
+- **Lineal-lineal** (no logarítmico): regresión clásica
+
+$$
+y = \beta_0 + \beta_1 x_1 + \epsilon
+$$
+
+- **Lineal-log**: X logaritmizada
+
+$$
+y = \beta_0 + \beta_1 \log(x_1) + \epsilon
+$$
+
+- **Log-lineal**: Y logaritmizada
+
+$$
+\log(Y) = \beta_0 + \beta_1 x_1 + \epsilon
+$$
+
+- **Log-Log**: X e Y logaritmizada
+
+$$
+\log(Y) = \beta_0 + \beta_1 \log(x_1) + \epsilon
+$$
+:::
+
+## Interpretaciones de resultados en modelos logarítmicos
+
+```{r}
+#| echo: false
+
+  
+library(gt)
+library(tibble)
+
+# Crear el dataframe
+datos_modelos_regresion <- tibble(
+  Modelo = c("Lineal Clásico", "Log-Linear", "Lineal-Log", "Log-Log"),
+  Ecuación = c(
+    "Y = β0 + β1X + ϵ",
+    "log(Y) = β0 + β1X + ϵ",
+    "Y = β0 + β1 log(X) + ϵ",
+    "log(Y) = β0 + β1 log(X) + ϵ"
+  ),
+  Interpretación_β1 = c(
+    "Por cada unidad de aumento en X, se espera que Y aumente en β1 unidades.",
+    "Por cada unidad de aumento en X, se espera que Y aumente por un factor F = exp(β1). Si F>1, entonces aumenta en F-1 x 100. Si F<1, entonces disminuye en 1-F x 100.",
+    "Por cada aumento porcentual en X (digamos POR = 0.01), se espera que Y aumente en β1 x POR, o  β1 x 0.01 unidades.",
+    "Por cada cambio porcentual en X (digamos POR% = 1%), se espera que Y cambie aproximadamente en β1xPOR%."
+  )
+)
+
+# Crear la tabla con gt
+tabla_modelos_regresion <- datos_modelos_regresion %>%
+  gt() %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(
+      columns = c(Modelo)
+    )
+  )%>%
   cols_align(
     align = "center",
-    columns = everything()
+    columns = c(`Ecuación`, `Interpretación_β1`)
   ) %>%
   tab_style(
     style = cell_text(weight = "bold"),
@@ -187,914 +785,8 @@ tabla_errores <- datos_errores %>%
   )
 
 # Mostrar la tabla
-tabla_errores
-```
-:::
-
-<br>
-
-::: fragment
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-library(gt)
-library(tibble)
-
-# Datos para la tabla de decisiones y realidad para H0
-datos_errores <- tribble(
-  ~Concepto, ~`H0 Verdadero`, ~`H0 Falso`,
-  "Rechazar H0", "Error de tipo I (Nivel de Sig., α)", "Poder (1 - β)",
-  "No rechazar H0", "Confianza (1 - α)", "Error de tipo II (β)"
-)
-
-
-# Crear la tabla con gt
-tabla_errores <- datos_errores %>%
-  gt() %>%
-  cols_align(
-    align = "center",
-    columns = everything()
-  ) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels()
-  ) %>%
-  opt_row_striping() %>%
-  tab_options(
-    column_labels.background.color = "#8a00b8",
-    table.font.size = px(28),
-    data_row.padding = px(15)
-  ) %>%
-  opt_css(
-    css = "
-    .gt_table tr:hover td {
-      background-color: #E6F3FF !important;
-    }
-    "
-  )
-
-# Mostrar la tabla
-tabla_errores
-
-```
-:::
-
-<br>
-
-::: fragment
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-library(gt)
-library(tibble)
-
-# Datos para la tabla de decisiones y realidad para H0
-datos_errores <- tribble(
-  ~Concepto, ~`H0 Verdadero`, ~`H0 Falso`,
-  "Rechazar H0", "0.05", "¡INCREMENTAR!",
-  "No rechazar H0", "0.95", "REDUCIR"
-)
-
-
-# Crear la tabla con gt
-tabla_errores <- datos_errores %>%
-  gt() %>%
-  cols_align(
-    align = "center",
-    columns = everything()
-  ) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels()
-  ) %>%
-  opt_row_striping() %>%
-  tab_options(
-    column_labels.background.color = "#ff4900",
-    table.font.size = px(28),
-    data_row.padding = px(15)
-  ) %>%
-  opt_css(
-    css = "
-    .gt_table tr:hover td {
-      background-color: #E6F3FF !important;
-    }
-    "
-  )
-
-# Mostrar la tabla
-tabla_errores
-
-```
-:::
-
-## ¿Qué es el Poder?
-
-::: incremental
--   Es $1 − β$, los verdaderos positivos: rechazar H0 cuando realmente es falsa.
--   Es la probabilidad de detectar un efecto determinado, siendo que este efecto realmente existe (TP).
--   Maneras de llegar a obtener el **poder de un estudio**: cálculo directo, simulación.
-:::
-
-::: fragment
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 45%
-
-knitr::include_graphics("images/tabla_de_errores.png")
-```
-:::
-
-##  {.center}
-
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 100%
-
-knitr::include_graphics("images/tabla_de_errores_y_funciones.png")
-```
-
-## Maneras de incrementar el poder 1
-
-::::::: columns
-::::: column
-::: fragment
--   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
-:::
-
-::: fragment
-:::
-:::::
-
-::: column
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 100%
-
-knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1*9JmIG7tKACTmWmGNZ0Kacg.png")
-```
-:::
-:::::::
-
-## Maneras de incrementar el poder 2
-
-::::::: columns
-::::: column
-::: {.fragment .semi-fade-out}
--   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
-:::
-
-::: fragment
--   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
-:::
-:::::
-
-::: column
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 100%
-
-knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1*cL2a-aqT7_a0MAZcVUb86Q.gif")
-```
-:::
-:::::::
-
-## Maneras de incrementar el poder 3
-
-::::::: columns
-::::: column
-::: {.fragment .semi-fade-out}
--   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
--   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
-:::
-
-::: fragment
--   Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
-:::
-:::::
-
-::: column
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 100%
-
-knitr::include_graphics("https://miro.medium.com/v2/resize:fit:828/format:webp/1*cfFd6EOaZIEae8fdQin5tg.gif")
-```
-:::
-:::::::
-
-## Maneras de incrementar el poder 4
-
-::::::: columns
-::::: column
-::: {.fragment .semi-fade-out}
--   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
--   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
--   Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
-:::
-
-::: fragment
--   Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
-:::
-:::::
-
-::: column
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 100%
-
-knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1*RpQFm6HZDThA4Hrntb7LbA.gif")
-```
-:::
-:::::::
-
-## Maneras de incrementar el poder 5
-
-::::::: columns
-::::: column
-::: {.fragment .semi-fade-out}
--   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
--   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
--   Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
--   Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
-:::
-
-::: fragment
--   [Modo 5: disminuir la desviación estándar. Reducir errores de muestreo. ¡MEJORAR DISEÑO!]{style="color:#ff4900;"}
-:::
-:::::
-
-::: column
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 100%
-
-knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1*G-KJaRJ3AMfTS--LeJtJHg.gif")
-```
-:::
-:::::::
-
-## Maneras de incrementar el poder 6
-
-::::::: columns
-::::: column
-::: {.fragment .semi-fade-out}
--   Modo 1: aumentar el nivel de significancia (alpha). ¡ERROR!
--   Modo 2: cambiar de test de dos colas a una sola cola. No siempre es correcto.
--   Modo 3: incrementar la diferencia de los promedio comparados. ¡MANIPULACIÓN!
--   Modo 4: usar la distribución z en lugar de la distribución de t. No depende ti, sino del test.
--   [Modo 5: disminuir la desviación estándar. Reducir errores de muestreo. ¡MEJORAR DISEÑO!]{style="color:#ff4900;"}
-:::
-
-::: fragment
--   [Modo 6: incrementar el tamaño de la muestra. ¡TAMBIÉN ES CORRECTO!]{style="color:#ff4900;"}
-:::
-:::::
-
-::: column
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 100%
-
-knitr::include_graphics("https://miro.medium.com/v2/resize:fit:786/format:webp/1*q0WMA_Xp9gtF5tIWBesABA.gif")
-```
-:::
-:::::::
-
-## 
-
-```{shinylive-r}
-#| standalone: true
-#| viewerHeight: 800
-
-# Paquetes necesarios
-library(shiny)
-library(ggplot2)
-library(ggridges)
-library(plotly)
-
-# Interfaz de usuario (UI)
-ui <- fluidPage(
-  tags$head(tags$style(HTML("
-    .irs--shiny .irs-grid-text {
-    bottom: 5px;
-    font-size: 16px;
-    }
-    .irs--shiny .irs-min, .irs--shiny .irs-max {
-    font-size: 16px;
-    }
-    .sidebar { 
-    height: 100vh; 
-    position: -webkit-sticky;   
-    position: sticky; 
-    top: 20px; /* Ajusta la distancia desde el top */
-  }
-  "))),
-  
-  titlePanel("Tabla de Errores"),
-  
-  sidebarLayout(
-    sidebarPanel(
-      sliderInput("n", "Tamaño de la muestra (n):", min = 10, max = 1000, value = 100, step = 10),
-      sliderInput("delta", "Diferencia de medias (Δ):", min = 0.1, max = 2, value = 0.3, step = 0.1),
-      sliderInput("sigma", "Desviación estándar (σ):", min = 0.1, max = 2, value = 1, step = 0.1),
-      sliderInput("alpha", "Nivel de significancia (α):", min = 0.01, max = 0.2, value = 0.05, step = 0.01),
-      style = "font-size: 22px; position: -webkit-sticky; position: sticky; top: 20px;"
-    ),
-    
-    mainPanel(
-      plotOutput("grafico_poder", height = "700px"),
-      plotlyOutput("grafico_dispersion", height = "400px")  # plotlyOutput para el gráfico interactivo
-    )
-  ),
-)
-
-# Lógica del servidor (Server)
-server <- function(input, output) {
-  
-  # Gráfico general de poder
-  output$grafico_poder <- renderPlot({
-    n <- input$n
-    delta <- input$delta
-    sigma <- input$sigma
-    alpha <- input$alpha
-    
-    # Calcular el error estándar y el parámetro de no centralidad
-    se <- sigma / sqrt(n)
-    ncp <- delta / se
-    
-    # Valor crítico
-    z_alpha <- qnorm(1 - alpha)
-    
-    # Generar valores z
-    z_min <- min(-4, ncp - 4)
-    z_max <- max(4, ncp + 4)
-    z <- seq(z_min, z_max, length.out = 1000)
-    
-    # Densidades bajo H0 y H1
-    h0_density <- dnorm(z, mean = 0, sd = 1)
-    h1_density <- dnorm(z, mean = ncp, sd = 1)
-    
-    # Crear data frames
-    df_h0 <- data.frame(
-      z = z,
-      density = h0_density,
-      hypothesis = "H0",
-      region = ifelse(z >= z_alpha, "Sig. o Error Tipo I (α)", "Confianza (1-α)")
-    )
-    
-    df_h1 <- data.frame(
-      z = z,
-      density = h1_density,
-      hypothesis = "H1",
-      region = ifelse(z >= z_alpha, "Poder (1-β)", "Error Tipo II (β)")
-    )
-    
-    # Combinar data frames
-    df <- rbind(df_h0, df_h1)
-    
-    # Asignar colores
-    df$fill_color <- factor(df$region, levels = c("Sig. o Error Tipo I (α)", "Confianza (1-α)", "Error Tipo II (β)", "Poder (1-β)"))
-    
-    # Definir colores
-    fill_colors <- c(
-      "Sig. o Error Tipo I (α)" = "#ff9c96",
-      "Confianza (1-α)" = "#a0ff78",
-      "Error Tipo II (β)" = "#ff0d00",
-      "Poder (1-β)" = "#2fa100"
-    )
-    
-    # Cambiar orden factor
-    df$hypothesis <- factor(df$hypothesis, levels = c("H1", "H0"))
-    
-    # Generar el gráfico
-    ggplot(df, aes(x = z, y = hypothesis, height = density, fill = fill_color)) +
-      geom_ridgeline(alpha = 0.8, color = "black", size = 0.3) +
-      scale_fill_manual(values = fill_colors) +
-      geom_vline(xintercept = z_alpha, linetype = "dashed", color = "black") +
-      labs(x = "", y = "", fill = "") +
-      theme_minimal() +
-      theme(legend.position = "bottom",
-            axis.text = element_text(size = 20),
-            legend.text = element_text(size = 15)) +
-      guides(fill = guide_legend(nrow = 2))
-  })
-  
-  # Gráfico de dispersión comparando H0 vs Ha
-  output$grafico_dispersion <- renderPlotly({
-    n <- input$n
-    delta <- input$delta
-    sigma <- input$sigma
-    alpha <- input$alpha
-    
-    # Calcular el error estándar y el parámetro de no centralidad
-    se <- sigma / sqrt(n)
-    ncp <- delta / se
-    
-    # Valor crítico
-    z_alpha <- qnorm(1 - alpha)
-    
-    # Generar puntos aleatorios para las distribuciones
-    set.seed(123)
-    z_h0 <- rnorm(n, mean = 0, sd = 1)
-    z_h1 <- rnorm(n, mean = ncp, sd = 1)
-    
-    # Crear data frame para el gráfico
-    df_dispersion <- data.frame(
-      z_h0 = z_h0,
-      z_h1 = z_h1
-    )
-    
-    # Generar el gráfico de dispersión
-    plot2 <- ggplot(df_dispersion, aes(x = z_h0, y = z_h1)) +
-      geom_point(color = "#0013fe", size = 3, alpha = 0.7) +
-      geom_vline(xintercept = z_alpha, linetype = "dashed", color = "black") +
-      geom_hline(yintercept = z_alpha, linetype = "dashed", color = "black") +
-      labs(x = "H0", y = "Ha") +
-      theme_minimal() +
-      theme(axis.text.y = element_blank(),  # Oculta los valores del eje Y
-            axis.ticks.y = element_blank(), # Oculta las marcas del eje Y
-            axis.text = element_text(size = 15)) 
-    
-    # Convertir el gráfico a plotly
-    ggplotly(plot2) %>%
-      layout(
-        autosize = TRUE,  # Ajuste automático del tamaño
-        yaxis = list(showticklabels = FALSE),  # Oculta las etiquetas del eje Y
-        margin = list(l = 0, r = 0, b = 50, t = 50)  # Ajuste de márgenes
-      )
-  })
-}
-
-# Ejecutar la aplicación
-shinyApp(ui = ui, server = server)
+tabla_modelos_regresion
 
 ```
 
-## Cálculo de Poder con R
 
-```{r}
-#| echo: false
-
-library(gt)
-library(tibble)
-
-# Crear el dataframe
-datos_funciones <- tibble(
-  Paquete = c("pwr", "pwr", "pwr", "pwr", "pwr", "pwr2", "simr"),
-  Función = c("pwr.chisq.test()", "pwr.anova.test()", "pwr.f2.test()", 
-              "pwr.t.test()", "pwr.t2n.test()", "pwr.2way()", "powerSim()"),
-  Definición = c("Para Pruebas de Chi-cuadrado.", 
-                 "Para Anovas de una vía balanceados.",
-                 "Para regresiones lineales y Anova de dos vías.",
-                 "Para Pruebas de t (una muestra, dos muestras, muestras pareadas). Mismo N muestral.",
-                 "Para Pruebas de t (dos muestras). Diferente N muestral.",
-                 "Para Anovas de dos vías balanceado.",
-                 "Para simulaciones de modelos GLM y GLMM.")
-)
-
-# Crear la tabla con gt
-tabla_funciones <- datos_funciones %>%
-  gt() %>%
-  cols_align(
-    align = "center",
-    columns = c("Paquete", "Función", "Definición")
-  ) %>%
-  tab_style(
-    style = cell_text(weight = "bold", color = "white"),
-    locations = cells_column_labels()
-  ) %>%
-  tab_options(
-    column_labels.background.color = "#0013fe", 
-    table.font.size = px(20),
-    data_row.padding = px(15)
-  ) %>%
-  opt_row_striping() %>%
-  opt_css(
-    css = "
-    .gt_table tr:hover td {
-      background-color: #E6F3FF !important;
-    }
-    "
-  )
-
-# Mostrar la tabla
-tabla_funciones
-```
-
-## ¿Qué es el p-valor?
-
-Es la probabilidad de obtener un resultado (diferencia o efecto) tan extremo o más extremo ($\geq$) que el observado, si la hipótesis nula es verdadera.
-
-:::: {.fragment .fade-up}
-::: {.callout-tip collapse="true"}
-## Un p-valor pequeño (\< 0.05):
-
--   Hay evidencia suficiente para rechazar la hipótesis nula.
--   Los resultados observados no se deben al azar.
-:::
-::::
-
-:::: {.fragment .fade-up}
-::: {.callout-caution collapse="true"}
-## Un p-valor grande (≥ 0.05):
-
--   No hay suficiente evidencia para rechazar la hipótesis nula.
--   Los resultados podrían deberse al azar.
-:::
-::::
-
-##  {.center background-color="#16161d"}
-
-> Un p-valor más pequeño generalmente indica que es menos probable que los resultados observados se deban al azar, bajo la suposición de que la hipótesis nula es verdadera.
-
-# 3. Medir normalidad
-
-## Normalidad
-
-::: callout-tip
-## El teorema del límite central
-
-Establece que cuando el tamaño de la muestra tiene 100 o más observaciones, la violación de la normalidad no es un problema importante.
-:::
-
-Puedes estimar normalidad:
-
--   Simetría y curtosis.
--   Pruebas de Normalidad.
--   Gráfico cuantil-cuantil (QQ-Plot)
-
-## Normalidad
-
-::::: columns
-::: column
--   El gráfico compara los cuantiles de los datos observados con los cuantiles de una distribución teórica determinada.
-
--   Si los puntos del gráfico Q-Q caen aproximadamente sobre una línea recta, los datos siguen la distribución teórica.
-
--   Si los puntos se desvían significativamente de la línea, los datos no siguen la distribución especificada.
-:::
-
-::: column
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: "70%"
-
-knitr::include_graphics("images/formas_normal.jpg")
-```
-:::
-:::::
-
-## Pruebas de normalidad
-
-Existen varias pruebas que nos permiten evaluar si un conjunto de datos sigue una distribución normal. En esta presentación exploraremos:
-
--   Shapiro-Wilk Test
--   Kolmogorov-Smirnov Test
--   Pruebas del paquete `nortest`
--   Shapiro-Francia Test
--   Test Z de Anderson-Darling
-
-## Test de Normalidad 1
-
-```{r}
-#| echo: false
-
-# Datos
-set.seed(123)
-datos_n <- c(rpois(250,25)) 
-```
-
-```{r}
-# Shapiro Test
-shapiro.test(datos_n)
-
-# Kolmogorov-Smirnovs Test
-ks.test(datos_n, "pnorm", mean(datos_n), sd(datos_n))
-
-# Lilliefors Test
-nortest::lillie.test(datos_n)
-
-```
-
-## Test de Normalidad 2
-
-```{r}
-# Anderson-Darling Test
-nortest::ad.test(datos_n)
-
-# Shapiro-Francia Test
-nortest::sf.test(datos_n)
-
-# Cramér-von Mises Test
-nortest::cvm.test(datos_n)
-```
-
-## Varios test a la vez
-
-```{r}
-masterX::NormTests(datos_n)
-```
-
-# Pruebas estadísticas que aplican pruebas de hipótesis
-
-## 
-
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 100%
-
-knitr::include_graphics("images/StatsTest Flowchart Colored with Key.jpg")
-```
-
-::: footer
-<https://www.statstest.com/>
-:::
-
-# 4. Comparaciones de grupos
-
-## Concepto de comparación
-
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 100%
-
-knitr::include_graphics("images/normalizacion-n-muestral.png")
-```
-
-## Concepto de comparación
-
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 100%
-
-knitr::include_graphics("images/significancia decision.png")
-```
-
-## Paramétrico vs No paramétrico
-
--   **Pruebas paramétricas:** son más poderosas si las asunciones se cumplen.
--   **Pruebas no paramétricas:** son más flexibles y robustas, pero menos poderosas en datos ideales.
-
-```{r}
-#| echo: false
-
-library(gt)
-library(tibble)
-
-# Crear el dataframe transpuesto
-datos_transpuestos <- tibble(
-  `Característica` = c("Distribución de los datos", "Medidas clave", "Ejemplos", "Uso"),
-  `Pruebas Paramétricas` = c("Normal o aproximadamente normal", 
-                              "Media y Varianza", 
-                              "t-test, ANOVA", 
-                              "Mayor potencia si se cumplen las asunciones"),
-  `Pruebas No Paramétricas` = c("Cualquier distribución (sin suposiciones)", 
-                                "Mediana y Rangos", 
-                                "Wilcoxon, Kruskal-Wallis", 
-                                "Menor potencia, pero más robustas ante violaciones")
-)
-
-# Crear la tabla con gt
-tabla_transpuesta <- datos_transpuestos %>%
-  gt() %>%
-  cols_align(
-    align = "center",
-    columns = c("Pruebas Paramétricas", "Pruebas No Paramétricas")
-  ) %>%
-  tab_style(
-    style = cell_text(weight = "bold", color = "white"),
-    locations = cells_column_labels()
-  ) %>%
-  tab_options(
-    column_labels.background.color = "#0013fe", 
-    table.font.size = px(20),
-    data_row.padding = px(15)
-  ) %>%
-  opt_row_striping() %>%
-  opt_css(
-    css = "
-    .gt_table tr:hover td {
-      background-color: #E6F3FF !important;
-    }
-    "
-  )
-
-# Mostrar la tabla
-tabla_transpuesta
-```
-
-::: callout-tip
-## Poder:
-
-Capacidad para detectar efectos reales o diferencias significativas cuando estas existen.
-:::
-
-# Asunciones de las pruebas estadísticas básicas
-
-## Prueba t de Student para muestras independientes
-
--   **Independencia de las observaciones.**
--   **Normalidad:** Las distribuciones de las dos poblaciones deben ser aproximadamente normales.
--   **Homogeneidad de varianzas:** Verificable con la prueba de Levene o Bartlett.
-
-**Hipótesis:**<br>
-
--   **H₀:** Los promedios de las dos poblaciones son iguales.
--   **H₁:** Los promedios de las dos poblaciones son diferentes.
-
-## Aplicación con R: Prueba t de Student para muestras independientes
-
-```{r, eval=FALSE, echo=TRUE}
-# Prueba de normalidad
-shapiro.test(datos$grupo1)
-shapiro.test(datos$grupo2)
-
-# Prueba de homogeneidad de varianzas
-leveneTest(valor ~ grupo, datos)
-
-# Prueba t para muestras independientes
-t.test(grupo1, grupo2, var.equal = TRUE)
-```
-
-## Prueba t para muestras pareadas
-
--   **Dependencia de las observaciones.**
--   **Normalidad de las diferencias:** Las diferencias entre pares deben seguir una distribución normal.
-
-**Hipótesis:**<br>
-
--   **H₀:** El promedio de las diferencias es igual a cero.
--   **H₁:** El promedio de las diferencias es diferente de cero.
-
-## Aplicación con R: Prueba t para muestras pareadas
-
-```{r, eval=FALSE, echo=TRUE}
-# Prueba de normalidad de las diferencias
-diferencias <- datos$antes - datos$despues
-shapiro.test(diferencias)
-
-# Prueba t para muestras pareadas
-t.test(datos$antes, datos$despues, paired = TRUE)
-```
-
-## Prueba de Mann-Whitney U
-
--   **Independencia de las observaciones.**
--   **Escala ordinal o de intervalo:** Las variables deben ser al menos ordinales.
--   **Distribuciones similares:** Las dos poblaciones deben tener formas de distribución similares.
-
-**Hipótesis:**<br>
-
--   **H₀:** Las distribuciones de las dos poblaciones son iguales.
--   **H₁:** Las distribuciones de las dos poblaciones son diferentes.
-
-## Aplicación con R: Prueba de Mann-Whitney U
-
-```{r, eval=FALSE, echo=TRUE}
-# Prueba de distribución similar (opcional)
-hist(datos$grupo1)
-hist(datos$grupo2)
-
-# Prueba de Mann-Whitney U para muestras independientes
-wilcox.test(grupo1, grupo2)
-```
-
-## Prueba de Wilcoxon
-
--   **Dependencia de las observaciones.**
--   **Escala ordinal o de intervalo:** Las diferencias deben ser al menos de naturaleza ordinal.
--   **Simetría de las diferencias:** Se asume que las diferencias son simétricas alrededor de la mediana.
-
-**Hipótesis:**<br>
-
--   **H₀:** La mediana de las diferencias es igual a cero.
--   **H₁:** La mediana de las diferencias es diferente de cero.
-
-## Aplicación con R: Prueba de Wilcoxon
-
-```{r, eval=FALSE, echo=TRUE}
-# Evaluar la simetría de las diferencias
-diferencias <- datos$antes - datos$despues
-hist(diferencias)
-
-# Prueba de Wilcoxon para muestras pareadas
-wilcox.test(datos$antes, datos$despues, paired = TRUE)
-```
-
-## ANOVA de Una Vía
-
--   **Independencia de las observaciones.**
--   **Normalidad:** Las distribuciones de los grupos deben ser aproximadamente normales.
--   **Homogeneidad de varianzas:** Igualdad de varianzas entre los grupos (prueba de Levene).
-
-**Hipótesis:** <br>
-
--   **H₀:** Los promedios de los grupos son iguales.
--   **H₁:** Al menos una media es diferente.
-
-## Aplicación con R: ANOVA de Una Vía
-
-```{r, eval=FALSE, echo=TRUE}
-# Prueba de normalidad para cada grupo
-by(datos$valor, datos$grupo, shapiro.test)
-
-# Prueba de homogeneidad de varianzas
-leveneTest(valor ~ grupo, datos)
-
-# ANOVA de una vía
-anova_modelo <- aov(valor ~ grupo, data = datos)
-summary(anova_modelo)
-```
-
-## ANOVA de Dos Vías Unifactorial
-
--   **Independencia de las observaciones.**
--   **Normalidad:** Las combinaciones de factores deben tener distribuciones normales.
--   **Homogeneidad de varianzas:** Igualdad de varianzas entre combinaciones de factores.
-
-**Hipótesis:**<br>
-
--   **H₀:** Los promedios de todas las combinaciones de factores son iguales.
--   **H₁:** Al menos una combinación de promedios es diferente.
-
-## Aplicación con R: ANOVA de Dos Vías Unifactorial
-
-```{r, eval=FALSE, echo=TRUE}
-# Prueba de normalidad por combinación de factores
-by(datos$valor, list(datos$factor1, datos$factor2), shapiro.test)
-
-# Prueba de homogeneidad de varianzas
-leveneTest(valor ~ factor1 * factor2, datos)
-
-# ANOVA de dos vías unifactorial
-anova_modelo <- aov(valor ~ factor1 + factor2, data = datos)
-summary(anova_modelo)
-```
-
-## ANOVA de Dos Vías Factorial
-
--   **Independencia de las observaciones.**
--   **Normalidad.**
--   **Homogeneidad de varianzas.**
--   **Adición de efectos independientes:** Sin interacción no especificada entre factores.
-
-**Hipótesis:** - **H₀:** No hay interacción entre factores. - **H₁:** Hay interacción entre factores.
-
-## Aplicación con R: ANOVA de Dos Vías Factorial
-
-```{r, eval=FALSE, echo=TRUE}
-# Prueba de homogeneidad de varianzas
-leveneTest(valor ~ factor1 * factor2, datos)
-
-# ANOVA de dos vías factorial
-anova_modelo <- aov(valor ~ factor1 * factor2, data = datos)
-summary(anova_modelo)
-
-```
-
-## Modelos ANOVA Balanceados vs. No Balanceados
-
--   **Balanceados**: Facilita el cumplimiento de las asunciones de homogeneidad de varianzas.
-
--   **No balanceados**: Mayor atención a la homogeneidad de varianzas. Métodos robustos o correcciones pueden ser necesarias.
-
-## Prueba de Kruskal-Wallis
-
--   **Independencia de las observaciones.**
--   **Escala ordinal o de intervalo.**
--   **Distribuciones similares:** No requieren normalidad pero se asume que las distribuciones son similares.
-
-**Hipótesis:** - **H₀:** Las distribuciones de los grupos son iguales. - **H₁:** Al menos un grupo tiene una distribución diferente.
-
-## Aplicación con R: ANOVA de Dos Vías Factorial
-
-```{r, eval=FALSE, echo=TRUE}
-# Evaluar la distribución de los grupos
-hist(datos$grupo1)
-hist(datos$grupo2)
-
-# Realizar la prueba de Kruskal-Wallis
-kruskal.test(valor ~ grupo, data = datos)
-```
-
-## Consideraciones Adicionales: Evaluación de Asunciones
-
--   **Gráficos:** Histogramas, Q-Q plots, gráficos de residuos.
--   **Pruebas:** Shapiro-Wilk (normalidad), Levene (homogeneidad), Mauchly (esfericidad).
--   **Transformaciones:** Logarítmica, raíz cuadrada o alternativas no paramétricas.

@@ -978,5 +978,271 @@
     "title": "Estadística Inferencial Básica",
     "section": "Interpretación",
     "text": "Interpretación\n\nSi el valor p-valor de \\(X^2\\) es menor que 0.05, entonces se encuentra evidencia suficiente para rechazar \\(H_0\\). Por lo tanto, se acepta \\(H_a\\): existe relación entre las dos variables.\n\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#temario-del-módulo",
+    "href": "slides/03/03-lineal-reg.html#temario-del-módulo",
+    "title": "Modelamiento Lineal",
+    "section": "Temario del módulo",
+    "text": "Temario del módulo\n\n\nConcepto de modelo lineal y función matemática.\nAplicaciones y limitaciones.\nSupuestos teóricos del modelo lineal.\nImplementación de modelos lineales simples.\nCoeficiente de determinación.\nEstimación de parámetros: OLS vs Maximum Likelihood.\nInterpretación para variables explicativas numéricas y factores.\nRegresión lineal múltiple: interpretación.\nConcepto de interacción.\nSelección de variables: AIC.\nRegresiones polinómicas y transformaciones.\nModelos Log.\nPosibilidades analíticas si no se cumplen los supuestos teóricos."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#estadística-inferencial",
+    "href": "slides/03/03-lineal-reg.html#estadística-inferencial",
+    "title": "Modelamiento Lineal",
+    "section": "Estadística inferencial",
+    "text": "Estadística inferencial\nEs el proceso mediante el cual se hacen estimaciones, predicciones o decisiones sobre una población basándose en los resultados obtenidos de una muestra.\n}\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#modelo-lineal",
+    "href": "slides/03/03-lineal-reg.html#modelo-lineal",
+    "title": "Modelamiento Lineal",
+    "section": "Modelo lineal",
+    "text": "Modelo lineal\nEs la forma más simple de modelar la realidad.\n\\[\ny = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\cdots + \\beta_n x_n + \\epsilon\n\\]\nDonde: - \\(y\\) es la variable dependiente. - \\(x_1, x_2, \\dots, x_n\\) son las variables independientes. - \\(\\beta_0, \\beta_1, \\dots, \\beta_n\\) son los coeficientes que representan la pendiente de cada variable. - \\(\\epsilon\\) es el término de error, que captura la variabilidad no explicada por el modelo."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#section",
+    "href": "slides/03/03-lineal-reg.html#section",
+    "title": "Modelamiento Lineal",
+    "section": "",
+    "text": "#| standalone: true\n#| viewerHeight: 700\n\n# Cargar las librerías necesarias\nlibrary(shiny)\nlibrary(ggplot2)\n\n# Definir la interfaz de usuario\nui &lt;- fluidPage(\n  titlePanel(\"Visualización Interactiva de un Modelo Lineal\"),\n  \n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"beta1\", \"β₁ (Pendiente):\", min = -5, max = 5, value = 1, step = 0.1),\n      sliderInput(\"beta0\", \"β₀ (Intercepto):\", min = -10, max = 10, value = 0, step = 0.5),\n      actionButton(\"reset\", \"Restablecer Valores\")\n    ),\n    \n    mainPanel(\n      plotOutput(\"linePlot\"),\n      br(),\n      h4(\"Ecuación de la Recta:\"),\n      uiOutput(\"equation\")\n    )\n  )\n)\n\n# Definir la lógica del servidor\nserver &lt;- function(input, output, session) {\n  \n  # Generar datos sintéticos\n  set.seed(123)  # Para reproducibilidad\n  x_data &lt;- seq(1, 10, length.out = 100)\n  true_beta1 &lt;- 2\n  true_beta0 &lt;- 1\n  noise &lt;- rnorm(100, mean = 0, sd = 2)\n  y_data &lt;- true_beta1 * x_data + true_beta0 + noise\n  data &lt;- data.frame(X = x_data, Y = y_data)\n  \n  # Reactivo para restablecer los valores\n  observeEvent(input$reset, {\n    updateSliderInput(session, \"beta1\", value = 1)\n    updateSliderInput(session, \"beta0\", value = 0)\n  })\n  \n  # Crear el gráfico\n  output$linePlot &lt;- renderPlot({\n    ggplot(data, aes(x = X, y = Y)) +\n      geom_point(color = \"blue\") +\n      geom_abline(intercept = input$beta0, slope = input$beta1, color = \"red\", size = 1) +\n      labs(title = \"Datos Sintéticos y Recta Ajustable\",\n           x = \"Variable Independiente (X)\",\n           y = \"Variable Dependiente (Y)\") +\n      theme_minimal()\n  })\n  \n  # Mostrar la ecuación de la recta con notación matemática\n  output$equation &lt;- renderUI({\n    eq &lt;- paste0(\"Y = \", input$beta0, \" + \", input$beta1, \" × X\")\n    withMathJax(paste0(\"$$\", eq, \"$$\"))\n  })\n}\n\n# Ejecutar la aplicación\nshinyApp(ui = ui, server = server)"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#modelo-lineal-simple",
+    "href": "slides/03/03-lineal-reg.html#modelo-lineal-simple",
+    "title": "Modelamiento Lineal",
+    "section": "Modelo lineal simple",
+    "text": "Modelo lineal simple\nEs la forma más simple de modelar la realidad.\n\\[\ny = \\beta_0 + \\beta_1 x_1 + \\epsilon\n\\]\nDonde:\n\n\n\\(y\\) es la variable dependiente.\n\\(x_1\\) es la variable independiente.\n\\(\\beta_0\\) es el coeficiente que representa el intercepto de la recta en \\(y\\).\n\\(\\beta_1\\) es el coeficiente que representa la pendiente de la recta.\n\\(\\epsilon\\) es el término de error, que captura la variabilidad no explicada por el modelo."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#modelo-lineal-múltiple",
+    "href": "slides/03/03-lineal-reg.html#modelo-lineal-múltiple",
+    "title": "Modelamiento Lineal",
+    "section": "Modelo lineal múltiple",
+    "text": "Modelo lineal múltiple\nImplica tener más de una variable independiente. Cada una con su respectivo coeficiente \\(\\beta_i\\):\n\\[\ny = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\cdots + \\beta_n x_n + \\epsilon\n\\]\nDonde:\n\n\n\\(y\\) es la variable dependiente.\n\\(x_1, x_2, \\dots, x_n\\) son las variables independientes.\n\\(\\beta_0\\) es el intercepto de la curva.\n\\(\\beta_1, \\beta_2, \\dots, \\beta_n\\) son los coeficientes que representan la pendiente de cada variable.\n\\(\\epsilon\\) es el término de error, que captura la variabilidad no explicada por el modelo."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#section-1",
+    "href": "slides/03/03-lineal-reg.html#section-1",
+    "title": "Modelamiento Lineal",
+    "section": "",
+    "text": "En ecología, los modelos lineales ayudan a entender las relaciones entre mediciones de factores bioticos/abióticos (como temperatura, luz, radiación, o humedad, densidad poblacional, cobertura vegetal, densidad del depredador) y las respuestas biológicas de las especies."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#section-2",
+    "href": "slides/03/03-lineal-reg.html#section-2",
+    "title": "Modelamiento Lineal",
+    "section": "",
+    "text": "Predecir la biomasa de una comunidad vegetal en función de la cobertura vegetal del suelo.\n\\[\n\\text{Biomasa} = \\beta_0 + \\beta_1\\cdot\\text{Cobertura Vegetal}\n\\]\n\n\nSe puede aproximar la riqueza de especies frente a la extensión del hábitat (basado en la teoría de la biogeografía de islas) con un modelo lineal log-transformado:\n\\[\n\\log_e{(\\text{Riqueza})}= \\beta_0 + \\beta_1\\cdot\\log_e{(\\text{Área})}\n\\]\n\n\nAnalizar cómo la concentración de nutrientes (nitrógeno o fósforo) influye en la métrica de diversidad de especies de macroinvertebrados en un río:\n\\[\n\\log_e{(\\text{Riqueza})}= \\beta_0 + \\beta_1\\cdot\\log_e{(\\text{Área})}\n\\]"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#section-3",
+    "href": "slides/03/03-lineal-reg.html#section-3",
+    "title": "Modelamiento Lineal",
+    "section": "",
+    "text": "Recuerda: Sin datos nada es posible. Estos modelos permiten eso: crear un modelo a partir de los datos para entender la relación de las variables o para futuras predicciones."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#aplicaciones-y-limitaciones",
+    "href": "slides/03/03-lineal-reg.html#aplicaciones-y-limitaciones",
+    "title": "Modelamiento Lineal",
+    "section": "Aplicaciones y limitaciones",
+    "text": "Aplicaciones y limitaciones\nSiempre que la respuesta biológica, o la parte de nuestro interés, sea lineal, puedes utilizarlo.\n\n\n\n\n\n\n\n\n\n\n\n\n\n¿Es linear la relación entre la talla de los árboles y la biomasa?"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#section-4",
+    "href": "slides/03/03-lineal-reg.html#section-4",
+    "title": "Modelamiento Lineal",
+    "section": "",
+    "text": "https://onlinelibrary.wiley.com/doi/10.1111/gcb.13388\n\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#allometric-equations-for-integrating-remote-sensing-imagery-into-forest-monitoring-programmes",
+    "href": "slides/03/03-lineal-reg.html#allometric-equations-for-integrating-remote-sensing-imagery-into-forest-monitoring-programmes",
+    "title": "Modelamiento Lineal",
+    "section": "Allometric equations for integrating remote sensing imagery into forest monitoring programmes",
+    "text": "Allometric equations for integrating remote sensing imagery into forest monitoring programmes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://onlinelibrary.wiley.com/doi/10.1111/gcb.13388"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#above-ground-biomass-models-for-dominant-trees-species-in-cacao-agroforestry-systems-in-talamanca-costa-rica",
+    "href": "slides/03/03-lineal-reg.html#above-ground-biomass-models-for-dominant-trees-species-in-cacao-agroforestry-systems-in-talamanca-costa-rica",
+    "title": "Modelamiento Lineal",
+    "section": "Above-ground biomass models for dominant trees species in cacao agroforestry systems in Talamanca, Costa Rica",
+    "text": "Above-ground biomass models for dominant trees species in cacao agroforestry systems in Talamanca, Costa Rica\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://link.springer.com/article/10.1007/s10457-022-00741-y"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#supuestos-teóricos-del-modelo-lineal",
+    "href": "slides/03/03-lineal-reg.html#supuestos-teóricos-del-modelo-lineal",
+    "title": "Modelamiento Lineal",
+    "section": "Supuestos teóricos del modelo lineal",
+    "text": "Supuestos teóricos del modelo lineal\n\nRelación lineal: Las variables independientes y la variable de respuesta tienen una relación lineal.\nNormalidad: Los residuos se distribuyen normalmente. No es necesario que los predictores y el resultado estén distribuidos normalmente, siempre que los residuos lo estén. - Homocedasticidad: El término de error es el mismo para todos los valores de las variables independientes.\nNo autocorrelación: Los residuos o términos de error son independientes entre sí.\nNo multicolinealidad: Las variables independientes de un modelo de regresión no deben estar muy correlacionadas entre sí.\nNo valores influyentes: Los datos no contienen valores atípicos que sean influyentes."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#posibilidades-analíticas-cuando-fallan-las-asunciones-teóricas",
+    "href": "slides/03/03-lineal-reg.html#posibilidades-analíticas-cuando-fallan-las-asunciones-teóricas",
+    "title": "Modelamiento Lineal",
+    "section": "Posibilidades analíticas cuando fallan las asunciones teóricas",
+    "text": "Posibilidades analíticas cuando fallan las asunciones teóricas\n\n\n\n\n\n\n\n\nAsunción\nModelos Alternativos\nTransformación de X\nTransformación de Y\n\n\n\n\nRelación Lineal\n• Regresión Polinomial • Regresión con Splines • Modelos No Lineales (e.g., exponenciales, logarítmicos) • Modelos de Machine Learning (Árboles de decisión, Random Forest, Redes Neuronales)\n• Logaritmo • Raíz cuadrada • Exponencial\n• Logaritmo • Raíz cuadrada • Potencias (e.g., Box-Cox)\n\n\nNormalidad de Residuos\n• Modelos Lineales Generalizados (GLM) • Regresión Cuantílica • Modelos No Paramétricos\nN/A\n• Logaritmo • Raíz cuadrada • Box-Cox\n\n\nHomocedasticidad\n• Mínimos Cuadrados Ponderados (WLS) • Modelos GARCH (en series temporales) • Errores Estándar Robustos\n• Opcional (e.g., transformación de X)\n• Logaritmo • Raíz cuadrada\n\n\nNo Autocorrelación\n• Modelos de Series Temporales (ARIMA, SARIMA) • Modelos de Efectos Mixtos • Modelos de Regresión para Datos de Panel\nN/A\n• Diferenciación • Logaritmo\n\n\nNo Multicolinealidad\n• Regresión Ridge • Regresión Lasso • Regresión Elastic Net • Análisis de Componentes Principales (PCA)\n• PCA • Combinación de variables\nN/A\n\n\nNo Valores Influyentes\n• Regresión Robusta (e.g., RANSAC, M-estimators) • Modelos de Regresión No Paramétrica\nN/A\nN/A"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#aplicación-en-r",
+    "href": "slides/03/03-lineal-reg.html#aplicación-en-r",
+    "title": "Modelamiento Lineal",
+    "section": "Aplicación en R",
+    "text": "Aplicación en R"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#coeficiente-de-determinación",
+    "href": "slides/03/03-lineal-reg.html#coeficiente-de-determinación",
+    "title": "Modelamiento Lineal",
+    "section": "Coeficiente de determinación",
+    "text": "Coeficiente de determinación"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#cómo-se-estiman-los-parámetros",
+    "href": "slides/03/03-lineal-reg.html#cómo-se-estiman-los-parámetros",
+    "title": "Modelamiento Lineal",
+    "section": "¿Cómo se estiman los parámetros?",
+    "text": "¿Cómo se estiman los parámetros?"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#interpretación-de-resultados",
+    "href": "slides/03/03-lineal-reg.html#interpretación-de-resultados",
+    "title": "Modelamiento Lineal",
+    "section": "Interpretación de resultados",
+    "text": "Interpretación de resultados\n\n\n\nCall:\nlm(formula = Petal.Length ~ Sepal.Length + Species, data = iris)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.76390 -0.17875  0.00716  0.17461  0.79954 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       -1.70234    0.23013  -7.397 1.01e-11 ***\nSepal.Length       0.63211    0.04527  13.962  &lt; 2e-16 ***\nSpeciesversicolor  2.21014    0.07047  31.362  &lt; 2e-16 ***\nSpeciesvirginica   3.09000    0.09123  33.870  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.2826 on 146 degrees of freedom\nMultiple R-squared:  0.9749,    Adjusted R-squared:  0.9744 \nF-statistic:  1890 on 3 and 146 DF,  p-value: &lt; 2.2e-16\n\n\n\nResiduals:\nCoefficients: Pendiente \\(\\beta\\) de cada variable y el intercepto \\(\\alpha\\) de la recta.\n\\(p_{value}\\) de los coeficientes: para evaluar la \\(H_0\\) “no existe efecto de la variable \\(X\\)”. \\(p_{value} &lt; 0.05\\), variable significativa, se rechaza \\(H_0\\), hay efecto.\n\\(RSE\\) o Error estándar residual:\n\\(R^2\\) o coeficiente de determinación: proporción de la varianza de \\(Y\\) explicada por las variables \\(X\\). Usar el penalizado \\(Adj. R^2\\).\n\\(p_{value}\\) del modelo: para evaluar la \\(H_0\\) “el modelo no explica la variable \\(Y\\)”. \\(p_{value} &lt; 0.05\\), modelo significativo."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#modelo-con-interacciones",
+    "href": "slides/03/03-lineal-reg.html#modelo-con-interacciones",
+    "title": "Modelamiento Lineal",
+    "section": "Modelo con interacciones",
+    "text": "Modelo con interacciones\nEn modelos de regresión, un término de interacción captura el efecto combinado de dos o más variables independientes sobre la variable dependiente. Es decir, el efecto de una variable independiente \\(X\\) sobre \\(Y\\) depende del valor de otra variable independiente.\n¿Cuando Incorporar Interacciones?\n\nDependencia de Efectos: Si se sospecha que el efecto de una variable sobre la respuesta varía según otra variable.\nComplejidad de Relaciones: Para modelar relaciones más complejas que no pueden ser capturadas por términos aditivos simples.\n\n\\[\ny = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\beta_3 (x_1\\cdot x_2)  + \\epsilon\n\\] Aquí \\(\\beta_3\\) representa la interacción de \\(X_1\\) y \\(X_2\\)."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#regresión-lineal-múltiple-selección-de-variables",
+    "href": "slides/03/03-lineal-reg.html#regresión-lineal-múltiple-selección-de-variables",
+    "title": "Modelamiento Lineal",
+    "section": "Regresión lineal múltiple: selección de variables",
+    "text": "Regresión lineal múltiple: selección de variables"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#regresiones-polinómicas-y-transformaciones",
+    "href": "slides/03/03-lineal-reg.html#regresiones-polinómicas-y-transformaciones",
+    "title": "Modelamiento Lineal",
+    "section": "Regresiones polinómicas y transformaciones",
+    "text": "Regresiones polinómicas y transformaciones"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#modelos-logarítmicos",
+    "href": "slides/03/03-lineal-reg.html#modelos-logarítmicos",
+    "title": "Modelamiento Lineal",
+    "section": "Modelos logarítmicos",
+    "text": "Modelos logarítmicos\n\n\nLineal-lineal (no logarítmico): regresión clásica\n\n\\[\ny = \\beta_0 + \\beta_1 x_1 + \\epsilon\n\\]\n\nLineal-log: X logaritmizada\n\n\\[\ny = \\beta_0 + \\beta_1 \\log(x_1) + \\epsilon\n\\]\n\nLog-lineal: Y logaritmizada\n\n\\[\n\\log(Y) = \\beta_0 + \\beta_1 x_1 + \\epsilon\n\\]\n\nLog-Log: X e Y logaritmizada\n\n\\[\n\\log(Y) = \\beta_0 + \\beta_1 \\log(x_1) + \\epsilon\n\\]"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#interpretaciones-de-resultados-en-modelos-logarítmicos",
+    "href": "slides/03/03-lineal-reg.html#interpretaciones-de-resultados-en-modelos-logarítmicos",
+    "title": "Modelamiento Lineal",
+    "section": "Interpretaciones de resultados en modelos logarítmicos",
+    "text": "Interpretaciones de resultados en modelos logarítmicos\n\n\n\n\n\n\n\n\nModelo\nEcuación\nInterpretación_β1\n\n\n\n\nLineal Clásico\nY = β0 + β1X + ϵ\nPor cada unidad de aumento en X, se espera que Y aumente en β1 unidades.\n\n\nLog-Linear\nlog(Y) = β0 + β1X + ϵ\nPor cada unidad de aumento en X, se espera que Y aumente por un factor F = exp(β1). Si F&gt;1, entonces aumenta en F-1 x 100. Si F&lt;1, entonces disminuye en 1-F x 100.\n\n\nLineal-Log\nY = β0 + β1 log(X) + ϵ\nPor cada aumento porcentual en X (digamos POR = 0.01), se espera que Y aumente en β1 x POR, o β1 x 0.01 unidades.\n\n\nLog-Log\nlog(Y) = β0 + β1 log(X) + ϵ\nPor cada cambio porcentual en X (digamos POR% = 1%), se espera que Y cambie aproximadamente en β1xPOR%.\n\n\n\n\n\n\n\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#posibilidades-analíticas-al-fallar-asunciones-teóricas",
+    "href": "slides/03/03-lineal-reg.html#posibilidades-analíticas-al-fallar-asunciones-teóricas",
+    "title": "Modelamiento Lineal",
+    "section": "Posibilidades analíticas al fallar asunciones teóricas",
+    "text": "Posibilidades analíticas al fallar asunciones teóricas\n\n\n\n\n\n\n\n\nAsunción\nModelos Alternativos\nTransformación de X\nTransformación de Y\n\n\n\n\nRelación Lineal\n• Regresión Polinomial • Regresión con Splines • Modelos No Lineales (e.g., exponenciales, logarítmicos) • Modelos de Machine Learning (Árboles de decisión, Random Forest, Redes Neuronales)\n• Logaritmo • Raíz cuadrada • Exponencial\n• Logaritmo • Raíz cuadrada • Potencias (e.g., Box-Cox)\n\n\nNormalidad de Residuos\n• Modelos Lineales Generalizados (GLM) • Regresión Cuantílica (QR) • Modelos No Paramétricos (GAM)\n\n• Logaritmo • Raíz cuadrada • Box-Cox\n\n\nHomocedasticidad\n• Mínimos Cuadrados Ponderados (WLS)\n• Opcional (e.g., transformación de X)\n• Logaritmo • Raíz cuadrada\n\n\nNo Autocorrelación\n• Modelos de Efectos Mixtos, Data Panel Regression (DPR)\n\n• Diferenciación • Logaritmo\n\n\nNo Multicolinealidad\n• Regresión Ridge • Regresión Lasso • Regresión Elastic Net • Análisis de Componentes Principales (PCA) para obtener componentes principales\n• PCA • Combinación de variables\n\n\n\nNo Valores Influyentes\n• Regresión Robusta • Modelos No Paramétricos (GAM)"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#aplicación-en-r-corregir-fallas-en-relación-lineal",
+    "href": "slides/03/03-lineal-reg.html#aplicación-en-r-corregir-fallas-en-relación-lineal",
+    "title": "Modelamiento Lineal",
+    "section": "Aplicación en R: Corregir Fallas en Relación Lineal",
+    "text": "Aplicación en R: Corregir Fallas en Relación Lineal\n\n# Regresión lineal simple\nmodelo_lineal &lt;- lm(Y ~ X, data = datos)\n\n# Regresión polinomial de grado 2\nmodelo_polinomial &lt;- lm(Y ~ poly(X, 2), data = datos)\n\n\n# Regresión con Spline\nlibrary(splines)\nmodelo_splines &lt;- lm(Y ~ bs(X, df = 3), data = datos)\n\n# Modelo Exponencial: Y = β0 * exp(β1 * X) + ϵ\nmodelo_exponencial &lt;- nls(Y ~ b0 * exp(b1 * X), data = datos,\n                           start = list(b0 = 1, b1 = 0.05))\n\n\n# Modelo Logarítmico: log(Y) = β0 + β1 * X + ϵ\nmodelo_logaritmico &lt;- lm(log(Y) ~ X, data = datos)\n\n# Ajustar una red neuronal con una capa oculta de 5 neuronas\nlibrary(nnet)\nmodelo_nn &lt;- nnet(Y ~ X, data = datos, size = 5, linout = TRUE, trace = FALSE)"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#aplicación-en-r-corregir-fallas-en-normalidad-de-residuos",
+    "href": "slides/03/03-lineal-reg.html#aplicación-en-r-corregir-fallas-en-normalidad-de-residuos",
+    "title": "Modelamiento Lineal",
+    "section": "Aplicación en R: Corregir Fallas en Normalidad de Residuos",
+    "text": "Aplicación en R: Corregir Fallas en Normalidad de Residuos\n\n# Modelo GLM con distribución normal (similar a lm)\nmodelo_glm_normal &lt;- glm(Y ~ X, data = datos, family = gaussian())\n\n# Modelo GLM con distribución Gamma (si los datos son positivos y asimétricos)\nmodelo_glm_gamma &lt;- glm(Y ~ X, data = datos, family = Gamma(link = \"log\"))\n\n# Regresión cuantílica para el cuantil 0.5 (mediana)\nlibrary(quantreg)\nmodelo_qr &lt;- rq(Y ~ X, data = datos, tau = 0.5)\n\n# Modelo GAM con término suave para X\nlibrary(mgcv)\nmodelo_gam &lt;- gam(Y ~ s(X), data = datos)"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#aplicación-en-r-corregir-fallas-en-homocedasticidad-wls",
+    "href": "slides/03/03-lineal-reg.html#aplicación-en-r-corregir-fallas-en-homocedasticidad-wls",
+    "title": "Modelamiento Lineal",
+    "section": "Aplicación en R: Corregir Fallas en Homocedasticidad (WLS)",
+    "text": "Aplicación en R: Corregir Fallas en Homocedasticidad (WLS)\n\n# Ajustar un modelo OLS inicial\nmodelo_ols &lt;- lm(Y ~ X, data = datos)\n\n# Obtener residuos y analizar la varianza\ndatos &lt;- datos %&gt;%\n  mutate(resid = resid(modelo_ols))\n\n# Ajustar un modelo para la varianza utilizando GAM\nmodelo_gam_var &lt;- gam(resid^2 ~ s(X), data = datos, family = gaussian())\n\n# Predicciones de la varianza\ndatos &lt;- datos %&gt;%\n  mutate(var_pred = predict(modelo_gam_var, \n                            newdata = datos),\n         peso = 1 / var_pred)\n\n\n# Modelo WLS\nmodelo_wls &lt;- lm(Y ~ X, data = datos, weights = peso)"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#aplicación-en-r-corregir-autocorrelación",
+    "href": "slides/03/03-lineal-reg.html#aplicación-en-r-corregir-autocorrelación",
+    "title": "Modelamiento Lineal",
+    "section": "Aplicación en R: Corregir Autocorrelación",
+    "text": "Aplicación en R: Corregir Autocorrelación\n\n# Modelo de efectos mixtos con intercepto aleatorio\nmodelo_mixto &lt;- lmer(Y ~ X + (1 | grupo), data = datos)"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#aplicación-en-r-corregir-multicolinearidad",
+    "href": "slides/03/03-lineal-reg.html#aplicación-en-r-corregir-multicolinearidad",
+    "title": "Modelamiento Lineal",
+    "section": "Aplicación en R: Corregir Multicolinearidad",
+    "text": "Aplicación en R: Corregir Multicolinearidad\n\nlibrary(glmnet)\n\n# Modelo Ridge con validación cruzada. alpha = 0\ncv_ridge &lt;- cv.glmnet(x, y, alpha = 0)\n\n# Modelo Lasso con validación cruzada. alpha = 1\ncv_ridge &lt;- cv.glmnet(x, y, alpha = 1)\n\n# Modelo Elastic Net con validación cruzada. alpha = 0.5\ncv_ridge &lt;- cv.glmnet(x, y, alpha = 0.5)"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#aplicación-en-r-corregir-valores-influyentes",
+    "href": "slides/03/03-lineal-reg.html#aplicación-en-r-corregir-valores-influyentes",
+    "title": "Modelamiento Lineal",
+    "section": "Aplicación en R: Corregir Valores Influyentes",
+    "text": "Aplicación en R: Corregir Valores Influyentes\n\n# Modelo de regresión robusta\nlibrary(MASS)\nmodelo_robusto &lt;- rlm(Y ~ X, data = datos)\n\n# Modelo GAM con término suave para X\nlibrary(mgcv)\nmodelo_gam_robusto &lt;- gam(Y ~ s(X), data = datos)"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#cómo-se-estiman-los-parámetros-optimización",
+    "href": "slides/03/03-lineal-reg.html#cómo-se-estiman-los-parámetros-optimización",
+    "title": "Modelamiento Lineal",
+    "section": "¿Cómo se estiman los parámetros?: Optimización",
+    "text": "¿Cómo se estiman los parámetros?: Optimización\n\n\nMínimos Cuadrados Ordinarios (OLS): Es el método más utilizado en Reg. Lineal. OLS busca minimizar la suma de los cuadrados de las diferencias (residuos) entre los valores observados y los valores predichos por el modelo.\nMáxima Verosimilitud (MLE): Este método se basa en maximizar la función de verosimilitud, que representa la probabilidad de observar los datos dados los parámetros del modelo."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#métricas-de-evaluación-y-comparación-de-modelos",
+    "href": "slides/03/03-lineal-reg.html#métricas-de-evaluación-y-comparación-de-modelos",
+    "title": "Modelamiento Lineal",
+    "section": "Métricas de evaluación y comparación de modelos",
+    "text": "Métricas de evaluación y comparación de modelos\n\n\n\n\n\n\n\n\nMétrica\nDescripción\nVentajas\nLimitaciones\n\n\n\n\nRSE (Residual Standard Error)\nRaíz de la suma de residuos al cuadrado dividida por los grados de libertad.\nAjusta el error por la complejidad del modelo.\nNo es tan intuitivo fuera del contexto de regresión.\n\n\nRMSE (Root Mean Squared Error)\nRaíz cuadrada del promedio de los residuos al cuadrado.\nIntuitivo y ampliamente usado.\nSensible a outliers.\n\n\nR-cuadrado (R²)\nProporción de la variabilidad en Y explicada por los predictores.\nFácil de interpretar.\nNo penaliza la complejidad del modelo.\n\n\nR-cuadrado Ajustado (R²_adj)\nR² ajustado por el número de predictores, penalizando la inclusión de variables irrelevantes.\nMejora la comparabilidad entre modelos con diferente complejidad.\nMenos intuitivo que R².\n\n\nMAE (Mean Absolute Error)\nPromedio de las diferencias absolutas entre observados y predichos.\nRobusto ante outliers.\nNo penaliza errores grandes de manera diferenciada.\n\n\nMSE (Mean Squared Error)\nPromedio de los residuos al cuadrado.\nUtilizado en muchos métodos de optimización.\nSensible a outliers.\n\n\nAIC (Akaike Information Criterion)\nMétrica basada en la verosimilitud penalizada por la complejidad del modelo.\nÚtil para comparar modelos no anidados.\nPuede favorecer modelos más simples de forma excesiva.\n\n\nBIC (Bayesian Information Criterion)\nSimilar a AIC pero con penalización más fuerte para la complejidad.\nPreferido cuando se busca un balance más estricto entre ajuste y simplicidad.\nPuede ser demasiado restrictivo con muchos predictores.\n\n\nMAPE (Mean Absolute Percentage Error)\nPromedio de los errores absolutos expresados como porcentaje de Y.\nIntuitivo en términos relativos.\nNo definido cuando Y = 0 o cerca de cero."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#resultados-de-los-modelos-1",
+    "href": "slides/03/03-lineal-reg.html#resultados-de-los-modelos-1",
+    "title": "Modelamiento Lineal",
+    "section": "Resultados de los modelos 1:",
+    "text": "Resultados de los modelos 1:\n\n\n\nCall:\nlm(formula = Petal.Length ~ Sepal.Length + Species, data = iris)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.76390 -0.17875  0.00716  0.17461  0.79954 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       -1.70234    0.23013  -7.397 1.01e-11 ***\nSepal.Length       0.63211    0.04527  13.962  &lt; 2e-16 ***\nSpeciesversicolor  2.21014    0.07047  31.362  &lt; 2e-16 ***\nSpeciesvirginica   3.09000    0.09123  33.870  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.2826 on 146 degrees of freedom\nMultiple R-squared:  0.9749,    Adjusted R-squared:  0.9744 \nF-statistic:  1890 on 3 and 146 DF,  p-value: &lt; 2.2e-16\n\n\n\nResiduals:\nCoefficients: Pendiente \\(\\beta\\) de cada variable y el intercepto \\(\\alpha\\) de la recta.\n\\(p_{value}\\) de los coeficientes: para evaluar la \\(H_0\\) “no existe efecto de la variable \\(X\\)”. \\(p_{value} &lt; 0.05\\), variable significativa, se rechaza \\(H_0\\), hay efecto."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#resultados-de-los-modelos-2",
+    "href": "slides/03/03-lineal-reg.html#resultados-de-los-modelos-2",
+    "title": "Modelamiento Lineal",
+    "section": "Resultados de los modelos 2:",
+    "text": "Resultados de los modelos 2:\n\n\n\nCall:\nlm(formula = Petal.Length ~ Sepal.Length + Species, data = iris)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.76390 -0.17875  0.00716  0.17461  0.79954 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       -1.70234    0.23013  -7.397 1.01e-11 ***\nSepal.Length       0.63211    0.04527  13.962  &lt; 2e-16 ***\nSpeciesversicolor  2.21014    0.07047  31.362  &lt; 2e-16 ***\nSpeciesvirginica   3.09000    0.09123  33.870  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.2826 on 146 degrees of freedom\nMultiple R-squared:  0.9749,    Adjusted R-squared:  0.9744 \nF-statistic:  1890 on 3 and 146 DF,  p-value: &lt; 2.2e-16\n\n\n\n\\(RSE\\) o Error estándar residual:\n\\(R^2\\) o coeficiente de determinación: proporción de la varianza de \\(Y\\) explicada por las variables \\(X\\). Usar el penalizado \\(Adj. R^2\\).\n\\(p_{value}\\) del modelo: para evaluar la \\(H_0\\) “el modelo no explica la variable \\(Y\\)”. \\(p_{value} &lt; 0.05\\), modelo significativo."
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#interpretación-de-interacciones",
+    "href": "slides/03/03-lineal-reg.html#interpretación-de-interacciones",
+    "title": "Modelamiento Lineal",
+    "section": "Interpretación de interacciones",
+    "text": "Interpretación de interacciones\n\n\\(\\beta_1\\) es el efecto de \\(X_1\\) en \\(Y\\) cuando \\(X_2 = 0\\).\n\\(\\beta_2\\) es el efecto de \\(X_2\\) en \\(Y\\) cuando \\(X_1 = 0\\).\n\\(\\beta_3\\) es el cambio en el efecto de \\(X_1\\) sobre \\(Y\\) por cada unidad adicional de \\(X_2\\) y viceversa.\n\n\n\n\nCall:\nlm(formula = Petal.Length ~ Sepal.Length * Sepal.Width, data = iris)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.58510 -0.41994 -0.06607  0.43235  1.66736 \n\nCoefficients:\n                         Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)                6.3910     3.0378   2.104  0.03711 *  \nSepal.Length               0.2042     0.5303   0.385  0.70079    \nSepal.Width               -4.1994     0.9660  -4.347 2.57e-05 ***\nSepal.Length:Sepal.Width   0.5057     0.1695   2.984  0.00334 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6298 on 146 degrees of freedom\nMultiple R-squared:  0.8753,    Adjusted R-squared:  0.8727 \nF-statistic: 341.6 on 3 and 146 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#regresión-lineal-múltiple-x-numéricas",
+    "href": "slides/03/03-lineal-reg.html#regresión-lineal-múltiple-x-numéricas",
+    "title": "Modelamiento Lineal",
+    "section": "Regresión lineal múltiple: X numéricas",
+    "text": "Regresión lineal múltiple: X numéricas\n\n\n\nCall:\nlm(formula = Petal.Length ~ Sepal.Length + Sepal.Width, data = iris)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.25582 -0.46922 -0.05741  0.45530  1.75599 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -2.52476    0.56344  -4.481 1.48e-05 ***\nSepal.Length  1.77559    0.06441  27.569  &lt; 2e-16 ***\nSepal.Width  -1.33862    0.12236 -10.940  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6465 on 147 degrees of freedom\nMultiple R-squared:  0.8677,    Adjusted R-squared:  0.8659 \nF-statistic:   482 on 2 and 147 DF,  p-value: &lt; 2.2e-16\n\n\n\n\nPor cada unidad de aumento de \\(X\\), \\(Y\\) aumenta en \\(\\beta_i\\) unidades"
+  },
+  {
+    "objectID": "slides/03/03-lineal-reg.html#regresión-lineal-múltiple-x-factores",
+    "href": "slides/03/03-lineal-reg.html#regresión-lineal-múltiple-x-factores",
+    "title": "Modelamiento Lineal",
+    "section": "Regresión lineal múltiple: X factores",
+    "text": "Regresión lineal múltiple: X factores\n\n\n\nCall:\nlm(formula = Petal.Length ~ Sepal.Length + Species, data = iris)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.76390 -0.17875  0.00716  0.17461  0.79954 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       -1.70234    0.23013  -7.397 1.01e-11 ***\nSepal.Length       0.63211    0.04527  13.962  &lt; 2e-16 ***\nSpeciesversicolor  2.21014    0.07047  31.362  &lt; 2e-16 ***\nSpeciesvirginica   3.09000    0.09123  33.870  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.2826 on 146 degrees of freedom\nMultiple R-squared:  0.9749,    Adjusted R-squared:  0.9744 \nF-statistic:  1890 on 3 and 146 DF,  p-value: &lt; 2.2e-16\n\n\n\n\nPor el efecto de la categoría 2 de \\(X\\) genera un aumento/disminución en \\(Y\\) en \\(\\beta_i\\) unidades, respecto a la categoría 1 (nivel base, nivel de contraste, placebo). unidades"
   }
 ]

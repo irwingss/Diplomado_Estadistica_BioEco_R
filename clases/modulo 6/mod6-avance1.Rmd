@@ -368,5 +368,68 @@ ggplot(vege, aes(x=barea20, y=grass_cover_out_21, color=fire))+
 # Prueba de Chi-cuadrado
 
 ```{r}
+ecosistema <- c("Bosque", "Bosque", "Pradera", "Pradera", "Humedal", "Humedal")
+presencia <- c("Observada", "No Observada", "Observada", "No Observada", "Observada", "No Observada")
+frecuencias <- c(40, 60, 30, 70, 80, 20)
+
+
+datos2 <- data.frame(ecosistema, presencia, frecuencias)
+
+vege$fire # Ecosistema
+vege$exclosure # Presencia
+
+# Convirtiendo una tabla con columna de frecuencias a una
+# tabla de contingencias
+tc1 <- xtabs(frecuencias ~ ecosistema + presencia, data = datos2)
+
+# Convirtiendo una tabla larga a tabla de contingencias
+tc2 <- table(vege$fire, vege$exclosure)
+
+# --------------------------------------------- -
+# Prueba de asociación de chi cuadrado
+res_x2_1 <- chisq.test(tc1)
+res_x2_1$expected
+
+# Prueba de asociación de chi cuadrado con corrección de Yates
+# Solo aplica cuando alguna de las casillas es <=5
+chisq.test(tc1, correct = TRUE)
+
+# --------------------------------------------- -
+res_x2_2 <- chisq.test(tc2)
+res_x2_2$expected
+tc2
+res_x2_2$observed
+
+# --------------------------------------------- -
+# TAMAÑO DEL EFECTO de la asociación:
+install.packages("rcompanion")
+library(rcompanion)
+
+cramerV(tc1)
+
+# --------------------------------------------- -
+# PRUEBA DE CORRESPONDENCIA
+
+install.packages("FactoMineR")
+library(FactoMineR)
+res_ca <- CA(tc1) # tc1 creado con table
+
+install.packages("factoextra")
+library(factoextra)
+fviz_ca(res_ca)
+```
+
+```{r}
+# Test de fisher
+# Solo admite tablas cuadradas 2x2, y se suele trabajar cuando chi cuadro tiene valores esperados >=5 en alguna de sus celdas
+
+tabla <- matrix(c(1, 9, 11, 3), nrow = 2, byrow = TRUE)
+rownames(tabla) <- c("Tratamiento", "Control")
+colnames(tabla) <- c("Éxito", "Fracaso")
+tabla
+
+fisher.test(tabla)
+rcompanion::cramerV(tabla)
 
 ```
+

@@ -1,0 +1,287 @@
+---
+title: "Módulo 6: Inferencia Estadística"
+output: html_notebook
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+pak::pak(c("openxlsx","rstatix", "tidyverse", "nortest",
+           "ggstatsplot", "performance", "pwr", 
+           "pwr2", "simr"))
+
+install.packages("openxlsx")
+install.packages("rstatix")
+install.packages("tidyverse")
+install.packages("nortest")
+install.packages("ggstatsplot")
+install.packages("performance")
+install.packages("pwr")
+install.packages("pwr2")
+install.packages("simr")
+
+install.packages("car")
+
+pak::pak("irwingss/masterX")
+```
+
+```{r}
+library(tidyverse)
+library(openxlsx)
+library(performance)
+library(ggstatsplot)
+library(rstatix)
+library(pwr)
+library(pwr2)
+library(simr)
+library(nortest)
+library(car)
+```
+
+# Cargar bases de datos
+
+```{r}
+macro <- openxlsx::read.xlsx("bases/Khatri et al 2022 benthic macroinvertebrates assemblages.xlsx")
+fire <- openxlsx::read.xlsx("bases/Fire 2024/fxh_complete_2021-2_dryad.xlsx")
+vege <- openxlsx::read.xlsx("bases/Fire 2024/fxh_vegetation_2021-2_dryad.xlsx")
+
+macro <- openxlsx::read.xlsx(file.choose())
+fire <- openxlsx::read.xlsx(file.choose())
+vege <- openxlsx::read.xlsx(file.choose())
+
+
+vege <- vege %>% 
+  rename(rgr_diam_plot_20_21 = `rgr_diam_plot_20-21`)
+
+str(vege)
+
+plot(density(vege$rgr_diam_plot_20_21))
+```
+
+# Pruebas de Normalidad
+
+```{r}
+# Ejemplo de clase Shapiro
+shapiro.test(macro$Total.Catch) # No existen normalidad en los datos
+length(macro$Total.Catch)
+
+shapiro.test(fire$grass_biomass_21) #No existe normalidad
+
+for (i in 10:13){
+  normalidad <- shapiro.test(fire[,i]) # Test automatizado de normalidad
+  print(normalidad)
+}
+
+# Ejemplo de clase Kolmogorov-Smirnov
+ks.test(fire$grass_biomass_21, "pnorm", 
+        mean(fire$grass_biomass_21, na.rm = TRUE),
+        sd(fire$grass_biomass_21, na.rm = TRUE))
+
+# Ejemplo de clase Normtest
+nortest::lillie.test(fire$grass_biomass_21)
+nortest::cvm.test(fire$grass_biomass_21)
+nortest::ad.test(fire$grass_biomass_21)
+nortest::sf.test(fire$grass_biomass_21)
+
+# Ejemplo de clase masterX
+masterX::NormTests(fire$grass_biomass_21)
+masterX::NormTests(macro$Total.Catch)
+```
+
+```{r}
+qqnorm(fire$grass_biomass_21)
+qqline(fire$grass_biomass_21)
+
+plot(density(fire$grass_biomass_21, na.rm = TRUE))
+
+fire %>% 
+  filter(fire == "Hot") %>% 
+  pull(grass_biomass_21) %>% 
+  density(na.rm = TRUE) %>% 
+  plot()
+
+```
+
+```{r}
+ggplot(fire, aes(sample = grass_biomass_21,
+                 color = fire)) +
+  geom_qq()+
+  geom_qq_line() +
+  facet_wrap(~fire) # AUTOMÁTICO
+  # facet_grid(.~fire) # TODO LATERAL
+    # facet_grid(fire~.) # TODo HACIA ABAJO
+```
+
+
+# Pruebas de T, Wilcoxon y Mann-Withney
+
+```{r}
+# Primer caso: Tasa de crecimiento promedio en zonas quemadas (hot) y no quemadas (control)
+vege_hot <- vege %>% filter(fire == "Hot") %>% pull(rgr_diam_plot_20_21)
+vege_control <- vege %>% filter(fire == "Control") %>% pull(rgr_diam_plot_20_21)
+
+vege_hot
+vege_control
+
+# A1: Normalidad
+shapiro.test(vege_hot)
+shapiro.test(vege_control)
+
+plot(density(vege_hot))
+plot(density(vege_control))
+
+# A2: Homocedasticidad
+vege_hc <- vege %>% 
+  filter(fire %in% c("Hot", "Control"))
+head(vege_hc)
+
+leveneTest(rgr_diam_plot_20_21 ~ fire, data = vege_hc, center = mean)
+leveneTest(vege_control, vege_hot)
+
+# Crear la prueba de t para muestras independientes
+t.test(rgr_diam_plot_20_21 ~ fire, data = vege_hc, var.equal = TRUE)
+t.test(vege_control, vege_hot, var.equal = TRUE)
+
+# Gráfica
+library(ggstatsplot)
+ggbetweenstats() # CUANDO HAY MUESTRAS INDEPENDIENTES
+ggwithinstats()  # CUANDO HAY MUESTRAS PAREADAS O DEPENDIENTES
+
+ggbetweenstats(vege_hc, x = fire, y = rgr_diam_plot_20_21,
+               type = "p", var.equal = TRUE, 
+               bf.message = FALSE)
+
+# Reporte
+install.packages("report")
+pruebaT <- t.test(rgr_diam_plot_20_21 ~ fire, 
+                  data = vege_hc, var.equal = TRUE)
+report::report(pruebaT)
+```
+
+Al revisar la comparativa entre los dos grupos hot (x = 0.16) y fire (x 0.12) , se encontró que no existen diferencias significativas entre ellos para su nivel de tasa de crecimiento promedio de los árboles (p-valor = 0.48, gl = 37, ghedges = 0.23 [-0.40,0.84]).
+
+La prueba t de dos muestras que evalúa la diferencia de rgr_diam_plot_20_21 por incendio (media en el grupo Control = 0,16, media en el grupo Hot = 0,12) sugiere que el efecto es positivo, estadísticamente no significativo y pequeño (diferencia = 0,04, IC 95% [-0,06, 0,14], t(37) = 0,72, p = 0,476; d de Cohen = 0,24, IC 95% [-0,41, 0,88]).
+
+# CONTROL + ALT + i
+
+```{r}
+# A1: Normalidad para una prueba de T dependiente, se evalúa sobre la diferencia de los promedio. 
+vege_dif <- vege_control[1:10] - vege_hot[1:10]
+shapiro.test(vege_dif)
+plot(density(vege_dif))
+
+# Prueba de T para muestras dependientes
+t.test(vege_control[1:10], vege_hot[1:10], 
+       var.equal = TRUE, paired = TRUE)
+
+vege_hc2 <- vege_hc %>% 
+  group_by(fire) %>% 
+  sample_n(10) %>% 
+  ungroup()
+
+ggwithinstats(data = vege_hc2, x = fire, y = rgr_diam_plot_20_21,
+              type = "p", bf.message = FALSE)
+```
+
+
+```{r}
+# Prueba de U de Mann-Whitney
+vege_hot
+vege_control
+
+# A3: Distribuciones similares
+par(mfrow=c(1,2))
+plot(density(vege_hot))
+plot(density(vege_control))
+dev.off()
+
+# Ejecutar la prueba
+res_u <- wilcox.test(vege_hot, vege_control, 
+                     paired = FALSE)
+res_u
+
+report::report(res_u)
+
+# Gráfica
+library(ggstatsplot)
+ggbetweenstats(vege_hc, x = fire, y = rgr_diam_plot_20_21, 
+               type = "np", bf.message = FALSE)
+```
+
+```{r}
+# Prueba de Wilcoxon
+res_w <- wilcox.test(vege_hot[1:10], vege_control[1:10], paired = TRUE)
+
+report::report(res_w)
+
+vege_hc <- vege_hc %>% ungroup()
+
+ggwithinstats(vege_hc, x = fire, y = rgr_diam_plot_20_21, 
+               type = "np", bf.message = FALSE)
+```
+
+
+# Pruebas de ANOVA y Kruskal-Wallis
+
+```{r}
+# Anova de una vía -----------
+
+anova1 <- aov(grass_cover_out_21 ~ fire, data = vege)
+anova1
+summary(anova1)
+
+## A0: Independencia de las observaciones (DISEÑO DE ESTUDIO)
+## A1: Normalidad
+str(vege)
+plot(density(vege$grass_cover_out_21))
+
+vege <- vege %>% 
+  mutate(fire = stringr::str_replace(fire, 
+                                     pattern = " ", 
+                                     replacement = ""))
+
+ggplot(vege, aes(x=grass_cover_out_21, color = fire)) +
+  geom_density(lwd = 1) +
+  theme_bw()
+
+ggplot(vege, aes(y=grass_cover_out_21, x = fire, color = fire)) +
+  geom_boxplot() +
+  theme_bw()
+
+residuales1 <- residuals(anova1)
+plot(density(residuales1))
+
+ggplot(vege, aes(sample=grass_cover_out_21, color = fire)) +
+  geom_qq()+
+  geom_qq_line()+
+  facet_wrap(~fire)
+
+tapply(residuales1, vege$fire, shapiro.test)
+# tapply(vege$grass_cover_out_21, vege$fire, shapiro.test)
+
+## A2: Homocedasticidad
+leveneTest(grass_cover_out_21 ~ fire, data = vege, center = mean)
+
+## Prueba Post Hoc
+Tk1 <- TukeyHSD(anova1)
+Tk1 
+
+## Reporte de los resultados 
+report::report(anova1)
+
+tapply(vege$grass_cover_out_21, vege$fire, mean)
+
+## Gráfico
+ggbetweenstats(vege, y=grass_cover_out_21, x=fire, type = "p", 
+               var.equal = TRUE, bf.message = FALSE, 
+               p.adjust.method = "bonferroni")
+```
+
+De manera pareada, el único par de categorías de la variable fire que no mostró diferencias significativas entre sus promedios de cobertura de grass para el año 2021, son control (x=69.70) y cold (x=56.40) (diferencia = 13.29 [-5.93, 32.53], p-adj = 0.22). Por su parte, la comparativa entre cold y hot (x=36.56), fue significativa (diferencia = -19.83 [-38.13, -1.55], p-adj=0.03) (Figura 1).
+
+
+# Prueba de Chi-cuadrado
+
+```{r}
+
+```
