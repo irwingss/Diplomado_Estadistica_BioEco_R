@@ -1,0 +1,865 @@
+---
+title: Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM) 
+subtitle: Módulo 8
+title-slide-attributes:
+  data-background-image: ../bg4.png
+  data-background-size: cover
+  data-slide-number: default
+format:
+  revealjs:
+    mathjax: default
+    theme:
+     - "default"
+     - "../slides.scss"
+    width: "1600"
+    height: "900"
+    slide-number: true
+    highlight-style: atom-one
+    incremental: true   
+    chalkboard: 
+       theme: chalkboard
+       chalk-effect: 0.1
+       chalk-width: 5
+       boardmarker-width: 7
+filters:
+  - shinylive
+cache: true
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  fig.align = "center"
+)
+```
+
+# Objetivos del módulo {background-image="../bg8.png"}
+
+::: incremental
+1.  Comprender los fundamentos del **modelamiento generalizado lineal**, aplicaciones y limitaciones.
+2.  **Elegir adecuadamente la familia** de distribución de probabilidades para el modelo a realizar, según la naturaleza de los datos.
+3.  **Interpretar** de manera correcta los resultados numéricos de un modelo generalizado lineal.
+4.  Aplicar procesos de **selección de variables** en modelos GLM, LMM y GLMM múltiples.
+5.  Desarrollar **scripts** de modelamiento generalizado lineal de manera efectiva con sintaxis de R.
+:::
+
+# Introducción
+
+## Temario del módulo
+
+::: incremental
+-   Concepto de Modelo Generalizado Lineal (GLM).
+-   Repaso a las familias de distribución relevantes en GLM: Poisson, Binomial Negativa, Bernoulli, Binomial, Beta.
+-   Funciones de enlace.
+-   Comparación de modelos.
+-   Coeficiente de determinación.
+-   Métricas: AIC, Pseudo R-cuadrado y Log Likelihood.
+-   Parsimonia.
+-   Aplicación de modelo gamma en contextos biológicos.
+-   Aplicación de modelo de poisson en contextos biológicos.
+-   Sobredispersión.
+:::
+
+## Temario del módulo (continuación)
+
+::: incremental
+-   Selección de variables: AIC.
+-   Aplicación de modelo de bernoulli en contextos biológicos.
+-   Aplicación de modelo de beta en contextos biológicos.
+-   Lidiando con ceros inflados
+-   Extendiendo los modelos: efectos mixtos y su relevancia en ciencias biológicas (LMM, GLMM).
+:::
+
+# 1. Modelos Generalizados lineales
+
+## {}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/Modelos GLM.png")
+```
+
+
+
+## Concepto de Modelo Generalizado Lineal (GLM)
+
+- Extensión de los modelos de regresión lineal.
+- Permiten analizar relaciones entre variables $X$ e $Y$.
+- Cuando la variable de respuesta ($Y$) no sigue una distribución normal $N(\mu, \sigma^2)$.
+
+## Conceptos clave de un GLM:<br>1. función de enlace
+
+Es una función que transforma la media de la variable de respuesta ($E(Y)$) para establecer una relación lineal con las variables predictoras ($X$).
+
+Garantiza la linealidad de la relación.
+
+- Enlace identidad $g(\mu) = \mu$.
+- Enlace logit $g(\mu) = \log(\frac{\mu}{1-\mu})$.
+- Enlace logarítmico $g(\mu) = \log(\mu)$
+- Enlace inverso $g(\mu)=\frac{1}{\mu}$
+
+:::fragment
+¿En qué espacio interpretamos los resultados?
+:::
+
+## Conceptos clave de un GLM:<br>2. distribución de la familia exponencial
+
+La variable respuesta $Y$ debe seguir una distribución que pertenezca a la familia exponencial.
+
+```{r, echo = FALSE}
+knitr::include_graphics("images/4_continuous_probability_density_functions.png")
+
+```
+
+
+## Conceptos clave de un GLM:<br>3. componente lineal
+
+También llamado componente sistemático, es el lado de la ecuación donde están las variables $X$ con sus respectivos coeficientes $\beta$. 
+
+Se representa $\eta = X\beta$.
+
+$$
+\eta = X\beta = \beta_0+\beta_1X_1+\beta_2X_2+...+\beta_iX_i
+$$
+
+## ¿Cómo lucen los 3 componentes juntos?
+
+:::fragment
+$$
+g(\mu) = \eta
+$$
+
+Donde $g(\mu)$ es la función de enlace que modifica al promedio esperado de la variable $\mu = E(Y)$. Y $\eta$, el componente sistemático. 
+:::
+
+:::fragment
+$$
+g(\mu) = \beta_0+\beta_1X_1+\beta_2X_2+...+\beta_iX_i
+$$
+
+Extendiendo la ecuación, no se diferencia mucho del modelo lineal, a excepción de la aparición de $g(\mu)$, y de que ya no se coloca término de error dado que viene implícito en la distribución de $Y$ elegida.
+:::
+
+## Elige la distribución adecuada
+
+Las funciones de enlace canónicas a una distribución son aquellas definidas por defecto para una distribución.
+
+```{r}
+#| echo: false
+
+library(gt)
+library(tibble)
+library(purrr)
+
+# Create the dataframe with Unicode symbols
+datos_distribuciones <- tibble(
+  Distribución = c("Gaussiana", "Gamma", "Gaussiana inversa", "Bernoulli", "Binomial", "Beta", "Poisson", "Binomial Negativa"),
+  `Rango de Y` = c("ℝ", "(0, ∞)", "(0, ∞)", "0, 1", "0, ..., N", "(0, 1)", "0, 1, ...", "0, 1, ..."),
+  `Notación de Distribución` = c("𝒩(μ, σ²)", "Γ(α, ν)", "𝒩⁻¹(μ, σ²)", "Ber(p)", "B(N, p)", "Beta(α, β)", "Pois(λ)", "NegBin(r, p)"),
+  `Función de Enlace Canónica g(μ)` = c("μ", "-1/μ", "-1/μ", "logit(μ)", "log(μ / (N - μ))", "log(μ / (1 - μ))", "log(μ)", "log(μ)")
+)
+
+# Create the gt table
+tabla_distribuciones <- datos_distribuciones %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = c(`Rango de Y`, `Notación de Distribución`, `Función de Enlace Canónica g(μ)`)
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(
+    column_labels.background.color = "#0013fe",
+    table.font.size = px(28),
+    data_row.padding = px(15)
+  ) %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Display the table
+tabla_distribuciones
+
+
+
+```
+
+## Elige la función de enlace
+
+La función $g(\mu)$ es conocida como función de enlace (link function). Siempre es reversible.
+
+```{r}
+#| echo: false
+
+library(gt)
+library(tibble)
+
+# Create the dataframe with the families in the specified order
+datos_glm <- tibble(
+  Familia = c("Gaussiana", "Gamma", "Gaussiana inversa", "Bernoulli", "Binomial", "Beta", "Poisson", "Binomial Negativa"),
+  `Función de enlace` = c("Identity", "Inverse, identity, Log", "Inverse, identity, Log", "Logit", "Logit, Probit, cloglog", "Log, identity, sqrt", "Log, identity, sqrt", "Log, identity, sqrt"),
+  `Función en R` = c("glm()", "glm()", "glm()", "glm()", "glm()", "glm()", "glm()", "glm.nb()"),
+  `Argumento family/link` = c("gaussian(link='identity')", "Gamma(link='inverse')", "inverse.gaussian(link='1/mu^2')", "binomial(link='logit')", "binomial(link='logit')", "Beta(link='log')", "poisson(link='log')", "link = 'log'")
+)
+
+# Create the gt table
+tabla_glm <- datos_glm %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = c(`Función de enlace`, `Función en R`, `Argumento family/link`)
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", color = "white"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_options(
+    column_labels.background.color = "#0013fe",
+    table.font.size = px(28),
+    data_row.padding = px(15)
+  ) %>%
+  opt_row_striping() %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Display the table
+tabla_glm
+```
+
+## Familias de distribución Exponencial
+
+- Gaussiana (Normal).
+- Gamma.
+- Gaussiana inversa.
+- Poisson.
+- Binomial negativa.
+- Bernoulli.
+- Binomial.
+- Beta.
+
+## Gaussiana
+
+$$
+N(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{\left(-\frac{1}{2} \frac{(x - \mu)^2}{\sigma^2}\right)}
+$$
+
+:::{.columns}
+::: {.column width="30%"}
+:::nonincremental
+- Rango de predicción $\mathbb{R}$.
+- En un LM o un GLM Gaussiano, se espera que los residuales sean normales.
+:::
+:::
+
+::: {.column width="70%"}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Cargar paquetes necesarios
+library(ggplot2)
+
+# Crear datos para la distribución normal
+x <- seq(-5, 5, length.out = 100)
+mu_sigma <- data.frame(
+  mu = c(0, 0, 0, -2),
+  sigma2 = c(0.2, 1, 5, 0.5),
+  color = c("#375c8c", "#e61561", "orange", "#31a300")
+)
+
+# Función para calcular la densidad de la normal
+normal_density <- function(x, mu, sigma2) {
+  dnorm(x, mean = mu, sd = sqrt(sigma2))
+}
+
+# Crear un data frame con las densidades para cada combinación de parámetros
+data <- do.call(rbind, lapply(1:nrow(mu_sigma), function(i) {
+  data.frame(
+    x = x,
+    y = normal_density(x, mu_sigma$mu[i], mu_sigma$sigma2[i]),
+    mu = mu_sigma$mu[i],
+    sigma2 = mu_sigma$sigma2[i],
+    color = mu_sigma$color[i]
+  )
+}))
+
+# Crear el gráfico
+ggplot(data, aes(x = x, y = y, color = factor(color))) +
+  geom_line(size = 1.2) +
+  scale_color_manual(values = c("#375c8c", "#e61561", "orange", "#31a300"),
+                     labels = c(expression(mu == 0 ~ "," ~ sigma^2 == 0.2),
+                                expression(mu == 0 ~ "," ~ sigma^2 == 1),
+                                expression(mu == 0 ~ "," ~ sigma^2 == 5),
+                                expression(mu == -2 ~ "," ~ sigma^2 == 0.5))) +
+  labs(x = expression(italic(x)), y = expression(phi[mu, sigma^2](italic(x)))) +
+  theme_minimal() +
+  theme(
+    legend.position = c(0.85, 0.85),
+    legend.title = element_blank(),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14),
+    legend.text.align = 0,
+    legend.text = element_text(size = 12)
+  )
+
+```
+
+:::
+:::
+
+## Gamma
+
+$$
+\Gamma(x; k, \theta) = \frac{x^{k-1} e^{-x/\theta}}{\Gamma(k) \theta^{k}}, \quad x > 0
+$$
+
+:::{.columns}
+::: {.column width="30%"}
+:::nonincremental
+- **Rango de predicción**: $(0, \infty)$.
+- En un **GLM Gamma**, se modela la media de variables positivas continuas.
+- La **varianza** es proporcional al cuadrado de la media.
+:::
+:::
+
+::: {.column width="70%"}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Cargar paquetes necesarios
+library(ggplot2)
+
+# Crear datos para la distribución Gamma
+x <- seq(0, 20, length.out = 1000)
+shape_scale <- data.frame(
+  shape = c(1, 2, 3, 5),
+  scale = c(2, 2, 2, 1),
+  color = c("#375c8c", "#e61561", "#31a300", "orange")
+)
+
+# Función para calcular la densidad de la Gamma
+gamma_density <- function(x, shape, scale) {
+  dgamma(x, shape = shape, scale = scale)
+}
+
+# Crear un data frame con las densidades para cada combinación de parámetros
+data <- do.call(rbind, lapply(1:nrow(shape_scale), function(i) {
+  data.frame(
+    x = x,
+    y = gamma_density(x, shape_scale$shape[i], shape_scale$scale[i]),
+    shape = shape_scale$shape[i],
+    scale = shape_scale$scale[i],
+    color = shape_scale$color[i]
+  )
+}))
+
+# Crear el gráfico
+ggplot(data, aes(x = x, y = y, color = factor(color))) +
+  geom_line(size = 1.2) +
+  scale_color_manual(values = shape_scale$color,
+                     labels = c(expression(k == 1 ~ "," ~ theta == 2),
+                                expression(k == 2 ~ "," ~ theta == 2),
+                                expression(k == 3 ~ "," ~ theta == 2),
+                                expression(k == 5 ~ "," ~ theta == 1))) +
+  labs(x = expression(italic(x)), y = expression(f(x))) +
+  theme_minimal() +
+  theme(
+    legend.position = c(0.75, 0.75),
+    legend.title = element_blank(),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
+```
+:::
+:::
+
+## Gaussiana inversa
+
+$$
+\text{IG}(x; \mu, \lambda) = \left( \frac{\lambda}{2\pi x^3} \right)^{1/2} \exp\left( -\frac{\lambda (x - \mu)^2}{2\mu^2 x} \right), \quad x > 0
+$$
+
+:::{.columns}
+::: {.column width="30%"}
+:::nonincremental
+- **Rango de predicción**:  $(0, \infty)$.
+- En un **GLM Gaussiana Inversa**, se modelan tiempos hasta un evento.
+- La **varianza** disminuye con el aumento de la media.
+:::
+:::
+
+::: {.column width="70%"}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Crear datos para la distribución Gaussiana Inversa
+x <- seq(0.01, 5, length.out = 1000)
+mu_lambda <- data.frame(
+  mu = c(1, 1, 2, 2),
+  lambda = c(1, 3, 1, 3),
+  color = c("#375c8c", "#e61561", "#31a300", "orange")
+)
+
+# Función para calcular la densidad de la Gaussiana Inversa
+inv_gauss_density <- function(x, mu, lambda) {
+  SuppDists::dinvGauss(x, nu = mu, lambda = lambda)
+}
+
+# Crear un data frame con las densidades para cada combinación de parámetros
+data <- do.call(rbind, lapply(1:nrow(mu_lambda), function(i) {
+  data.frame(
+    x = x,
+    y = inv_gauss_density(x, mu_lambda$mu[i], mu_lambda$lambda[i]),
+    mu = mu_lambda$mu[i],
+    lambda = mu_lambda$lambda[i],
+    color = mu_lambda$color[i]
+  )
+}))
+
+# Crear el gráfico
+ggplot(data, aes(x = x, y = y, color = factor(color))) +
+  geom_line(size = 1.2) +
+  scale_color_manual(values = mu_lambda$color,
+                     labels = c(expression(mu == 1 ~ "," ~ lambda == 1),
+                                expression(mu == 1 ~ "," ~ lambda == 3),
+                                expression(mu == 2 ~ "," ~ lambda == 1),
+                                expression(mu == 2 ~ "," ~ lambda == 3))) +
+  labs(x = expression(italic(x)), y = expression(f(x))) +
+  theme_minimal() +
+  theme(
+    legend.position = c(0.75, 0.75),
+    legend.title = element_blank(),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
+```
+:::
+:::
+
+## Poisson
+
+$$
+P(k; \lambda) = \frac{\lambda^k e^{-\lambda}}{k!}, \quad k = 0, 1, 2, \dots
+$$
+
+:::{.columns}
+::: {.column width="30%"}
+:::nonincremental
+- **Rango de predicción**: $\{0, 1, 2, \dots\}$.
+- En un **GLM Poisson**, se modelan conteos de eventos.
+- **Media y varianza** son iguales: $\text{E}[X] = \text{Var}[X] = \lambda$.
+:::
+:::
+
+::: {.column width="70%"}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Cargar paquetes necesarios
+library(ggplot2)
+
+# Valores de k
+k <- 0:20
+lambdas <- c(1, 4, 10)
+colors <- c("#375c8c", "#e61561", "#31a300")
+
+# Crear un data frame con las probabilidades para cada lambda
+data <- do.call(rbind, lapply(1:length(lambdas), function(i) {
+  data.frame(
+    k = k,
+    y = dpois(k, lambda = lambdas[i]),
+    lambda = lambdas[i],
+    color = colors[i]
+  )
+}))
+
+# Crear el gráfico
+ggplot(data, aes(x = k, y = y, color = factor(color))) +
+  geom_point(size = 2) +
+  geom_line(aes(group = color), size = 1) +
+  scale_color_manual(values = colors,
+                     labels = c(expression(lambda == 1),
+                                expression(lambda == 4),
+                                expression(lambda == 10))) +
+  labs(x = expression(italic(k)), y = expression(P(k))) +
+  theme_minimal() +
+  theme(
+    legend.position = c(0.8, 0.8),
+    legend.title = element_blank(),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
+```
+
+:::
+:::
+
+## El problema de la sobredispersión
+
+La sobredispersión ocurre cuando la variabilidad observada en los datos es mayor que la esperada bajo el modelo estadístico asumido (generalmente en modelos Poisson o binomiales).
+
+- **Causas comunes:**  
+  - **Heterogeneidad** en los datos no capturada por el modelo.
+  - **Correlación** entre las observaciones.
+  - **Valores extremos** que incrementan la varianza.
+
+- **Efectos en el modelo:**  
+  - Estimaciones de los parámetros pueden ser **inexactas**.
+  - Aumenta el **error estándar**, lo que puede llevar a **pruebas de significancia erróneas**.
+
+- **Soluciones:**  
+  - Utilizar modelos con **distribuciones alternativas** (e.g., binomial negativa, modelos quasi, beta-binomial).
+  - Ajustar un **modelo de efectos mixtos** si hay correlación entre observaciones.
+    
+## Binomial Negativa
+
+$$
+P(k; r, p) = \binom{k + r - 1}{k} p^r (1 - p)^k, \quad k = 0, 1, 2, \dots
+$$
+
+:::{.columns}
+::: {.column width="30%"}
+:::nonincremental
+- **Rango de predicción**: $\{0, 1, 2, \dots\}$.
+- En un **GLM Binomial Negativa**, se modelan conteos con **sobre-dispersión**.
+- **Varianza** mayor que la media: $\text{Var}[X] = \mu + \frac{\mu^2}{r}$.
+:::
+:::
+
+::: {.column width="70%"}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Cargar paquetes necesarios
+library(ggplot2)
+
+# Valores de k
+k <- 0:20
+params <- data.frame(
+  size = c(5, 10, 5),
+  prob = c(0.5, 0.5, 0.7),
+  color = c("#375c8c", "#e61561", "#31a300")
+)
+
+# Crear un data frame con las probabilidades para cada conjunto de parámetros
+data <- do.call(rbind, lapply(1:nrow(params), function(i) {
+  data.frame(
+    k = k,
+    y = dnbinom(k, size = params$size[i], prob = params$prob[i]),
+    size = params$size[i],
+    prob = params$prob[i],
+    color = params$color[i]
+  )
+}))
+
+# Crear el gráfico
+ggplot(data, aes(x = k, y = y, color = factor(color))) +
+  geom_point(size = 2) +
+  geom_line(aes(group = color), size = 1) +
+  scale_color_manual(values = params$color,
+                     labels = c(expression(r == 5 ~ "," ~ p == 0.5),
+                                expression(r == 10 ~ "," ~ p == 0.5),
+                                expression(r == 5 ~ "," ~ p == 0.7))) +
+  labs(x = expression(italic(k)), y = expression(P(k))) +
+  theme_minimal() +
+  theme(
+    legend.position = c(0.8, 0.8),
+    legend.title = element_blank(),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
+```
+
+:::
+:::
+
+## Bernoulli
+
+$$
+P(x; p) = p^x (1 - p)^{1 - x}, \quad x \in \{0, 1\}
+$$
+
+:::{.columns}
+::: {.column width="30%"}
+:::nonincremental
+- **Rango de predicción**: $\{0, 1\}$.
+- En un **GLM Bernoulli**, se modela la probabilidad de éxito/fallo.
+- Utiliza funciones de enlace como **logit** o **probit**.
+:::
+:::
+
+::: {.column width="70%"}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Cargar paquetes necesarios
+library(ggplot2)
+
+# Valores de x
+x <- c(0, 1)
+ps <- c(0.2, 0.5, 0.8)
+colors <- c("#375c8c", "#e61561", "#31a300")
+
+# Crear un data frame con las probabilidades para cada p
+data <- do.call(rbind, lapply(1:length(ps), function(i) {
+  data.frame(
+    x = x,
+    y = dbinom(x, size = 1, prob = ps[i]),
+    p = ps[i],
+    color = colors[i]
+  )
+}))
+
+# Crear el gráfico
+ggplot(data, aes(x = factor(x), y = y, fill = factor(color))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_manual(values = colors,
+                    labels = c(expression(p == 0.2),
+                               expression(p == 0.5),
+                               expression(p == 0.8))) +
+  labs(x = expression(italic(x)), y = expression(P(x))) +
+  theme_minimal() +
+  theme(
+    legend.position = c(0.9, 0.85),
+    legend.title = element_blank(),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
+```
+
+:::
+:::
+
+## Binomial
+
+$$
+P(k; n, p) = \binom{n}{k} p^k (1 - p)^{n - k}, \quad k = 0, 1, \dots, n
+$$
+
+:::{.columns}
+::: {.column width="30%"}
+:::nonincremental
+- **Rango de predicción**: $\{0, 1, \dots, n\}$.
+- En un **GLM Binomial**, se modela el número de éxitos en $n$ ensayos.
+- La **varianza** es $\text{Var}[X] = n p (1 - p)$.
+:::
+:::
+
+::: {.column width="70%"}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Cargar paquetes necesarios
+library(ggplot2)
+
+# Valores de k
+n <- 10
+k <- 0:n
+ps <- c(0.3, 0.5, 0.7)
+colors <- c("#375c8c", "#e61561", "#31a300")
+
+# Crear un data frame con las probabilidades para cada p
+data <- do.call(rbind, lapply(1:length(ps), function(i) {
+  data.frame(
+    k = k,
+    y = dbinom(k, size = n, prob = ps[i]),
+    p = ps[i],
+    color = colors[i]
+  )
+}))
+
+# Crear el gráfico
+ggplot(data, aes(x = k, y = y, color = factor(color))) +
+  geom_point(size = 2) +
+  geom_line(aes(group = color), size = 1) +
+  scale_color_manual(values = colors,
+                     labels = c(expression(p == 0.3),
+                                expression(p == 0.5),
+                                expression(p == 0.7))) +
+  labs(x = expression(italic(k)), y = expression(P(k))) +
+  theme_minimal() +
+  theme(
+    legend.position = c(0.9, 0.8),
+    legend.title = element_blank(),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
+```
+
+:::
+:::
+
+## Beta
+
+$$
+\text{Beta}(x; \alpha, \beta) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} x^{\alpha - 1} (1 - x)^{\beta - 1}, \quad 0 < x < 1
+$$
+
+:::{.columns}
+::: {.column width="30%"}
+:::nonincremental
+- **Rango de predicción**: $(0, 1)$.
+- Modela **proporciones** y **probabilidades continuas**.
+- La forma de la distribución depende de $\alpha$ y $\beta$.
+:::
+:::
+
+::: {.column width="70%"}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Cargar paquetes necesarios
+library(ggplot2)
+
+# Crear datos para la distribución Beta
+x <- seq(0, 1, length.out = 1000)
+alpha_beta <- data.frame(
+  alpha = c(0.5, 2, 2, 5),
+  beta = c(0.5, 2, 5, 1),
+  color = c("#375c8c", "#e61561", "#31a300", "orange")
+)
+
+# Función para calcular la densidad de la Beta
+beta_density <- function(x, alpha, beta) {
+  dbeta(x, shape1 = alpha, shape2 = beta)
+}
+
+# Crear un data frame con las densidades para cada combinación de parámetros
+data <- do.call(rbind, lapply(1:nrow(alpha_beta), function(i) {
+  data.frame(
+    x = x,
+    y = beta_density(x, alpha_beta$alpha[i], alpha_beta$beta[i]),
+    alpha = alpha_beta$alpha[i],
+    beta = alpha_beta$beta[i],
+    color = alpha_beta$color[i]
+  )
+}))
+
+# Crear el gráfico
+ggplot(data, aes(x = x, y = y, color = factor(color))) +
+  geom_line(size = 1.2) +
+  scale_color_manual(values = alpha_beta$color,
+                     labels = c(expression(alpha == 0.5 ~ "," ~ beta == 0.5),
+                                expression(alpha == 2 ~ "," ~ beta == 2),
+                                expression(alpha == 2 ~ "," ~ beta == 5),
+                                expression(alpha == 5 ~ "," ~ beta == 1))) +
+  labs(x = expression(italic(x)), y = expression(f(x))) +
+  theme_minimal() +
+  theme(
+    legend.position = c(0.75, 0.75),
+    legend.title = element_blank(),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
+```
+
+:::
+:::
+
+## El problema de los ceros inflados
+
+- **¿Qué es el problema de los ceros inflados?**  
+  Ocurre cuando hay una mayor cantidad de ceros en los datos de la esperada bajo la distribución asumida, común en datos de conteo (Poisson o binomial negativa).
+
+- **Causas comunes:**  
+  - **Procesos duales**: combinación de dos procesos, uno que genera ceros y otro que genera conteos.
+  - **Ausencia estructural** de eventos (ej. especie no presente en una zona específica).
+
+- **Efectos en el modelo:**  
+  - Subestima los ceros observados, lo que afecta la **precisión de las estimaciones**, derivando en conclusiones erróneas.
+
+- **Soluciones:**  
+  - Usar modelos de **ceros inflados** como **Poisson Ceros Inflados** (ZIP) o **Binomial Negativa Ceros Inflados** (ZINB).
+  - Implementar **modelos de dos partes** que estimen ceros y conteos por separado.
+
+## Métricas de comparación de modelos
+
+:::fragment
+**Akaike Information Criterion (AIC)**<br>
+
+- Mide la calidad del modelo con un equilibrio entre ajuste y complejidad.
+- **Más bajo es mejor**: el modelo con el AIC más bajo es el preferido.
+:::
+
+<br>
+
+:::fragment
+**Bayesian Information Criterion (BIC)**<br>
+
+- Similar al AIC, pero penaliza más los modelos complejos.
+- Recomendado cuando se comparan modelos en contextos bayesianos.
+:::
+
+<br>
+
+## Métricas de comparación de modelos
+
+:::fragment
+**Pseudo**-$R^2$<br>
+
+- Intenta capturar la capacidad del modelo para explicar la variabilidad en los datos.
+- Se basa en ratios de verosimilitudes (Mc Fadden's $R^2$, Cox & Snell’s $R^2$, Nagelkerke's $R^2$, etc.)
+- **Más cercano a 1**: mejor ajuste. **Más cercano a 0**: peor ajuste. Valores $0.2$ a $0.3$ indican un buen ajuste. 
+:::
+
+## Test de comparación de modelos
+
+:::fragment
+**Likelihood Ratio Test (LRT)**<br>
+
+- Compara un modelo anidado frente a otro más complejo.
+- Útil para evaluar si el modelo más complejo mejora significativamente el ajuste.
+:::
+
+:::fragment
+**Vuong Test**<br>
+
+- Compara un modelo no anidado frente a otro (por ejemplo P vs ZIP).
+- Útil para evaluar si otro set de variable mejora el modelo.
+:::
+
+# 2. Modelos de Efectos Mixtos (LMM y GLMM)
+
+## ¿Qué son efectos fijos?
+
+- Variables sobre las que tengo interés predecir o interpretar.
+- Son cualquier tipo de variable $X$.
+
+## ¿Qué son efectos aleatorios?
+
+- Variables sobre las que **no** tengo interés predecir o interpretar.
+- Son variables de agrupamiento (factores) $Z$.
+- Incluirlos hace que el modelo generalice mejor.
+
+:::fragment
+**Características**<br>
+
+- Tiene múltiples observaciones dentro de cada nivel.
+- La variabilidad entre niveles es relevante.
+- Se asume independencia entre niveles.
+- De 5 a 6 niveles, adecuado.
+:::
+
+## Modelos de efectos mixtos
+
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/mixed_models.jpg")
+```
+
+:::footer
+https://peerj.com/articles/4794/
+:::
+
+
+## Modelos de efectos mixtos
+
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/Mixedandfixedeffects.jpg")
+```
+
+:::footer
+https://en.wikipedia.org/wiki/Mixed_model
+:::

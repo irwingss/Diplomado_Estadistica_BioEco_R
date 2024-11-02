@@ -1244,5 +1244,264 @@
     "title": "Modelamiento Lineal",
     "section": "Regresión lineal múltiple: X factores",
     "text": "Regresión lineal múltiple: X factores\n\n\n\nCall:\nlm(formula = Petal.Length ~ Sepal.Length + Species, data = iris)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.76390 -0.17875  0.00716  0.17461  0.79954 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       -1.70234    0.23013  -7.397 1.01e-11 ***\nSepal.Length       0.63211    0.04527  13.962  &lt; 2e-16 ***\nSpeciesversicolor  2.21014    0.07047  31.362  &lt; 2e-16 ***\nSpeciesvirginica   3.09000    0.09123  33.870  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.2826 on 146 degrees of freedom\nMultiple R-squared:  0.9749,    Adjusted R-squared:  0.9744 \nF-statistic:  1890 on 3 and 146 DF,  p-value: &lt; 2.2e-16\n\n\n\n\nPor el efecto de la categoría 2 de \\(X\\) genera un aumento/disminución en \\(Y\\) en \\(\\beta_i\\) unidades, respecto a la categoría 1 (nivel base, nivel de contraste, placebo). unidades"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#temario-del-módulo",
+    "href": "slides/04/04-glm.html#temario-del-módulo",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Temario del módulo",
+    "text": "Temario del módulo\n\n\nConcepto de Modelo Generalizado Lineal (GLM).\nRepaso a las familias de distribución relevantes en GLM: Poisson, Binomial Negativa, Bernoulli, Binomial, Beta.\nFunciones de enlace.\nComparación de modelos.\nCoeficiente de determinación.\nMétricas: AIC, Pseudo R-cuadrado y Log Likelihood.\nParsimonia.\nAplicación de modelo gamma en contextos biológicos.\nAplicación de modelo de poisson en contextos biológicos.\nSobredispersión."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#concepto-de-modelo-generalizado-lineal-glm",
+    "href": "slides/04/04-glm.html#concepto-de-modelo-generalizado-lineal-glm",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Concepto de Modelo Generalizado Lineal (GLM)",
+    "text": "Concepto de Modelo Generalizado Lineal (GLM)\n\nExtensión de los modelos de regresión lineal.\nPermiten analizar relaciones entre variables \\(X\\) e \\(Y\\).\nCuando la variable de respuesta (\\(Y\\)) no sigue una distribución normal \\(N(\\mu, \\sigma^2)\\)."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#conceptos-clave-de-un-glm-1.-función-de-enlace",
+    "href": "slides/04/04-glm.html#conceptos-clave-de-un-glm-1.-función-de-enlace",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Conceptos clave de un GLM:1. función de enlace",
+    "text": "Conceptos clave de un GLM:1. función de enlace\nEs una función que transforma la media de la variable de respuesta (\\(E(Y)\\)) para establecer una relación lineal con las variables predictoras (\\(X\\)).\nGarantiza la linealidad de la relación.\n\nEnlace identidad \\(g(\\mu) = \\mu\\).\nEnlace logit \\(g(\\mu) = \\log(\\frac{\\mu}{1-\\mu})\\).\nEnlace logarítmico \\(g(\\mu) = \\log(\\mu)\\)\nEnlace inverso \\(g(\\mu)=\\frac{1}{\\mu}\\)\n\n\n¿En qué espacio interpretamos los resultados?"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#conceptos-clave-de-un-glm-2.-distribución-de-la-familia-exponencial",
+    "href": "slides/04/04-glm.html#conceptos-clave-de-un-glm-2.-distribución-de-la-familia-exponencial",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Conceptos clave de un GLM:2. distribución de la familia exponencial",
+    "text": "Conceptos clave de un GLM:2. distribución de la familia exponencial\nLa variable respuesta \\(Y\\) debe seguir una distribución que pertenezca a la familia exponencial."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#conceptos-clave-de-un-glm-3.-componente-lineal",
+    "href": "slides/04/04-glm.html#conceptos-clave-de-un-glm-3.-componente-lineal",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Conceptos clave de un GLM:3. componente lineal",
+    "text": "Conceptos clave de un GLM:3. componente lineal\nTambién llamado componente sistemático, es el lado de la ecuación donde están las variables \\(X\\) con sus respectivos coeficientes \\(\\beta\\).\nSe representa \\(\\eta = X\\beta\\).\n\\[\n\\eta = X\\beta = \\beta_0+\\beta_1X_1+\\beta_2X_2+...+\\beta_iX_i\n\\]"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#cómo-lucen-los-3-componentes-juntos",
+    "href": "slides/04/04-glm.html#cómo-lucen-los-3-componentes-juntos",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "¿Cómo lucen los 3 componentes juntos?",
+    "text": "¿Cómo lucen los 3 componentes juntos?\n\n\\[\ng(\\mu) = \\eta\n\\]\nDonde \\(g(\\mu)\\) es la función de enlace que modifica al promedio esperado de la variable \\(\\mu = E(Y)\\). Y \\(\\eta\\), el componente sistemático.\n\n\n\\[\ng(\\mu) = \\beta_0+\\beta_1X_1+\\beta_2X_2+...+\\beta_iX_i\n\\]\nExtendiendo la ecuación, no se diferencia mucho del modelo lineal, a excepción de la aparición de \\(g(\\mu)\\), y de que ya no se coloca término de error dado que viene implícito en la distribución de \\(Y\\) elegida."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#familias-de-distribución-binomial",
+    "href": "slides/04/04-glm.html#familias-de-distribución-binomial",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Familias de distribución binomial",
+    "text": "Familias de distribución binomial"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#gaussiana",
+    "href": "slides/04/04-glm.html#gaussiana",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Gaussiana",
+    "text": "Gaussiana\n\\[\nN(x; \\mu, \\sigma) = \\frac{1}{\\sqrt{2 \\pi \\sigma^2}} e^{\\left(-\\frac{1}{2} \\frac{(x - \\mu)^2}{\\sigma^2}\\right)}\n\\]\n\n\n\n\nRango de predicción \\(\\mathbb{R}\\).\nEn un LM o un GLM Gaussiano, se espera que los residuales sean normales."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#gamma",
+    "href": "slides/04/04-glm.html#gamma",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Gamma",
+    "text": "Gamma\n\\[\n\\Gamma(x; k, \\theta) = \\frac{x^{k-1} e^{-x/\\theta}}{\\Gamma(k) \\theta^{k}}, \\quad x &gt; 0\n\\]\n\n\n\n\nRango de predicción: \\((0, \\infty)\\).\nEn un GLM Gamma, se modela la media de variables positivas continuas.\nLa varianza es proporcional al cuadrado de la media."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#gaussiana-inversa",
+    "href": "slides/04/04-glm.html#gaussiana-inversa",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Gaussiana inversa",
+    "text": "Gaussiana inversa\n\\[\n\\text{IG}(x; \\mu, \\lambda) = \\left( \\frac{\\lambda}{2\\pi x^3} \\right)^{1/2} \\exp\\left( -\\frac{\\lambda (x - \\mu)^2}{2\\mu^2 x} \\right), \\quad x &gt; 0\n\\]\n\n\n\n\nRango de predicción: \\((0, \\infty)\\).\nEn un GLM Gaussiana Inversa, se modelan tiempos hasta un evento.\nLa varianza disminuye con el aumento de la media."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#poisson",
+    "href": "slides/04/04-glm.html#poisson",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Poisson",
+    "text": "Poisson\n\\[\nP(k; \\lambda) = \\frac{\\lambda^k e^{-\\lambda}}{k!}, \\quad k = 0, 1, 2, \\dots\n\\]\n\n\n\n\nRango de predicción: \\(\\{0, 1, 2, \\dots\\}\\).\nEn un GLM Poisson, se modelan conteos de eventos.\nMedia y varianza son iguales: \\(\\text{E}[X] = \\text{Var}[X] = \\lambda\\)."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#el-problema-de-la-sobredispersión",
+    "href": "slides/04/04-glm.html#el-problema-de-la-sobredispersión",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "El problema de la sobredispersión",
+    "text": "El problema de la sobredispersión\nLa sobredispersión ocurre cuando la variabilidad observada en los datos es mayor que la esperada bajo el modelo estadístico asumido (generalmente en modelos Poisson o binomiales).\n\nCausas comunes:\n\nHeterogeneidad en los datos no capturada por el modelo.\nCorrelación entre las observaciones.\nValores extremos que incrementan la varianza.\n\nEfectos en el modelo:\n\nEstimaciones de los parámetros pueden ser inexactas.\nAumenta el error estándar, lo que puede llevar a pruebas de significancia erróneas.\n\nSoluciones:\n\nUtilizar modelos con distribuciones alternativas (e.g., binomial negativa, modelos quasi, beta-binomial).\nAjustar un modelo de efectos mixtos si hay correlación entre observaciones."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#binomial-negativa",
+    "href": "slides/04/04-glm.html#binomial-negativa",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Binomial Negativa",
+    "text": "Binomial Negativa\n\\[\nP(k; r, p) = \\binom{k + r - 1}{k} p^r (1 - p)^k, \\quad k = 0, 1, 2, \\dots\n\\]\n\n\n\n\nRango de predicción: \\(\\{0, 1, 2, \\dots\\}\\).\nEn un GLM Binomial Negativa, se modelan conteos con sobre-dispersión.\nVarianza mayor que la media: \\(\\text{Var}[X] = \\mu + \\frac{\\mu^2}{r}\\)."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#bernoulli",
+    "href": "slides/04/04-glm.html#bernoulli",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Bernoulli",
+    "text": "Bernoulli\n\\[\nP(x; p) = p^x (1 - p)^{1 - x}, \\quad x \\in \\{0, 1\\}\n\\]\n\n\n\n\nRango de predicción: \\(\\{0, 1\\}\\).\nEn un GLM Bernoulli, se modela la probabilidad de éxito/fallo.\nUtiliza funciones de enlace como logit o probit."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#binomial",
+    "href": "slides/04/04-glm.html#binomial",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Binomial",
+    "text": "Binomial\n\\[\nP(k; n, p) = \\binom{n}{k} p^k (1 - p)^{n - k}, \\quad k = 0, 1, \\dots, n\n\\]\n\n\n\n\nRango de predicción: \\(\\{0, 1, \\dots, n\\}\\).\nEn un GLM Binomial, se modela el número de éxitos en \\(n\\) ensayos.\nLa varianza es \\(\\text{Var}[X] = n p (1 - p)\\)."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#el-problema-de-la-sobredispersión-1",
+    "href": "slides/04/04-glm.html#el-problema-de-la-sobredispersión-1",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "El problema de la sobredispersión",
+    "text": "El problema de la sobredispersión"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#beta",
+    "href": "slides/04/04-glm.html#beta",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Beta",
+    "text": "Beta\n\\[\n\\text{Beta}(x; \\alpha, \\beta) = \\frac{\\Gamma(\\alpha + \\beta)}{\\Gamma(\\alpha)\\Gamma(\\beta)} x^{\\alpha - 1} (1 - x)^{\\beta - 1}, \\quad 0 &lt; x &lt; 1\n\\]\n\n\n\n\nRango de predicción: \\((0, 1)\\).\nModela proporciones y probabilidades continuas.\nLa forma de la distribución depende de \\(\\alpha\\) y \\(\\beta\\)."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#el-problema-de-los-ceros-inflados",
+    "href": "slides/04/04-glm.html#el-problema-de-los-ceros-inflados",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "El problema de los ceros inflados",
+    "text": "El problema de los ceros inflados\n\n¿Qué es el problema de los ceros inflados?\nOcurre cuando hay una mayor cantidad de ceros en los datos de la esperada bajo la distribución asumida, común en datos de conteo (Poisson o binomial negativa).\nCausas comunes:\n\nProcesos duales: combinación de dos procesos, uno que genera ceros y otro que genera conteos.\nAusencia estructural de eventos (ej. especie no presente en una zona específica).\n\nEfectos en el modelo:\n\nSubestima los ceros observados, lo que afecta la precisión de las estimaciones, derivando en conclusiones erróneas.\n\nSoluciones:\n\nUsar modelos de ceros inflados como Poisson Ceros Inflados (ZIP) o Binomial Negativa Ceros Inflados (ZINB).\nImplementar modelos de dos partes que estimen ceros y conteos por separado."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#métricas-de-comparación-de-modelos",
+    "href": "slides/04/04-glm.html#métricas-de-comparación-de-modelos",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Métricas de comparación de modelos",
+    "text": "Métricas de comparación de modelos\n\nAkaike Information Criterion (AIC)\n\nMide la calidad del modelo con un equilibrio entre ajuste y complejidad.\nMás bajo es mejor: el modelo con el AIC más bajo es el preferido.\n\n\n\n\nBayesian Information Criterion (BIC)\n\nSimilar al AIC, pero penaliza más los modelos complejos.\nRecomendado cuando se comparan modelos en contextos bayesianos."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#selección-de-modelos-test-de-likelihood-ratio-lrt",
+    "href": "slides/04/04-glm.html#selección-de-modelos-test-de-likelihood-ratio-lrt",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Selección de modelos: Test de Likelihood Ratio LRT",
+    "text": "Selección de modelos: Test de Likelihood Ratio LRT"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#qué-son-efectos-fijos",
+    "href": "slides/04/04-glm.html#qué-son-efectos-fijos",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "¿Qué son efectos fijos?",
+    "text": "¿Qué son efectos fijos?\n\nVariables sobre las que tengo interés predecir o interpretar.\nSon cualquier tipo de variable \\(X\\)."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#qué-son-efectos-aleatorios",
+    "href": "slides/04/04-glm.html#qué-son-efectos-aleatorios",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "¿Qué son efectos aleatorios?",
+    "text": "¿Qué son efectos aleatorios?\n\nVariables sobre las que no tengo interés predecir o interpretar.\nSon variables de agrupamiento (factores) \\(Z\\).\nIncluirlos hace que el modelo generalice mejor.\n\n\nCaracterísticas\n\nTiene múltiples observaciones dentro de cada nivel.\nLa variabilidad entre niveles es relevante.\nSe asume independencia entre niveles.\nDe 5 a 6 niveles, adecuado."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#modelos-de-efectos-mixtos",
+    "href": "slides/04/04-glm.html#modelos-de-efectos-mixtos",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Modelos de efectos mixtos",
+    "text": "Modelos de efectos mixtos\n\n\nhttps://peerj.com/articles/4794/"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#tipos-de-efectos-aleatorios",
+    "href": "slides/04/04-glm.html#tipos-de-efectos-aleatorios",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Tipos de efectos aleatorios",
+    "text": "Tipos de efectos aleatorios"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#cómo-eligo-la-estructura-aleatoria-de-mi-modelo",
+    "href": "slides/04/04-glm.html#cómo-eligo-la-estructura-aleatoria-de-mi-modelo",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "¿Cómo eligo la estructura aleatoria de mi modelo?",
+    "text": "¿Cómo eligo la estructura aleatoria de mi modelo?\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#temario-del-módulo-1",
+    "href": "slides/04/04-glm.html#temario-del-módulo-1",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Temario del módulo",
+    "text": "Temario del módulo\n\n\nSelección de variables: AIC.\nAplicación de modelo de bernoulli en contextos biológicos.\nAplicación de modelo de beta en contextos biológicos.\nLidiando con ceros inflados\nExtendiendo los modelos: efectos mixtos y su relevancia en ciencias biológicas (LMM, GLMM)."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#temario-del-módulo-continuación",
+    "href": "slides/04/04-glm.html#temario-del-módulo-continuación",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Temario del módulo (continuación)",
+    "text": "Temario del módulo (continuación)\n\n\nSelección de variables: AIC.\nAplicación de modelo de bernoulli en contextos biológicos.\nAplicación de modelo de beta en contextos biológicos.\nLidiando con ceros inflados\nExtendiendo los modelos: efectos mixtos y su relevancia en ciencias biológicas (LMM, GLMM)."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#el-problema-de-la-sobe61561ispersión",
+    "href": "slides/04/04-glm.html#el-problema-de-la-sobe61561ispersión",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "El problema de la sob#e61561ispersión",
+    "text": "El problema de la sob#e61561ispersión"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#el-problema-de-la-sobe61561ispersión-1",
+    "href": "slides/04/04-glm.html#el-problema-de-la-sobe61561ispersión-1",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "El problema de la sob#e61561ispersión",
+    "text": "El problema de la sob#e61561ispersión"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#section",
+    "href": "slides/04/04-glm.html#section",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "",
+    "text": "knitr::include_graphics(\"images/Modelos GLM.png\")"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#section-1",
+    "href": "slides/04/04-glm.html#section-1",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "",
+    "text": "Familia\nFunción de enlace\nFunción en R\nArgumento family/link\n\n\n\n\nGaussiana\nIdentity\nglm()\ngaussian(link='identity')\n\n\nGamma\nInverse, identity, Log\nglm()\nGamma(link='inverse')\n\n\nGaussiana inversa\nInverse, identity, Log\nglm()\ninverse.gaussian(link='1/mu^2')\n\n\nBernoulli\nLogit\nglm()\nbinomial(link='logit')\n\n\nBinomial\nLogit, Probit, cloglog\nglm()\nbinomial(link='logit')\n\n\nBeta\nLog, identity, sqrt\nglm()\nBeta(link='log')\n\n\nPoisson\nLog, identity, sqrt\nglm()\npoisson(link='log')\n\n\nBinomial Negativa\nLog, identity, sqrt\nglm.nb()\nlink = 'log'"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#elige-la-función-de-enlace",
+    "href": "slides/04/04-glm.html#elige-la-función-de-enlace",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Elige la función de enlace",
+    "text": "Elige la función de enlace\nLa función \\(g(\\mu)\\) es conocida como función de enlace (link function). Siempre es reversible.\n\n\n\n\n\n\n\n\nFamilia\nFunción de enlace\nFunción en R\nArgumento family/link\n\n\n\n\nGaussiana\nIdentity\nglm()\ngaussian(link='identity')\n\n\nGamma\nInverse, identity, Log\nglm()\nGamma(link='inverse')\n\n\nGaussiana inversa\nInverse, identity, Log\nglm()\ninverse.gaussian(link='1/mu^2')\n\n\nBernoulli\nLogit\nglm()\nbinomial(link='logit')\n\n\nBinomial\nLogit, Probit, cloglog\nglm()\nbinomial(link='logit')\n\n\nBeta\nLog, identity, sqrt\nglm()\nBeta(link='log')\n\n\nPoisson\nLog, identity, sqrt\nglm()\npoisson(link='log')\n\n\nBinomial Negativa\nLog, identity, sqrt\nglm.nb()\nlink = 'log'"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#elige-la-distribución-adecuada",
+    "href": "slides/04/04-glm.html#elige-la-distribución-adecuada",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Elige la distribución adecuada",
+    "text": "Elige la distribución adecuada\nLas funciones de enlace canónicas a una distribución son aquellas definidas por defecto para una distribución.\n\n\n\n\n\n\n\n\nDistribución\nRango de Y\nNotación de Distribución\nFunción de Enlace Canónica g(μ)\n\n\n\n\nGaussiana\nℝ\n𝒩(μ, σ²)\nμ\n\n\nGamma\n(0, ∞)\nΓ(α, ν)\n-1/μ\n\n\nGaussiana inversa\n(0, ∞)\n𝒩⁻¹(μ, σ²)\n-1/μ\n\n\nBernoulli\n0, 1\nBer(p)\nlogit(μ)\n\n\nBinomial\n0, ..., N\nB(N, p)\nlog(μ / (N - μ))\n\n\nBeta\n(0, 1)\nBeta(α, β)\nlog(μ / (1 - μ))\n\n\nPoisson\n0, 1, ...\nPois(λ)\nlog(μ)\n\n\nBinomial Negativa\n0, 1, ...\nNegBin(r, p)\nlog(μ)"
+  },
+  {
+    "objectID": "slides/04/04-glm.html#familias-de-distribución-exponencial",
+    "href": "slides/04/04-glm.html#familias-de-distribución-exponencial",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Familias de distribución Exponencial",
+    "text": "Familias de distribución Exponencial\n\nGaussiana (Normal).\nGamma.\nGaussiana inversa.\nPoisson.\nBinomial negativa.\nBernoulli.\nBinomial.\nBeta."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#test-de-comparación-de-modelos",
+    "href": "slides/04/04-glm.html#test-de-comparación-de-modelos",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Test de comparación de modelos",
+    "text": "Test de comparación de modelos\n\nLikelihood Ratio Test (LRT)\n\nCompara un modelo anidado frente a otro más complejo.\nÚtil para evaluar si el modelo más complejo mejora significativamente el ajuste.\n\n\n\nVuong Test\n\nCompara un modelo no anidado frente a otro (por ejemplo P vs ZIP).\nÚtil para evaluar si otro set de variable mejora el modelo."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#métricas-de-comparación-de-modelos-1",
+    "href": "slides/04/04-glm.html#métricas-de-comparación-de-modelos-1",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Métricas de comparación de modelos",
+    "text": "Métricas de comparación de modelos\n\nPseudo-\\(R^2\\)\n\nIntenta capturar la capacidad del modelo para explicar la variabilidad en los datos.\nSe basa en ratios de verosimilitudes (Mc Fadden’s \\(R^2\\), Cox & Snell’s \\(R^2\\), Nagelkerke’s \\(R^2\\), etc.)\nMás cercano a 1: mejor ajuste. Más cercano a 0: peor ajuste. Valores \\(0.2\\) a \\(0.3\\) indican un buen ajuste."
+  },
+  {
+    "objectID": "slides/04/04-glm.html#modelos-de-efectos-mixtos-1",
+    "href": "slides/04/04-glm.html#modelos-de-efectos-mixtos-1",
+    "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
+    "section": "Modelos de efectos mixtos",
+    "text": "Modelos de efectos mixtos\n\n\nhttps://en.wikipedia.org/wiki/Mixed_model"
   }
 ]
