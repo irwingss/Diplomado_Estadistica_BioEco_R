@@ -1503,5 +1503,579 @@
     "title": "Modelamiento Generalizado Lineal (GLM) y Efectos Mixtos (LMM, GLMM)",
     "section": "Modelos de efectos mixtos",
     "text": "Modelos de efectos mixtos\n\n\n\n\n\n\n\n\n\n\nhttps://en.wikipedia.org/wiki/Mixed_model\n\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#temario-del-módulo",
+    "href": "slides/05/05-multivariados.html#temario-del-módulo",
+    "title": "Técnicas multivariadas",
+    "section": "Temario del módulo",
+    "text": "Temario del módulo\n\n\nConceptos y aplicaciones de las técnicas multivariadas\nMatrices de datos multidimensionales.\nCanónico vs no canónico.\n¿Qué técnicas existen?\nReducción de dimensiones: PCA.\nAnálisis de correspondencia CA.\nPCoA o MDS.\nNMDS\nAgrupamiento no jerárquico: Análisis cluster.\nÁrboles de agrupamiento jerárquico.\nEl lado canónico: RDA y CCA."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#conceptos-y-aplicaciones-de-las-técnicas-multivariadas",
+    "href": "slides/05/05-multivariados.html#conceptos-y-aplicaciones-de-las-técnicas-multivariadas",
+    "title": "Técnicas multivariadas",
+    "section": "Conceptos y aplicaciones de las técnicas multivariadas",
+    "text": "Conceptos y aplicaciones de las técnicas multivariadas\n\n\n\n\n\n\nTip\n\n\nSegún Hanley (1983) “… el término multivariado viene a describir una colección de técnicas estadísticas para lidiar con diversas variables en un solo análisis…”\n\n\n\n\nTérmino multivariado y multivariable.\n¿Regresiones múltiples?\nNo siempre se tiene variable de respuesta.\nA veces nuestra variable de respuesta es en realidad toda una matriz de respuesta."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#paradoja-de-simpson",
+    "href": "slides/05/05-multivariados.html#paradoja-de-simpson",
+    "title": "Técnicas multivariadas",
+    "section": "Paradoja de Simpson",
+    "text": "Paradoja de Simpson"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#paradoja-de-simpson-1",
+    "href": "slides/05/05-multivariados.html#paradoja-de-simpson-1",
+    "title": "Técnicas multivariadas",
+    "section": "Paradoja de Simpson",
+    "text": "Paradoja de Simpson"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#matrices-de-datos-multidimensionales",
+    "href": "slides/05/05-multivariados.html#matrices-de-datos-multidimensionales",
+    "title": "Técnicas multivariadas",
+    "section": "Matrices de datos multidimensionales",
+    "text": "Matrices de datos multidimensionales"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#canónico-vs-no-canónico",
+    "href": "slides/05/05-multivariados.html#canónico-vs-no-canónico",
+    "title": "Técnicas multivariadas",
+    "section": "Canónico vs No Canónico",
+    "text": "Canónico vs No Canónico\n\n\n\n\n\n\n\n\nOrdenamiento sin restricciones - ML no supervisado\nOrdenamiento con restricciones - ML supervisado\n\n\n\n\nMétodos interdependientes\nMétodos dependientes\n\n\nAnálisis No Canónico\nAnálisis Canónico\n\n\n1 grupo de variables.\n2 grupos de variables: X e Y.\n\n\nPermiten describir.\nPermiten predecir.\n\n\nNo buscan definir la relación entre variables dependientes o independientes.\nBuscan definir la relación entre variables dependientes o independientes.\n\n\nBusca observar patrones de agrupamiento en los datos.\nBusca definir la causa de los patrones de agrupamiento.\n\n\nNo hay contraste de hipótesis.\nHay contraste de hipótesis.\n\n\nSon considerados métodos de agrupación.\nSon considerados métodos de clasificación."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#técnicas-multivariadas",
+    "href": "slides/05/05-multivariados.html#técnicas-multivariadas",
+    "title": "Técnicas multivariadas",
+    "section": "Técnicas Multivariadas",
+    "text": "Técnicas Multivariadas"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#reducción-de-dimensionalidad-pca",
+    "href": "slides/05/05-multivariados.html#reducción-de-dimensionalidad-pca",
+    "title": "Técnicas multivariadas",
+    "section": "Reducción de dimensionalidad: PCA",
+    "text": "Reducción de dimensionalidad: PCA\n\n\n\nUsualmente inadecuado para datas de especies.\nAdecuado para data ambiental.\nReduce la dimensiones de la base de datos a 2 variables nuevas (componentes principales).\nLos CP son combinaciones lineales de todas las variables de la tabla.\n\n\n\n\n\n\n\n\n\n\n\n\n\nComponentes principales que MAXIMIZAN la variabilidad."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#análisis-factorial-fa",
+    "href": "slides/05/05-multivariados.html#análisis-factorial-fa",
+    "title": "Técnicas multivariadas",
+    "section": "Análisis Factorial: FA",
+    "text": "Análisis Factorial: FA"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#análisis-de-correspondencia-ca",
+    "href": "slides/05/05-multivariados.html#análisis-de-correspondencia-ca",
+    "title": "Técnicas multivariadas",
+    "section": "Análisis de Correspondencia: CA",
+    "text": "Análisis de Correspondencia: CA\n\n\n\nTrabaja con matrices de contingencia entre las categorías de dos variables categóricas.\nPermite identificar como las especies están asociadas con determinada condición del entorno (categóricas, agrupamiento).\nPermite visualizar cómo las especies ocupan diferentes nichos en el ecosistema.\n\n\n\n\n\n\n\n\n\n\n\n\n\nCA en diferentes escenarios simulados"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#análisis-de-coordenadas-principales-pcoa",
+    "href": "slides/05/05-multivariados.html#análisis-de-coordenadas-principales-pcoa",
+    "title": "Técnicas multivariadas",
+    "section": "Análisis de Coordenadas Principales: PCoA",
+    "text": "Análisis de Coordenadas Principales: PCoA\n\n\nhttps://www.nature.com/articles/s41467-019-12500-2"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#escalamiento-multidimensional-no-métrico-nmds",
+    "href": "slides/05/05-multivariados.html#escalamiento-multidimensional-no-métrico-nmds",
+    "title": "Técnicas multivariadas",
+    "section": "Escalamiento Multidimensional No Métrico: NMDS",
+    "text": "Escalamiento Multidimensional No Métrico: NMDS\nEl Escalamiento Multidimensional No Métrico (NMDS) es una alternativa no métrica al análisis de PCoA. Su objetivo principal es ubicar las muestras en un espacio de ordenación de baja dimensionalidad (dos o tres ejes), de manera que las distancias euclidianas entre estas muestras correspondan a las disimilitudes representadas por el índice de disimilitud original."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#árboles-jerárquicos",
+    "href": "slides/05/05-multivariados.html#árboles-jerárquicos",
+    "title": "Técnicas multivariadas",
+    "section": "Árboles Jerárquicos",
+    "text": "Árboles Jerárquicos\n\n\n\nEs una herramienta para evidenciar estructuras de agrupamiento en los datos.\n\nProcedimiento:\n\nCada fila es un cluster.\nSe crean clusters de dos en dos en base a sus distancias.\nEstos grupos se agregan usando método de aglomeración.\nSe repite el proceso hasta aglomerar todos los grupos."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#agrupamiento-no-jerárquico-kmeans",
+    "href": "slides/05/05-multivariados.html#agrupamiento-no-jerárquico-kmeans",
+    "title": "Técnicas multivariadas",
+    "section": "Agrupamiento No Jerárquico: Kmeans",
+    "text": "Agrupamiento No Jerárquico: Kmeans"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#análisis-de-redundancia-rda",
+    "href": "slides/05/05-multivariados.html#análisis-de-redundancia-rda",
+    "title": "Técnicas multivariadas",
+    "section": "Análisis de Redundancia: RDA",
+    "text": "Análisis de Redundancia: RDA"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#análisis-de-correspondencia-canónica-cca",
+    "href": "slides/05/05-multivariados.html#análisis-de-correspondencia-canónica-cca",
+    "title": "Técnicas multivariadas",
+    "section": "Análisis de Correspondencia Canónica: CCA",
+    "text": "Análisis de Correspondencia Canónica: CCA\n\n\n\n\n🔗 masterx.academy"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#cómo-resuelves-estas-preguntas",
+    "href": "slides/05/05-multivariados.html#cómo-resuelves-estas-preguntas",
+    "title": "Técnicas multivariadas",
+    "section": "¿Cómo resuelves estas preguntas…?",
+    "text": "¿Cómo resuelves estas preguntas…?\n\n\n\n¿Qué variables independientes describen el comportamiento de mi variable de respuesta Z?\n¿Cómo cambia el valor de mi variable Z en función de los valores de A, B y C?\n¿Cuál es el efecto que tiene A, B y C sobre la variable Z?"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#y-estas-otras-preguntas",
+    "href": "slides/05/05-multivariados.html#y-estas-otras-preguntas",
+    "title": "Técnicas multivariadas",
+    "section": "¿Y estas otras preguntas…?",
+    "text": "¿Y estas otras preguntas…?\n\n\n\n¿Cómo se agrupan mis unidades de muestreo en función de sus características?\n¿Qué variables independientes son importantes para separar/discriminar las tres categorías de la variable dependiente A?\n¿Cuál es el efecto que tienen las variables independientes A, B y C sobre las dependientes X, Y y Z?"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#section",
+    "href": "slides/05/05-multivariados.html#section",
+    "title": "Técnicas multivariadas",
+    "section": "",
+    "text": "Tip\n\n\nSegún Hanley (1983) “… el término multivariado viene a describir una colección de técnicas estadísticas para lidiar con diversas variables en un solo análisis…”\n\n\n\n\nTérmino multivariado y multivariable.\n¿Regresiones múltiples?\nNo siempre se tiene variable de respuesta.\nA veces nuestra variable de respuesta es en realidad toda una matriz de respuesta."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#section-1",
+    "href": "slides/05/05-multivariados.html#section-1",
+    "title": "Técnicas multivariadas",
+    "section": "",
+    "text": "https://link.springer.com/article/10.1007/s004420100716"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#section-2",
+    "href": "slides/05/05-multivariados.html#section-2",
+    "title": "Técnicas multivariadas",
+    "section": "",
+    "text": "Tip\n\n\nSegún Hanley (1983) “… el término multivariado viene a describir una colección de técnicas estadísticas para lidiar con diversas variables en un solo análisis…”\n\n\n\n\nTérmino multivariado y multivariable.\n¿Regresiones múltiples?\nNo siempre se tiene variable de respuesta.\nA veces nuestra variable de respuesta es en realidad toda una matriz de respuesta."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#comprendamos-las-técnicas-multivariadas",
+    "href": "slides/05/05-multivariados.html#comprendamos-las-técnicas-multivariadas",
+    "title": "Técnicas multivariadas",
+    "section": "Comprendamos las técnicas multivariadas",
+    "text": "Comprendamos las técnicas multivariadas"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#comprendamos-los-métodos-de-distancias-distancias",
+    "href": "slides/05/05-multivariados.html#comprendamos-los-métodos-de-distancias-distancias",
+    "title": "Técnicas multivariadas",
+    "section": "Comprendamos los métodos de distancias distancias",
+    "text": "Comprendamos los métodos de distancias distancias\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDistancias para datos de presencia/ausencia\n\nDistancia de Jaccard\nDistancia de Sorensen\nDistancia Binaria (o Dice)\nDistancia Raup-Crick\n\nDistancias para datos de abundancia\n\nDistancia de Bray-Curtis\nDistancia de Morisita-Horn\nDistancia de Kulczynski\nDistancia de Whittaker\n\nDistancias para datos proporcionales\n\nDistancia de Hellinger\nDistancia Chi-cuadrado\nDistancia de Canberra\nDistancia de Chord\n\nDistancias mixtas\n\nDistancia de Gower"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#comprendamos-las-distancias-distancia-euclidiana",
+    "href": "slides/05/05-multivariados.html#comprendamos-las-distancias-distancia-euclidiana",
+    "title": "Técnicas multivariadas",
+    "section": "Comprendamos las distancias: distancia euclidiana",
+    "text": "Comprendamos las distancias: distancia euclidiana"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-euclidiana",
+    "href": "slides/05/05-multivariados.html#distancia-euclidiana",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia Euclidiana",
+    "text": "Distancia Euclidiana\n\\[\nd_{ij} = \\sqrt{\\sum_{k=1}^p (x_{ik} - x_{jk})^2}\n\\]\n\nVentajas: Intuitiva y fácil de calcular.\nLimitaciones: Sensible a escalas y unidades. Es necesario estandarizar las variables si tienen magnitudes diferentes.\nAplicaciones: Común en técnicas como análisis de conglomerados."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-de-manhattan-city-block",
+    "href": "slides/05/05-multivariados.html#distancia-de-manhattan-city-block",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia de Manhattan (City Block)",
+    "text": "Distancia de Manhattan (City Block)\n\\[\nd_{ij} = \\sum_{k=1}^p |x_{ik} - x_{jk}|\n\\]\n\nVentajas: Menos sensible a valores extremos que la distancia euclidiana.\nAplicaciones: Usada en contextos donde las distancias son lineales, como en ciudades con una estructura en cuadrícula.\nEjemplo: Común en problemas urbanos y redes logísticas."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-de-mahalanobis",
+    "href": "slides/05/05-multivariados.html#distancia-de-mahalanobis",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia de Mahalanobis",
+    "text": "Distancia de Mahalanobis\n\\[\nd_{ij} = \\sqrt{(x_i - x_j)^T S^{-1} (x_i - x_j)}\n\\]\n\nVentajas: Considera la estructura de correlación entre variables.\nLimitaciones: Requiere que el número de observaciones sea mayor que el número de variables para que \\(S^{-1}\\) exista.\nAplicaciones: Clasificación y análisis discriminante."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-de-bray-curtis",
+    "href": "slides/05/05-multivariados.html#distancia-de-bray-curtis",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia de Bray-Curtis",
+    "text": "Distancia de Bray-Curtis\n\\[\nd_{ij} = \\frac{\\sum_{k=1}^p |x_{ik} - x_{jk}|}{\\sum_{k=1}^p (x_{ik} + x_{jk})}\n\\]\n\nAplicaciones: Común en ecología para comparar comunidades biológicas.\nVentajas: Insensible a ceros comunes en las observaciones. Se restringe de 0 a 1, por lo que se puede hablar de porcentaje de disimilitud.\nUso típico: Comparar similitudes entre especies o comunidades."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-de-gower",
+    "href": "slides/05/05-multivariados.html#distancia-de-gower",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia de Gower",
+    "text": "Distancia de Gower\n\\[\nd_{ij} = \\frac{\\sum_{k=1}^p w_k \\cdot d_{ijk}}{\\sum_{k=1}^p w_k}\n\\]\n\nAplicaciones: Análisis de datos mixtos.\nVentajas: Flexibilidad para trabajar con variables de diferente naturaleza (numéricas, categóricas, etc.).\nNota: Los pesos \\(w_k\\) pueden ajustarse según la relevancia de cada variable."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-de-jaccard",
+    "href": "slides/05/05-multivariados.html#distancia-de-jaccard",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia de Jaccard",
+    "text": "Distancia de Jaccard\n\\[\nd_{ij} = 1 - \\frac{|A \\cap B|}{|A \\cup B|}\n\\]\n\nAplicaciones: Compara similitudes entre conjuntos o matrices de presencia-ausencia.\nVentajas: Ignora los ceros comunes (ausencias compartidas).\nEjemplo: Usado en análisis de datos binarios, como en matrices de ocurrencia."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-de-canberra",
+    "href": "slides/05/05-multivariados.html#distancia-de-canberra",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia de Canberra",
+    "text": "Distancia de Canberra\n\\[\nd_{ij} = \\sum_{k=1}^p \\frac{|x_{ik} - x_{jk}|}{|x_{ik}| + |x_{jk}|}\n\\]\n\nVentajas: Da más peso a pequeñas diferencias cuando los valores son cercanos a cero.\nAplicaciones: Comparaciones sensibles a las escalas.\nNota: Es útil en análisis de proporciones (coberturas, abundancias relativas) o datos ambientales con valores pequeños."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#el-problema-de-los-dobles-ceros-en-distancias-euclidianas",
+    "href": "slides/05/05-multivariados.html#el-problema-de-los-dobles-ceros-en-distancias-euclidianas",
+    "title": "Técnicas multivariadas",
+    "section": "El problema de los dobles ceros en distancias euclidianas",
+    "text": "El problema de los dobles ceros en distancias euclidianas"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#transformaciones",
+    "href": "slides/05/05-multivariados.html#transformaciones",
+    "title": "Técnicas multivariadas",
+    "section": "Transformaciones",
+    "text": "Transformaciones\n\n\nhttps://link.springer.com/article/10.1007/s004420100716"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#cómo-influencian-las-transformaciones-a-las-distancias",
+    "href": "slides/05/05-multivariados.html#cómo-influencian-las-transformaciones-a-las-distancias",
+    "title": "Técnicas multivariadas",
+    "section": "¿Cómo influencian las transformaciones a las distancias?",
+    "text": "¿Cómo influencian las transformaciones a las distancias?"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#equivalencia-de-las-transformaciones",
+    "href": "slides/05/05-multivariados.html#equivalencia-de-las-transformaciones",
+    "title": "Técnicas multivariadas",
+    "section": "Equivalencia de las transformaciones",
+    "text": "Equivalencia de las transformaciones\n\n\nhttps://link.springer.com/article/10.1007/s004420100716"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#efecto-de-la-transformación-sobre-las-distancias",
+    "href": "slides/05/05-multivariados.html#efecto-de-la-transformación-sobre-las-distancias",
+    "title": "Técnicas multivariadas",
+    "section": "Efecto de la transformación sobre las distancias",
+    "text": "Efecto de la transformación sobre las distancias\n\n\nhttps://link.springer.com/article/10.1007/s004420100716"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#efecto-de-la-transformación-sobre-las-distancias-1",
+    "href": "slides/05/05-multivariados.html#efecto-de-la-transformación-sobre-las-distancias-1",
+    "title": "Técnicas multivariadas",
+    "section": "Efecto de la transformación sobre las distancias",
+    "text": "Efecto de la transformación sobre las distancias\n\n\nhttps://link.springer.com/article/10.1007/s004420100716"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-chi-cuadrado",
+    "href": "slides/05/05-multivariados.html#distancia-chi-cuadrado",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia Chi-cuadrado",
+    "text": "Distancia Chi-cuadrado\n\\[\nd_{ij} = \\sqrt{\\sum_{k=1}^p \\frac{(x_{ik} - x_{jk})^2}{x_{ik} + x_{jk}}}\n\\]\n\nDescripción: Mide la disimilitud entre perfiles de fila o columna en tablas de contingencia.\nVentajas: Resalta las diferencias en proporciones relativas más que en valores absolutos.\nLimitaciones: Puede ser sensible a ceros en los datos.\nAplicaciones:\n\nComparar distribuciones categóricas.\nAnálisis de correspondencias en datos de conteo."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-de-hellinger",
+    "href": "slides/05/05-multivariados.html#distancia-de-hellinger",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia de Hellinger",
+    "text": "Distancia de Hellinger\n\\[\nd_{ij} = \\sqrt{\\sum_{k=1}^p \\left(\\sqrt{\\frac{x_{ik}}{\\sum_{k=1}^p x_{ik}}} - \\sqrt{\\frac{x_{jk}}{\\sum_{k=1}^p x_{jk}}}\\right)^2}\n\\]\n\nDescripción: Una medida basada en raíces cuadradas de proporciones, que minimiza la influencia de valores extremos.\nVentajas:\n\nReduce el impacto de valores pequeños y ceros.\nConserva la estructura de similitud entre observaciones.\n\nAplicaciones:\n\nComún en ecología para analizar composiciones de comunidades.\nAnálisis de datos de conteo y proporciones.\n\nNota: Proporciona resultados similares a la transformación logarítmica, pero es más adecuada para datos con ceros."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-de-sorensen",
+    "href": "slides/05/05-multivariados.html#distancia-de-sorensen",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia de Sorensen",
+    "text": "Distancia de Sorensen\n\\[\nd_{ij} = 1 - \\frac{2 |A \\cap B|}{|A| + |B|}\n\\]\n\nDescripción: Mide la disimilitud entre dos conjuntos basándose en su intersección, dando más peso a las coincidencias.\nVentajas:\n\nMás sensible a la coincidencia entre conjuntos que la distancia de Jaccard.\nIgnora los ceros comunes (ausencias compartidas).\n\nAplicaciones:\n\nComparación de comunidades ecológicas (presencia/ausencia de especies).\nAnálisis de similitud en datos binarios.\n\nEjemplo: Usado en análisis de datos binarios, como en matrices de ocurrencia."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-raup-crick",
+    "href": "slides/05/05-multivariados.html#distancia-raup-crick",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia Raup-Crick",
+    "text": "Distancia Raup-Crick\n\\[\nd_{ij} = P(\\text{observado} \\leq \\text{simulado})\n\\]\n\nDescripción: Una medida probabilística que compara la similitud observada entre dos comunidades con la esperada bajo una distribución aleatoria.\nVentajas:\n\nAjusta las comparaciones considerando la riqueza de las comunidades.\nNo depende únicamente del número total de especies compartidas.\n\nAplicaciones:\n\nEvaluación de similitudes en datos de presencia/ausencia.\nIdentificación de patrones ecológicos no explicados por el azar (La (dis)similitud observada es mayor de lo que se esperaría por azar.)\nSe restringe de 0 a 1, por lo que se puede hablar de porcentaje de disimilitud.\nValores de 0 es similitud perfecta. Valores de 1 es totalmente disimil."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-de-kulczynski",
+    "href": "slides/05/05-multivariados.html#distancia-de-kulczynski",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia de Kulczynski",
+    "text": "Distancia de Kulczynski\n\\[\nd_{ij} = 1 - \\frac{\\sum_{k=1}^p \\min(x_{ik}, x_{jk})}{\\frac{1}{2} \\left(\\sum_{k=1}^p x_{ik} + \\sum_{k=1}^p x_{jk} \\right)}\n\\]\n\nDescripción: Mide la proporción de especies compartidas entre dos comunidades, ponderada por la abundancia relativa.\nVentajas:\n\nSensible a diferencias en composiciones abundantes.\nPermite identificar similitudes en especies dominantes.\n\nAplicaciones:\n\nComparación de comunidades ecológicas basadas en abundancia.\nIdentificación de patrones de similitud entre hábitats."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-de-morisita-horn",
+    "href": "slides/05/05-multivariados.html#distancia-de-morisita-horn",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia de Morisita-Horn",
+    "text": "Distancia de Morisita-Horn\n\\[\nd_{ij} = 1 - \\frac{2 \\sum_{k=1}^p x_{ik} x_{jk}}{\\left(\\frac{\\sum_{k=1}^p x_{ik}^2}{N_i}\\right) + \\left(\\frac{\\sum_{k=1}^p x_{jk}^2}{N_j}\\right)}\n\\]\nDonde \\(N_i = \\sum_{k=1}^p x_{ik}\\) y \\(N_j = \\sum_{k=1}^p x_{jk}\\).\n\nDescripción: Basada en la abundancia relativa, esta métrica es menos sensible a especies raras y más enfocada en especies dominantes.\nVentajas:\n\nInsensible al tamaño de la muestra.\nFocalizada en especies con abundancias altas.\n\nAplicaciones:\n\nComparación de comunidades dominadas por pocas especies.\nAnálisis de datos de conteos en ecología."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-de-whittaker",
+    "href": "slides/05/05-multivariados.html#distancia-de-whittaker",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia de Whittaker",
+    "text": "Distancia de Whittaker\n\\[\nd_{ij} = 1 - \\frac{\\sum_{k=1}^p \\min(x_{ik}, x_{jk})}{\\sum_{k=1}^p x_{ik}}\n\\]\n\nDescripción: Mide la proporción de especies compartidas en relación con la comunidad menos diversa.\nVentajas:\n\nFocalizada en diferencias relativas.\n\nAplicaciones:\n\nComparación de comunidades de diferentes tamaños."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-binaria-o-dice",
+    "href": "slides/05/05-multivariados.html#distancia-binaria-o-dice",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia Binaria (o Dice)",
+    "text": "Distancia Binaria (o Dice)\n\\[\nd_{ij} = 1 - \\frac{2 |A \\cap B|}{|A| + |B|}\n\\]\n\nDescripción: Similar a la distancia de Jaccard, pero da más peso a la coincidencia.\nVentajas:\n\nMás sensible a especies compartidas que Jaccard.\n\nAplicaciones:\n\nAnálisis de datos de presencia/ausencia.\nComparaciones en ecología basadas en ocurrencias."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#comprendamos-los-métodos-de-distancias-distancias-1",
+    "href": "slides/05/05-multivariados.html#comprendamos-los-métodos-de-distancias-distancias-1",
+    "title": "Técnicas multivariadas",
+    "section": "Comprendamos los métodos de distancias distancias 1",
+    "text": "Comprendamos los métodos de distancias distancias 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDistancias para datos de presencia/ausencia\n\nDistancia de Jaccard\nDistancia de Sorensen\nDistancia Binaria (o Dice)\nDistancia Raup-Crick\n\nDistancias para datos de abundancia\n\nDistancia de Bray-Curtis\nDistancia de Morisita-Horn\nDistancia de Kulczynski\nDistancia de Whittaker"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#comprendamos-los-métodos-de-distancias-distancias-2",
+    "href": "slides/05/05-multivariados.html#comprendamos-los-métodos-de-distancias-distancias-2",
+    "title": "Técnicas multivariadas",
+    "section": "Comprendamos los métodos de distancias distancias 2",
+    "text": "Comprendamos los métodos de distancias distancias 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDistancias para datos proporcionales\n\nDistancia de Hellinger\nDistancia Chi-cuadrado\nDistancia de Canberra\nDistancia de Chord\n\nDistancias mixtas\n\nDistancia de Gower"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#métodos-de-distancias-distancias-1",
+    "href": "slides/05/05-multivariados.html#métodos-de-distancias-distancias-1",
+    "title": "Técnicas multivariadas",
+    "section": "Métodos de distancias distancias 1",
+    "text": "Métodos de distancias distancias 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDistancias para datos continuos\n\nDistancia Euclidiana\nDistancia de Manhattan y Minkowski\nDistancia de Mahalanobis\n\nDistancias para datos proporcionales\n\nDistancia de Hellinger\nDistancia Chi-cuadrado\nDistancia de Canberra\nDistancia de Chord\n\nDistancias mixtas\n\nDistancia de Gower"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#métodos-de-distancias-distancias-2",
+    "href": "slides/05/05-multivariados.html#métodos-de-distancias-distancias-2",
+    "title": "Técnicas multivariadas",
+    "section": "Métodos de distancias distancias 2",
+    "text": "Métodos de distancias distancias 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDistancias para datos de presencia/ausencia\n\nDistancia de Jaccard\nDistancia de Sorensen\nDistancia Binaria (o Dice)\nDistancia Raup-Crick\n\nDistancias para datos de abundancia\n\nDistancia de Bray-Curtis\nDistancia de Morisita-Horn\nDistancia de Kulczynski\nDistancia de Whittaker"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#comprendamos-la-distancia-euclidiana",
+    "href": "slides/05/05-multivariados.html#comprendamos-la-distancia-euclidiana",
+    "title": "Técnicas multivariadas",
+    "section": "Comprendamos la distancia euclidiana",
+    "text": "Comprendamos la distancia euclidiana"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#distancia-de-chord",
+    "href": "slides/05/05-multivariados.html#distancia-de-chord",
+    "title": "Técnicas multivariadas",
+    "section": "Distancia de Chord",
+    "text": "Distancia de Chord\n\\[\nd_{ij} = \\sqrt{\\sum_{k=1}^p \\left(\\frac{x_{ik}}{\\sqrt{\\sum_{k=1}^p x_{ik}^2}} - \\frac{x_{jk}}{\\sqrt{\\sum_{k=1}^p x_{jk}^2}}\\right)^2}\n\\]\n\nDescripción: Calcula la disimilitud entre dos vectores normalizados por su longitud, proyectándolos en una hiperesfera unitaria.\nVentajas:\n\nInsensible a las diferencias en magnitud entre vectores, ya que trabaja con datos normalizados.\nConserva la estructura de similitud angular entre observaciones.\n\nAplicaciones:\n\nComposición de comunidades en ecología.\nAnálisis de perfiles normalizados, como datos espectrales."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#para-qué-sirven-estos-métodos-de-distancias",
+    "href": "slides/05/05-multivariados.html#para-qué-sirven-estos-métodos-de-distancias",
+    "title": "Técnicas multivariadas",
+    "section": "¿Para qué sirven estos métodos de distancias?",
+    "text": "¿Para qué sirven estos métodos de distancias?\n\n\nhttps://github-wiki-see.page/"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#para-qué-sirven-estos-métodos-de-distancias-1",
+    "href": "slides/05/05-multivariados.html#para-qué-sirven-estos-métodos-de-distancias-1",
+    "title": "Técnicas multivariadas",
+    "section": "¿Para qué sirven estos métodos de distancias?",
+    "text": "¿Para qué sirven estos métodos de distancias?\n\n\nhttps://www.sciencedirect.com/science/article/pii/S096456912100421X?via%3Dihub"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#clasificación-de-técnicas-multivariadas",
+    "href": "slides/05/05-multivariados.html#clasificación-de-técnicas-multivariadas",
+    "title": "Técnicas multivariadas",
+    "section": "Clasificación de técnicas multivariadas",
+    "text": "Clasificación de técnicas multivariadas"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#técnicas-no-canónicas",
+    "href": "slides/05/05-multivariados.html#técnicas-no-canónicas",
+    "title": "Técnicas multivariadas",
+    "section": "Técnicas No Canónicas",
+    "text": "Técnicas No Canónicas"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#ténicas-canónicas",
+    "href": "slides/05/05-multivariados.html#ténicas-canónicas",
+    "title": "Técnicas multivariadas",
+    "section": "Ténicas Canónicas",
+    "text": "Ténicas Canónicas\n\nAnálisis de Redundancia: RDA\nAnálisis de Correspondencia Canónica: CCA\nAnálisis de Correlaciones Canónicas: CCorA\nAnálisis Discriminante Lineal: LDA\nAnálisis Discriminante Cuadrático: QDA\nAnálisis Multivariado de Varianza: MANOVA\nAnálisis de Procrustes: PA\nModelos de Ecuaciones Estructurales: SEM"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#procedimiento-interno-del-pca",
+    "href": "slides/05/05-multivariados.html#procedimiento-interno-del-pca",
+    "title": "Técnicas multivariadas",
+    "section": "Procedimiento interno del PCA",
+    "text": "Procedimiento interno del PCA\n\n\nDecomposición de varianza\n\nEstandarizar la base de datos ( μ=0, σ2=1).\nCálculo de las matrices de covarianzas.\nCálculo de los eigenvectores y eigenvalores.\nReordenamiento de los eigenvalores y eigenvectores.\nReproyectar los datos en los ejes principales"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#tipo-de-matriz-del-pca",
+    "href": "slides/05/05-multivariados.html#tipo-de-matriz-del-pca",
+    "title": "Técnicas multivariadas",
+    "section": "Tipo de matriz del PCA",
+    "text": "Tipo de matriz del PCA\n\n\nPCA basado en matrices de covarianzas (scale. = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\nPCA basado en matrices de correlaciones (scale. = TRUE)"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#técnicas-no-canónicas-1",
+    "href": "slides/05/05-multivariados.html#técnicas-no-canónicas-1",
+    "title": "Técnicas multivariadas",
+    "section": "Técnicas No Canónicas 1",
+    "text": "Técnicas No Canónicas 1\n\nAnálisis de Componentes Principales: PCA + tb-PCA\nAnálisis Factorial: FA\nAnálisis de Múltiples Factores: MFA\nAnálisis Factorial Confirmatorio: AFC\nAnálisis de Correspondencia: CA\nAnálisis de Correspondencia sin Tendencia: DECORANA\nAnálisis de Correspondencia Múltiple: MCA\nAnálisis de Coordenadas Principales: MDS o PCoA\nEscalamiento Multidimensional No Métrico: NMDS\nAgrupamiento Jerárquico\nAgrupamiento No Jerárquico K-means, K-medioids\nAnálisis Multivariado de Varianza Permutacional PERMANOVA*\nAnálisis de similaridades ANOSIM*"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#técnicas-no-canónicas-2",
+    "href": "slides/05/05-multivariados.html#técnicas-no-canónicas-2",
+    "title": "Técnicas multivariadas",
+    "section": "Técnicas No Canónicas 2",
+    "text": "Técnicas No Canónicas 2\n\nEscalamiento de T-distribución Estocástica Vecinos: t-SNE\nt-SNE optimizado por LargeVis\nOptimización de Proximidad de Vecinos Uniforme: UMAP\nModelos de Mezcla Gaussianos (Gaussian Mixture Models): GMM\nAnálisis de Vectores de Soporte: SVM\nFuzzy C-Means: FCM\nGustafson-Kessel Algorithm (Mahalanobis): GKA\nOtros métodos Fuzzy"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#métodos-de-aglomeración-hclust",
+    "href": "slides/05/05-multivariados.html#métodos-de-aglomeración-hclust",
+    "title": "Técnicas multivariadas",
+    "section": "Métodos de aglomeración hclust()",
+    "text": "Métodos de aglomeración hclust()\n\n\n\nSingle linkage (a): es la distancia más corta entre dos puntos en ambos grupos.\nComplete linkage (b): Es lo opuesto al eslabonamiento simple. Es la distancia más larga entre dos puntos en ambos grupos.\nAverage linkage o UPGMA (c): es la distancia promedio entre cada punto en un grupo a cada punto en el otro grupo.\nCentroid: la distancia entre el punto central de un grupo y el punto central del otro grupo."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#métodos-de-aglomeración-hclust-1",
+    "href": "slides/05/05-multivariados.html#métodos-de-aglomeración-hclust-1",
+    "title": "Técnicas multivariadas",
+    "section": "Métodos de aglomeración hclust()",
+    "text": "Métodos de aglomeración hclust()\n\n\n\nMétodo de Ward (Least Squares): una combinación de métodos promedio y centroide. La distancia dentro del conglomerado se calcula determinando el punto central del conglomerado y la distancia de las observaciones desde el centro. Al intentar fusionar dos conglomerados, se encuentra la distancia entre los conglomerados y se fusionan los conglomerados cuya varianza es menor en comparación con la otra combinación."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#pca-y-regresión-lineal-no-abordan-la-minimización-de-errores-de-la-misma-manera",
+    "href": "slides/05/05-multivariados.html#pca-y-regresión-lineal-no-abordan-la-minimización-de-errores-de-la-misma-manera",
+    "title": "Técnicas multivariadas",
+    "section": "PCA y regresión lineal no abordan la minimización de errores de la misma manera",
+    "text": "PCA y regresión lineal no abordan la minimización de errores de la misma manera"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#procedimiento-interno-del-pca-1-y-2",
+    "href": "slides/05/05-multivariados.html#procedimiento-interno-del-pca-1-y-2",
+    "title": "Técnicas multivariadas",
+    "section": "Procedimiento interno del PCA: 1 y 2",
+    "text": "Procedimiento interno del PCA: 1 y 2\n\n\nDecomposición de varianza\n\nEstandarizar la base de datos ( μ=0, σ2=1).\nCálculo de las matrices de covarianzas.\nCálculo de los eigenvectores y eigenvalores.\nReordenamiento de los eigenvalores y eigenvectores.\nReproyectar los datos en los ejes principales"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#procedimiento-interno-del-pca-3",
+    "href": "slides/05/05-multivariados.html#procedimiento-interno-del-pca-3",
+    "title": "Técnicas multivariadas",
+    "section": "Procedimiento interno del PCA: 3",
+    "text": "Procedimiento interno del PCA: 3\n\n\nDecomposición de varianza\n\nEstandarizar la base de datos ( μ=0, σ2=1).\nCálculo de las matrices de covarianzas.\nCálculo de los eigenvectores y eigenvalores.\nReordenamiento de los eigenvalores y eigenvectores.\nReproyectar los datos en los ejes principales"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#procedimiento-interno-del-pca-4",
+    "href": "slides/05/05-multivariados.html#procedimiento-interno-del-pca-4",
+    "title": "Técnicas multivariadas",
+    "section": "Procedimiento interno del PCA: 4",
+    "text": "Procedimiento interno del PCA: 4\n\n\nDecomposición de varianza\n\nEstandarizar la base de datos ( μ=0, σ2=1).\nCálculo de las matrices de covarianzas.\nCálculo de los eigenvectores y eigenvalores.\nReordenamiento de los eigenvalores y eigenvectores.\nReproyectar los datos en los ejes principales"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#procedimiento-interno-del-pca-5",
+    "href": "slides/05/05-multivariados.html#procedimiento-interno-del-pca-5",
+    "title": "Técnicas multivariadas",
+    "section": "Procedimiento interno del PCA: 5",
+    "text": "Procedimiento interno del PCA: 5\n\n\nDecomposición de varianza\n\nEstandarizar la base de datos ( μ=0, σ2=1).\nCálculo de las matrices de covarianzas.\nCálculo de los eigenvectores y eigenvalores.\nReordenamiento de los eigenvalores y eigenvectores.\nReproyectar los datos en los ejes principale"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#leyendo-el-pca",
+    "href": "slides/05/05-multivariados.html#leyendo-el-pca",
+    "title": "Técnicas multivariadas",
+    "section": "Leyendo el PCA",
+    "text": "Leyendo el PCA\n\n\n\nEl ángulo entre las variables indica el grado de correlación entre ellas: Correlación positiva; Correlación negativa (inversa); Nula (90°).\nLa posición de un punto (filas de la base) respeto a los vectores de las variables (columnas de la base) refleja sus relaciones.\nPunto cerca a vector contiene altos valores de dicha variable.\nLos puntos cercanos entre sí son más similares."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#estandarización-vs-normalización",
+    "href": "slides/05/05-multivariados.html#estandarización-vs-normalización",
+    "title": "Técnicas multivariadas",
+    "section": "Estandarización vs Normalización",
+    "text": "Estandarización vs Normalización\n\n\nNormalización\n\nComprimir una variable para que encaje en el rango de 0 a 1.\nTambién le llaman escalado de características (featuring scaling) o normalización basada en la unidad (unity-based normalization).\nFunciona como transformación de rango, chord o hellinger.\n\n\ndecostand(DF, method = \"normalization\") \n# esto es la transf. de Chord\n\n\nEstandarización (centrado y escalado)\n\nHace que cada variable tenga promedio 0 y desviación estándar 1.\n\n\ndecostand(DF, method = \"standarization\")\nscale(DF)"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#caso-palmer-penguins",
+    "href": "slides/05/05-multivariados.html#caso-palmer-penguins",
+    "title": "Técnicas multivariadas",
+    "section": "Caso: Palmer Penguins",
+    "text": "Caso: Palmer Penguins\n\n\nhttps://lauranavarroviz.wordpress.com/2020/08/01/palmer-penguins"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#caso-palmer-penguins-1",
+    "href": "slides/05/05-multivariados.html#caso-palmer-penguins-1",
+    "title": "Técnicas multivariadas",
+    "section": "Caso: Palmer Penguins",
+    "text": "Caso: Palmer Penguins"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#ventajas-del-mds-sobre-otras-técnicas-de-ordenación",
+    "href": "slides/05/05-multivariados.html#ventajas-del-mds-sobre-otras-técnicas-de-ordenación",
+    "title": "Técnicas multivariadas",
+    "section": "Ventajas del MDS sobre Otras Técnicas de Ordenación",
+    "text": "Ventajas del MDS sobre Otras Técnicas de Ordenación\n\nOptimización por Dimensiones Deseadas: MDS ajusta directamente al número de dimensiones deseado.\nCualquier distancia proyectada en un espacio euclidiano: Proporciona una representación euclidiana de un conjunto de objetos cuya relación se mide mediante cualquier índice de disimilitud.\n\n\n\n\n\n\n\nTip\n\n\nPara la mayoría de los datos ecológicos, la relación entre la disimilitud de los datos y la distancia de ordenación será no lineal. En consecuencia, los ecólogos prefieren el escalamiento multidimensional no métrico (NMDS).\n\n\n\n\n\n\n\n\n\nWarning\n\n\nEigenvalues negativos necesitan corregirse (Lingoes). O convertir una distancia no métrica (Bray-curtis) en una métrica (raíz cuadrada de Bray-curtis)."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#comparando-mds-con-nmds",
+    "href": "slides/05/05-multivariados.html#comparando-mds-con-nmds",
+    "title": "Técnicas multivariadas",
+    "section": "Comparando MDS con NMDS",
+    "text": "Comparando MDS con NMDS"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#características-clave-del-nmds",
+    "href": "slides/05/05-multivariados.html#características-clave-del-nmds",
+    "title": "Técnicas multivariadas",
+    "section": "Características Clave del NMDS",
+    "text": "Características Clave del NMDS\n\nUso de Cualquier Medida de Disimilitud: Puede emplear cualquier índice de disimilitud entre muestras.\nConversión de Disimilitudes en Rangos: No utiliza los valores brutos de disimilitud, sino que los convierte en rangos para los cálculos.\nAlgoritmo Iterativo."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#comparación-con-pcoa",
+    "href": "slides/05/05-multivariados.html#comparación-con-pcoa",
+    "title": "Técnicas multivariadas",
+    "section": "Comparación con PCoA",
+    "text": "Comparación con PCoA\n\nNMDS:\n\nMétodo iterativo con posibles soluciones variables en cada ejecución.\nEl número de ejes es especificado por el usuario.\nOptimiza la representación en el número de dimensiones deseado.\n\nPCoA:\n\nSolución analítica única.\nEl número de ejes depende de las propiedades del conjunto de datos.\nNo permite especificar directamente el número de dimensiones.\n\n\n\n\n\n\n\n\nTip\n\n\nNota: El NMDS es especialmente adecuado para datos ecológicos donde la relación entre la disimilitud y la distancia de ordenación es no lineal, por lo que es preferido eh ecología."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#ventajas-del-nmds",
+    "href": "slides/05/05-multivariados.html#ventajas-del-nmds",
+    "title": "Técnicas multivariadas",
+    "section": "Ventajas del NMDS",
+    "text": "Ventajas del NMDS\n\nFlexibilidad con Datos No Lineales: Ideal para representar relaciones complejas en datos ecológicos.\nAdaptabilidad Dimensional: Permite especificar y optimizar el número de dimensiones para la ordenación.\nMejor Ajuste de Disimilitudes: Al usar rangos, capta más efectivamente las relaciones entre muestras."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#diagrama-de-shepard-gráfico-de-estrés",
+    "href": "slides/05/05-multivariados.html#diagrama-de-shepard-gráfico-de-estrés",
+    "title": "Técnicas multivariadas",
+    "section": "Diagrama de Shepard: gráfico de estrés",
+    "text": "Diagrama de Shepard: gráfico de estrés\n\n\n\nEl Diagrama de Shepard representa la correlación que existe entre la disimilaridad observada y la distancia medida en el ordenamiento (NMDS).\nSi ambos son similares, esperamos un valor alto de R2."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#nivel-de-estrés",
+    "href": "slides/05/05-multivariados.html#nivel-de-estrés",
+    "title": "Técnicas multivariadas",
+    "section": "Nivel de estrés",
+    "text": "Nivel de estrés\n\n\nComo regla general, el valor del estrés del NMDS deberá ser interpretado como:\n\nstress ≤0.05 = ideal\nstress &lt;0.1 & &gt;0.05 = bueno\nstress &gt;0.1 & &lt;0.2 = muy justo\nstress &gt;0.2 & &lt;0.3 = sospechoso\nstress &gt;0.3 = ordenamiento arbitrario"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#section-9",
+    "href": "slides/05/05-multivariados.html#section-9",
+    "title": "Técnicas multivariadas",
+    "section": "",
+    "text": "https://www.mdpi.com/1999-4907/10/11/978"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#section-10",
+    "href": "slides/05/05-multivariados.html#section-10",
+    "title": "Técnicas multivariadas",
+    "section": "",
+    "text": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0093445"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#section-11",
+    "href": "slides/05/05-multivariados.html#section-11",
+    "title": "Técnicas multivariadas",
+    "section": "",
+    "text": "https://www.mdpi.com/2673-6004/3/4/26"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#section-12",
+    "href": "slides/05/05-multivariados.html#section-12",
+    "title": "Técnicas multivariadas",
+    "section": "",
+    "text": "https://conbio.onlinelibrary.wiley.com/doi/abs/10.1111/cobi.13344\n\n\n\n\n\n🔗 masterx.academy"
   }
 ]

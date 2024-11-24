@@ -180,10 +180,15 @@ body.quarto-light .qwebr-output-code-stdout {
     transform: translate(-50%, -50%) scale(1);
 }
 
-.reveal a {
+/*.reveal a {
     color: #949494;
-}
+}*/
 
 .math {
   display: inline;
+}
+
+
+.reveal a {
+    color: #2400ff;
 }

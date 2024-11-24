@@ -1,0 +1,1063 @@
+---
+title: Técnicas multivariadas
+subtitle: Módulo 9
+title-slide-attributes:
+  data-background-image: ../bg4.png
+  data-background-size: cover
+  data-slide-number: default
+format:
+  revealjs:
+    mathjax: default
+    theme:
+     - "default"
+     - "../slides.scss"
+    width: "1600"
+    height: "900"
+    slide-number: true
+    highlight-style: atom-one
+    incremental: true   
+    chalkboard: 
+       theme: chalkboard
+       chalk-effect: 0.1
+       chalk-width: 5
+       boardmarker-width: 7
+filters:
+  - shinylive
+cache: true
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  fig.align = "center"
+)
+```
+
+# Objetivos del módulo {background-image="../bg8.png"}
+
+::: incremental
+- Comprender los fundamentos de los análisis multivariados.
+- Elegir adecuadamente la técnica multivariada según sea el caso aplicativo.
+- Interpretar de manera efectiva los resultados de las técnicas multivariantes.
+- Producir gráficos de alta calidad como parte de resultados analíticos multivariados.
+- Desarrollar scripts de técnicas multivariadas de manera efectiva con sintaxis de R.
+:::
+
+# Introducción
+
+## Temario del módulo
+
+::: incremental
+- Conceptos y aplicaciones de las técnicas multivariadas
+- Matrices de datos multidimensionales.
+- Canónico vs no canónico.
+- ¿Qué técnicas existen?
+- Reducción de dimensiones: PCA.
+- Análisis de correspondencia CA.
+- PCoA o MDS.
+- NMDS
+- Agrupamiento no jerárquico: Análisis cluster.
+- Árboles de agrupamiento jerárquico.
+- El lado canónico: RDA y CCA.
+:::
+
+# 1. Estadística Multivariada
+
+## ¿Cómo resuelves estas preguntas…?
+
+::::{.columns}
+:::{.column width="30%"}
+- ¿Qué variables independientes describen el comportamiento de mi variable de respuesta Z?
+- ¿Cómo cambia el valor de mi variable Z en función de los valores de A, B y C?
+- ¿Cuál es el efecto que tiene A, B y C sobre la variable Z?
+:::
+
+:::{.column width="70%"}
+:::{.fragment}
+```{r, echo=FALSE}
+knitr::include_graphics("images/Tecnicas de Ordenamiento2.png")
+```
+:::
+:::
+::::
+
+## ¿Y estas otras preguntas…?
+
+::::{.columns}
+:::{.column width="30%"}
+- ¿Cómo se agrupan mis unidades de muestreo en función de sus características?
+- ¿Qué variables independientes son importantes para separar/discriminar las tres categorías de la variable dependiente A?
+- ¿Cuál es el efecto que tienen las variables independientes A, B y C sobre las dependientes X, Y y Z?
+:::
+
+:::{.column width="70%"}
+:::{.fragment}
+```{r, echo=FALSE}
+knitr::include_graphics("images/Tecnicas de Ordenamiento.png")
+```
+:::
+:::
+::::
+
+## {}
+
+::: callout-tip
+Según Hanley (1983) “... el término
+multivariado viene a describir una
+colección de técnicas estadísticas para
+lidiar con diversas variables en un solo
+análisis…”
+:::
+
+- Término **multivariado** y **multivariable**.
+- ¿Regresiones múltiples?
+- No siempre se tiene variable de respuesta.
+- A veces nuestra *variable de respuesta* es en realidad toda una **matriz de respuesta**.
+
+## Paradoja de Simpson
+
+```{r, echo = FALSE}
+knitr::include_graphics("images/paradoja_simpson.png")
+```
+
+## Paradoja de Simpson
+
+```{r, echo = FALSE}
+knitr::include_graphics("images/paradoja_simpson_2.png")
+```
+
+
+## Comprendamos las técnicas multivariadas {}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/Tecnicas de Ordenamiento3.png")
+```
+
+## Matrices de datos multidimensionales
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/Tecnicas de Ordenamiento4.png")
+```
+## Métodos de distancias distancias 1
+
+::::{.columns}
+:::{.column}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/distancias.png")
+```
+:::
+
+:::{.column}
+:::{.fragment}
+
+<br>
+
+#### Distancias para datos continuos
+- Distancia Euclidiana
+- Distancia de Manhattan y Minkowski
+- Distancia de Mahalanobis
+
+#### Distancias para datos proporcionales
+- Distancia de Hellinger
+- Distancia Chi-cuadrado
+- Distancia de Canberra
+- Distancia de Chord
+
+#### Distancias mixtas
+- Distancia de Gower
+:::
+:::
+::::
+
+## Métodos de distancias distancias 2
+
+::::{.columns}
+:::{.column}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/distancias.png")
+```
+:::
+
+:::{.column}
+:::{.fragment}
+
+<br>
+
+#### Distancias para datos de presencia/ausencia
+- Distancia de Jaccard
+- Distancia de Sorensen
+- Distancia Binaria (o Dice)
+- Distancia Raup-Crick
+
+#### Distancias para datos de abundancia
+- Distancia de Bray-Curtis
+- Distancia de Morisita-Horn
+- Distancia de Kulczynski
+- Distancia de Whittaker
+
+:::
+:::
+::::
+
+## ¿Para qué sirven estos métodos de distancias? {}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/Tecnicas de Ordenamiento6.png")
+```
+
+:::footer
+[https://github-wiki-see.page/](https://github-wiki-see.page/m/Statistics-and-Machine-Learning-with-R/Statistical-Methods-and-Machine-Learning-in-R/wiki/Permutational-Multivariate-Analysis-of-Variance)
+:::
+
+## ¿Para qué sirven estos métodos de distancias? {}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/hierarchical holzhauer et al 2022.png")
+```
+
+:::footer
+<https://www.sciencedirect.com/science/article/pii/S096456912100421X?via%3Dihub>
+:::
+
+## Transformaciones {}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/paper legendre.png")
+```
+
+:::footer
+<https://link.springer.com/article/10.1007/s004420100716>
+:::
+
+## ¿Cómo influencian las transformaciones a las distancias?
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/Transformaciones.png")
+```
+
+## Distancia Euclidiana
+
+$$
+d_{ij} = \sqrt{\sum_{k=1}^p (x_{ik} - x_{jk})^2}
+$$
+
+- **Ventajas**: Intuitiva y fácil de calcular.
+- **Limitaciones**: Sensible a escalas y unidades. Es necesario estandarizar las variables si tienen magnitudes diferentes.
+- **Aplicaciones**: Común en técnicas como análisis de conglomerados.
+
+## Comprendamos la distancia euclidiana {}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/Tecnicas de Ordenamiento5.png")
+```
+## El problema de los dobles ceros en distancias euclidianas {}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/paper legendre 2.png")
+```
+
+## Distancia de Manhattan (City Block)
+
+$$
+d_{ij} = \sum_{k=1}^p |x_{ik} - x_{jk}|
+$$
+
+- **Ventajas**: Menos sensible a valores extremos que la distancia euclidiana.
+- **Aplicaciones**: Usada en contextos donde las distancias son lineales, como en ciudades con una estructura en cuadrícula.
+- **Ejemplo**: Común en problemas urbanos y redes logísticas.
+
+## Distancia de Mahalanobis
+
+$$
+d_{ij} = \sqrt{(x_i - x_j)^T S^{-1} (x_i - x_j)}
+$$
+
+- **Ventajas**: Considera la estructura de correlación entre variables.
+- **Limitaciones**: Requiere que el número de observaciones sea mayor que el número de variables para que $S^{-1}$ exista.
+- **Aplicaciones**: Clasificación y análisis discriminante.
+
+## Distancia de Hellinger
+
+$$
+d_{ij} = \sqrt{\sum_{k=1}^p \left(\sqrt{\frac{x_{ik}}{\sum_{k=1}^p x_{ik}}} - \sqrt{\frac{x_{jk}}{\sum_{k=1}^p x_{jk}}}\right)^2}
+$$
+
+- **Descripción**: Una medida basada en raíces cuadradas de proporciones, que minimiza la influencia de valores extremos.
+- **Ventajas**:
+  - Reduce el impacto de valores pequeños y ceros.
+  - Conserva la estructura de similitud entre observaciones.
+- **Aplicaciones**:
+  - Común en ecología para analizar composiciones de comunidades.
+  - Análisis de datos de conteo y proporciones.
+- **Nota**: Proporciona resultados similares a la transformación logarítmica, pero es más adecuada para datos con ceros.
+
+## Distancia Chi-cuadrado
+
+$$
+d_{ij} = \sqrt{\sum_{k=1}^p \frac{(x_{ik} - x_{jk})^2}{x_{ik} + x_{jk}}}
+$$
+
+- **Descripción**: Mide la disimilitud entre perfiles de fila o columna en tablas de contingencia.
+- **Ventajas**: Resalta las diferencias en proporciones relativas más que en valores absolutos.
+- **Limitaciones**: Puede ser sensible a ceros en los datos.
+- **Aplicaciones**: 
+  - Comparar distribuciones categóricas.
+  - Análisis de correspondencias en datos de conteo.
+
+
+## Distancia de Chord
+
+$$
+d_{ij} = \sqrt{\sum_{k=1}^p \left(\frac{x_{ik}}{\sqrt{\sum_{k=1}^p x_{ik}^2}} - \frac{x_{jk}}{\sqrt{\sum_{k=1}^p x_{jk}^2}}\right)^2}
+$$
+
+- **Descripción**: Calcula la disimilitud entre dos vectores normalizados por su longitud, proyectándolos en una hiperesfera unitaria.
+- **Ventajas**:
+  - Insensible a las diferencias en magnitud entre vectores, ya que trabaja con datos normalizados.
+  - Conserva la estructura de similitud angular entre observaciones.
+- **Aplicaciones**:
+  - Composición de comunidades en ecología.
+  - Análisis de perfiles normalizados, como datos espectrales.
+
+
+## Distancia de Canberra
+
+$$
+d_{ij} = \sum_{k=1}^p \frac{|x_{ik} - x_{jk}|}{|x_{ik}| + |x_{jk}|}
+$$
+
+- **Ventajas**: Da más peso a pequeñas diferencias cuando los valores son cercanos a cero.
+- **Aplicaciones**: Comparaciones sensibles a las escalas.
+- **Nota**: Es útil en análisis de proporciones (coberturas, abundancias relativas) o datos ambientales con valores pequeños.
+
+## Distancia de Gower
+
+$$
+d_{ij} = \frac{\sum_{k=1}^p w_k \cdot d_{ijk}}{\sum_{k=1}^p w_k}
+$$
+
+- **Aplicaciones**: Análisis de datos mixtos.
+- **Ventajas**: Flexibilidad para trabajar con variables de diferente naturaleza (numéricas, categóricas, etc.).
+- **Nota**: Los pesos $w_k$ pueden ajustarse según la relevancia de cada variable.
+
+## Distancia de Jaccard
+
+$$
+d_{ij} = 1 - \frac{|A \cap B|}{|A \cup B|}
+$$
+
+- **Aplicaciones**: Compara similitudes entre conjuntos o matrices de presencia-ausencia.
+- **Ventajas**: Ignora los ceros comunes (ausencias compartidas).
+- **Ejemplo**: Usado en análisis de datos binarios, como en matrices de ocurrencia.
+
+## Distancia de Sorensen
+
+$$
+d_{ij} = 1 - \frac{2 |A \cap B|}{|A| + |B|}
+$$
+
+- **Descripción**: Mide la disimilitud entre dos conjuntos basándose en su intersección, **dando más peso a las coincidencias**.
+- **Ventajas**:
+  - **Más sensible a la coincidencia** entre conjuntos que la distancia de Jaccard.
+  - Ignora los ceros comunes (ausencias compartidas).
+- **Aplicaciones**:
+  - Comparación de comunidades ecológicas (presencia/ausencia de especies).
+  - Análisis de similitud en datos binarios.
+- **Ejemplo**: Usado en análisis de datos binarios, como en matrices de ocurrencia.
+
+## Distancia Binaria (o Dice)
+
+$$
+d_{ij} = 1 - \frac{2 |A \cap B|}{|A| + |B|}
+$$
+
+- **Descripción**: Similar a la distancia de Jaccard, pero **da más peso a la coincidencia**.
+- **Ventajas**:
+  - Más sensible a especies compartidas que Jaccard.
+- **Aplicaciones**:
+  - Análisis de datos de presencia/ausencia.
+  - Comparaciones en ecología basadas en ocurrencias.
+
+## Distancia Raup-Crick
+
+$$
+d_{ij} = P(\text{observado} \leq \text{simulado})
+$$
+
+- **Descripción**: Una medida probabilística que compara la similitud observada entre dos comunidades con la esperada bajo una distribución aleatoria.
+- **Ventajas**:
+  - Ajusta las comparaciones considerando la riqueza de las comunidades.
+  - No depende únicamente del número total de especies compartidas.
+- **Aplicaciones**:
+  - Evaluación de similitudes en datos de presencia/ausencia.
+  - Identificación de patrones ecológicos no explicados por el azar (La (dis)similitud observada es mayor de lo que se esperaría por azar.)
+  - Se restringe de 0 a 1, por lo que se puede hablar de **porcentaje de disimilitud**.
+  - Valores de 0 es similitud perfecta. Valores de 1 es totalmente disimil.
+
+
+## Distancia de Bray-Curtis
+
+$$
+d_{ij} = \frac{\sum_{k=1}^p |x_{ik} - x_{jk}|}{\sum_{k=1}^p (x_{ik} + x_{jk})}
+$$
+
+- **Aplicaciones**: Común en ecología para comparar comunidades biológicas.
+- **Ventajas**: Insensible a ceros comunes en las observaciones. Se restringe de 0 a 1, por lo que se puede hablar de **porcentaje de disimilitud**.
+- **Uso típico**: Comparar similitudes entre especies o comunidades.
+
+## Distancia de Morisita-Horn
+
+$$
+d_{ij} = 1 - \frac{2 \sum_{k=1}^p x_{ik} x_{jk}}{\left(\frac{\sum_{k=1}^p x_{ik}^2}{N_i}\right) + \left(\frac{\sum_{k=1}^p x_{jk}^2}{N_j}\right)}
+$$
+
+Donde $N_i = \sum_{k=1}^p x_{ik}$ y $N_j = \sum_{k=1}^p x_{jk}$.
+
+- **Descripción**: Basada en la abundancia relativa, esta métrica es menos sensible a especies raras y **más enfocada en especies dominantes**.
+- **Ventajas**:
+  - Insensible al tamaño de la muestra.
+  - Focalizada en especies con abundancias altas.
+- **Aplicaciones**:
+  - Comparación de comunidades dominadas por pocas especies.
+  - Análisis de datos de conteos en ecología.
+  
+## Distancia de Kulczynski
+
+$$
+d_{ij} = 1 - \frac{\sum_{k=1}^p \min(x_{ik}, x_{jk})}{\frac{1}{2} \left(\sum_{k=1}^p x_{ik} + \sum_{k=1}^p x_{jk} \right)}
+$$
+
+- **Descripción**: Mide la proporción de especies compartidas entre dos comunidades, ponderada por la abundancia relativa.
+- **Ventajas**:
+  - Sensible a diferencias en composiciones abundantes.
+  - Permite identificar similitudes en especies dominantes.
+- **Aplicaciones**:
+  - Comparación de comunidades ecológicas basadas en abundancia.
+  - Identificación de patrones de similitud entre hábitats.
+
+## Distancia de Whittaker
+
+$$
+d_{ij} = 1 - \frac{\sum_{k=1}^p \min(x_{ik}, x_{jk})}{\sum_{k=1}^p x_{ik}}
+$$
+
+- **Descripción**: Mide la proporción de especies compartidas en relación con la comunidad menos diversa.
+- **Ventajas**:
+  - Focalizada en diferencias relativas.
+- **Aplicaciones**:
+  - Comparación de comunidades de diferentes tamaños.
+
+## Equivalencia de las transformaciones {}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/paper legendre 3.png")
+```
+
+:::footer
+<https://link.springer.com/article/10.1007/s004420100716>
+:::
+
+## Efecto de la transformación sobre las distancias {}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/paper legendre 4.png")
+```
+
+:::footer
+<https://link.springer.com/article/10.1007/s004420100716>
+:::
+
+## Efecto de la transformación sobre las distancias {}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/paper legendre 5.png")
+```
+
+:::footer
+<https://link.springer.com/article/10.1007/s004420100716>
+:::
+
+# 2. Técnicas Multivariadas
+
+## Canónico vs No Canónico {.center}
+
+```{r}
+#| echo: false
+
+library(gt)
+library(tibble)
+
+# Crear el dataframe con los datos de la imagen
+datos_metodos <- tibble(
+  Categoría = c("Métodos interdependientes", "Métodos dependientes"),
+  Subcategoría = c("Análisis No Canónico", "Análisis Canónico"),
+  `Grupo de Variables` = c("1 grupo de variables.", "2 grupos de variables: X e Y."),
+  `Descripción General` = c("Permiten describir.", "Permiten predecir."),
+  `Relación Variables` = c("No buscan definir la relación entre variables dependientes o independientes.", 
+                           "Buscan definir la relación entre variables dependientes o independientes."),
+  `Objetivo` = c("Busca observar patrones de agrupamiento en los datos.", 
+                 "Busca definir la causa de los patrones de agrupamiento."),
+  `Hipótesis` = c("No hay contraste de hipótesis.", "Hay contraste de hipótesis."),
+  `Clasificación` = c("Son considerados métodos de agrupación.", "Son considerados métodos de clasificación.")
+) %>% t() %>% as.data.frame()
+
+names(datos_metodos) <- c("Ordenamiento sin restricciones - ML no supervisado",
+                          "Ordenamiento con restricciones - ML supervisado")
+
+# Crear la tabla con gt
+tabla_metodos <- datos_metodos %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(
+    column_labels.background.color = "#0013fe",
+    table.font.size = px(25),
+    data_row.padding = px(10)
+  ) %>%
+  opt_css(
+    css = "
+    .gt_table tr:hover td {
+      background-color: #E6F3FF !important;
+    }
+    "
+  )
+
+# Mostrar la tabla
+tabla_metodos
+```
+
+## Clasificación de técnicas multivariadas {}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/Diapositiva1.PNG")
+```
+
+## {}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/Diapositiva2.PNG")
+```
+
+## {}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/Diapositiva3.PNG")
+```
+
+## {}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/Diapositiva4.PNG")
+```
+
+## {}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/Diapositiva5.PNG")
+```
+
+## {}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/Diapositiva6.PNG")
+```
+
+## {}
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/Diapositiva7.PNG")
+```
+
+
+## Técnicas No Canónicas 1
+
+- Análisis de Componentes Principales: [PCA](https://rpubs.com/cristina_gil/pca) + [tb-PCA](https://www.davidzeleny.net/anadat-r/doku.php/en:pca)
+- Análisis Factorial: [FA](https://rpubs.com/marcelo-chavez/multivariado_1)
+- Análisis de Múltiples Factores: [MFA](https://rpubs.com/Alvarofelipes/1041897)
+- Análisis Factorial Confirmatorio: [AFC](https://rpubs.com/FedeVillalba/979441) 
+- Análisis de Correspondencia: [CA](https://www.davidzeleny.net/anadat-r/doku.php/en:ca_dca)
+- Análisis de Correspondencia sin Tendencia: [DECORANA](https://www.davidzeleny.net/anadat-r/doku.php/en:ca_dca_examples)
+- Análisis de Correspondencia Múltiple: [MCA](https://rpubs.com/gustavomtzv/1042047)
+- Análisis de Coordenadas Principales: [MDS](https://rpubs.com/Hasantha_APS_1701/917047) o [PCoA](https://www.davidzeleny.net/anadat-r/doku.php/en:pcoa_nmds)
+- Escalamiento Multidimensional No Métrico: [NMDS](https://www.davidzeleny.net/anadat-r/doku.php/en:pcoa_nmds)
+- Agrupamiento [Jerárquico](https://rpubs.com/Alvarofelipes/1041879) 
+- Agrupamiento No Jerárquico [K-means](https://rpubs.com/anagalvan/informe4), [K-medioids](https://rpubs.com/Ernestodaspferd/boffpapitolinlin)
+- Análisis Multivariado de Varianza Permutacional [PERMANOVA*](https://rpubs.com/DKCH2020/587758)
+- Análisis de similaridades [ANOSIM*](https://rpubs.com/aafernandez1976/ANOSIMyNMDS)
+
+## Técnicas No Canónicas 2
+
+- Escalamiento de T-distribución Estocástica Vecinos: [t-SNE](https://rpubs.com/TusVasMit/T-SNEExploration)
+- t-SNE optimizado por [LargeVis](https://arxiv.org/abs/1602.00370)
+- Optimización de Proximidad de Vecinos Uniforme: [UMAP](https://ar5iv.labs.arxiv.org/html/1802.03426)
+- Modelos de Mezcla Gaussianos [(Gaussian Mixture Models)](https://www.mdpi.com/2072-4292/13/10/1989): [GMM](https://rpubs.com/dapivei/705612)
+- Análisis de Vectores de Soporte: [SVM](https://rpubs.com/joaquin_ar/267926)
+- Fuzzy C-Means: [FCM](https://rpubs.com/rahulSaha/Fuzzy-CMeansClustering)
+- Gustafson-Kessel Algorithm (Mahalanobis): [GKA](https://www.rpubs.com/anablake/gustafson-kessel)
+- Otros [métodos Fuzzy](https://www.janbasktraining.com/tutorials/fuzzy-clustering/)
+
+## Ténicas Canónicas
+
+- Análisis de Redundancia: [RDA](https://rpubs.com/ericata/ecoinformatics)
+- Análisis de Correspondencia Canónica: [CCA](https://rpubs.com/JairoAyala/CCA)
+- Análisis de Correlaciones Canónicas: [CCorA](https://rpubs.com/marv/1045103)
+- Análisis Discriminante Lineal: [LDA](https://rpubs.com/joaquin_ar/233932)
+- Análisis Discriminante Cuadrático: [QDA](https://rpubs.com/joaquin_ar/233932)
+- Análisis Multivariado de Varianza: [MANOVA](https://rpubs.com/marv/1045106)
+- Análisis de Procrustes: [PA](https://john-quensen.com/tutorials/procrustes-analysis/)
+- Modelos de Ecuaciones Estructurales: [SEM](https://rpubs.com/Agrele/SEM)
+
+# 3. Estadística Multivariada No Canónica
+
+## Árboles Jerárquicos
+
+:::{.columns}
+:::{.column width="40%"}
+- Es una herramienta para evidenciar estructuras de agrupamiento en los datos.
+
+#### Procedimiento:
+1. Cada fila es un cluster.
+2. Se crean clusters de dos en dos en base a sus distancias.
+3. Estos grupos se agregan usando método de aglomeración.
+4. Se repite el proceso hasta aglomerar todos los grupos.
+:::
+
+:::{.column width="60%"}
+```{r, echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/NOMBRE QUE DESEES.png")
+```
+:::
+::::
+
+## {}
+
+```{r, echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/jerarquico.png")
+```
+
+## Métodos de aglomeración `hclust()`
+
+:::{.columns}
+:::{.column width="40%"}
+- **Single linkage (a)**: es la distancia más corta entre dos puntos en ambos grupos.
+- **Complete linkage (b)**: Es lo opuesto al eslabonamiento simple. Es la distancia más larga entre dos puntos en ambos grupos.
+- **Average linkage o UPGMA (c)**: es la distancia promedio entre cada punto en un grupo a cada punto en el otro grupo.
+- **Centroid**: la distancia entre el punto central de un grupo y el punto central del otro grupo.
+:::
+
+:::{.column width="60%"}
+```{r, echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/aglomeracion.png")
+```
+:::
+::::
+
+## Métodos de aglomeración `hclust()`
+
+:::{.columns}
+:::{.column width="40%"}
+- **Método de Ward (Least Squares)**: una combinación de métodos promedio y centroide. La distancia dentro del conglomerado se calcula determinando el punto central del conglomerado y la distancia de las observaciones desde el centro. Al
+intentar fusionar dos conglomerados, se encuentra la distancia entre los conglomerados y se fusionan los conglomerados cuya varianza es menor en comparación con la otra combinación.
+:::
+
+:::{.column width="60%"}
+```{r, echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/aglomeracion 2.png")
+```
+:::
+::::
+
+## {}
+
+```{r, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("images/aglomeracion 3.png")
+```
+
+
+## Reducción de dimensionalidad: PCA
+
+:::{.columns}
+:::{.column width="30%"}
+- Usualmente inadecuado para datas de especies.
+- Adecuado para data ambiental.
+- Reduce la dimensiones de la base de datos a 2 variables nuevas (componentes principales).
+- Los CP son combinaciones lineales de todas las variables de la tabla.
+:::
+
+:::{.column width="70%"}
+:::{.fragment}
+```{r, echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("images/pca.gif")
+```
+
+- Componentes principales que **MAXIMIZAN la variabilidad**.
+
+:::
+:::
+::::
+
+## PCA y regresión lineal no abordan la minimización de errores de la misma manera{}
+
+```{r, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("images/PCA vs reg linea.png")
+```
+
+
+## Procedimiento interno del PCA: 1 y 2
+
+:::{.columns}
+:::{.column width="30%"}
+#### Decomposición de varianza
+1. **Estandarizar la base de datos ( μ=0, σ2=1).**
+2. **Cálculo de las matrices de covarianzas.**
+3. Cálculo de los eigenvectores y eigenvalores.
+4. Reordenamiento de los eigenvalores y eigenvectores.
+5. Reproyectar los datos en los ejes principales
+
+:::
+
+:::{.column width="70%"}
+:::{.fragment}
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/matrices de cov o corr.png")
+```
+:::
+:::
+::::
+
+## Procedimiento interno del PCA: 3
+
+:::{.columns}
+:::{.column width="30%"}
+#### Decomposición de varianza
+1. Estandarizar la base de datos ( μ=0, σ2=1).
+2. Cálculo de las matrices de covarianzas.
+3. **Cálculo de los eigenvectores y eigenvalores.**
+4. Reordenamiento de los eigenvalores y eigenvectores.
+5. Reproyectar los datos en los ejes principales
+
+:::
+
+:::{.column width="70%"}
+:::{.fragment}
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/eigenvals.png")
+```
+:::
+:::
+::::
+
+## Procedimiento interno del PCA: 4
+
+:::{.columns}
+:::{.column width="30%"}
+#### Decomposición de varianza
+1. Estandarizar la base de datos ( μ=0, σ2=1).
+2. Cálculo de las matrices de covarianzas.
+3. Cálculo de los eigenvectores y eigenvalores.
+4. **Reordenamiento de los eigenvalores y eigenvectores.**
+5. Reproyectar los datos en los ejes principales
+
+:::
+
+:::{.column width="70%"}
+:::{.fragment}
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/ordenamiento de cp.png")
+```
+:::
+:::
+::::
+
+
+## Procedimiento interno del PCA: 5
+
+:::{.columns}
+:::{.column width="30%"}
+#### Decomposición de varianza
+1. Estandarizar la base de datos ( μ=0, σ2=1).
+2. Cálculo de las matrices de covarianzas.
+3. Cálculo de los eigenvectores y eigenvalores.
+4. Reordenamiento de los eigenvalores y eigenvectores.
+5. **Reproyectar los datos en los ejes principale**
+
+:::
+
+:::{.column width="70%"}
+:::{.fragment}
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/pca biplot penguins.png")
+```
+:::
+:::
+::::
+
+## Tipo de matriz del PCA
+
+:::{.columns}
+:::{.column width="50%"}
+
+**PCA basado en matrices de covarianzas (`scale. = FALSE`)**
+
+:::{.fragment}
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics("images/pca biplot matriz covarianzas penguins.png")
+```
+:::
+:::
+
+:::{.column width="50%"}
+
+**PCA basado en matrices de correlaciones (`scale. = TRUE`)**
+
+:::{.fragment}
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics("images/pca biplot penguins.png")
+```
+:::
+:::
+::::
+
+## Caso: Palmer Penguins {}
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/geentoo.png")
+```
+
+:::footer
+<https://lauranavarroviz.wordpress.com/2020/08/01/palmer-penguins>
+:::
+
+## Caso: Palmer Penguins {}
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/Tecnicas de Ordenamiento7.png")
+```
+
+## Leyendo el PCA 
+
+:::{.columns}
+:::{.column width="40%"}
+- El ángulo entre las variables indica el grado de correlación entre ellas: Correlación positiva; Correlación negativa (inversa); Nula (90°).
+- La posición de un punto (filas de la base) respeto a los vectores de las variables (columnas de la base) refleja sus relaciones.
+- Punto cerca a vector contiene altos valores de dicha variable.
+- Los puntos cercanos entre sí son más similares.
+
+:::
+
+:::{.column width="60%"}
+:::{.fragment}
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/pca biplot penguins.png")
+```
+:::
+:::
+::::
+
+## Estandarización vs Normalización
+
+::::{.columns}
+:::{.column width="50%"}
+#### Normalización
+
+- Comprimir una variable para que encaje en el rango de 0 a 1. 
+- También le llaman escalado de características (featuring scaling) o normalización basada en la unidad (unity-based normalization). 
+- Funciona como transformación de rango, chord o hellinger.
+
+```{r, eval=FALSE}
+decostand(DF, method = "normalization") 
+# esto es la transf. de Chord
+```
+:::
+
+:::{.column width="50%"}
+#### Estandarización (centrado y escalado)
+
+- Hace que cada variable tenga promedio 0 y desviación estándar 1.
+
+```{r, eval=FALSE}
+decostand(DF, method = "standarization")
+scale(DF)
+```
+
+:::
+::::
+
+## Análisis de Correspondencia: CA
+
+::::{.columns}
+:::{.column width="40%"}
+
+- Trabaja con matrices de contingencia entre las categorías de dos variables categóricas.
+- Permite identificar como las especies están asociadas con determinada condición del entorno (categóricas, agrupamiento).
+- Permite visualizar cómo las especies ocupan diferentes nichos en el ecosistema.
+:::
+
+:::{.column width="60%"}
+
+```{r, echo=FALSE, fig.align='center', out.width="100%"}
+knitr::include_graphics("images/ca escenarios.png")
+```
+
+:::
+::::
+
+:::footer
+[CA en diferentes escenarios simulados](https://www.nature.com/articles/s41598-021-87971-9)
+:::
+
+## Análisis de Coordenadas Principales: PCoA
+
+```{r, echo=FALSE, fig.align='center', out.width="100%"}
+knitr::include_graphics("images/MDS.png")
+```
+
+:::footer
+<https://www.nature.com/articles/s41467-019-12500-2>
+:::
+
+## Ventajas del MDS sobre Otras Técnicas de Ordenación
+
+- **Optimización por Dimensiones Deseadas:** MDS ajusta directamente al número de dimensiones deseado.
+
+- **Cualquier distancia proyectada en un espacio euclidiano:** Proporciona una representación euclidiana de un conjunto de objetos cuya relación se mide mediante cualquier índice de disimilitud.
+
+:::callout-tip
+Para la mayoría de los datos ecológicos, la relación entre la disimilitud de los datos y la distancia de ordenación será no lineal. En consecuencia, los ecólogos prefieren el escalamiento multidimensional no métrico (NMDS).
+:::
+
+:::callout-warning
+Eigenvalues negativos necesitan corregirse (Lingoes). O convertir una distancia no métrica (Bray-curtis) en una métrica (raíz cuadrada de Bray-curtis).
+:::
+
+## Comparando MDS con NMDS {}
+
+```{r, echo=FALSE, fig.align='center', out.width="100%"}
+knitr::include_graphics("images/pcoa vs nmds.png")
+```
+
+## Escalamiento Multidimensional No Métrico: NMDS
+
+El **Escalamiento Multidimensional No Métrico (NMDS)** es una alternativa no métrica al análisis de **PCoA**. Su objetivo principal es ubicar las muestras en un espacio de ordenación de baja dimensionalidad (dos o tres ejes), de manera que las distancias euclidianas entre estas muestras correspondan a las disimilitudes representadas por el índice de disimilitud original.
+
+
+## Características Clave del NMDS
+
+- **Uso de Cualquier Medida de Disimilitud:** Puede emplear cualquier índice de disimilitud entre muestras.
+- **Conversión de Disimilitudes en Rangos:** No utiliza los valores brutos de disimilitud, sino que los convierte en rangos para los cálculos.
+- **Algoritmo Iterativo.**
+
+## Comparación con PCoA
+
+- **NMDS:**
+  - Método iterativo con posibles soluciones variables en cada ejecución.
+  - El número de ejes es especificado por el usuario.
+  - Optimiza la representación en el número de dimensiones deseado.
+
+- **PCoA:**
+  - Solución analítica única.
+  - El número de ejes depende de las propiedades del conjunto de datos.
+  - No permite especificar directamente el número de dimensiones.
+
+::: callout-tip
+**Nota:** El NMDS es especialmente adecuado para datos ecológicos donde la relación entre la disimilitud y la distancia de ordenación es no lineal, por lo que es preferido eh ecología.
+:::
+
+## Ventajas del NMDS
+
+- **Flexibilidad con Datos No Lineales:** Ideal para representar relaciones complejas en datos ecológicos.
+- **Adaptabilidad Dimensional:** Permite especificar y optimizar el número de dimensiones para la ordenación.
+- **Mejor Ajuste de Disimilitudes:** Al usar rangos, capta más efectivamente las relaciones entre muestras.
+
+## Diagrama de Shepard: gráfico de estrés
+
+:::{.columns}
+:::{.column width="30%"}
+- El Diagrama de Shepard representa la correlación que existe entre la disimilaridad observada y la distancia medida en el ordenamiento (NMDS).
+- Si ambos son similares, esperamos un valor alto de R2.
+:::
+
+:::{.column width="70%"}
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/shepard.png")
+```
+:::
+::::
+
+## Nivel de estrés
+
+:::{.columns}
+:::{.column width="30%"}
+Como regla general, el valor del estrés del NMDS deberá ser interpretado como:
+
+- stress ≤0.05 = ideal
+- stress <0.1 & >0.05 = bueno 
+- stress >0.1 & <0.2 = muy justo
+- stress >0.2 & <0.3 = sospechoso
+- stress >0.3 = ordenamiento arbitrario
+
+:::
+
+:::{.column width="70%"}
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("images/nmds2.png")
+```
+:::
+::::
+
+## {}
+
+```{r, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("images/NMDS vs MDS.png")
+```
+
+:::footer
+<https://www.mdpi.com/1999-4907/10/11/978>
+:::
+
+## {}
+
+```{r, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("images/soil.jpg")
+```
+
+:::footer
+<https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0093445>
+:::
+
+## {}
+
+```{r, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("images/nmds y density function.png")
+```
+
+:::footer
+<https://www.mdpi.com/2673-6004/3/4/26>
+:::
+
+## {}
+
+```{r, echo=FALSE, out.width="75%", fig.align='center'}
+knitr::include_graphics("images/alto estres birds plants perturbaciones.png")
+```
+
+:::footer
+<https://conbio.onlinelibrary.wiley.com/doi/abs/10.1111/cobi.13344>
+:::
+
+
+# 3. Estadística Multivariada Canónica
+
+## Análisis de Redundancia: RDA
+
+## Análisis de Correspondencia Canónica: CCA
+
