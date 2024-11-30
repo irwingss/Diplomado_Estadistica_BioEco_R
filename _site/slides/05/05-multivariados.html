@@ -1976,18 +1976,236 @@ d_{ij} = 1 - \frac{\sum_{k=1}^p \min(x_{ik}, x_{jk})}{\sum_{k=1}^p x_{ik}}
 </section>
 <section id="section-12" class="slide level2">
 <h2></h2>
+
+<img data-src="images/alto estres birds plants perturbaciones.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><div class="footer">
+<p><a href="https://conbio.onlinelibrary.wiley.com/doi/abs/10.1111/cobi.13344" class="uri">https://conbio.onlinelibrary.wiley.com/doi/abs/10.1111/cobi.13344</a></p>
+</div>
+</section></section>
+<section>
+<section id="estadística-multivariada-canónica" class="title-slide slide level1 center">
+<h1>3. Estadística Multivariada Canónica</h1>
+
+</section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+
+<img data-src="images/rda_1.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-14" class="slide level2">
+<h2></h2>
+
+<img data-src="images/borcard et al.jpg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p><a href="https://fukamilab.github.io/BIO202/06-B-constrained-ordination.html">Repo RDA</a></p>
+</div>
+</section>
+<section id="análisis-de-redundancia-rda" class="slide level2">
+<h2>Análisis de Redundancia: RDA</h2>
+<div class="columns">
+<div class="column">
+<p>Busca:explicar la variabilidad en un conjunto de variables Y (variables respuesta) restringido por un segundo conjunto de variables X (variables predictoras, explicativas, etc.).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># si tu matriz es transformada </span></span>
+<span id="cb3-2"><a></a><span class="co"># (RDA)</span></span>
+<span id="cb3-3"><a></a><span class="fu">rda</span>()</span>
+<span id="cb3-4"><a></a></span>
+<span id="cb3-5"><a></a><span class="co"># si tu matriz es transformada </span></span>
+<span id="cb3-6"><a></a><span class="co"># (tb-RDA)</span></span>
+<span id="cb3-7"><a></a><span class="fu">rda</span>(<span class="at">scale =</span> <span class="cn">FALSE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/alto estres birds plants perturbaciones.png" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
+<p><img data-src="images/rda_triplot.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="footer">
-<p><a href="https://conbio.onlinelibrary.wiley.com/doi/abs/10.1111/cobi.13344" class="uri">https://conbio.onlinelibrary.wiley.com/doi/abs/10.1111/cobi.13344</a></p>
+</div></div>
+</section>
+<section id="section-15" class="slide level2">
+<h2></h2>
+
+<img data-src="images/rda_2.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-16" class="slide level2">
+<h2></h2>
+
+<img data-src="images/rda_3.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-17" class="slide level2">
+<h2></h2>
+
+<img data-src="images/rda_4.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-18" class="slide level2">
+<h2></h2>
+
+<img data-src="images/rda_5.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-19" class="slide level2">
+<h2></h2>
+
+<img data-src="images/rda_6.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="resultados-del-summary" class="slide level2">
+<h2>Resultados del <code>summary()</code></h2>
+<div class="columns">
+<div class="column">
+<ol type="1">
+<li class="fragment">Partitioning of variance.</li>
+</ol>
+<ul>
+<li class="fragment">Inerti</li>
+<li class="fragment">Proportion</li>
+</ul>
+<ol start="2" type="1">
+<li class="fragment">Eigenvalues, y su contribución a la varianza.</li>
+<li class="fragment">Eigenvalues restringidos acumulados</li>
+</ol>
+<ul>
+<li class="fragment">Importance of components</li>
+<li class="fragment">Species scores (sp)</li>
+<li class="fragment">Site scores (wa)</li>
+<li class="fragment">Site constraints (lc)</li>
+<li class="fragment">Biplot scores (bp)</li>
+</ul>
+</div><div class="column">
+<ol type="1">
+<li class="fragment">Observaciones (filas) - wa o lc</li>
+<li class="fragment">Variables (columnas) de la matriz Y - sp</li>
+<li class="fragment">Variables (columnas) de la matriz X - bp</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/rda_triplot.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
 </div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="scaling-1-o-sites" class="slide level2">
+<h2>Scaling 1 o sites</h2>
+<ul>
+<li class="fragment"><strong>Foco:</strong> observaciones (sitios).</li>
+<li class="fragment"><strong>Distancias entre puntos:</strong> Preserva las distancias euclidianas entre las observaciones.</li>
+<li class="fragment"><strong>Ángulos:</strong> los ángulos entre vectores (X e Y) de variables no son interpretables en términos de correlación.</li>
+<li class="fragment"><strong>Relación de Sitios y Variables:</strong> la proyección de los sitios sobre los vectores de las variables (X e Y) son interpretables.</li>
+</ul>
+</section>
+<section id="scaling-2-o-species" class="slide level2">
+<h2>Scaling 2 o species</h2>
+<ul>
+<li class="fragment"><strong>Foco:</strong> variables X e Y.</li>
+<li class="fragment"><strong>Distancias entre puntos:</strong> no son euclidianas. Están distorcionadas.</li>
+<li class="fragment"><strong>Ángulos:</strong> Preserva las correlaciones entre las variables X e Y.</li>
+<li class="fragment"><strong>Relación de Sitios y Variables:</strong> la proyección de los sitios sobre los vectores de las variables (X e Y) son interpretables.</li>
+</ul>
+</section>
+<section id="scaling-3-o-symmetric" class="slide level2">
+<h2>Scaling 3 o symmetric</h2>
+<ul>
+<li class="fragment"><p>Este escalado busca un balance entre la representación de las distancias entre sitios y las correlaciones entre variables.</p></li>
+<li class="fragment"><p>Ni las distancias ni los ángulos son perfectamente precisos, pero ofrecen una aproximación razonable.</p></li>
+<li class="fragment"><p><strong>Foco:</strong> balance entre los sitios y las variables (X e Y).</p></li>
+<li class="fragment"><p><strong>Distancias entre puntos:</strong> no son euclidianas. Están aproximadas.</p></li>
+<li class="fragment"><p><strong>Ángulos:</strong> Aproxima las correlaciones entre las variables X e Y.</p></li>
+<li class="fragment"><p><strong>Relación de Sitios y Variables:</strong> la proyección de los sitios sobre los vectores de las variables (X e Y) son aproximadamente correctas.</p></li>
+</ul>
+</section>
+<section id="section-20" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<p><code>scaling = "none"</code></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/RDA none.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><code>scaling = "sites"</code></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/RDA sites.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<p><code>scaling = "species"</code></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/RDA species.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><code>scaling = "symmetric"</code></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/RDA symmetric.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="otros-rda-1" class="slide level2">
+<h2>Otros RDA 1</h2>
+<h4 id="tb-rda-basado-en-transformaciones">tb-RDA: basado en transformaciones</h4>
+<ul>
+<li class="fragment">La matriz Y se transforma con algún método (eg. hellinger).</li>
+<li class="fragment">Aplicar con matrices Y que originalmente no son compatibles con PCA (de abundancias, de frecuencias).</li>
+</ul>
+<h4 id="db-rda-basado-en-distancias">db-RDA: basado en distancias</h4>
+<ul>
+<li class="fragment">Se basa en una distancia distinta a la euclidiana.</li>
+<li class="fragment">Usa internamente un PCoa (MDS) en lugar de un PCA.</li>
+<li class="fragment">Perdemos información de las columnas de la matriz Y.</li>
+</ul>
+<p><a href="https://www.davidzeleny.net/anadat-r/doku.php/en:rda_cca">Ver más sobre tb y db RDA</a></p>
+</section>
+<section id="otros-rda-2" class="slide level2">
+<h2>Otros RDA 2</h2>
+<h4 id="partial-rda-rda-parciales-matriz-w">partial-RDA: RDA parciales (matriz W)</h4>
+<ul>
+<li class="fragment">Útil cuando se desea aislar el efecto de un conjunto de variables de interés eliminando la influencia de otras variables no deseadas. <a href="https://r.qcbs.ca/workshop10/book-en/partial-redundancy-analysis.html">Ver más aquí</a>.</li>
+<li class="fragment">partial-tb-RDA.</li>
+<li class="fragment">partial-db-RDA.</li>
+<li class="fragment"><a href="https://cran.r-project.org/web/packages/rdacca.hp/rdacca.hp.pdf">RDA Jerárquico</a>.</li>
+</ul>
+</section>
+<section id="análisis-de-correspondencia-canónica-cca" class="slide level2">
+<h2>Análisis de Correspondencia Canónica: CCA</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li class="fragment">Algunas variables no guardan relaciones lineales con las variables predictoras (X), y presentan patrones unimodales en su lugar.</li>
+<li class="fragment">Las especies siguen la Ley de Tolerancia de Shelford (1911): habitan prefiriendo un óptimo dentro un gradiente.</li>
+<li class="fragment">CCA es adecuado para gradientes largos.</li>
+<li class="fragment">Usa PCoa internamente.</li>
+<li class="fragment">Los ejes reflejan gradientes ambientales que afectan la distribución de especies de manera unimodal.</li>
+</ul>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Paliy 2016 gradientes.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="https://europepmc.org/article/med/26786791">paper</a></p>
+</div></div>
 
 <div class="quarto-auto-generated-content">
 <p><img src="../logo.svg" class="slide-logo"></p>

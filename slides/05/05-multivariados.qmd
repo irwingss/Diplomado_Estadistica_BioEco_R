@@ -1057,7 +1057,228 @@ knitr::include_graphics("images/alto estres birds plants perturbaciones.png")
 
 # 3. Estadística Multivariada Canónica
 
+## {}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/rda_1.png")
+```
+
+## {}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/borcard et al.jpg")
+```
+
+:::footer
+[Repo RDA](https://fukamilab.github.io/BIO202/06-B-constrained-ordination.html)
+:::
+
 ## Análisis de Redundancia: RDA
 
+::::{.columns}
+
+:::{.column}
+Busca:explicar la variabilidad en un conjunto de variables Y (variables respuesta) restringido por un segundo conjunto de variables X (variables predictoras, explicativas, etc.).
+
+```{r, eval=FALSE}
+# si tu matriz es transformada 
+# (RDA)
+rda()
+
+# si tu matriz es transformada 
+# (tb-RDA)
+rda(scale = FALSE) 
+```
+
+:::
+
+:::{.column}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/rda_triplot.png")
+```
+
+:::
+
+:::
+
+## {}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/rda_2.png")
+```
+
+## {}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/rda_3.png")
+```
+
+## {}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/rda_4.png")
+```
+
+## {}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/rda_5.png")
+```
+
+## {}
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/rda_6.png")
+```
+
+## Resultados del `summary()`
+
+::::{.columns}
+
+:::{.column}
+1. Partitioning of variance.
+  - Inerti
+  - Proportion
+2. Eigenvalues, y su contribución a la varianza.
+3. Eigenvalues restringidos acumulados
+  - Importance of components
+  - Species scores (sp)
+  - Site scores (wa)
+  - Site constraints (lc)
+  - Biplot scores (bp)
+
+:::
+
+:::{.column}
+
+1. Observaciones (filas) - wa o lc
+2. Variables (columnas) de la matriz Y - sp
+3. Variables (columnas) de la matriz X - bp
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/rda_triplot.png")
+```
+
+:::
+
+:::
+
+## Scaling 1 o sites
+
+- **Foco:** observaciones (sitios).
+- **Distancias entre puntos:** Preserva las distancias euclidianas entre las observaciones.
+- **Ángulos:** los ángulos entre vectores (X e Y) de variables no son interpretables en términos de correlación.
+- **Relación de Sitios y Variables:** la proyección de los sitios sobre los vectores de las variables (X e Y) son interpretables.
+
+
+## Scaling 2 o species
+
+- **Foco:** variables X e Y.
+- **Distancias entre puntos:** no son euclidianas. Están distorcionadas.
+- **Ángulos:** Preserva las correlaciones entre las variables X e Y.
+- **Relación de Sitios y Variables:** la proyección de los sitios sobre los vectores de las variables (X e Y) son interpretables.
+
+
+## Scaling 3 o symmetric
+
+- Este escalado busca un balance entre la representación de las distancias entre sitios y las correlaciones entre variables.
+- Ni las distancias ni los ángulos son perfectamente precisos, pero ofrecen una aproximación razonable.
+
+- **Foco:** balance entre los sitios y las variables (X e Y).
+- **Distancias entre puntos:** no son euclidianas. Están aproximadas.
+- **Ángulos:** Aproxima las correlaciones entre las variables X e Y.
+- **Relación de Sitios y Variables:** la proyección de los sitios sobre los vectores de las variables (X e Y) son aproximadamente correctas.
+
+## {}
+
+::::{.columns}
+:::{.column}
+
+`scaling = "none"`
+
+```{r, echo=FALSE, fig.align='center', out.width="60%"}
+
+knitr::include_graphics("images/RDA none.png")
+
+```
+
+`scaling = "sites"`
+
+```{r, echo=FALSE, fig.align='center', out.width="60%"}
+
+knitr::include_graphics("images/RDA sites.png")
+
+```
+
+:::
+
+:::{.column}
+
+`scaling = "species"`
+
+```{r, echo=FALSE, fig.align='center', out.width="60%"}
+
+knitr::include_graphics("images/RDA species.png")
+
+```
+
+`scaling = "symmetric"`
+
+```{r, echo=FALSE, fig.align='center', out.width="60%"}
+
+knitr::include_graphics("images/RDA symmetric.png")
+
+```
+
+:::
+::::
+
+## Otros RDA 1
+
+#### tb-RDA: basado en transformaciones
+- La matriz Y se transforma con algún método (eg. hellinger).
+- Aplicar con matrices Y que originalmente no son compatibles con PCA (de abundancias, de frecuencias).
+
+#### db-RDA: basado en distancias
+- Se basa en una distancia distinta a la euclidiana.
+- Usa internamente un PCoa (MDS) en lugar de un PCA.
+- Perdemos información de las columnas de la matriz Y.
+
+[Ver más sobre tb y db RDA](https://www.davidzeleny.net/anadat-r/doku.php/en:rda_cca)
+
+
+## Otros RDA 2
+
+#### partial-RDA: RDA parciales (matriz W)
+- Útil cuando se desea aislar el efecto de un conjunto de variables de interés eliminando la influencia de otras variables no deseadas. [Ver más aquí](https://r.qcbs.ca/workshop10/book-en/partial-redundancy-analysis.html).
+- partial-tb-RDA.
+- partial-db-RDA.
+- [RDA Jerárquico](https://cran.r-project.org/web/packages/rdacca.hp/rdacca.hp.pdf).
+
+
 ## Análisis de Correspondencia Canónica: CCA
+
+
+::::{.columns}
+:::{.column}
+
+- Algunas variables no guardan relaciones lineales con las variables predictoras (X), y presentan patrones unimodales en su lugar.
+- Las especies siguen la Ley de Tolerancia de Shelford (1911):  habitan prefiriendo un óptimo dentro un gradiente.
+- CCA es adecuado para gradientes largos.
+- Usa PCoa internamente.
+- Los ejes reflejan gradientes ambientales que afectan la distribución de especies de manera unimodal.
+
+:::
+
+:::{.column}
+```{r, echo=FALSE, fig.align='center', out.width="100%"}
+
+knitr::include_graphics("images/Paliy 2016 gradientes.png")
+
+```
+[paper](https://europepmc.org/article/med/26786791)
+:::
+::::
+
 

@@ -1607,14 +1607,14 @@
     "href": "slides/05/05-multivariados.html#análisis-de-redundancia-rda",
     "title": "Técnicas multivariadas",
     "section": "Análisis de Redundancia: RDA",
-    "text": "Análisis de Redundancia: RDA"
+    "text": "Análisis de Redundancia: RDA\n\n\nBusca:explicar la variabilidad en un conjunto de variables Y (variables respuesta) restringido por un segundo conjunto de variables X (variables predictoras, explicativas, etc.).\n\n# si tu matriz es transformada \n# (RDA)\nrda()\n\n# si tu matriz es transformada \n# (tb-RDA)\nrda(scale = FALSE)"
   },
   {
     "objectID": "slides/05/05-multivariados.html#análisis-de-correspondencia-canónica-cca",
     "href": "slides/05/05-multivariados.html#análisis-de-correspondencia-canónica-cca",
     "title": "Técnicas multivariadas",
     "section": "Análisis de Correspondencia Canónica: CCA",
-    "text": "Análisis de Correspondencia Canónica: CCA\n\n\n\n\n🔗 masterx.academy"
+    "text": "Análisis de Correspondencia Canónica: CCA\n\n\n\nAlgunas variables no guardan relaciones lineales con las variables predictoras (X), y presentan patrones unimodales en su lugar.\nLas especies siguen la Ley de Tolerancia de Shelford (1911): habitan prefiriendo un óptimo dentro un gradiente.\nCCA es adecuado para gradientes largos.\nUsa PCoa internamente.\nLos ejes reflejan gradientes ambientales que afectan la distribución de especies de manera unimodal.\n\n\n\n\n\n\n\n\n\n\n\npaper\n\n\n\n\n\n🔗 masterx.academy"
   },
   {
     "objectID": "slides/05/05-multivariados.html#cómo-resuelves-estas-preguntas",
@@ -2076,6 +2076,69 @@
     "href": "slides/05/05-multivariados.html#section-12",
     "title": "Técnicas multivariadas",
     "section": "",
-    "text": "https://conbio.onlinelibrary.wiley.com/doi/abs/10.1111/cobi.13344\n\n\n\n\n\n🔗 masterx.academy"
+    "text": "https://conbio.onlinelibrary.wiley.com/doi/abs/10.1111/cobi.13344"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#section-14",
+    "href": "slides/05/05-multivariados.html#section-14",
+    "title": "Técnicas multivariadas",
+    "section": "",
+    "text": "Repo RDA"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#resultados-del-summary",
+    "href": "slides/05/05-multivariados.html#resultados-del-summary",
+    "title": "Técnicas multivariadas",
+    "section": "Resultados del summary()",
+    "text": "Resultados del summary()\n\n\n\nPartitioning of variance.\n\n\nInerti\nProportion\n\n\nEigenvalues, y su contribución a la varianza.\nEigenvalues restringidos acumulados\n\n\nImportance of components\nSpecies scores (sp)\nSite scores (wa)\nSite constraints (lc)\nBiplot scores (bp)\n\n\n\nObservaciones (filas) - wa o lc\nVariables (columnas) de la matriz Y - sp\nVariables (columnas) de la matriz X - bp"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#scaling-1-o-sites",
+    "href": "slides/05/05-multivariados.html#scaling-1-o-sites",
+    "title": "Técnicas multivariadas",
+    "section": "Scaling 1 o sites",
+    "text": "Scaling 1 o sites\n\nFoco: observaciones (sitios).\nDistancias entre puntos: Preserva las distancias euclidianas entre las observaciones.\nÁngulos: los ángulos entre vectores (X e Y) de variables no son interpretables en términos de correlación.\nRelación de Sitios y Variables: la proyección de los sitios sobre los vectores de las variables (X e Y) son interpretables."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#scaling-2-o-species",
+    "href": "slides/05/05-multivariados.html#scaling-2-o-species",
+    "title": "Técnicas multivariadas",
+    "section": "Scaling 2 o species",
+    "text": "Scaling 2 o species\n\nFoco: variables X e Y.\nDistancias entre puntos: no son euclidianas. Están distorcionadas.\nÁngulos: Preserva las correlaciones entre las variables X e Y.\nRelación de Sitios y Variables: la proyección de los sitios sobre los vectores de las variables (X e Y) son interpretables."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#scaling-3-o-symmetric",
+    "href": "slides/05/05-multivariados.html#scaling-3-o-symmetric",
+    "title": "Técnicas multivariadas",
+    "section": "Scaling 3 o symmetric",
+    "text": "Scaling 3 o symmetric\n\nEste escalado busca un balance entre la representación de las distancias entre sitios y las correlaciones entre variables.\nNi las distancias ni los ángulos son perfectamente precisos, pero ofrecen una aproximación razonable.\nFoco: balance entre los sitios y las variables (X e Y).\nDistancias entre puntos: no son euclidianas. Están aproximadas.\nÁngulos: Aproxima las correlaciones entre las variables X e Y.\nRelación de Sitios y Variables: la proyección de los sitios sobre los vectores de las variables (X e Y) son aproximadamente correctas."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#section-20",
+    "href": "slides/05/05-multivariados.html#section-20",
+    "title": "Técnicas multivariadas",
+    "section": "",
+    "text": "scaling = \"none\"\n\n\n\n\n\n\n\n\n\nscaling = \"sites\"\n\n\n\n\n\n\n\n\n\n\nscaling = \"species\"\n\n\n\n\n\n\n\n\n\nscaling = \"symmetric\""
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#otros-rda",
+    "href": "slides/05/05-multivariados.html#otros-rda",
+    "title": "Técnicas multivariadas",
+    "section": "Otros RDA",
+    "text": "Otros RDA\ntb-RDA: basado en transformaciones\n\nLa matriz Y se transforma con algún método (eg. hellinger).\nAplicar con matrices Y que originalmente no son compatibles con PCA (de abundancias, de frecuencias).\n\ndb-RDA: basado en distancias\n\nSe basa en una distancia distinta a la euclidiana.\nUsa internamente un PCoa (MDS) en lugar de un PCA.\nPerdemos información de las columnas de la matriz Y.\n\npartial-RDA: RDA parciales (matriz W)\n\nÚtil cuando se desea aislar el efecto de un conjunto de variables de interés eliminando la influencia de otras variables no deseadas. Ver más aquí.\npartial-tb-RDA.\npartial-db-RDA.\nRDA Jerárquico."
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#otros-rda-1",
+    "href": "slides/05/05-multivariados.html#otros-rda-1",
+    "title": "Técnicas multivariadas",
+    "section": "Otros RDA 1",
+    "text": "Otros RDA 1\ntb-RDA: basado en transformaciones\n\nLa matriz Y se transforma con algún método (eg. hellinger).\nAplicar con matrices Y que originalmente no son compatibles con PCA (de abundancias, de frecuencias).\n\ndb-RDA: basado en distancias\n\nSe basa en una distancia distinta a la euclidiana.\nUsa internamente un PCoa (MDS) en lugar de un PCA.\nPerdemos información de las columnas de la matriz Y.\n\nVer más sobre tb y db RDA"
+  },
+  {
+    "objectID": "slides/05/05-multivariados.html#otros-rda-2",
+    "href": "slides/05/05-multivariados.html#otros-rda-2",
+    "title": "Técnicas multivariadas",
+    "section": "Otros RDA 2",
+    "text": "Otros RDA 2\npartial-RDA: RDA parciales (matriz W)\n\nÚtil cuando se desea aislar el efecto de un conjunto de variables de interés eliminando la influencia de otras variables no deseadas. Ver más aquí.\npartial-tb-RDA.\npartial-db-RDA.\nRDA Jerárquico."
   }
 ]
